@@ -442,6 +442,15 @@ def main():
     print("Loading framework titles...")
     titles = load_framework_titles(title_path)
 
+    # Load manual framework overrides (for gaps in SCF coverage)
+    overrides_path = REPO_ROOT / "data" / "framework-overrides.json"
+    fw_overrides: dict[str, dict] = {}
+    if overrides_path.exists():
+        with open(overrides_path, "r", encoding="utf-8") as f:
+            overrides_data = json.load(f)
+        fw_overrides = overrides_data.get("overrides", {})
+        print(f"Loaded {len(fw_overrides)} framework overrides")
+
     # Connect to SCF database
     print(f"Connecting to SCF database at {args.scf_db}")
     conn = sqlite3.connect(args.scf_db)
@@ -524,6 +533,20 @@ def main():
             if stig_title:
                 stig_entry["title"] = stig_title
             frameworks["stig"] = stig_entry
+
+        # Apply manual framework overrides (for gaps in SCF coverage)
+        check_overrides = fw_overrides.get(check_id, {})
+        for fw_key, fw_data in check_overrides.items():
+            if fw_key not in frameworks and fw_data.get("controlId"):
+                entry = OrderedDict([("controlId", fw_data["controlId"])])
+                title = resolve_title(fw_data["controlId"], fw_key, titles)
+                if title:
+                    entry["title"] = title
+                # Carry forward any extra fields (profiles, evidenceType)
+                for extra_key in ("profiles", "evidenceType"):
+                    if extra_key in fw_data:
+                        entry[extra_key] = fw_data[extra_key]
+                frameworks[fw_key] = entry
 
         # Ensure at least one framework exists
         if not frameworks:

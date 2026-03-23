@@ -1,0 +1,334 @@
+{
+  "$comment": "Manual framework mapping overrides for checks where SCF lacks coverage. These supplement SCF-derived mappings in Build-Registry.py.",
+  "version": "1.0.0",
+  "overrides": {
+    "CA-INTUNE-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-03;PR.AA-05"
+      }
+    },
+    "CA-MFA-ADMIN-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-03"
+      }
+    },
+    "CA-MFA-ALL-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-03"
+      }
+    },
+    "CA-SIGNIN-FREQ-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    },
+    "COMPLIANCE-AUDIT-001": {
+      "nist-csf": {
+        "controlId": "DE.AE-03"
+      }
+    },
+    "COMPLIANCE-DLP-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-01;PR.DS-02"
+      }
+    },
+    "COMPLIANCE-DLP-002": {
+      "nist-csf": {
+        "controlId": "PR.DS-01;PR.DS-02"
+      }
+    },
+    "COMPLIANCE-LABELS-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-01"
+      }
+    },
+    "DEFENDER-ANTIPHISH-001": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      },
+      "soc2": {
+        "controlId": "CC6.8;CC7.1"
+      }
+    },
+    "DEFENDER-ANTISPAM-002": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      },
+      "soc2": {
+        "controlId": "CC6.8;CC7.1"
+      }
+    },
+    "DNS-SPF-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-02"
+      }
+    },
+    "ENTRA-ADMIN-003": {
+      "nist-csf": {
+        "controlId": "PR.AA-01;PR.AA-05"
+      }
+    },
+    "ENTRA-AUTHMETHOD-004": {
+      "nist-csf": {
+        "controlId": "PR.AA-03"
+      }
+    },
+    "ENTRA-GUEST-004": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "ENTRA-HYBRID-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-01;PR.AA-03"
+      }
+    },
+    "ENTRA-MFA-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-03"
+      }
+    },
+    "ENTRA-MFA-002": {
+      "nist-csf": {
+        "controlId": "PR.AA-03"
+      }
+    },
+    "ENTRA-ORGSETTING-002": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      },
+      "soc2": {
+        "controlId": "CC6.8;CC7.1"
+      }
+    },
+    "ENTRA-PASSWORD-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-01"
+      }
+    },
+    "ENTRA-PASSWORD-002": {
+      "nist-csf": {
+        "controlId": "PR.AA-01"
+      }
+    },
+    "ENTRA-PASSWORD-003": {
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    },
+    "ENTRA-PASSWORD-005": {
+      "nist-csf": {
+        "controlId": "PR.AA-01"
+      }
+    },
+    "ENTRA-PIM-002": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "ENTRA-PIM-003": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "ENTRA-PIM-009": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "ENTRA-SESSION-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    },
+    "ENTRA-SSPR-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-01"
+      }
+    },
+    "ENTRA-STALEADMIN-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-01;PR.AA-05"
+      }
+    },
+    "EXO-ANTISPAM-001": {
+      "soc2": {
+        "controlId": "CC6.8;CC7.1"
+      }
+    },
+    "EXO-AUDIT-001": {
+      "nist-csf": {
+        "controlId": "DE.AE-03"
+      }
+    },
+    "EXO-AUDIT-002": {
+      "nist-csf": {
+        "controlId": "DE.AE-03"
+      }
+    },
+    "EXO-AUDIT-003": {
+      "nist-csf": {
+        "controlId": "DE.AE-03"
+      }
+    },
+    "EXO-CONNFILTER-001": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      }
+    },
+    "EXO-CONNFILTER-002": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      }
+    },
+    "EXO-EXTTAG-001": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      },
+      "soc2": {
+        "controlId": "CC6.8;CC7.1"
+      }
+    },
+    "EXO-FORWARD-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-02"
+      }
+    },
+    "EXO-SHAREDMBX-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-03;PR.AA-05"
+      }
+    },
+    "EXO-SHARING-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-05;PR.DS-01"
+      }
+    },
+    "EXO-TRANSPORT-001": {
+      "nist-csf": {
+        "controlId": "DE.CM-09"
+      },
+      "soc2": {
+        "controlId": "CC6.8;CC7.1"
+      }
+    },
+    "FORMS-CONFIG-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "FORMS-CONFIG-002": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "FORMS-CONFIG-006": {
+      "nist-csf": {
+        "controlId": "GV.SC-07"
+      }
+    },
+    "PBI-LABELS-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-01"
+      }
+    },
+    "PBI-LINK-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-05;PR.DS-01"
+      }
+    },
+    "POWERBI-INFOPROT-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-01"
+      }
+    },
+    "POWERBI-SHARING-003": {
+      "nist-csf": {
+        "controlId": "PR.AA-05;PR.DS-01"
+      }
+    },
+    "SPO-SESSION-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    },
+    "SPO-SHARING-005": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "SPO-SHARING-006": {
+      "nist-csf": {
+        "controlId": "PR.AA-03"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    },
+    "SPO-SWAY-001": {
+      "nist-csf": {
+        "controlId": "PR.DS-01"
+      }
+    },
+    "TEAMS-CLIENT-002": {
+      "nist-csf": {
+        "controlId": "PR.DS-02"
+      }
+    },
+    "TEAMS-EXTACCESS-003": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "TEAMS-MEETING-001": {
+      "nist-csf": {
+        "controlId": "PR.AA-03;PR.AA-05"
+      }
+    },
+    "TEAMS-MEETING-002": {
+      "nist-csf": {
+        "controlId": "PR.AA-03;PR.AA-05"
+      },
+      "soc2": {
+        "controlId": "CC6.1;CC6.7"
+      }
+    },
+    "TEAMS-MEETING-003": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "TEAMS-MEETING-004": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      },
+      "soc2": {
+        "controlId": "CC6.1;CC6.7"
+      }
+    },
+    "TEAMS-MEETING-005": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "TEAMS-MEETING-006": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    },
+    "TEAMS-MEETING-007": {
+      "nist-csf": {
+        "controlId": "PR.AA-05"
+      }
+    }
+  }
+}

@@ -1415,6 +1415,10 @@
         },
         "stig": {
           "controlId": "V-260337"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
         }
       },
       "impactRating": {
@@ -1586,6 +1590,10 @@
         },
         "stig": {
           "controlId": "V-260337"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
         }
       },
       "impactRating": {
@@ -1754,6 +1762,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.3.8v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05",
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -1919,6 +1931,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
         }
       },
       "impactRating": {
@@ -2084,6 +2100,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
         }
       },
       "impactRating": {
@@ -2242,6 +2262,10 @@
         "soc2": {
           "controlId": "CC6.1;CC6.6-POF3",
           "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
         }
       }
     },
@@ -2914,6 +2938,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.6.1v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
         }
       },
       "impactRating": {
@@ -3101,6 +3129,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
         }
       },
       "impactRating": {
@@ -3288,6 +3320,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
         }
       },
       "impactRating": {
@@ -3475,6 +3511,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
         }
       },
       "impactRating": {
@@ -3613,6 +3653,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01;PR.AA-03",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Users, services, and hardware are authenticated"
         }
       },
       "impactRating": {
@@ -3867,6 +3911,14 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -4233,6 +4285,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05",
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -4602,6 +4658,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.3.1v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
         }
       },
       "impactRating": {
@@ -5719,6 +5779,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.7.4v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01;PR.AA-05",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       }
     },
@@ -6224,6 +6288,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.7.3v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -6370,6 +6438,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.7.3v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -6535,6 +6607,10 @@
         },
         "stig": {
           "controlId": "V-260334"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01;PR.AA-05",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -6847,6 +6923,10 @@
         "soc2": {
           "controlId": "CC6.1;CC6.2-POF2",
           "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       }
     },
@@ -7497,6 +7577,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.8.2v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -7881,6 +7965,10 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -8265,6 +8353,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -14943,6 +15035,10 @@
         },
         "pci-dss": {
           "controlId": "8.3.4"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       }
     },
@@ -15293,6 +15389,14 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -15451,6 +15555,14 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -15612,6 +15724,14 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.7.6v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -17984,6 +18104,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -18150,6 +18274,10 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -18349,6 +18477,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       }
     },
@@ -18544,6 +18676,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       }
     },
@@ -18924,6 +19060,10 @@
         "soc2": {
           "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.8",
           "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        },
+        "nist-csf": {
+          "controlId": "GV.SC-07",
+          "title": "The risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship"
         }
       }
     },
@@ -30326,6 +30466,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.16.1v1"
+        },
+        "nist-csf": {
+          "controlId": "DE.AE-03",
+          "title": "Information is correlated from multiple sources"
         }
       },
       "impactRating": {
@@ -30489,6 +30633,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.16.1v1"
+        },
+        "nist-csf": {
+          "controlId": "DE.AE-03",
+          "title": "Information is correlated from multiple sources"
         }
       },
       "impactRating": {
@@ -30652,6 +30800,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.17.1v1;MS.EXO.17.2v1"
+        },
+        "nist-csf": {
+          "controlId": "DE.AE-03",
+          "title": "Information is correlated from multiple sources"
         }
       },
       "impactRating": {
@@ -30815,6 +30967,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.17.3v1"
+        },
+        "nist-csf": {
+          "controlId": "DE.AE-03",
+          "title": "Information is correlated from multiple sources"
         }
       },
       "impactRating": {
@@ -31612,6 +31768,10 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-01",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       },
       "impactRating": {
@@ -31778,6 +31938,10 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-01",
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       },
       "impactRating": {
@@ -31908,6 +32072,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.8.1v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-01;PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected; The confidentiality, integrity, and availability of data-in-transit are protected"
         }
       },
       "impactRating": {
@@ -32034,6 +32202,10 @@
           "profiles": [
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-01;PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected; The confidentiality, integrity, and availability of data-in-transit are protected"
         }
       },
       "impactRating": {
@@ -32200,6 +32372,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-01",
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       },
       "impactRating": {
@@ -32352,6 +32528,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
         }
       },
       "impactRating": {
@@ -32518,6 +32698,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-01",
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       }
     },
@@ -32680,6 +32864,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-01",
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       },
       "impactRating": {
@@ -32841,6 +33029,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-01",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       }
     },
@@ -32998,6 +33190,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-01",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected"
         }
       },
       "impactRating": {
@@ -33180,6 +33376,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
         }
       },
       "impactRating": {
@@ -33362,6 +33562,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
         }
       },
       "impactRating": {
@@ -33738,6 +33942,10 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.1.1v1"
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
         }
       },
       "impactRating": {
@@ -34703,6 +34911,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -39424,6 +39636,14 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1",
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
         }
       },
       "impactRating": {
@@ -39563,6 +39783,14 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.11.1v1"
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1",
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
         }
       },
       "impactRating": {
@@ -39700,6 +39928,14 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1",
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
         }
       },
       "impactRating": {
@@ -39833,6 +40069,10 @@
         },
         "cis-m365-v6": {
           "controlId": "4.3"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1",
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
         }
       },
       "impactRating": {
@@ -39970,6 +40210,14 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1",
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
         }
       },
       "impactRating": {
@@ -40110,6 +40358,14 @@
         },
         "cisa-scuba": {
           "controlId": "MS.EXO.7.1v1"
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1",
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
         }
       },
       "impactRating": {
@@ -40293,6 +40549,10 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05",
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
@@ -40442,6 +40702,14 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05",
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.7",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction"
         }
       },
       "impactRating": {
@@ -40591,6 +40859,14 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.7",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction"
         }
       },
       "impactRating": {
@@ -40774,6 +41050,10 @@
             "E3-L2",
             "E5-L2"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
         }
       },
       "impactRating": {
