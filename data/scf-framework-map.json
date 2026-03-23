@@ -31,9 +31,9 @@
       "$comment": "93=Level 1, 95=Level 2, 96=Level 3. Union all control IDs."
     },
     "hipaa": {
-      "scfFrameworkId": [130, 131],
+      "scfFrameworkId": [130, 131, 132, 133, 134],
       "scfName": "US HIPAA",
-      "$comment": "130=Administrative Simplification 2013 (171 SCF controls), 131=Security Rule/NIST 800-66 R2 (136 SCF controls). Union both for full coverage."
+      "$comment": "130=Administrative Simplification (171 SCF), 131=Security Rule (136 SCF), 132=HICP Small (83 SCF), 133=HICP Medium (138 SCF), 134=HICP Large (233 SCF). Union all for maximum coverage."
     },
     "soc2": {
       "scfFrameworkId": 1,
