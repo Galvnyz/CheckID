@@ -23,7 +23,7 @@
         ],
         "domain": "Compliance",
         "controlName": "Does the organization regularly review processes and documented procedures to ensure conformity with the organization's cybersecurity and data protection policies, standards and other applicable requirements?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization regularly review processes and documented procedures to ensure conformity with the organization's cybersecurity and data protection policies, standards and other applicable requirements?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -229,7 +229,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) organizational users and processes acting on behalf of organizational users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) organizational users and processes acting on behalf of organizational users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -412,7 +412,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to employ replay-resistant authentication?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to employ replay-resistant authentication?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -604,7 +604,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization implement Out-of-Band Authentication (OOBA) under specific conditions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement Out-of-Band Authentication (OOBA) under specific conditions?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -776,7 +776,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -939,7 +939,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -1102,7 +1102,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -1265,7 +1265,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -1426,7 +1426,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -1587,7 +1587,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -1748,7 +1748,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -1903,7 +1903,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -2058,7 +2058,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -2200,7 +2200,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization revoke user access rights in a timely manner, upon termination of employment or contract?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization revoke user access rights in a timely manner, upon termination of employment or contract?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -2497,7 +2497,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Role-Based Access Control (RBAC) for Technology Assets, Applications, Services and/or Data (TAASD) to restrict access to individuals assigned specific roles with legitimate business needs?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Role-Based Access Control (RBAC) for Technology Assets, Applications, Services and/or Data (TAASD) to restrict access to individuals assigned specific roles with legitimate business needs?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -2682,7 +2682,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -2869,7 +2869,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -3053,7 +3053,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -3237,7 +3237,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -3420,7 +3420,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization ensure default authenticators are changed as part of account creation or system installation?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization ensure default authenticators are changed as part of account creation or system installation?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -3555,7 +3555,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization ensure default authenticators are changed as part of account creation or system installation?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization ensure default authenticators are changed as part of account creation or system installation?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -3676,7 +3676,7 @@
         "primaryControlId": "IAC-14",
         "domain": "Identification & Authentication",
         "controlName": "Does the organization force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -3809,7 +3809,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -4172,7 +4172,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -4542,7 +4542,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -4915,7 +4915,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -5283,7 +5283,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -5645,7 +5645,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization proactively govern account management of individual, group, system, service, application, guest and temporary accounts?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6004,7 +6004,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to support the management of system accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to support the management of system accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6142,7 +6142,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to support the management of system accounts?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to support the management of system accounts?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6283,7 +6283,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6443,7 +6443,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6611,7 +6611,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6739,7 +6739,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -6857,7 +6857,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to disable inactive accounts after an organization-defined time period?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to disable inactive accounts after an organization-defined time period?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -7008,7 +7008,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to audit account creation, modification, enabling, disabling and removal actions and notify organization-defined personnel or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to audit account creation, modification, enabling, disabling and removal actions and notify organization-defined personnel or roles?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -7177,7 +7177,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -7371,7 +7371,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -7561,7 +7561,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -7752,7 +7752,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -7942,7 +7942,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -8132,7 +8132,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -8311,7 +8311,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\"",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -8491,7 +8491,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -8682,7 +8682,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -8874,7 +8874,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -9065,7 +9065,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -9255,7 +9255,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -9434,7 +9434,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -9607,7 +9607,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -9777,7 +9777,7 @@
         "primaryControlId": "IAC-21.1",
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -9926,7 +9926,7 @@
         "primaryControlId": "IAC-21.1",
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -10078,7 +10078,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -10227,7 +10227,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -10420,7 +10420,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -10611,7 +10611,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -10778,7 +10778,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization limit access to security functions to explicitly-authorized privileged users?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -10947,7 +10947,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -11115,7 +11115,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -11270,7 +11270,7 @@
         "primaryControlId": "IAC-21.3",
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -11408,7 +11408,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -11559,7 +11559,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -11716,7 +11716,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -11867,7 +11867,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12017,7 +12017,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12159,7 +12159,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12297,7 +12297,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12435,7 +12435,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12578,7 +12578,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12713,7 +12713,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -12858,7 +12858,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13007,7 +13007,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13175,7 +13175,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13325,7 +13325,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13473,7 +13473,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13618,7 +13618,7 @@
         "primaryControlId": "IAC-21.5",
         "domain": "Identification & Authentication",
         "controlName": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13753,7 +13753,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -13916,7 +13916,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -14079,7 +14079,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -14240,7 +14240,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -14367,7 +14367,7 @@
         "primaryControlId": "IAC-22",
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce a limit for consecutive invalid login attempts by a user during an organization-defined time period and automatically locks the account when the maximum number of unsuccessful attempts is exceeded?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce a limit for consecutive invalid login attempts by a user during an organization-defined time period and automatically locks the account when the maximum number of unsuccessful attempts is exceeded?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -14526,7 +14526,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization enforce a limit for consecutive invalid login attempts by a user during an organization-defined time period and automatically locks the account when the maximum number of unsuccessful attempts is exceeded?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce a limit for consecutive invalid login attempts by a user during an organization-defined time period and automatically locks the account when the maximum number of unsuccessful attempts is exceeded?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -14719,7 +14719,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -14877,7 +14877,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -15035,7 +15035,7 @@
         ],
         "domain": "Identification & Authentication",
         "controlName": "Does the organization use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -15197,7 +15197,7 @@
         ],
         "domain": "Human Resources Security",
         "controlName": "Does the organization expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -15377,7 +15377,7 @@
         ],
         "domain": "Human Resources Security",
         "controlName": "Does the organization expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -15557,7 +15557,7 @@
         ],
         "domain": "Human Resources Security",
         "controlName": "Does the organization expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -15733,7 +15733,7 @@
         "primaryControlId": "SAT-02",
         "domain": "Security Awareness & Training",
         "controlName": "Does the organization provide all employees and contractors appropriate awareness education and training that is relevant for their job function?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization provide all employees and contractors appropriate awareness education and training that is relevant for their job function?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -15955,7 +15955,7 @@
         ],
         "domain": "Asset Management",
         "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
         "relativeWeighting": 2,
         "csfFunction": "Identify",
         "maturityLevels": {
@@ -16134,7 +16134,7 @@
         ],
         "domain": "Asset Management",
         "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
         "relativeWeighting": 2,
         "csfFunction": "Identify",
         "maturityLevels": {
@@ -16307,7 +16307,7 @@
         ],
         "domain": "Asset Management",
         "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
         "relativeWeighting": 2,
         "csfFunction": "Identify",
         "maturityLevels": {
@@ -16464,7 +16464,7 @@
         ],
         "domain": "Asset Management",
         "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
         "relativeWeighting": 2,
         "csfFunction": "Identify",
         "maturityLevels": {
@@ -16621,7 +16621,7 @@
         ],
         "domain": "Asset Management",
         "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
         "relativeWeighting": 2,
         "csfFunction": "Identify",
         "maturityLevels": {
@@ -16778,7 +16778,7 @@
         ],
         "domain": "Asset Management",
         "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
         "relativeWeighting": 2,
         "csfFunction": "Identify",
         "maturityLevels": {
@@ -16935,7 +16935,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization govern how external parties, including Technology Assets, Applications and/or Services (TAAS), are used to securely store, process and transmit data?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization govern how external parties, including Technology Assets, Applications and/or Services (TAAS), are used to securely store, process and transmit data?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -17155,7 +17155,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization govern how external parties, including Technology Assets, Applications and/or Services (TAAS), are used to securely store, process and transmit data?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization govern how external parties, including Technology Assets, Applications and/or Services (TAAS), are used to securely store, process and transmit data?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -17378,7 +17378,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization utilize a process to assist users in making information sharing decisions to ensure data is appropriately protected?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize a process to assist users in making information sharing decisions to ensure data is appropriately protected?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -17544,7 +17544,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization utilize a process to assist users in making information sharing decisions to ensure data is appropriately protected?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize a process to assist users in making information sharing decisions to ensure data is appropriately protected?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -17709,7 +17709,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization control publicly-accessible content?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization control publicly-accessible content?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -17904,7 +17904,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization control publicly-accessible content?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization control publicly-accessible content?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -18099,7 +18099,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization control publicly-accessible content?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization control publicly-accessible content?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -18285,7 +18285,7 @@
         ],
         "domain": "Data Classification & Handling",
         "controlName": "Does the organization control publicly-accessible content?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization control publicly-accessible content?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -18475,7 +18475,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -18653,7 +18653,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -18831,7 +18831,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -19006,7 +19006,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -19178,7 +19178,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -19342,7 +19342,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization document, assess risk and approve or deny deviations to standardized configurations?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -19506,7 +19506,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -19699,7 +19699,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -19893,7 +19893,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -20098,7 +20098,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -20290,7 +20290,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -20495,7 +20495,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -20688,7 +20688,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -20877,7 +20877,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -21068,7 +21068,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -21264,7 +21264,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -21457,7 +21457,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -21646,7 +21646,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -21837,7 +21837,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -22028,7 +22028,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -22221,7 +22221,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -22429,7 +22429,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -22638,7 +22638,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -22827,7 +22827,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -23016,7 +23016,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -23211,7 +23211,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -23405,7 +23405,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -23593,7 +23593,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -23784,7 +23784,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -23975,7 +23975,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -24166,7 +24166,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -24361,7 +24361,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -24560,7 +24560,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -24755,7 +24755,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -24954,7 +24954,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -25153,7 +25153,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -25348,7 +25348,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -25539,7 +25539,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -25737,7 +25737,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -25962,7 +25962,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -26180,7 +26180,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -26371,7 +26371,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -26566,7 +26566,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -26759,7 +26759,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -26944,7 +26944,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -27123,7 +27123,7 @@
         "primaryControlId": "CFG-03",
         "domain": "Configuration Management",
         "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -27302,7 +27302,7 @@
         ],
         "domain": "Configuration Management",
         "controlName": "Does the organization restrict the ability of non-privileged users to install unauthorized software?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization restrict the ability of non-privileged users to install unauthorized software?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -27453,7 +27453,7 @@
         ],
         "domain": "Change Management",
         "controlName": "Does the organization facilitate the implementation of a change management program?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization facilitate the implementation of a change management program?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -27678,7 +27678,7 @@
         ],
         "domain": "Change Management",
         "controlName": "Does the organization analyze proposed changes for potential security impacts, prior to the implementation of the change?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization analyze proposed changes for potential security impacts, prior to the implementation of the change?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -27821,7 +27821,7 @@
         ],
         "domain": "Change Management",
         "controlName": "Does the organization perform after-the-fact reviews of configuration change logs to discover any unauthorized changes?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization perform after-the-fact reviews of configuration change logs to discover any unauthorized changes?",
         "relativeWeighting": 3,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -27960,7 +27960,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -28152,7 +28152,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -28311,7 +28311,7 @@
         "primaryControlId": "MON-01.4",
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -28463,7 +28463,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -28618,7 +28618,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization review event logs on an ongoing basis and escalate incidents in accordance with established timelines and procedures?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization review event logs on an ongoing basis and escalate incidents in accordance with established timelines and procedures?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -28810,7 +28810,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
         "relativeWeighting": 5,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -28993,7 +28993,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
         "relativeWeighting": 5,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -29174,7 +29174,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
         "relativeWeighting": 5,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -29350,7 +29350,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence?",
         "relativeWeighting": 5,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -29530,7 +29530,7 @@
         "primaryControlId": "MON-06",
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -29693,7 +29693,7 @@
         "primaryControlId": "MON-06",
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -29856,7 +29856,7 @@
         "primaryControlId": "MON-06",
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -30019,7 +30019,7 @@
         "primaryControlId": "MON-06",
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
         "relativeWeighting": 7,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -30186,7 +30186,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -30349,7 +30349,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -30505,7 +30505,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -30661,7 +30661,7 @@
         ],
         "domain": "Continuous Monitoring",
         "controlName": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -30819,7 +30819,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -30982,7 +30982,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -31142,7 +31142,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -31258,7 +31258,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -31373,7 +31373,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -31535,7 +31535,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -31685,7 +31685,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -31844,7 +31844,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -32006,7 +32006,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -32160,7 +32160,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
         "relativeWeighting": 5,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -32316,7 +32316,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -32495,7 +32495,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -32674,7 +32674,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -32862,7 +32862,7 @@
         "primaryControlId": "NET-04",
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -33046,7 +33046,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -33240,7 +33240,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -33434,7 +33434,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -33619,7 +33619,7 @@
         ],
         "domain": "Network Security",
         "controlName": "Does the organization define, control and review organization-approved, secure remote access methods?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, control and review organization-approved, secure remote access methods?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -33809,7 +33809,7 @@
         "primaryControlId": "NET-14",
         "domain": "Network Security",
         "controlName": "Does the organization define, control and review organization-approved, secure remote access methods?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, control and review organization-approved, secure remote access methods?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -33994,7 +33994,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization protect the confidentiality, integrity, availability and safety of endpoint devices?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization protect the confidentiality, integrity, availability and safety of endpoint devices?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -34154,7 +34154,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -34312,7 +34312,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -34473,7 +34473,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -34631,7 +34631,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -34789,7 +34789,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS)?",
         "relativeWeighting": 8,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -34953,7 +34953,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -35193,7 +35193,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -35434,7 +35434,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -35674,7 +35674,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -35914,7 +35914,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -36152,7 +36152,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -36393,7 +36393,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -36630,7 +36630,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -36867,7 +36867,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -37107,7 +37107,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -37344,7 +37344,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -37581,7 +37581,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -37821,7 +37821,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -38058,7 +38058,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize antimalware technologies to detect and eradicate malicious code?",
         "relativeWeighting": 10,
         "csfFunction": "Detect",
         "maturityLevels": {
@@ -38295,7 +38295,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization automatically update antimalware technologies, including signature definitions?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization automatically update antimalware technologies, including signature definitions?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -38464,7 +38464,7 @@
         "primaryControlId": "END-08",
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -38598,7 +38598,7 @@
         "primaryControlId": "END-08",
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -38734,7 +38734,7 @@
         "primaryControlId": "END-08",
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -38868,7 +38868,7 @@
         "primaryControlId": "END-08",
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -38998,7 +38998,7 @@
         "primaryControlId": "END-08",
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -39132,7 +39132,7 @@
         "primaryControlId": "END-08",
         "domain": "Endpoint Security",
         "controlName": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -39274,7 +39274,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -39452,7 +39452,7 @@
         "primaryControlId": "END-14",
         "domain": "Endpoint Security",
         "controlName": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -39601,7 +39601,7 @@
         "primaryControlId": "END-14",
         "domain": "Endpoint Security",
         "controlName": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -39755,7 +39755,7 @@
         ],
         "domain": "Endpoint Security",
         "controlName": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -39937,7 +39937,7 @@
         ],
         "domain": "Mobile Device Management",
         "controlName": "Does the organization enforce access control requirements for the connection of mobile devices to organizational Technology Assets, Applications and/or Services (TAAS)?",
-        "controlDescription": "",
+        "controlDescription": "Does the organization enforce access control requirements for the connection of mobile devices to organizational Technology Assets, Applications and/or Services (TAAS)?",
         "relativeWeighting": 9,
         "csfFunction": "Protect",
         "maturityLevels": {
@@ -40118,7 +40118,7 @@
         ],
         "domain": "Cryptographic Protections",
         "controlName": "Are cryptographic mechanisms utilized to protect the confidentiality of data being transmitted?",
-        "controlDescription": "",
+        "controlDescription": "Are cryptographic mechanisms utilized to protect the confidentiality of data being transmitted?",
         "relativeWeighting": 10,
         "csfFunction": "Protect",
         "maturityLevels": {

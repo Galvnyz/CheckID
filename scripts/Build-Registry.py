@@ -300,7 +300,7 @@ def build_scf_object(
         scf_obj["additionalControlIds"] = scf_additional
     scf_obj["domain"] = meta["domain"]
     scf_obj["controlName"] = meta["controlName"]
-    scf_obj["controlDescription"] = meta["description"] or ""
+    scf_obj["controlDescription"] = meta["description"] or meta["controlName"] or ""
     if meta["controlQuestion"]:
         scf_obj["controlQuestion"] = meta["controlQuestion"]
     if meta["relativeWeighting"]:
