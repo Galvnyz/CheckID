@@ -5,6 +5,29 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.1.0] - 2026-03-23
+
+### Added
+
+- `data/framework-overrides.json` — manual framework mappings for 59 checks where SCF lacks coverage (NIST CSF 2.0 and SOC 2 gaps)
+- HIPAA HICP frameworks (Small/Medium/Large Practice) added to `scf-framework-map.json`
+- Parent control fallback in `Build-Registry.py` — sub-controls (e.g., IAC-21.3) inherit parent (IAC-21) framework mappings when missing
+
+### Changed
+
+- All 15 frameworks now meet or exceed v1.1.0 coverage levels — zero regressions
+- Framework coverage improvements vs v2.0.0:
+  - HIPAA: 84 → 203 (+119, via HICP frameworks)
+  - NIST CSF: 124 → 207 (+83, via parent fallback + overrides)
+  - SOC 2: 202 → 222 (+20, via overrides)
+  - MITRE ATT&CK: 187 → 213 (+26, via parent fallback)
+  - ISO 27001: 193 → 210 (+17, via parent fallback)
+  - CIS Controls: 174 → 199 (+25, via parent fallback)
+  - Essential Eight: 82 → 103 (+21, via parent fallback)
+  - CMMC: 206 → 215 (+9, via parent fallback)
+  - PCI DSS: 205 → 213 (+8, via parent fallback)
+- Updated all documentation for current coverage numbers
+
 ## [2.0.0] - 2026-03-22
 
 ### Added
@@ -43,7 +66,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - HIPAA uses both Administrative Simplification and Security Rule from SCF
 - CI workflows updated for SCF-based validation
 
-## [Unreleased] - 2026-03-20
+## [1.3.0] - 2026-03-20
 
 ### Added
 
@@ -52,19 +75,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - 5 enhanced PIM checks: ENTRA-PIM-006..010 (#82)
 - 7 Entra security checks: ENTRA-APPS-005..006, ENTRA-APPREG-002..003, ENTRA-ADMIN-004, ENTRA-GROUP-004..005 (#83)
 - Essential Eight framework mappings for all 23 new checks
+- Cross-repo CI workflows for SecFrame → CheckID → downstream cascade (#97)
 
 ### Removed
 
-- All 94 MANUAL-CIS entries removed from the registry (169 checks remain, down from 250)
+- All 94 MANUAL-CIS entries removed from the registry (222 checks total)
 - `supersededBy` field removed from all registry entries (was on 81 checks)
 - `SupersededBy` column removed from CSV data files
 - `tests/search-registry.Tests.ps1` deleted
+- PSGallery publishing infrastructure (#94)
 
 ### Changed
 
 - 14 former MANUAL-CIS checks converted to proper `{SERVICE}-{AREA}-{NNN}` identifiers
 - `Import-ControlRegistry.ps1`, `Search-Registry.ps1`, and `Show-CheckProgress.ps1` removed — superseded by module cmdlets (`Get-CheckRegistry`, `Search-Check`, `Get-CheckAutomationGaps`) (#85)
-- Updated documentation to reflect new check counts and removal of supersession tracking
+- Reconciled 53 downstream checks into registry (#95)
 
 ## [1.2.0] - 2026-03-17
 

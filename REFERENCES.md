@@ -3,16 +3,15 @@
 ## Upstream: SecFrame
 
 [SecFrame](https://github.com/Galvnyz/SecFrame) is the authoritative source
-for security framework reference data. CheckID's framework mappings are derived from:
+for security framework reference data. Since v2.0.0, CheckID uses the SCF
+(Secure Controls Framework) database as its primary source of truth:
 
 | SecFrame File | What It Provides |
 |---------------|-----------------|
-| `CIS/CIS_M365_to_NIST_to_FedRAMP_Crosswalk.csv` | CIS M365 to NIST 800-53 to FedRAMP mappings |
-| `SOC/tsc_to_nist_800-53.xlsx` | SOC 2 Trust Services Criteria to NIST 800-53 |
-| `SCF/secure-controls-framework-scf-2025-4.csv` | Master cross-framework mapping (80+ frameworks) |
-| `SCF/scf.db` | Normalized SQLite database (13 tables, 261 frameworks, 66K+ mappings) |
-| `SCF/checkid-framework-export.csv` | CheckID-compatible flat export from SCF database |
-| `NIST/csf-pf-to-sp800-53r5-mappings.xlsx` | NIST CSF 2.0 to NIST 800-53 R5 |
+| `SCF/scf.db` | **Primary source** — Normalized SQLite database (13 tables, 261 frameworks, 66K+ mappings) |
+| `SCF/secure-controls-framework-scf-2025-4.csv` | Master cross-framework mapping (SCF 2025.4) |
+| `NIST/NIST_SP-800-53_rev5_catalog.json` | NIST 800-53 OSCAL catalog (for title resolution) |
+| `NIST/NIST_CSF_v2.0_catalog.json` | NIST CSF 2.0 OSCAL catalog (for title resolution) |
 
 ### Update Workflow (Automated)
 
@@ -23,7 +22,13 @@ When SecFrame merges changes to framework data directories, the CI cascade trigg
 3. After PR merge and tag, `notify-downstream.yml` dispatches `checkid-released` to consumers
 4. Consumers receive dispatch and auto-create sync PRs
 
-Manual workflow: edit CSVs → `Build-Registry.ps1` → `Test-RegistryData.ps1` → commit → tag
+Manual workflow: edit `data/scf-check-mapping.json` → `python scripts/Build-Registry.py` → `Test-RegistryData.ps1` → commit → tag
+
+**Build pipeline inputs:**
+- `data/scf-check-mapping.json` — check → SCF control assignments (human-curated)
+- `data/scf-framework-map.json` — which SCF frameworks to include
+- `data/framework-overrides.json` — manual mappings for SCF coverage gaps
+- `SecFrame/SCF/scf.db` — SCF SQLite database (upstream)
 
 ## Downstream Consumers
 
