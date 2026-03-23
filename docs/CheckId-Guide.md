@@ -1,6 +1,6 @@
 # CheckId System Guide
 
-The CheckId system is the backbone of M365-Assess's multi-framework compliance reporting. Each security check gets a framework-agnostic identifier that maps to controls across 14 compliance frameworks simultaneously.
+The CheckId system is the backbone of M365-Assess's multi-framework compliance reporting. Each security check gets a framework-agnostic identifier anchored to an SCF (Secure Controls Framework) control and mapped across 15 compliance frameworks simultaneously.
 
 ## What Is a CheckId?
 
@@ -40,13 +40,13 @@ This is handled automatically by the `Add-Setting` function's `$checkIdCounter` 
 
 | Type | Count | Description |
 |------|-------|-------------|
-| Automated | 168 | Checked by collectors, appear in CSV output and reports |
-| Manual | 1 | CIS benchmark controls not yet automated, tracked for coverage |
-| **Total** | **169** | Full registry across all frameworks |
+| Automated | 221 | Checked by collectors, appear in CSV output and reports |
+| Manual | 1 | Requires human assessment, tracked for coverage |
+| **Total** | **222** | Full registry across 15 frameworks |
 
 ## The Control Registry
 
-All CheckIds live in `data/registry.json`. Each entry contains:
+All CheckIds live in `data/registry.json` (schema v2.0.0). Each entry contains:
 
 ```json
 {
@@ -56,34 +56,36 @@ All CheckIds live in `data/registry.json`. Each entry contains:
   "collector": "Entra",
   "hasAutomatedCheck": true,
   "licensing": { "minimum": "E3" },
+  "scf": {
+    "primaryControlId": "IAC-21.3",
+    "domain": "Identification & Authentication",
+    "controlName": "Privileged Account Management...",
+    "controlDescription": "...",
+    "relativeWeighting": 10,
+    "csfFunction": "Protect",
+    "maturityLevels": { "cmm0_notPerformed": true, "...": "..." },
+    "assessmentObjectives": [{ "aoId": "IAC-21.3_A01", "text": "..." }],
+    "risks": ["R-AC-1", "R-AC-2"],
+    "threats": ["NT-7", "MT-1"]
+  },
   "frameworks": {
-    "cis-m365-v6": {
-      "controlId": "1.1.3",
-      "title": "Ensure that between two and four global admins are designated",
-      "profiles": ["E3-L1", "E5-L1"]
-    },
-    "nist-800-53": {
-      "controlId": "AC-2;AC-6",
-      "title": "Account Management; Least Privilege",
-      "profiles": ["Low", "Moderate", "High"]
-    },
-    "nist-csf": { "controlId": "PR.AA-05" },
-    "iso-27001": { "controlId": "A.5.15;A.5.18;A.8.2" },
+    "nist-800-53": { "controlId": "AC-6(5)", "profiles": ["Moderate", "High"] },
+    "cis-m365-v6": { "controlId": "1.1.3", "profiles": ["E3-L1", "E5-L1"] },
+    "iso-27001": { "controlId": "5.18;8.2" },
     "stig": { "controlId": "V-260335" },
-    "pci-dss": { "controlId": "8.2.x" },
-    "cmmc": { "controlId": "3.1.5;3.1.6" },
-    "hipaa": { "controlId": "§164.312(a)(1);§164.308(a)(4)(i)" },
-    "cisa-scuba": { "controlId": "MS.AAD.7.1v1" },
-    "soc2": { "controlId": "CC6.1;CC6.2;CC6.3", "evidenceType": "config-export" }
-  }
+    "soc2": { "controlId": "CC6.1;CC6.3" }
+  },
+  "impactRating": { "severity": "Medium", "scfWeighting": 10 }
 }
 ```
 
 **Key fields:**
+- `scf` -- SCF control metadata: domain, maturity levels, assessment objectives, risks, threats
 - `hasAutomatedCheck` -- Whether a collector evaluates this check automatically
 - `collector` -- Which collector script produces the result (see Collectors table below)
 - `licensing.minimum` -- E3 or E5 license required
-- `frameworks` -- Maps to every applicable compliance framework
+- `frameworks` -- Maps to every applicable compliance framework (derived from SCF + manual overlays)
+- `impactRating` -- Severity and SCF relative weighting for prioritization
 
 ### Collectors
 
@@ -101,24 +103,25 @@ All CheckIds live in `data/registry.json`. Each entry contains:
 
 ## Supported Frameworks
 
-| Framework | Registry Key | Notes |
-|-----------|-------------|-------|
-| CIS M365 v6.0.1 | `cis-m365-v6` | 4 profiles: E3-L1, E3-L2, E5-L1, E5-L2 |
-| NIST 800-53 Rev 5 | `nist-800-53` | 4 baseline profiles: Low, Moderate, High, Privacy |
-| NIST CSF 2.0 | `nist-csf` | Functions and categories (PR.AC, DE.CM, etc.) |
-| ISO 27001:2022 | `iso-27001` | Annex A controls |
-| DISA STIG | `stig` | Vulnerability IDs (V-xxxxxx) |
-| PCI DSS v4.0.1 | `pci-dss` | Requirements |
-| CMMC 2.0 | `cmmc` | Practices (3.x.x) |
-| HIPAA Security Rule | `hipaa` | Sec. 164.3xx references |
-| CISA SCuBA | `cisa-scuba` | MS.AAD/EXO/DEFENDER/SPO/TEAMS baselines |
-| SOC 2 TSC | `soc2` | Trust Services Criteria (CC/A/C/PI/P) |
-| FedRAMP Rev 5 | `fedramp` | Derived from NIST 800-53 via SCF bridge |
-| CIS Controls v8.1 | `cis-controls-v8` | Derived from NIST 800-53 via SCF bridge |
-| Essential Eight (ASD) | `essential-eight` | ML1–ML3 maturity levels, P1–P7 strategies; derived via SCF bridge |
-| MITRE ATT&CK v10 | `mitre-attack` | Derived from NIST 800-53 via SCF bridge |
+All framework mappings are derived from the SCF database, with parent control fallback and manual overrides for coverage gaps. CIS M365, CISA ScuBA, and STIG are manually mapped (not in SCF).
 
-SOC 2 mappings are auto-derived from NIST 800-53 control families using rules in `scripts/Build-Registry.ps1`. FedRAMP, CIS Controls v8, Essential Eight, and MITRE ATT&CK are derived via the SecFrame SCF transitive bridge.
+| Framework | Registry Key | Coverage | Source | Notes |
+|-----------|-------------|----------|--------|-------|
+| NIST 800-53 Rev 5 | `nist-800-53` | 222 | SCF | 4 baselines: Low, Moderate, High, Privacy |
+| FedRAMP Rev 5 | `fedramp` | 222 | SCF | |
+| SOC 2 TSC | `soc2` | 222 | SCF + override | AICPA Trust Services Criteria |
+| CMMC 2.0 | `cmmc` | 215 | SCF | Levels 1-3 |
+| MITRE ATT&CK v10 | `mitre-attack` | 213 | SCF | Technique IDs |
+| PCI DSS v4.0.1 | `pci-dss` | 213 | SCF | |
+| ISO 27001:2022 | `iso-27001` | 210 | SCF | ISO 27001 + 27002 (Annex A) |
+| NIST CSF 2.0 | `nist-csf` | 207 | SCF + override | Functions/categories (PR.AA, DE.CM, etc.) |
+| HIPAA | `hipaa` | 203 | SCF | Admin Simplification + Security Rule + HICP |
+| CIS Controls v8.1 | `cis-controls-v8` | 199 | SCF | Implementation Groups |
+| CIS M365 v6.0.1 | `cis-m365-v6` | 175 | Manual | 4 profiles: E3-L1, E3-L2, E5-L1, E5-L2 |
+| Essential Eight (ASD) | `essential-eight` | 103 | SCF | ML1-ML3 maturity, P1-P8 strategies |
+| CISA SCuBA | `cisa-scuba` | 54 | Manual | MS.AAD/EXO/DEFENDER/SPO/TEAMS baselines |
+| DISA STIG | `stig` | 13 | Manual | Vulnerability IDs (V-xxxxxx) |
+| EU GDPR | `gdpr` | 8 | SCF | |
 
 ### NIST 800-53 Coverage Scope
 
@@ -164,7 +167,7 @@ The [Essential Eight](https://www.cyber.gov.au/resources-business-and-government
 
 Control IDs use the format `ML{level}-P{strategy}` (e.g., `ML1-P4;ML2-P4;ML3-P4`). Higher maturity levels are cumulative — ML3 includes all ML2 requirements, which include all ML1 requirements.
 
-Seven of the eight strategies (P1–P7) are mapped to M365 checks. P8 (Regular Backups) is not assessable through M365 configuration export. Essential Eight mappings are derived from NIST 800-53 controls via the SecFrame SCF transitive bridge.
+Seven of the eight strategies (P1–P7) are mapped to M365 checks. P8 (Regular Backups) is not assessable through M365 configuration export. Essential Eight mappings are derived directly from SCF control mappings (framework_id=219), supplemented by parent control fallback.
 
 The framework definition is in `data/frameworks/essential-eight.json`.
 
@@ -177,11 +180,11 @@ Entra collector   ->  CheckId column in CSV  ->  Looks up CheckId
 checks settings      (e.g., ENTRA-ADMIN-001)   in registry.json
                                                     |
                                                     v
-                                              Extracts ALL framework
-                                              mappings from one entry
+                                              Extracts SCF metadata
+                                              + ALL framework mappings
                                                     |
                                                     v
-                                              Populates 14 framework
+                                              Populates 15 framework
                                               columns in compliance
                                               matrix (HTML + XLSX)
 ```
@@ -205,39 +208,43 @@ Each check produces one of five statuses:
 
 ## Building the Registry
 
-The registry can be generated from two CSV source files:
+The registry is built from `scf-check-mapping.json` + the SCF SQLite database:
 
 ```
-data/framework-mappings.csv          ->  CIS controls + framework cross-references
-data/check-id-mapping.csv            ->  CheckId assignments + collector mapping
+data/scf-check-mapping.json         ->  Check → SCF control assignments (source of truth)
+data/scf-framework-map.json         ->  Which SCF frameworks to include
+data/framework-overrides.json       ->  Manual mappings for SCF coverage gaps
+SecFrame/SCF/scf.db                 ->  SCF SQLite database (upstream)
                                          |
                                          v
-                               scripts/Build-Registry.ps1
+                               scripts/Build-Registry.py
                                          |
                                          v
-                               data/registry.json (169 entries)
+                               data/registry.json (222 entries, schema v2.0.0)
 ```
 
-To rebuild after editing the source CSVs:
+To rebuild (requires `scf.db` accessible locally):
 
 ```powershell
+python scripts/Build-Registry.py
+# Or via PowerShell wrapper:
 .\scripts\Build-Registry.ps1
 ```
-
-> **Note:** New automated checks added since v0.7.0 are typically added directly to `registry.json` rather than going through the CSV pipeline. Both approaches produce the same registry format.
 
 ## Adding a New CheckId
 
 1. **Assign the CheckId** following the `{COLLECTOR}-{AREA}-{NNN}` convention
-2. **Add the entry** to `data/registry.json` with framework mappings
-3. **Add the check** to the appropriate collector script using `Add-Setting -CheckId 'YOUR-CHECK-001'`
+2. **Add the entry** to `data/scf-check-mapping.json` with SCF primary control and metadata
+3. **Rebuild the registry**: `python scripts/Build-Registry.py`
+4. **Add the check** to the appropriate collector script using `Add-Setting -CheckId 'YOUR-CHECK-001'`
 5. **Run tests** to validate: `Invoke-Pester -Path './tests'`
 
 ### Checklist for New Checks
 
 - [ ] CheckId follows `{COLLECTOR}-{AREA}-{NNN}` format
 - [ ] Registry entry has `hasAutomatedCheck: true`, `collector`, `category`, and `licensing`
-- [ ] All applicable framework mappings included (at minimum: `cis-m365-v6`, `nist-800-53`, `soc2`)
+- [ ] SCF primary control assigned in `data/scf-check-mapping.json`
+- [ ] All applicable framework mappings derived from SCF (verify after rebuild)
 - [ ] Collector uses `Add-Setting` with `-CheckId` parameter
 - [ ] Status logic: Pass/Fail for deterministic checks, Review for API gaps, Info for data points
 - [ ] Remediation text includes specific portal path or PowerShell command

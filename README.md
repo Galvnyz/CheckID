@@ -83,22 +83,22 @@ for check in registry['checks']:
 
 ## Supported Frameworks
 
-All framework mappings are derived from the SCF database, except CIS M365, CISA ScuBA, and STIG (manually mapped).
+All framework mappings are derived from the SCF database, supplemented by manual overrides for gaps in SCF coverage and for frameworks not in SCF (CIS M365, CISA ScuBA, STIG).
 
 | Framework | Key | Coverage | Source | Profiles |
 |-----------|-----|----------|--------|----------|
 | NIST SP 800-53 Rev 5 | `nist-800-53` | 222 checks | SCF | Low, Moderate, High, Privacy |
 | FedRAMP Rev 5 | `fedramp` | 222 checks | SCF | |
-| CMMC 2.0 | `cmmc` | 206 checks | SCF | |
-| PCI DSS v4.0.1 | `pci-dss` | 205 checks | SCF | |
-| SOC 2 Trust Services Criteria | `soc2` | 202 checks | SCF | |
-| ISO/IEC 27001:2022 | `iso-27001` | 193 checks | SCF | |
-| MITRE ATT&CK v10 | `mitre-attack` | 187 checks | SCF | |
+| SOC 2 Trust Services Criteria | `soc2` | 222 checks | SCF + override | |
+| CMMC 2.0 | `cmmc` | 215 checks | SCF | |
+| MITRE ATT&CK v10 | `mitre-attack` | 213 checks | SCF | |
+| PCI DSS v4.0.1 | `pci-dss` | 213 checks | SCF | |
+| ISO/IEC 27001:2022 | `iso-27001` | 210 checks | SCF | |
+| NIST Cybersecurity Framework 2.0 | `nist-csf` | 207 checks | SCF + override | |
+| HIPAA | `hipaa` | 203 checks | SCF | |
+| CIS Controls v8.1 | `cis-controls-v8` | 199 checks | SCF | |
 | CIS Microsoft 365 v6.0.1 | `cis-m365-v6` | 175 checks | Manual | E3-L1, E3-L2, E5-L1, E5-L2 |
-| CIS Controls v8.1 | `cis-controls-v8` | 174 checks | SCF | |
-| NIST Cybersecurity Framework 2.0 | `nist-csf` | 124 checks | SCF | |
-| Essential Eight (ASD) | `essential-eight` | 82 checks | SCF | ML1, ML2, ML3 |
-| HIPAA Security Rule | `hipaa` | 84 checks | SCF | |
+| Essential Eight (ASD) | `essential-eight` | 103 checks | SCF | ML1, ML2, ML3 |
 | CISA SCuBA | `cisa-scuba` | 54 checks | Manual | |
 | DISA STIG | `stig` | 13 checks | Manual | |
 | EU GDPR | `gdpr` | 8 checks | SCF | |
@@ -147,6 +147,7 @@ CheckID/
 │   ├── registry.json              Master registry (222 checks, 15 frameworks, schema v2.0.0)
 │   ├── scf-check-mapping.json     Check → SCF control assignments (source of truth)
 │   ├── scf-framework-map.json     SCF framework ID → CheckID key config
+│   ├── framework-overrides.json   Manual framework mappings for SCF coverage gaps
 │   ├── framework-titles.json      Human-readable control titles
 │   └── frameworks/                Framework definitions (15 JSON files)
 ├── scripts/
