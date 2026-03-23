@@ -53,38 +53,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate CSV files
+      - name: Validate scf-check-mapping.json
         shell: pwsh
         run: |
-          # --- framework-mappings.csv ---
-          $fm = Import-Csv data/framework-mappings.csv
-          $expectedCols = @(
-            'CisControl','CisTitle','CisE3L1','CisE3L2',
-            'CisE5L1','CisE5L2','NistCsf','Nist80053',
-            'Iso27001','Stig','PciDss','Cmmc','Hipaa','CisaScuba'
-          )
-          $actualCols = $fm[0].PSObject.Properties.Name
-          $missing = $expectedCols | Where-Object { $_ -notin $actualCols }
-          if ($missing) {
-            Write-Host "::error::framework-mappings.csv missing columns: $($missing -join ', ')"
+          $mapping = Get-Content data/scf-check-mapping.json -Raw | ConvertFrom-Json
+          if (-not $mapping.checks -or $mapping.checks.Count -eq 0) {
+            Write-Host "::error::scf-check-mapping.json has no checks"
             exit 1
           }
-          Write-Host "  framework-mappings.csv: $($fm.Count) rows, $($actualCols.Count) columns OK"
+          $noScf = @($mapping.checks | Where-Object { -not $_.scfPrimary })
+          if ($noScf.Count -gt 0) {
+            Write-Host "::error::$($noScf.Count) checks missing scfPrimary"
+            exit 1
+          }
+          Write-Host "  scf-check-mapping.json: $($mapping.checks.Count) checks, all have scfPrimary"
 
-          # --- check-id-mapping.csv ---
-          $cid = Import-Csv data/check-id-mapping.csv
-          if ($cid.Count -eq 0) {
-            Write-Host "::error::check-id-mapping.csv is empty"
+      - name: Validate scf-framework-map.json
+        shell: pwsh
+        run: |
+          $fwMap = Get-Content data/scf-framework-map.json -Raw | ConvertFrom-Json
+          $fwCount = @($fwMap.frameworks.PSObject.Properties).Count
+          if ($fwCount -lt 10) {
+            Write-Host "::error::scf-framework-map.json has only $fwCount frameworks (expected 12+)"
             exit 1
           }
-          $cidExpected = @('CisControl','CheckId','Collector','Area','Name','ImpactSeverity')
-          $cidActual = $cid[0].PSObject.Properties.Name
-          $cidMissing = $cidExpected | Where-Object { $_ -notin $cidActual }
-          if ($cidMissing) {
-            Write-Host "::error::check-id-mapping.csv missing columns: $($cidMissing -join ', ')"
-            exit 1
-          }
-          Write-Host "  check-id-mapping.csv: $($cid.Count) rows, $($cidActual.Count) columns OK"
+          Write-Host "  scf-framework-map.json: $fwCount SCF-backed frameworks configured"
 
       - name: Validate JSON files
         shell: pwsh
@@ -107,18 +100,22 @@ jobs:
           $reg = Get-Content data/registry.json -Raw | ConvertFrom-Json
           $errors = @()
 
-          if (-not $reg.schemaVersion) { $errors += "Missing 'schemaVersion' field" }
+          if ($reg.schemaVersion -ne '2.0.0') { $errors += "Expected schemaVersion 2.0.0, got '$($reg.schemaVersion)'" }
           if (-not $reg.dataVersion) { $errors += "Missing 'dataVersion' field" }
           if (-not $reg.checks) { $errors += "Missing 'checks' array" }
-          if ($reg.checks.Count -eq 0) { $errors += "'checks' array is empty" }
+          if ($reg.checks.Count -lt 160) { $errors += "Expected at least 160 checks, got $($reg.checks.Count)" }
 
           foreach ($check in $reg.checks) {
             if (-not $check.checkId) {
               $errors += "Check missing 'checkId'"
               break
             }
-            if (-not $check.name) {
-              $errors += "Check '$($check.checkId)' missing 'name'"
+            if (-not $check.scf) {
+              $errors += "Check '$($check.checkId)' missing 'scf' object"
+              break
+            }
+            if (-not $check.scf.primaryControlId) {
+              $errors += "Check '$($check.checkId)' missing 'scf.primaryControlId'"
               break
             }
             if (-not $check.frameworks) {
@@ -131,7 +128,7 @@ jobs:
             $errors | ForEach-Object { Write-Host "::error::$_" }
             exit 1
           }
-          Write-Host "  registry.json: $($reg.checks.Count) checks, schema valid"
+          Write-Host "  registry.json: $($reg.checks.Count) checks, schema v2.0.0 valid"
 
       - name: Validate registry against JSON Schema
         run: |
@@ -143,36 +140,6 @@ jobs:
           jsonschema.validate(registry, schema)
           print(f'Registry validates against schema ({len(registry[\"checks\"])} checks)')
           "
-
-  registry-consistency:
-    name: Registry Consistency
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Rebuild and compare
-        shell: pwsh
-        run: |
-          $tempOut = Join-Path $env:RUNNER_TEMP 'registry-rebuilt.json'
-          & scripts/Build-Registry.ps1 -OutputPath $tempOut
-
-          $committed = Get-Content data/registry.json -Raw | ConvertFrom-Json
-          $rebuilt = Get-Content $tempOut -Raw | ConvertFrom-Json
-
-          $committedCount = $committed.checks.Count
-          $rebuiltCount = $rebuilt.checks.Count
-
-          Write-Host "Committed registry: $committedCount checks"
-          Write-Host "Rebuilt registry:   $rebuiltCount checks"
-
-          if ($committedCount -ne $rebuiltCount) {
-            $delta = $committedCount - $rebuiltCount
-            Write-Host "::error::Registry mismatch: $committedCount committed vs $rebuiltCount rebuilt ($delta checks differ)"
-            Write-Host "Run scripts/Build-Registry.ps1 to regenerate data/registry.json"
-            exit 1
-          } else {
-            Write-Host "Registry is consistent with CSVs"
-          }
 
   data-quality:
     name: Data Quality
@@ -202,7 +169,6 @@ jobs:
           $config.Run.PassThru = $true
           $result = Invoke-Pester -Configuration $config
 
-          # Summary
           Write-Host "`nResults: $($result.PassedCount) passed, $($result.FailedCount) failed, $($result.SkippedCount) skipped"
 
           if ($result.FailedCount -gt 0) {
@@ -222,8 +188,8 @@ jobs:
           $manifest = Test-ModuleManifest -Path ./CheckID.psd1
           Write-Host "Module: $($manifest.Name) v$($manifest.Version)"
           Write-Host "Exported functions: $($manifest.ExportedFunctions.Keys -join ', ')"
-          if ($manifest.ExportedFunctions.Count -ne 7) {
-            Write-Host "::error::Expected 7 exported functions, got $($manifest.ExportedFunctions.Count)"
+          if ($manifest.ExportedFunctions.Count -ne 9) {
+            Write-Host "::error::Expected 9 exported functions, got $($manifest.ExportedFunctions.Count)"
             exit 1
           }
 
@@ -233,8 +199,8 @@ jobs:
           Import-Module ./CheckID.psd1 -Force
           $checks = Get-CheckRegistry
           Write-Host "Loaded $($checks.Count) checks"
-          if ($checks.Count -lt 139) {
-            Write-Host "::error::Expected at least 139 checks"
+          if ($checks.Count -lt 160) {
+            Write-Host "::error::Expected at least 160 checks"
             exit 1
           }
           $check = Get-CheckById 'ENTRA-ADMIN-001'
@@ -242,7 +208,17 @@ jobs:
             Write-Host "::error::Get-CheckById failed for ENTRA-ADMIN-001"
             exit 1
           }
-          Write-Host "Module import and basic operations OK"
+          $scf = Get-ScfControl 'ENTRA-ADMIN-001'
+          if (-not $scf -or -not $scf.primaryControlId) {
+            Write-Host "::error::Get-ScfControl failed for ENTRA-ADMIN-001"
+            exit 1
+          }
+          $byScf = Search-CheckByScf -ScfId $scf.primaryControlId
+          if ($byScf.Count -eq 0) {
+            Write-Host "::error::Search-CheckByScf returned no results"
+            exit 1
+          }
+          Write-Host "Module import and SCF operations OK"
 
   python-validate:
     name: Validate Python Scripts
@@ -257,14 +233,16 @@ jobs:
 
       - name: Syntax-check Python scripts
         run: |
-          python -m py_compile scripts/Build-DerivedMappings.py
+          python -m py_compile scripts/Build-Registry.py
+          python -m py_compile scripts/Build-ScfMigration.py
           python -m py_compile scripts/Build-FrameworkTitles.py
           echo "All Python scripts compile clean"
 
       - name: Validate committed JSON outputs
         run: |
-          python -c "import json; json.load(open('data/derived-mappings.json'))"
-          echo "  OK: data/derived-mappings.json"
+          python -c "import json; json.load(open('data/scf-check-mapping.json'))"
+          echo "  OK: data/scf-check-mapping.json"
+          python -c "import json; json.load(open('data/scf-framework-map.json'))"
+          echo "  OK: data/scf-framework-map.json"
           python -c "import json; json.load(open('data/framework-titles.json'))"
           echo "  OK: data/framework-titles.json"
-

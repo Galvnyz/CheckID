@@ -1,0 +1,23 @@
+{
+  "frameworkId": "gdpr",
+  "label": "EU GDPR",
+  "version": "2016/679",
+  "css": "fw-gdpr",
+  "totalControls": 99,
+  "registryKey": "gdpr",
+  "csvColumn": "Gdpr",
+  "displayOrder": 15,
+  "colors": {
+    "light": {
+      "background": "#fef3c7",
+      "color": "#92400e"
+    },
+    "dark": {
+      "background": "#451a03",
+      "color": "#fcd34d"
+    }
+  },
+  "scoring": {
+    "method": "control-coverage"
+  }
+}

@@ -19,7 +19,7 @@ Describe 'CheckID Module' {
     It 'Exports exactly the expected functions' {
         $mod = Get-Module CheckID
         $exported = $mod.ExportedFunctions.Keys | Sort-Object
-        $expected = @('Export-ComplianceMatrix', 'Get-CheckAutomationGaps', 'Get-CheckById', 'Get-CheckRegistry', 'Get-FrameworkCoverage', 'Search-Check', 'Test-CheckRegistryData') | Sort-Object
+        $expected = @('Export-ComplianceMatrix', 'Get-CheckAutomationGaps', 'Get-CheckById', 'Get-CheckRegistry', 'Get-FrameworkCoverage', 'Get-ScfControl', 'Search-Check', 'Search-CheckByScf', 'Test-CheckRegistryData') | Sort-Object
         $exported | Should -Be $expected
     }
 

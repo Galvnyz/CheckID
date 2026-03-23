@@ -17,8 +17,9 @@
       "scfName": "NIST CSF 2.0"
     },
     "iso-27001": {
-      "scfFrameworkId": 24,
-      "scfName": "ISO 27001 2022"
+      "scfFrameworkId": [24, 25],
+      "scfName": "ISO 27001:2022 + ISO 27002:2022",
+      "$comment": "24=ISO 27001 (requirements clauses), 25=ISO 27002 (Annex A controls). Old registry used Annex A notation (A.5.15 = 27002 5.15). Union both for full coverage."
     },
     "pci-dss": {
       "scfFrameworkId": 72,
@@ -30,8 +31,9 @@
       "$comment": "93=Level 1, 95=Level 2, 96=Level 3. Union all control IDs."
     },
     "hipaa": {
-      "scfFrameworkId": 131,
-      "scfName": "US HIPAA Security Rule / NIST SP 800-66 R2"
+      "scfFrameworkId": [130, 131],
+      "scfName": "US HIPAA",
+      "$comment": "130=Administrative Simplification 2013 (171 SCF controls), 131=Security Rule/NIST 800-66 R2 (136 SCF controls). Union both for full coverage."
     },
     "soc2": {
       "scfFrameworkId": 1,

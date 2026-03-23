@@ -1,16 +1,19 @@
 # CheckID
 
-Stable, unique identifiers for security configuration checks — mapped across compliance frameworks.
+Stable, unique identifiers for security configuration checks — mapped across compliance frameworks via the [Secure Controls Framework (SCF)](https://securecontrolsframework.com/).
 
 ## What Is CheckID?
 
-CheckID gives every security check a permanent ID and maps it to controls across multiple compliance frameworks simultaneously. Instead of tracking "CIS 1.1.3" in one report and "AC-6(5)" in another, you reference `ENTRA-ADMIN-001` and get both — plus ISO 27001, HIPAA, SOC 2, and more.
+CheckID gives every security check a permanent ID and maps it to controls across multiple compliance frameworks simultaneously. Instead of tracking "CIS 1.1.3" in one report and "AC-6(5)" in another, you reference `ENTRA-ADMIN-001` and get both — plus ISO 27001, HIPAA, SOC 2, FedRAMP, and more.
+
+**Source of truth:** SCF (Secure Controls Framework) — 1,451 controls mapped across 261 compliance frameworks. Every CheckID check is anchored to an SCF control, which provides the bridge to all other frameworks.
 
 **Format:** `{SERVICE}-{AREA}-{NNN}` (e.g., `ENTRA-ADMIN-001`, `DEFENDER-SAFELINKS-001`)
 
 **Current coverage:**
-- 169 checks across Microsoft 365 (Entra ID, Exchange Online, Defender, SharePoint, Teams, Intune, Compliance)
-- 14 compliance frameworks mapped per check
+- 222 checks across Microsoft 365 (Entra ID, Exchange Online, Defender, SharePoint, Teams, Intune, Compliance)
+- 15 compliance frameworks mapped per check
+- Full SCF metadata: maturity levels, assessment objectives, risks, and threats
 
 CheckID starts with M365 but is designed to expand. The identifier format, registry schema, and framework mapping approach are platform-agnostic — new services and platforms can be added without breaking existing consumers.
 
@@ -37,6 +40,11 @@ $check.frameworks    # All framework mappings with titles
 # Search by framework, control ID, or keyword
 Search-Check -Framework 'hipaa' -Keyword 'password'
 Search-Check -ControlId 'AC-6'
+
+# Query SCF metadata
+Get-ScfControl 'ENTRA-ADMIN-001'  # domain, maturity, risks, threats, AOs
+Search-CheckByScf -ScfId 'IAC-06'
+Search-CheckByScf -Domain 'Endpoint Security'
 ```
 
 ### Clone the repo
@@ -75,22 +83,25 @@ for check in registry['checks']:
 
 ## Supported Frameworks
 
-| Framework | Key | Coverage | Profiles |
-|-----------|-----|----------|----------|
-| CIS Microsoft 365 v6.0.1 | `cis-m365-v6` | 157 checks | E3-L1, E3-L2, E5-L1, E5-L2 |
-| NIST SP 800-53 Rev 5 | `nist-800-53` | 169 checks | Low, Moderate, High, Privacy |
-| NIST Cybersecurity Framework 2.0 | `nist-csf` | 165 checks | |
-| ISO/IEC 27001:2022 | `iso-27001` | 169 checks | |
-| DISA STIG | `stig` | 12 checks | |
-| PCI DSS v4.0.1 | `pci-dss` | 143 checks | |
-| CMMC 2.0 | `cmmc` | 143 checks | |
-| HIPAA Security Rule | `hipaa` | 162 checks | |
-| CISA SCuBA | `cisa-scuba` | 44 checks | |
-| SOC 2 Trust Services Criteria | `soc2` | 168 checks | |
-| FedRAMP Rev 5 | `fedramp` | 145 checks | |
-| CIS Controls v8.1 | `cis-controls-v8` | 124 checks | |
-| Essential Eight (ASD) | `essential-eight` | 50 checks | ML1, ML2, ML3 |
-| MITRE ATT&CK v10 | `mitre-attack` | 141 checks | |
+All framework mappings are derived from the SCF database, except CIS M365, CISA ScuBA, and STIG (manually mapped).
+
+| Framework | Key | Coverage | Source | Profiles |
+|-----------|-----|----------|--------|----------|
+| NIST SP 800-53 Rev 5 | `nist-800-53` | 222 checks | SCF | Low, Moderate, High, Privacy |
+| FedRAMP Rev 5 | `fedramp` | 222 checks | SCF | |
+| CMMC 2.0 | `cmmc` | 206 checks | SCF | |
+| PCI DSS v4.0.1 | `pci-dss` | 205 checks | SCF | |
+| SOC 2 Trust Services Criteria | `soc2` | 202 checks | SCF | |
+| ISO/IEC 27001:2022 | `iso-27001` | 193 checks | SCF | |
+| MITRE ATT&CK v10 | `mitre-attack` | 187 checks | SCF | |
+| CIS Microsoft 365 v6.0.1 | `cis-m365-v6` | 175 checks | Manual | E3-L1, E3-L2, E5-L1, E5-L2 |
+| CIS Controls v8.1 | `cis-controls-v8` | 174 checks | SCF | |
+| NIST Cybersecurity Framework 2.0 | `nist-csf` | 124 checks | SCF | |
+| Essential Eight (ASD) | `essential-eight` | 82 checks | SCF | ML1, ML2, ML3 |
+| HIPAA Security Rule | `hipaa` | 84 checks | SCF | |
+| CISA SCuBA | `cisa-scuba` | 54 checks | Manual | |
+| DISA STIG | `stig` | 13 checks | Manual | |
+| EU GDPR | `gdpr` | 8 checks | SCF | |
 
 ### NIST 800-53 Baseline Profiles
 
@@ -126,86 +137,100 @@ The [Essential Eight](https://www.cyber.gov.au/resources-business-and-government
 
 Each registry entry's `essential-eight` mapping uses control IDs in the format `ML{level}-P{strategy}` (e.g., `ML1-P4;ML2-P4;ML3-P4`). Of the eight strategies, seven (P1–P7) are assessable through M365 configuration export. P8 (Regular Backups) requires infrastructure-level assessment beyond M365 configuration state.
 
-Essential Eight mappings are derived from NIST 800-53 controls via the SecFrame SCF transitive bridge and stored in `data/derived-mappings.json`.
+Essential Eight mappings are derived directly from SCF control mappings (framework_id=219).
 
 ## Repository Structure
 
 ```
 CheckID/
 ├── data/                          Registry data
-│   ├── registry.json              Master registry (169 checks, 14 frameworks)
-│   ├── check-id-mapping.csv       CheckID → service/area assignments
-│   ├── framework-mappings.csv     CIS → multi-framework cross-references
-│   ├── standalone-checks.json     Non-CIS automated checks with framework data
-│   └── frameworks/                Framework definitions
-│       ├── cis-m365-v6.json       CIS M365 v6.0.1 profiles and sections
-│       ├── essential-eight.json   ASD Essential Eight maturity model
-│       ├── nist-800-53-r5.json    NIST 800-53 Rev 5 baseline profiles
-│       └── soc2-tsc.json          SOC 2 Trust Services Criteria
-├── scripts/                       PowerShell 7.x scripts
-│   ├── Build-Registry.ps1         Generates registry.json from CSVs
-│   ├── Import-NistBaselines.ps1   Reads OSCAL baseline profiles from SecFrame
+│   ├── registry.json              Master registry (222 checks, 15 frameworks, schema v2.0.0)
+│   ├── scf-check-mapping.json     Check → SCF control assignments (source of truth)
+│   ├── scf-framework-map.json     SCF framework ID → CheckID key config
+│   ├── framework-titles.json      Human-readable control titles
+│   └── frameworks/                Framework definitions (15 JSON files)
+├── scripts/
+│   ├── Build-Registry.py          Generates registry.json from SCF database
+│   ├── Build-Registry.ps1         PowerShell wrapper for Build-Registry.py
+│   ├── Build-ScfMigration.py      One-time NIST→SCF migration script
+│   ├── Build-FrameworkTitles.py   Title lookup generator from OSCAL
 │   ├── Export-ComplianceMatrix.ps1 XLSX multi-framework compliance report
-│   └── Test-RegistryData.ps1      Data quality validation (14 checks)
+│   └── Test-RegistryData.ps1      Data quality validation
 ├── tests/                         Pester 5.x tests
-│   ├── registry-integrity.Tests.ps1
-│   └── nist-baselines.Tests.ps1
+│   ├── registry-integrity.Tests.ps1  28 schema + SCF validation tests
+│   └── scf-mapping.Tests.ps1        7 SCF consistency tests
 └── docs/
     └── CheckId-Guide.md           Detailed system documentation
 ```
 
-## Registry Schema
+## Registry Schema (v2.0.0)
 
 Each check in `registry.json` contains:
 
 ```json
 {
   "checkId": "ENTRA-ADMIN-001",
-  "name": "Ensure Administrative accounts are cloud-only",
+  "name": "Ensure that between two and four global admins are designated",
   "category": "ADMIN",
   "collector": "Entra",
   "hasAutomatedCheck": true,
   "licensing": { "minimum": "E3" },
+  "scf": {
+    "primaryControlId": "IAC-21.3",
+    "domain": "Identification & Authentication",
+    "controlName": "Privileged Account Management...",
+    "controlDescription": "Mechanisms exist to restrict...",
+    "relativeWeighting": 10,
+    "csfFunction": "Protect",
+    "maturityLevels": { "cmm0_notPerformed": true, "cmm1_informal": true, "..." : "..." },
+    "assessmentObjectives": [{ "aoId": "IAC-21.3_A01", "text": "..." }],
+    "risks": ["R-AC-1", "R-AC-2"],
+    "threats": ["NT-7", "MT-1"]
+  },
   "frameworks": {
-    "cis-m365-v6": { "controlId": "1.1.1", "title": "...", "profiles": ["E3-L1", "E5-L1"] },
-    "nist-800-53": { "controlId": "AC-6(5);AC-2", "title": "...", "profiles": ["Low", "Moderate", "High"] },
-    "iso-27001": { "controlId": "A.5.15;A.5.18;A.8.2" },
-    "hipaa": { "controlId": "§164.312(a)(1);§164.308(a)(4)(i)" },
-    "soc2": { "controlId": "CC6.1;CC6.2;CC6.3", "evidenceType": "config-export" }
-  }
+    "nist-800-53": { "controlId": "AC-6(5)", "title": "...", "profiles": ["Moderate", "High"] },
+    "cis-m365-v6": { "controlId": "1.1.3", "profiles": ["E3-L1", "E5-L1"] },
+    "iso-27001": { "controlId": "5.18;8.2" },
+    "fedramp": { "controlId": "AC-6(5)" },
+    "soc2": { "controlId": "CC6.1;CC6.3" }
+  },
+  "impactRating": { "severity": "Medium", "scfWeighting": 10 }
 }
 ```
 
-Top-level fields: `schemaVersion` (semver), `dataVersion` (date), `generatedFrom`, `checks[]`.
+Top-level fields: `schemaVersion` (`"2.0.0"`), `dataVersion` (date), `generatedFrom`, `checks[]`.
 
 ## Rebuilding the Registry
 
-After editing the CSV files, regenerate `registry.json`:
+The registry is built from `scf-check-mapping.json` + the SCF SQLite database (`scf.db` from SecFrame):
 
 ```powershell
+# Requires SecFrame/SCF/scf.db accessible locally
+python scripts/Build-Registry.py
+# Or via PowerShell wrapper:
 ./scripts/Build-Registry.ps1
 ```
 
 Then validate:
 
 ```powershell
-./scripts/Test-RegistryData.ps1          # 14 data quality checks
-Invoke-Pester ./tests/ -Output Detailed  # 36 integrity tests
+./scripts/Test-RegistryData.ps1          # Data quality checks
+Invoke-Pester ./tests/ -Output Detailed  # 35 integrity + SCF consistency tests
 ```
 
 ## Contributing
 
-Contributions are welcome — especially new framework mappings, additional service coverage, and tooling improvements.
+Contributions are welcome — especially new check-to-SCF mappings, additional service coverage, and tooling improvements.
 
 1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/add-fedramp`)
-3. Edit the CSVs in `data/` and run `./scripts/Build-Registry.ps1`
+2. Create a feature branch (`git checkout -b feature/add-checks`)
+3. Edit `data/scf-check-mapping.json` and run `python scripts/Build-Registry.py`
 4. Run tests: `Invoke-Pester ./tests/` and `./scripts/Test-RegistryData.ps1`
 5. Open a PR
 
 **Areas we'd love help with:**
-- Framework mappings for platforms beyond M365 (AWS, GCP, Azure IaaS)
-- New compliance frameworks (GDPR)
+- Checks for platforms beyond M365 (AWS, GCP, Azure IaaS)
+- Additional SCF-derived framework coverage (261 frameworks available)
 - Language-specific client libraries (Python, Go, TypeScript)
 - Documentation and guides
 

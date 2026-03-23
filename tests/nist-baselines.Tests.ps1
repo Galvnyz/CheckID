@@ -7,9 +7,6 @@ Describe 'NIST 800-53 Baseline Profiles' {
         $frameworkDefPath = "$PSScriptRoot/../data/frameworks/nist-800-53-r5.json"
         $frameworkDef = Get-Content -Path $frameworkDefPath -Raw | ConvertFrom-Json
 
-        $csvPath = "$PSScriptRoot/../data/framework-mappings.csv"
-        $csvRows = Import-Csv -Path $csvPath
-
         $nistChecks = $checks | Where-Object {
             $_.frameworks.PSObject.Properties.Name -contains 'nist-800-53'
         }
@@ -28,8 +25,6 @@ Describe 'NIST 800-53 Baseline Profiles' {
     }
 
     It 'At least 90% of nist-800-53 entries have a profiles array' {
-        # Some NIST controls (e.g., SC-7(10)) are enhancements that don't appear in any
-        # baseline. These entries legitimately have no profiles.
         $withProfiles = @($nistChecks | Where-Object { $_.frameworks.'nist-800-53'.profiles }).Count
         $total = $nistChecks.Count
         $pct = [math]::Round(($withProfiles / $total) * 100, 1)
@@ -71,36 +66,14 @@ Describe 'NIST 800-53 Baseline Profiles' {
         }
     }
 
-    It 'No orphan profile columns in CSV (every baseline ID exists in Nist80053)' {
-        foreach ($row in $csvRows) {
-            $allIds = if (-not [string]::IsNullOrWhiteSpace($row.Nist80053)) {
-                $row.Nist80053 -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ }
-            } else { @() }
-
-            foreach ($col in @('Nist80053Low', 'Nist80053Moderate', 'Nist80053High', 'Nist80053Privacy')) {
-                $colValue = $row.$col
-                if (-not [string]::IsNullOrWhiteSpace($colValue)) {
-                    $profileIds = $colValue -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ }
-                    foreach ($id in $profileIds) {
-                        $id | Should -BeIn $allIds `
-                            -Because "CIS $($row.CisControl) $col ID '$id' must exist in the Nist80053 column"
-                    }
-                }
-            }
-        }
-    }
-
-    It 'ID format is uppercase with valid NIST notation (no OSCAL lowercase/dot format)' {
+    It 'ID format is uppercase with valid NIST notation' {
         foreach ($check in $nistChecks) {
             $controlId = $check.frameworks.'nist-800-53'.controlId
             $parts = $controlId -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ }
             foreach ($part in $parts) {
-                # Allow: AC-2, AC-2(1), CM-6a (trailing letter = parameter indicator)
-                $part | Should -Match '^[A-Z]{2}-\d+(\(\d+\))?[a-z]?$' `
+                # Allow: AC-2, AC-2(1), AC-6(5)
+                $part | Should -Match '^[A-Z]{2}-\d+(\(\d+\))?$' `
                     -Because "$($check.checkId) NIST control '$part' must be uppercase with valid NIST notation"
-                # Must NOT be lowercase OSCAL format (case-sensitive check)
-                $part -cmatch '^[a-z]{2}-\d+(\.\d+)?$' | Should -BeFalse `
-                    -Because "$($check.checkId) NIST control '$part' must not use OSCAL lowercase format"
             }
         }
     }

@@ -78,19 +78,27 @@ function Get-CheckById {
 function Search-Check {
     <#
     .SYNOPSIS
-        Searches the CheckID registry by framework, control ID, or keyword.
+        Searches the CheckID registry by framework, control ID, keyword, or SCF criteria.
     .PARAMETER Framework
         Filter to checks mapped to this framework key (e.g., hipaa, soc2).
     .PARAMETER ControlId
         Search for checks containing this control ID substring.
     .PARAMETER Keyword
         Search check names for this keyword (case-insensitive).
+    .PARAMETER ScfId
+        Filter to checks mapped to this SCF control ID (primary or additional).
+    .PARAMETER ScfDomain
+        Filter to checks in this SCF domain (case-insensitive substring match).
     .OUTPUTS
         PSCustomObject[] — matching check objects.
     .EXAMPLE
         Search-Check -Framework hipaa -Keyword 'password'
     .EXAMPLE
         Search-Check -ControlId 'AC-6'
+    .EXAMPLE
+        Search-Check -ScfId 'IAC-06'
+    .EXAMPLE
+        Search-Check -ScfDomain 'Endpoint Security'
     #>
     [CmdletBinding()]
     param(
@@ -101,7 +109,13 @@ function Search-Check {
         [string]$ControlId,
 
         [Parameter(Position = 0)]
-        [string]$Keyword
+        [string]$Keyword,
+
+        [Parameter()]
+        [string]$ScfId,
+
+        [Parameter()]
+        [string]$ScfDomain
     )
 
     $checks = Get-CheckRegistry
@@ -132,7 +146,84 @@ function Search-Check {
         }
     }
 
+    if ($ScfId) {
+        $checks = $checks | Where-Object {
+            $_.scf.primaryControlId -eq $ScfId -or
+            ($_.scf.additionalControlIds -and $_.scf.additionalControlIds -contains $ScfId)
+        }
+    }
+
+    if ($ScfDomain) {
+        $checks = $checks | Where-Object {
+            $_.scf.domain -like "*$ScfDomain*"
+        }
+    }
+
     return @($checks)
+}
+
+function Get-ScfControl {
+    <#
+    .SYNOPSIS
+        Returns SCF control metadata for a given CheckId.
+    .DESCRIPTION
+        Looks up a check by CheckId and returns its scf{} object containing
+        domain, controlName, controlDescription, maturityLevels, assessment
+        objectives, risks, and threats.
+    .PARAMETER CheckId
+        The CheckId to look up (e.g., ENTRA-ADMIN-001).
+    .OUTPUTS
+        PSCustomObject — the scf object for the check, or $null if not found.
+    .EXAMPLE
+        Get-ScfControl -CheckId ENTRA-ADMIN-001
+    .EXAMPLE
+        Get-ScfControl ENTRA-MFA-001 | Select-Object primaryControlId, domain, risks
+    #>
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, Position = 0)]
+        [string]$CheckId
+    )
+
+    $check = Get-CheckById -CheckId $CheckId
+    if (-not $check) {
+        Write-Warning "Check not found: $CheckId"
+        return $null
+    }
+    return $check.scf
+}
+
+function Search-CheckByScf {
+    <#
+    .SYNOPSIS
+        Searches checks by SCF control ID or domain.
+    .DESCRIPTION
+        Finds all checks that map to a given SCF control ID (primary or additional)
+        or belong to a given SCF domain. Convenience wrapper around Search-Check.
+    .PARAMETER ScfId
+        SCF control ID to search for (exact match, e.g., IAC-06, END-04.1).
+    .PARAMETER Domain
+        SCF domain to search for (case-insensitive substring, e.g., 'Endpoint').
+    .OUTPUTS
+        PSCustomObject[] — matching check objects.
+    .EXAMPLE
+        Search-CheckByScf -ScfId 'IAC-06'
+    .EXAMPLE
+        Search-CheckByScf -Domain 'Identification & Authentication'
+    #>
+    [CmdletBinding()]
+    param(
+        [Parameter(Position = 0)]
+        [string]$ScfId,
+
+        [Parameter()]
+        [string]$Domain
+    )
+
+    $params = @{}
+    if ($ScfId) { $params['ScfId'] = $ScfId }
+    if ($Domain) { $params['ScfDomain'] = $Domain }
+    return Search-Check @params
 }
 
 function Get-FrameworkCoverage {
@@ -310,6 +401,8 @@ Export-ModuleMember -Function @(
     'Get-CheckById'
     'Get-CheckRegistry'
     'Get-FrameworkCoverage'
+    'Get-ScfControl'
     'Search-Check'
+    'Search-CheckByScf'
     'Test-CheckRegistryData'
 )

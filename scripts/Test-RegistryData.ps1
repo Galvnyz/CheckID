@@ -2,26 +2,22 @@
 .SYNOPSIS
     Validates registry data integrity and encoding.
 .DESCRIPTION
-    Standalone validation script that checks the control registry and its source
-    CSVs for common data quality issues:
-      - UTF-8 encoding (detects garbled HIPAA section symbols)
+    Standalone validation script that checks the control registry and its SCF
+    source files for common data quality issues:
+      - UTF-8 encoding
       - Duplicate CheckIds
       - Empty required fields
-      - CSV-to-JSON consistency (check counts match)
+      - SCF mapping consistency
 
     Returns exit code 0 if all checks pass, 1 if any fail. Suitable for CI and
     local use.
 .PARAMETER DataPath
-    Path to the data directory containing registry.json and CSVs.
+    Path to the data directory containing registry.json and SCF files.
     Defaults to data/ relative to the repository root.
 .EXAMPLE
     ./scripts/Test-RegistryData.ps1
-    Validates all data files in the default data/ directory.
-.EXAMPLE
-    ./scripts/Test-RegistryData.ps1 -DataPath ./custom-data
-    Validates data files in a custom directory.
 .NOTES
-    Version: 1.0.0
+    Version: 2.0.0
 #>
 [CmdletBinding()]
 param(
@@ -37,10 +33,9 @@ if (-not $DataPath) {
     $DataPath = Join-Path $repoRoot 'data'
 }
 
-$registryPath    = Join-Path $DataPath 'registry.json'
-$frameworkCsv    = Join-Path $DataPath 'framework-mappings.csv'
-$checkIdCsv      = Join-Path $DataPath 'check-id-mapping.csv'
-$standalonePath  = Join-Path $DataPath 'standalone-checks.json'
+$registryPath  = Join-Path $DataPath 'registry.json'
+$mappingPath   = Join-Path $DataPath 'scf-check-mapping.json'
+$fwMapPath     = Join-Path $DataPath 'scf-framework-map.json'
 
 $errors   = [System.Collections.Generic.List[string]]::new()
 $warnings = [System.Collections.Generic.List[string]]::new()
@@ -72,14 +67,14 @@ Write-Host "================================`n"
 # 1. File existence
 # ------------------------------------------------------------------
 Write-Host "File checks:" -ForegroundColor Yellow
-foreach ($file in @($registryPath, $frameworkCsv, $checkIdCsv)) {
+foreach ($file in @($registryPath, $mappingPath, $fwMapPath)) {
     $name = Split-Path $file -Leaf
     Test-Check "File exists: $name" {
         if (-not (Test-Path $file)) { return "File not found: $file" }
     }
 }
 
-if (-not (Test-Path $registryPath) -or -not (Test-Path $frameworkCsv) -or -not (Test-Path $checkIdCsv)) {
+if (-not (Test-Path $registryPath) -or -not (Test-Path $mappingPath)) {
     Write-Host "`nCritical files missing — cannot continue." -ForegroundColor Red
     exit 1
 }
@@ -99,9 +94,9 @@ Test-Check "registry.json is valid JSON" {
 
 if (-not $reg) { Write-Host "`nRegistry JSON invalid — cannot continue." -ForegroundColor Red; exit 1 }
 
-Test-Check "registry.json has schemaVersion" {
+Test-Check "registry.json has schemaVersion 2.0.0" {
     if (-not $reg.schemaVersion) { return "Missing schemaVersion field" }
-    if ($reg.schemaVersion -notmatch '^\d+\.\d+\.\d+$') { return "schemaVersion '$($reg.schemaVersion)' is not valid semver" }
+    if ($reg.schemaVersion -ne '2.0.0') { return "Expected schemaVersion 2.0.0, got '$($reg.schemaVersion)'" }
 }
 
 Test-Check "registry.json has dataVersion" {
@@ -125,11 +120,13 @@ Test-Check "No duplicate CheckIds in registry" {
 # 4. Required fields
 # ------------------------------------------------------------------
 Write-Host "`nRequired field checks:" -ForegroundColor Yellow
-Test-Check "All checks have checkId, name, frameworks" {
+Test-Check "All checks have checkId, name, scf, frameworks" {
     $bad = @()
     foreach ($c in $reg.checks) {
         if (-not $c.checkId) { $bad += "missing checkId" }
         elseif (-not $c.name) { $bad += "$($c.checkId): missing name" }
+        elseif (-not $c.scf) { $bad += "$($c.checkId): missing scf" }
+        elseif (-not $c.scf.primaryControlId) { $bad += "$($c.checkId): missing scf.primaryControlId" }
         elseif (-not $c.frameworks) { $bad += "$($c.checkId): missing frameworks" }
     }
     if ($bad.Count -gt 0) { return ($bad | Select-Object -First 5) -join '; ' }
@@ -146,59 +143,39 @@ Test-Check "All automated checks have collector" {
 }
 
 # ------------------------------------------------------------------
-# 5. Encoding checks
+# 5. SCF mapping consistency
+# ------------------------------------------------------------------
+Write-Host "`nSCF consistency checks:" -ForegroundColor Yellow
+$mapping = $null
+Test-Check "scf-check-mapping.json is valid and matches registry count" {
+    try {
+        $script:mapping = Get-Content $mappingPath -Raw | ConvertFrom-Json -ErrorAction Stop
+    } catch {
+        return "Invalid JSON: $($_.Exception.Message)"
+    }
+    if ($mapping.checks.Count -ne $reg.checks.Count) {
+        return "Mapping has $($mapping.checks.Count) checks, registry has $($reg.checks.Count)"
+    }
+}
+
+Test-Check "All SCF primary IDs have valid format" {
+    $bad = @()
+    foreach ($c in $reg.checks) {
+        if ($c.scf.primaryControlId -notmatch '^[A-Z]{2,4}-\d{2}(\.\d+)?$') {
+            $bad += "$($c.checkId): '$($c.scf.primaryControlId)'"
+        }
+    }
+    if ($bad.Count -gt 0) { return "Invalid SCF IDs: $($bad -join ', ')" }
+}
+
+# ------------------------------------------------------------------
+# 6. Encoding checks
 # ------------------------------------------------------------------
 Write-Host "`nEncoding checks:" -ForegroundColor Yellow
-Test-Check "HIPAA control IDs have correct section symbol encoding" {
-    $garbled = @()
-    foreach ($c in $reg.checks) {
-        if ($c.frameworks.PSObject.Properties.Name -contains 'hipaa') {
-            $val = $c.frameworks.hipaa.controlId
-            if ($val -match 'Â§') {
-                $garbled += $c.checkId
-            }
-        }
-    }
-    if ($garbled.Count -gt 0) { return "Garbled section symbol (Â§) in: $($garbled -join ', ')" }
-}
-
-Test-Check "framework-mappings.csv HIPAA values have correct encoding" {
-    $fm = Import-Csv $frameworkCsv
-    $garbled = @()
-    foreach ($row in $fm) {
-        if ($row.Hipaa -match 'Â§') {
-            $garbled += $row.CisControl
-        }
-    }
-    if ($garbled.Count -gt 0) { return "Garbled section symbol in CSV rows: $($garbled -join ', ')" }
-}
-
-# ------------------------------------------------------------------
-# 6. CSV-to-JSON consistency
-# ------------------------------------------------------------------
-Write-Host "`nConsistency checks:" -ForegroundColor Yellow
-Test-Check "Registry check count matches CSV derivation" {
-    $fm = Import-Csv $frameworkCsv
-    $cid = Import-Csv $checkIdCsv
-    $sa = if (Test-Path $standalonePath) { @(Get-Content $standalonePath -Raw | ConvertFrom-Json) } else { @() }
-    $expected = $fm.Count + $sa.Count
-    $actual = $reg.checks.Count
-    if ($actual -ne $expected) {
-        return "Expected $expected checks ($($fm.Count) CIS + $($sa.Count) standalone), got $actual"
-    }
-}
-
-Test-Check "CSV column schemas are valid" {
-    $fm = Import-Csv $frameworkCsv
-    $cid = Import-Csv $checkIdCsv
-    $fmExpected = @('CisControl','CisTitle','CisE3L1','CisE3L2','CisE5L1','CisE5L2','NistCsf','Nist80053','Iso27001','Stig','PciDss','Cmmc','Hipaa','CisaScuba')
-    $cidExpected = @('CisControl','CheckId','Collector','Area','Name','ImpactSeverity')
-    $fmMissing = $fmExpected | Where-Object { $_ -notin $fm[0].PSObject.Properties.Name }
-    $cidMissing = $cidExpected | Where-Object { $_ -notin $cid[0].PSObject.Properties.Name }
-    $issues = @()
-    if ($fmMissing) { $issues += "framework-mappings.csv missing: $($fmMissing -join ', ')" }
-    if ($cidMissing) { $issues += "check-id-mapping.csv missing: $($cidMissing -join ', ')" }
-    if ($issues) { return $issues -join '; ' }
+Test-Check "No garbled encoding in registry JSON" {
+    $raw = Get-Content $registryPath -Raw
+    if ($raw -match 'Â§') { return "Garbled section symbol (Â§) found in registry.json" }
+    if ($raw -match '┬º') { return "Mojibake section symbol found in registry.json" }
 }
 
 # ------------------------------------------------------------------

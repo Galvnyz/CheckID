@@ -5,6 +5,44 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.0] - 2026-03-22
+
+### Added
+
+- **SCF as source of truth**: Every check now has a required `scf{}` object with primaryControlId, domain, controlName, controlDescription, maturityLevels (CMM 0-5), assessmentObjectives, risks, and threats
+- `Build-Registry.py` — new Python build script that queries SCF SQLite database directly
+- `Build-ScfMigration.py` — one-time migration script bridging NIST 800-53 → SCF
+- `data/scf-check-mapping.json` — new source of truth for check → SCF assignments (222 checks)
+- `data/scf-framework-map.json` — configurable mapping of SCF framework IDs to CheckID keys
+- `tests/scf-mapping.Tests.ps1` — 7 new SCF consistency tests
+- `Get-ScfControl` cmdlet — returns SCF metadata for a check
+- `Search-CheckByScf` cmdlet — search by SCF control ID or domain
+- `-ScfId` and `-ScfDomain` parameters on `Search-Check`
+- EU GDPR framework (8 checks) — 15th framework
+- `impactRating.scfWeighting` field
+
+### Removed
+
+- `data/framework-mappings.csv` — replaced by SCF database queries
+- `data/check-id-mapping.csv` — replaced by `scf-check-mapping.json`
+- `data/standalone-checks.json` — absorbed into `scf-check-mapping.json`
+- `data/derived-mappings.json` — all frameworks now derived directly from SCF
+- `scripts/Build-DerivedMappings.py` — logic absorbed into `Build-Registry.py`
+- `scripts/Import-NistBaselines.ps1` — NIST baselines derived from SCF
+
+### Changed
+
+- **Schema version**: 1.1.0 → 2.0.0 (breaking: new required `scf` field)
+- **Module version**: 1.3.0 → 2.0.0 (new cmdlets, 9 exports)
+- All framework mappings now derived from SCF database instead of manual CSVs
+- CIS M365, CISA ScuBA, and STIG carried as manual overlays (not in SCF)
+- Check sort order: SCF domain → SCF ID (was CIS section order)
+- Registry `generatedFrom` references SCF sources
+- Framework coverage changes (SCF-authoritative mappings): FedRAMP +55, CMMC +51, PCI DSS +50, GDPR +8, Essential Eight +25, CIS Controls +28
+- ISO 27001 now includes ISO 27002 (Annex A controls) from SCF
+- HIPAA uses both Administrative Simplification and Security Rule from SCF
+- CI workflows updated for SCF-based validation
+
 ## [Unreleased] - 2026-03-20
 
 ### Added

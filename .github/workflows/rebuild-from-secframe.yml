@@ -10,25 +10,38 @@ permissions:
 
 jobs:
   rebuild:
-    name: Rebuild registry from SecFrame
+    name: Rebuild registry from SecFrame SCF
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch latest SecFrame data
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch latest SCF database
         env:
           GH_TOKEN: ${{ secrets.CROSS_REPO_TOKEN }}
+          DISPATCH_FRAMEWORKS: ${{ github.event.client_payload.frameworks }}
         run: |
-          echo "SecFrame update triggered: ${{ github.event.client_payload.frameworks }}"
-          # Fetch the CIS crosswalk CSV (primary mapping source)
-          gh api repos/Galvnyz/SecFrame/contents/CIS/CIS_M365_to_NIST_to_FedRAMP_Crosswalk.csv \
-            --jq '.content' | base64 -d > data/framework-mappings.csv || true
+          echo "SecFrame update triggered: $DISPATCH_FRAMEWORKS"
+          # Fetch the SCF SQLite database
+          gh api repos/Galvnyz/SecFrame/contents/SCF/scf.db \
+            --jq '.content' | base64 -d > /tmp/scf.db || true
+          if [ ! -f /tmp/scf.db ]; then
+            echo "::error::Failed to fetch SCF database from SecFrame"
+            exit 1
+          fi
+          echo "SCF database fetched successfully"
 
       - name: Rebuild registry
-        shell: pwsh
         run: |
-          ./scripts/Build-Registry.ps1
-          ./scripts/Test-RegistryData.ps1
+          python scripts/Build-Registry.py --scf-db /tmp/scf.db
+
+      - name: Run validation
+        shell: pwsh
+        run: ./scripts/Test-RegistryData.ps1
 
       - name: Check for changes
         id: diff
@@ -40,20 +53,21 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.CROSS_REPO_TOKEN }}
+          DISPATCH_FRAMEWORKS: ${{ github.event.client_payload.frameworks }}
         run: |
           BRANCH="chore/secframe-sync-$(date +%Y%m%d)"
           git checkout -b "$BRANCH"
           git add data/
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: sync registry from SecFrame update"
+          git commit -m "chore: sync registry from SecFrame SCF update"
           git push origin "$BRANCH"
           gh pr create \
-            --title "chore: sync registry from SecFrame update" \
-            --body "Automated PR triggered by SecFrame framework data update.
+            --title "chore: sync registry from SecFrame SCF update" \
+            --body "Automated PR triggered by SecFrame SCF data update.
 
-Frameworks changed: ${{ github.event.client_payload.frameworks }}
+          Frameworks changed: $DISPATCH_FRAMEWORKS
 
-Review the registry diff and merge when ready." \
+          Review the registry diff and merge when ready." \
             --base main \
             --head "$BRANCH"
