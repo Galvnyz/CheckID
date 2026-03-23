@@ -337,6 +337,15 @@ def build_scf_object(
     return scf_obj
 
 
+def get_parent_scf_id(scf_id: str) -> str | None:
+    """Get the parent SCF control ID for a sub-control.
+
+    IAC-21.3 → IAC-21, END-04.1 → END-04, IAC-21 → None (already a parent).
+    """
+    match = re.match(r"^([A-Z]{2,4}-\d{2})\.\d+$", scf_id)
+    return match.group(1) if match else None
+
+
 def derive_frameworks(
     scf_primary: str,
     scf_additional: list[str],
@@ -345,13 +354,24 @@ def derive_frameworks(
     baseline_fwids: dict[str, dict[str, int]],
     titles: dict[str, dict[str, str]],
 ) -> dict:
-    """Derive framework mappings from SCF control_mappings for a check."""
+    """Derive framework mappings from SCF control_mappings for a check.
+
+    When a sub-control (e.g., IAC-21.3) has no mapping for a framework,
+    falls back to the parent control (IAC-21) to inherit its mappings.
+    """
     frameworks = OrderedDict()
     # Collect control IDs per CheckID framework key from primary + additional
     key_controls: dict[str, set[str]] = defaultdict(set)
 
     scf_ids = [scf_primary] + scf_additional
+    # Also include parent controls for fallback lookups
+    scf_ids_with_parents = list(scf_ids)
     for scf_id in scf_ids:
+        parent = get_parent_scf_id(scf_id)
+        if parent and parent not in scf_ids_with_parents:
+            scf_ids_with_parents.append(parent)
+
+    for scf_id in scf_ids_with_parents:
         fw_map = all_fw_mappings.get(scf_id, {})
         for fw_id, ctrl_ids in fw_map.items():
             ck_key = fwid_to_key.get(fw_id)
@@ -375,10 +395,10 @@ def derive_frameworks(
     for fw_key, profile_map in baseline_fwids.items():
         if fw_key not in frameworks:
             continue
-        # Check if any of the check's SCF controls appear in baseline frameworks
+        # Check if any of the check's SCF controls (incl. parents) appear in baseline frameworks
         profiles = []
         for profile_name, baseline_fw_id in profile_map.items():
-            for scf_id in scf_ids:
+            for scf_id in scf_ids_with_parents:
                 baseline_mappings = all_fw_mappings.get(scf_id, {}).get(baseline_fw_id, [])
                 if baseline_mappings:
                     profiles.append(profile_name)
