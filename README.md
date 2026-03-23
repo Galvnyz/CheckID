@@ -161,6 +161,7 @@ CheckID/
 │   ├── registry-integrity.Tests.ps1  28 schema + SCF validation tests
 │   └── scf-mapping.Tests.ps1        7 SCF consistency tests
 └── docs/
+    ├── architecture.md            Mermaid architecture diagrams
     └── CheckId-Guide.md           Detailed system documentation
 ```
 
