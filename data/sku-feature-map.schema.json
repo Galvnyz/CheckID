@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Galvnyz/CheckID/data/sku-feature-map.schema.json",
+  "title": "SKU Feature Map",
+  "description": "Schema for sku-feature-map.json — maps M365 SKU tiers to feature groups, service plans, and CheckID detection checks for licensing gap analysis.",
+  "type": "object",
+  "required": ["$schema", "version", "featureGroups", "skuTiers"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to this JSON Schema file for editor validation."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the SKU feature map data."
+    },
+    "featureGroups": {
+      "type": "object",
+      "description": "Map of feature group identifiers to their definitions. Each group represents a logical capability tied to service plans and CheckID checks.",
+      "additionalProperties": {
+        "$ref": "#/$defs/featureGroup"
+      }
+    },
+    "skuTiers": {
+      "type": "object",
+      "description": "Map of SKU tier identifiers (e.g., E3, E5) to their included service plans.",
+      "additionalProperties": {
+        "$ref": "#/$defs/skuTier"
+      }
+    }
+  },
+  "$defs": {
+    "featureGroup": {
+      "type": "object",
+      "required": [
+        "displayName",
+        "description",
+        "category",
+        "servicePlans",
+        "detectionChecks",
+        "valueCategory",
+        "estimatedEffort",
+        "quickWin"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable name of the feature group."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Brief explanation of what this feature group provides."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Identity", "Security", "Compliance", "Collaboration", "Productivity"],
+          "description": "Functional category this feature group belongs to."
+        },
+        "servicePlans": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "M365 service plan identifiers that enable this feature group."
+        },
+        "detectionChecks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]+-[A-Z0-9-]+-\\d{3}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "CheckID identifiers that detect whether this feature group is properly configured."
+        },
+        "valueCategory": {
+          "type": "string",
+          "enum": ["Security", "Compliance", "Productivity", "Collaboration"],
+          "description": "Primary value dimension this feature group delivers."
+        },
+        "estimatedEffort": {
+          "type": "string",
+          "enum": ["Low", "Medium", "High"],
+          "description": "Estimated implementation effort for enabling this feature group."
+        },
+        "quickWin": {
+          "type": "boolean",
+          "description": "Whether this feature group can be enabled quickly with minimal risk."
+        }
+      }
+    },
+    "skuTier": {
+      "type": "object",
+      "required": ["includedPlans"],
+      "additionalProperties": false,
+      "properties": {
+        "includedPlans": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "Service plan identifiers included in this SKU tier."
+        }
+      }
+    }
+  }
+}
