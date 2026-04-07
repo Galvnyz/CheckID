@@ -39,10 +39,14 @@ jobs:
         run: |
           python3 - <<'EOF'
           import sqlite3, json, sys
-          conn = sqlite3.connect("/tmp/scf.db")
-          cur = conn.cursor()
-          cur.execute("SELECT scf_version FROM schema_version")
-          row = cur.fetchone()
+
+          def parse_ver(v):
+              return tuple(int(x) for x in v.split("."))
+
+          with sqlite3.connect("/tmp/scf.db") as conn:
+              cur = conn.cursor()
+              cur.execute("SELECT scf_version FROM schema_version")
+              row = cur.fetchone()
           if not row:
               print("::error::schema_version table missing or empty in scf.db")
               sys.exit(1)
@@ -52,10 +56,10 @@ jobs:
           if not pinned:
               print("::error::scfDatabaseVersion not set in scf-framework-map.json")
               sys.exit(1)
-          if incoming < pinned:
+          if parse_ver(incoming) < parse_ver(pinned):
               print(f"::error::SCF version {incoming} is older than pinned {pinned}. Update scfDatabaseVersion in scf-framework-map.json to proceed.")
               sys.exit(1)
-          if incoming > pinned:
+          if parse_ver(incoming) > parse_ver(pinned):
               print(f"::warning::SCF version {incoming} is newer than pinned {pinned}. Consider updating scfDatabaseVersion in scf-framework-map.json.")
           print(f"SCF version check passed: {incoming}")
           EOF
