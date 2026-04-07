@@ -41,16 +41,28 @@ jobs:
           import sqlite3, json, sys
 
           def parse_ver(v):
-              return tuple(int(x) for x in v.split("."))
+              try:
+                  return tuple(int(x) for x in v.split("."))
+              except (ValueError, AttributeError):
+                  print(f"::error::Cannot parse SCF version string: {v!r}")
+                  sys.exit(1)
 
-          with sqlite3.connect("/tmp/scf.db") as conn:
-              cur = conn.cursor()
-              cur.execute("SELECT scf_version FROM schema_version")
-              row = cur.fetchone()
+          try:
+              with sqlite3.connect("/tmp/scf.db") as conn:
+                  cur = conn.cursor()
+                  cur.execute("SELECT scf_version FROM schema_version")
+                  row = cur.fetchone()
+          except sqlite3.OperationalError as e:
+              print(f"::error::Could not query schema_version in scf.db: {e}")
+              sys.exit(1)
+
           if not row:
               print("::error::schema_version table missing or empty in scf.db")
               sys.exit(1)
           incoming = row[0]
+          if not incoming or not isinstance(incoming, str):
+              print(f"::error::scf_version in schema_version is null or non-string: {row[0]!r}")
+              sys.exit(1)
           with open("data/scf-framework-map.json") as f:
               pinned = json.load(f).get("scfDatabaseVersion", "")
           if not pinned:
