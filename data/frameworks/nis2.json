@@ -1,0 +1,23 @@
+{
+  "frameworkId": "nis2",
+  "label": "EU NIS2",
+  "version": "2022/2555",
+  "css": "fw-nis2",
+  "totalControls": 30,
+  "registryKey": "nis2",
+  "csvColumn": "Nis2",
+  "displayOrder": 18,
+  "scoring": {
+    "method": "requirement-compliance"
+  },
+  "colors": {
+    "light": {
+      "background": "#ecfeff",
+      "color": "#155e75"
+    },
+    "dark": {
+      "background": "#083344",
+      "color": "#67e8f9"
+    }
+  }
+}

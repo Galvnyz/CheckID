@@ -59,6 +59,21 @@
     "gdpr": {
       "scfFrameworkId": 175,
       "scfName": "EMEA EU GDPR"
+    },
+    "iso-27017": {
+      "scfFrameworkId": 26,
+      "scfName": "ISO 27017 2015",
+      "$comment": "ISO/IEC 27017:2015 — cloud-specific security controls, extends ISO 27001/27002."
+    },
+    "nist-800-171": {
+      "scfFrameworkId": 62,
+      "scfName": "NIST 800-171 R2",
+      "$comment": "NIST SP 800-171 R2 — protecting CUI in non-federal systems. DoD contractor requirement."
+    },
+    "nis2": {
+      "scfFrameworkId": 176,
+      "scfName": "EMEA EU NIS2",
+      "$comment": "EU NIS2 Directive (2022/2555) — network and information security measures for essential/important entities."
     }
   },
   "manualOnly": {

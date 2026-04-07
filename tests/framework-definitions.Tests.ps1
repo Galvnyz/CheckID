@@ -101,6 +101,11 @@ Describe 'Framework Definition Cross-Validation' {
         $dupes | Should -BeNullOrEmpty -Because 'registryKey values must be unique'
     }
 
+    It 'Has at least 18 framework definition files' {
+        $allFrameworks.Count | Should -BeGreaterOrEqual 18 `
+            -Because '3 new frameworks (iso-27017, nist-800-171, nis2) should be present'
+    }
+
     It 'Registry framework keys have corresponding definition files' -Tag 'RegistryCoverage' {
         $registryPath = Join-Path $PSScriptRoot '..' 'data' 'registry.json'
         $registry = Get-Content -Path $registryPath -Raw | ConvertFrom-Json
