@@ -236,7 +236,14 @@ jobs:
           python -m py_compile scripts/Build-Registry.py
           python -m py_compile scripts/Build-ScfMigration.py
           python -m py_compile scripts/Build-FrameworkTitles.py
+          python -m py_compile scripts/Generate-ImpactRationale.py
           echo "All Python scripts compile clean"
+
+      - name: Install Python test dependencies
+        run: pip install pytest
+
+      - name: Run Python tests
+        run: python -m pytest tests/test_generate_rationale.py -v
 
       - name: Validate committed JSON outputs
         run: |

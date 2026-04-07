@@ -216,6 +216,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to regularly review processes and documented procedures to ensure conformity with the organization's cybersecurity and data protection policies, standards and other applicable requirements exposes the tenant to: Inability to maintain individual accountability, Improper.",
         "scfWeighting": 10
       }
     },
@@ -608,6 +609,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to use automated mechanisms to employ replay-resistant authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -793,6 +795,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to implement Out-of-Band Authentication (OOBA) under specific conditions exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -961,6 +964,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 9
       }
     },
@@ -1130,6 +1134,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 9
       }
     },
@@ -1299,6 +1304,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 9
       }
     },
@@ -1483,6 +1489,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -1667,6 +1674,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -1848,6 +1856,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -2026,6 +2035,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -2204,6 +2214,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -3069,6 +3080,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -3266,6 +3278,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -3463,6 +3476,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -3660,6 +3674,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -3808,6 +3823,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to ensure default authenticators are changed as part of account creation or system installation exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -4076,6 +4092,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 8
       }
     },
@@ -4452,6 +4469,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -4831,6 +4849,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -5211,6 +5230,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -5595,6 +5615,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -6491,6 +6512,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to support the management of system accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -6647,6 +6669,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to use automated mechanisms to support the management of system accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
       }
     },
@@ -6822,6 +6845,7 @@
       },
       "impactRating": {
         "severity": "Critical",
+        "rationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 9
       }
     },
@@ -7834,6 +7858,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -8034,6 +8059,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -8234,6 +8260,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -8434,6 +8461,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -8634,6 +8662,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -9201,6 +9230,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }
     },
@@ -9399,6 +9429,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }
     },
@@ -9794,6 +9825,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }
     },
@@ -9979,6 +10011,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }
     },
@@ -10158,6 +10191,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }
     },
@@ -10337,6 +10371,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }
     },
@@ -10518,6 +10553,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -10699,6 +10735,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -11805,6 +11842,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -12136,6 +12174,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -12292,6 +12331,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -12466,6 +12506,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -12626,6 +12667,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -12786,6 +12828,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -12941,6 +12984,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -13398,6 +13442,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -14704,6 +14749,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
         "scfWeighting": 9
       }
     },
@@ -14886,6 +14932,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
         "scfWeighting": 9
       }
     },
@@ -15068,6 +15115,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
         "scfWeighting": 9
       }
     },
@@ -15250,6 +15298,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
         "scfWeighting": 9
       }
     },
@@ -15941,6 +15990,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 9
       }
     },
@@ -16110,6 +16160,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 9
       }
     },
@@ -16282,6 +16333,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to log out users, both locally on the network and for remote sessions, at the end of the session or after an organization-defined period of inactivity exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 9
       }
     },
@@ -16475,6 +16527,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
         "scfWeighting": 9
       }
     },
@@ -16668,6 +16721,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
         "scfWeighting": 9
       }
     },
@@ -16861,6 +16915,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
         "scfWeighting": 9
       }
     },
@@ -17084,6 +17139,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to provide all employees and contractors appropriate awareness education and training that is relevant for their job function exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 8
       }
     },
@@ -17273,6 +17329,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
         "scfWeighting": 2
       }
     },
@@ -17456,6 +17513,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
         "scfWeighting": 2
       }
     },
@@ -18346,6 +18404,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to govern how external parties, including Technology Assets, Applications and/or Services (TAAS), are used to securely store, process and transmit data exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen.",
         "scfWeighting": 9
       }
     },
@@ -18572,6 +18631,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to govern how external parties, including Technology Assets, Applications and/or Services (TAAS), are used to securely store, process and transmit data exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen.",
         "scfWeighting": 9
       }
     },
@@ -18748,6 +18808,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize a process to assist users in making information sharing decisions to ensure data is appropriately protected exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
         "scfWeighting": 9
       }
     },
@@ -18924,6 +18985,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize a process to assist users in making information sharing decisions to ensure data is appropriately protected exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
         "scfWeighting": 9
       }
     },
@@ -19914,6 +19976,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -20117,6 +20180,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -20302,6 +20366,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -20482,6 +20547,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -21031,6 +21097,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -21236,6 +21303,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -21453,6 +21521,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -21649,6 +21718,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -21868,6 +21938,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -22070,6 +22141,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -22464,6 +22536,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -22669,6 +22742,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -22871,6 +22945,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -23073,6 +23148,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -23269,6 +23345,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -23474,6 +23551,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -23673,6 +23751,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -23890,6 +23969,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -24107,6 +24187,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -24305,6 +24386,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -24503,6 +24585,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -24708,6 +24791,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -24913,6 +24997,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -25113,6 +25198,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -25309,6 +25395,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -25514,6 +25601,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -25710,6 +25798,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -26116,6 +26205,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -26522,6 +26612,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -26727,6 +26818,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -27334,6 +27426,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -27571,6 +27664,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -28210,6 +28304,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -28412,6 +28507,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -29142,6 +29238,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to restrict the ability of non-privileged users to install unauthorized software exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -29537,6 +29634,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to analyze proposed changes for potential security impacts, prior to the implementation of the change exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
         "scfWeighting": 9
       }
     },
@@ -29904,6 +30002,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s), Loss of integrity.",
         "scfWeighting": 7
       }
     },
@@ -30077,6 +30176,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s), Loss of integrity.",
         "scfWeighting": 7
       }
     },
@@ -30239,6 +30339,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s), Loss of integrity.",
         "scfWeighting": 7
       }
     },
@@ -30406,6 +30507,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to generate, monitor, correlate and respond to alerts from physical, cybersecurity, data protection and supply chain activities to achieve integrated situational awareness exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s), Loss of integrity.",
         "scfWeighting": 7
       }
     },
@@ -30798,6 +30900,7 @@
       },
       "impactRating": {
         "severity": "Critical",
+        "rationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
         "scfWeighting": 5
       }
     },
@@ -30991,6 +31094,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
         "scfWeighting": 5
       }
     },
@@ -31533,6 +31637,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to provide an event log report generation capability to aid in detecting and assessing anomalous activities exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 7
       }
     },
@@ -31703,6 +31808,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to provide an event log report generation capability to aid in detecting and assessing anomalous activities exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 7
       }
     },
@@ -31873,6 +31979,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to provide an event log report generation capability to aid in detecting and assessing anomalous activities exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 7
       }
     },
@@ -32043,6 +32150,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to provide an event log report generation capability to aid in detecting and assessing anomalous activities exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 7
       }
     },
@@ -32212,6 +32320,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements exposes the tenant to: Emergent.",
         "scfWeighting": 10
       }
     },
@@ -32874,6 +32983,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -33050,6 +33160,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -33190,6 +33301,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -33326,6 +33438,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -33502,6 +33615,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -33664,6 +33778,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -34012,6 +34127,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -34350,6 +34466,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
         "scfWeighting": 5
       }
     },
@@ -34542,6 +34659,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -34734,6 +34852,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -34934,6 +35053,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -35126,6 +35246,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -35329,6 +35450,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -35532,6 +35654,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 10
       }
     },
@@ -35930,6 +36053,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to define, control and review organization-approved, secure remote access methods exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -36125,6 +36249,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to define, control and review organization-approved, secure remote access methods exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -36290,6 +36415,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to protect the confidentiality, integrity, availability and safety of endpoint devices exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -36464,6 +36590,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 8
       }
     },
@@ -36641,6 +36768,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 8
       }
     },
@@ -36815,6 +36943,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 8
       }
     },
@@ -36989,6 +37118,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 8
       }
     },
@@ -37166,6 +37296,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to define, document, approve and enforce access restrictions associated with changes to Technology Assets, Applications and/or Services (TAAS) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 8
       }
     },
@@ -37421,6 +37552,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -37677,6 +37809,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -37932,6 +38065,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -38184,6 +38318,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -38437,6 +38572,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -38690,6 +38826,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -38942,6 +39079,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -39194,6 +39332,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -39446,6 +39585,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -39944,6 +40084,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -40193,6 +40334,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -40442,6 +40584,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -40694,6 +40837,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 10
       }
     },
@@ -40880,6 +41024,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to automatically update antimalware technologies, including signature definitions exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 9
       }
     },
@@ -41025,6 +41170,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 10
       }
     },
@@ -41172,6 +41318,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 10
       }
     },
@@ -41317,6 +41464,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 10
       }
     },
@@ -41454,6 +41602,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 10
       }
     },
@@ -41599,6 +41748,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 10
       }
     },
@@ -41747,6 +41897,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
         "scfWeighting": 10
       }
     },
@@ -41940,6 +42091,7 @@
       },
       "impactRating": {
         "severity": "High",
+        "rationale": "Failure to unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones exposes the tenant to: Inability to maintain individual.",
         "scfWeighting": 9
       }
     },
@@ -42100,6 +42252,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones exposes the tenant to: Inability to maintain individual.",
         "scfWeighting": 9
       }
     },
@@ -42260,6 +42413,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones exposes the tenant to: Inability to maintain individual.",
         "scfWeighting": 9
       }
     },
@@ -42453,6 +42607,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to unplug or prohibit the remote activation of collaborative computing devices with the following exceptions: \n (1) Networked whiteboards; \n (2) Video teleconference cameras; and \n (3) Teleconference microphones exposes the tenant to: Inability to maintain individual.",
         "scfWeighting": 9
       }
     },
@@ -42644,6 +42799,7 @@
       },
       "impactRating": {
         "severity": "Medium",
+        "rationale": "Failure to enforce access control requirements for the connection of mobile devices to organizational Technology Assets, Applications and/or Services (TAAS) exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Emergent properties and/or.",
         "scfWeighting": 9
       }
     },
@@ -42797,6 +42953,7 @@
       },
       "impactRating": {
         "severity": "Low",
+        "rationale": "Failure to are cryptographic mechanisms utilized to protect the confidentiality of data being transmitted exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
         "scfWeighting": 10
       }
     }
