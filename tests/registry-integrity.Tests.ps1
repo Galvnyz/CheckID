@@ -59,6 +59,13 @@ Describe 'Control Registry Integrity' {
         }
     }
 
+    It 'Every entry has a non-empty impactRating.rationale' {
+        $withRating = @($checks | Where-Object { $_.PSObject.Properties.Name -contains 'impactRating' })
+        $empty = $withRating | Where-Object { -not $_.impactRating.rationale }
+        $empty | Should -BeNullOrEmpty `
+            -Because "All checks with impactRating must have impactRating.rationale populated (run Generate-ImpactRationale.py)"
+    }
+
     # --- SCF fields (v2.0.0) ---
 
     It 'Every entry has an scf object' {
