@@ -1,0 +1,23 @@
+{
+  "frameworkId": "iso-27017",
+  "label": "ISO 27017:2015",
+  "version": "2015",
+  "css": "fw-iso-cloud",
+  "totalControls": 132,
+  "registryKey": "iso-27017",
+  "csvColumn": "Iso27017",
+  "displayOrder": 16,
+  "scoring": {
+    "method": "control-coverage"
+  },
+  "colors": {
+    "light": {
+      "background": "#e0f2fe",
+      "color": "#0c4a6e"
+    },
+    "dark": {
+      "background": "#082f49",
+      "color": "#7dd3fc"
+    }
+  }
+}

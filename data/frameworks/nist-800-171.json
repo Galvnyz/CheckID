@@ -1,0 +1,23 @@
+{
+  "frameworkId": "nist-800-171",
+  "label": "NIST 800-171 R2",
+  "version": "Rev 2",
+  "css": "fw-nist-cui",
+  "totalControls": 172,
+  "registryKey": "nist-800-171",
+  "csvColumn": "Nist800171",
+  "displayOrder": 17,
+  "scoring": {
+    "method": "control-coverage"
+  },
+  "colors": {
+    "light": {
+      "background": "#fff7ed",
+      "color": "#9a3412"
+    },
+    "dark": {
+      "background": "#431407",
+      "color": "#fb923c"
+    }
+  }
+}
