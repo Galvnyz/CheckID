@@ -35,6 +35,47 @@ jobs:
           fi
           echo "SCF database fetched successfully"
 
+      - name: Verify SCF database version
+        run: |
+          python3 - <<'EOF'
+          import sqlite3, json, sys
+
+          def parse_ver(v):
+              try:
+                  return tuple(int(x) for x in v.split("."))
+              except (ValueError, AttributeError):
+                  print(f"::error::Cannot parse SCF version string: {v!r}")
+                  sys.exit(1)
+
+          try:
+              with sqlite3.connect("/tmp/scf.db") as conn:
+                  cur = conn.cursor()
+                  cur.execute("SELECT scf_version FROM schema_version")
+                  row = cur.fetchone()
+          except sqlite3.OperationalError as e:
+              print(f"::error::Could not query schema_version in scf.db: {e}")
+              sys.exit(1)
+
+          if not row:
+              print("::error::schema_version table missing or empty in scf.db")
+              sys.exit(1)
+          incoming = row[0]
+          if not incoming or not isinstance(incoming, str):
+              print(f"::error::scf_version in schema_version is null or non-string: {row[0]!r}")
+              sys.exit(1)
+          with open("data/scf-framework-map.json") as f:
+              pinned = json.load(f).get("scfDatabaseVersion", "")
+          if not pinned:
+              print("::error::scfDatabaseVersion not set in scf-framework-map.json")
+              sys.exit(1)
+          if parse_ver(incoming) < parse_ver(pinned):
+              print(f"::error::SCF version {incoming} is older than pinned {pinned}. Update scfDatabaseVersion in scf-framework-map.json to proceed.")
+              sys.exit(1)
+          if parse_ver(incoming) > parse_ver(pinned):
+              print(f"::warning::SCF version {incoming} is newer than pinned {pinned}. Consider updating scfDatabaseVersion in scf-framework-map.json.")
+          print(f"SCF version check passed: {incoming}")
+          EOF
+
       - name: Rebuild registry
         run: |
           python scripts/Build-Registry.py --scf-db /tmp/scf.db

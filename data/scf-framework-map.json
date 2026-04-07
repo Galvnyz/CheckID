@@ -1,6 +1,7 @@
 {
   "$comment": "Maps SCF database framework_id values to CheckID framework keys. Source: SecFrame/SCF/scf.db frameworks table (SCF 2025.4).",
   "version": "1.0.0",
+  "scfDatabaseVersion": "2025.4",
   "frameworks": {
     "nist-800-53": {
       "scfFrameworkId": 45,
