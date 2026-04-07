@@ -39,12 +39,19 @@ def _is_useful_risk(risk_name: str) -> bool:
 
 
 def _question_to_statement(control_name: str) -> str:
-    """Convert 'Does the organization X?' to 'ensure X'."""
+    """Convert 'Does the organization X?' to 'x' (lowercased statement).
+
+    Returns empty string if the pattern does not match, so callers can
+    detect the non-match and use a fallback.
+    """
     text = control_name.strip().rstrip("?")
-    text = re.sub(r"^Does the organization\s+", "", text, flags=re.IGNORECASE)
-    if text:
-        text = text[0].lower() + text[1:]
-    return text
+    converted = re.sub(r"^Does the organization\s+", "", text, flags=re.IGNORECASE)
+    if converted == text:
+        # Pattern did not match — caller should use generic fallback
+        return ""
+    if converted:
+        converted = converted[0].lower() + converted[1:]
+    return converted
 
 
 def load_risks_for_controls(conn: sqlite3.Connection, scf_ids: list) -> dict:
@@ -79,6 +86,9 @@ def load_control_names(conn: sqlite3.Connection, scf_ids: list) -> dict:
 def generate_rationale(control_name: str, risks: list) -> str:
     statement = _question_to_statement(control_name)
     useful_risks = [r for r in risks if _is_useful_risk(r)][:MAX_RISKS]
+    if not statement:
+        # Control name didn't match expected pattern — use generic fallback
+        return "Failure to implement this control may expose the tenant to security risks."
     if useful_risks:
         risk_str = ", ".join(useful_risks)
         rationale = f"Failure to {statement} exposes the tenant to: {risk_str}."
