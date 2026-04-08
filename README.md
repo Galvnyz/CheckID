@@ -1,5 +1,9 @@
 # CheckID
 
+[![Checks](https://img.shields.io/badge/checks-251-blue)](https://github.com/Galvnyz/CheckID/blob/main/data/registry.json)
+[![Frameworks](https://img.shields.io/badge/frameworks-18-blue)](https://github.com/Galvnyz/CheckID/blob/main/SCHEMA.md#supported-frameworks-18)
+[![Release](https://img.shields.io/github/v/release/Galvnyz/CheckID)](https://github.com/Galvnyz/CheckID/releases/latest)
+
 Stable, unique identifiers for security configuration checks — mapped across compliance frameworks via the [Secure Controls Framework (SCF)](https://securecontrolsframework.com/).
 
 ## What Is CheckID?
