@@ -4237,6 +4237,557 @@
       ],
       "impactSeverity": "",
       "impactRationale": "Failure to facilitate the implementation of a change management program exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+    },
+    {
+      "checkId": "CA-NAMEDLOC-001",
+      "name": "Trusted IP-based named locations susceptible to spoofing",
+      "category": "NAMEDLOC",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-01.1",
+      "scfAdditional": [
+        "IAC-06",
+        "NET-04"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to treat all users and devices as potential threats and prevent access to data and resources until the users can be properly authenticated and their access authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "CA-REPORTONLY-001",
+      "name": "Conditional Access policies in report-only mode",
+      "category": "REPORTONLY",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-06",
+      "scfAdditional": [
+        "IAC-06",
+        "MON-06"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to use automated mechanisms to monitor, enforce and report on configurations for endpoint devices exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "CA-SESSION-001",
+      "name": "Persistent browser sessions allowed without device compliance",
+      "category": "SESSION",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-14",
+      "scfAdditional": [
+        "IAC-24",
+        "IAC-25"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ADMIN-004",
+      "name": "Ensure all Global Administrators use phishing-resistant MFA",
+      "category": "ADMIN",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-06.3",
+      "scfAdditional": [
+        "IAC-02.2",
+        "IAC-10.7",
+        "IAC-06"
+      ],
+      "impactSeverity": "Critical",
+      "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-APPREG-002",
+      "name": "Apps with localhost redirect URIs in production",
+      "category": "APPREG",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "TDA-02.6",
+      "scfAdditional": [
+        "WEB-04",
+        "CFG-02"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to mitigate the risk associated with the use of insecure ports, protocols and services necessary to operate technology solutions exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-APPREG-003",
+      "name": "Apps with HTTP (non-HTTPS) redirect URIs",
+      "category": "APPREG",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CRY-03",
+      "scfAdditional": [
+        "TDA-02.6",
+        "WEB-04"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to implement this control may expose the tenant to security risks.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-APPREG-004",
+      "name": "Apps with wildcard redirect URIs (open redirect risk)",
+      "category": "APPREG",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "WEB-09",
+      "scfAdditional": [
+        "WEB-04",
+        "TDA-02.6"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to ensure all input handled by a web application is validated and/or sanitized exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-CONSENT-003",
+      "name": "User consent restricted to verified publishers only",
+      "category": "CONSENT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "TPM-04",
+      "scfAdditional": [
+        "IAC-21.5",
+        "END-03.2"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to mitigate the risks associated with third-party access to its Technology Assets, Applications, Services and/or Data (TAASD) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-CONSENT-004",
+      "name": "Tenant-wide admin consent grants to third-party apps",
+      "category": "CONSENT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-17",
+      "scfAdditional": [
+        "TPM-04",
+        "IAC-21"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to periodically-review the privileges assigned to individuals and service accounts to validate the need for such privileges and reassign or remove unnecessary privileges, as necessary exposes the tenant to: Inability to maintain individual accountability, Improper.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-010",
+      "name": "Internal apps with Tier 0 application permissions (Global Admin escalation paths)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.1",
+      "scfAdditional": [
+        "IAC-21.3",
+        "IAC-16.1"
+      ],
+      "impactSeverity": "Critical",
+      "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-011",
+      "name": "Foreign apps with Tier 1 data access permissions (Mail, Files, Sites)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "TPM-04",
+      "scfAdditional": [
+        "IAC-21.1",
+        "DCH-03.1"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to mitigate the risks associated with third-party access to its Technology Assets, Applications, Services and/or Data (TAASD) exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-012",
+      "name": "Apps using client secrets instead of certificates",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-10.6",
+      "scfAdditional": [
+        "CRY-01",
+        "IAC-10"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to ensure that unencrypted, static authenticators are not embedded in applications, scripts or stored on function keys exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-013",
+      "name": "Apps with expired credentials still present",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-10.13",
+      "scfAdditional": [
+        "IAC-15.3",
+        "CFG-02"
+      ],
+      "impactSeverity": "Low",
+      "impactRationale": "Failure to change authentication credentials:\n(1) At predefined intervals; and/or\n(2) Upon suspicion of credential compromise exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-014",
+      "name": "Apps with both secret and certificate credentials (dual credential types)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-02.7",
+      "scfAdditional": [
+        "IAC-10",
+        "CFG-02"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-015",
+      "name": "Service principals with client secret and permanent privileged directory role",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.3",
+      "scfAdditional": [
+        "IAC-10.6",
+        "IAC-16.1"
+      ],
+      "impactSeverity": "Critical",
+      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-016",
+      "name": "Tier 0 permission apps with owners assigned (owner can impersonate)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.1",
+      "scfAdditional": [
+        "IAC-16.1",
+        "IAC-20"
+      ],
+      "impactSeverity": "Critical",
+      "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-017",
+      "name": "Apps with directory roles that have owners assigned",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.1",
+      "scfAdditional": [
+        "IAC-16.1",
+        "IAC-20"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-018",
+      "name": "Credentialed apps with no owners (orphaned)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-15",
+      "scfAdditional": [
+        "IAC-15.3",
+        "CFG-02"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-019",
+      "name": "Tier 0 apps with no sign-in activity (unused privileged permissions)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-15.3",
+      "scfAdditional": [
+        "IAC-21.1",
+        "IAC-17"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to use automated mechanisms to disable inactive accounts after an organization-defined time period exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-020",
+      "name": "Foreign apps impersonating Microsoft product display names",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "THR-04",
+      "scfAdditional": [
+        "TPM-04",
+        "IAC-09"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to implement an insider threat program that includes a cross-discipline insider threat incident handling team exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-ENTAPP-021",
+      "name": "Multi-tenant app registrations (AzureADMultipleOrgs)",
+      "category": "ENTAPP",
+      "collector": "EntApp",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03",
+      "scfAdditional": [
+        "TPM-04",
+        "IAC-20"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-SECDEFAULT-002",
+      "name": "Security Defaults Gap Analysis (CA Coverage)",
+      "category": "SECDEFAULT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-02",
+      "scfAdditional": [
+        "IAC-06",
+        "CFG-02"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) organizational users and processes acting on behalf of organizational users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "EXO-HIDDEN-001",
+      "name": "Ensure no user mailboxes are hidden from the Global Address List",
+      "category": "HIDDEN",
+      "collector": "ExchangeOnline",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-02",
+      "scfAdditional": [
+        "IAC-15",
+        "MON-06"
+      ],
+      "impactSeverity": "Low",
+      "impactRationale": "Failure to develop, document and maintain secure baseline configurations for Technology Assets, Applications and/or Services (TAAS) that are consistent with industry-accepted system hardening standards exposes the tenant to: Inability to maintain individual accountability.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "SPO-SITE-001",
+      "name": "Site sharing level within tenant policy",
+      "category": "SITE",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "DCH-01",
+      "scfAdditional": [
+        "IAC-16",
+        "DCH-06"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to facilitate the implementation of data protection controls exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "SPO-SITE-002",
+      "name": "Sensitive sites have restricted external sharing",
+      "category": "SITE",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "DCH-06",
+      "scfAdditional": [
+        "IAC-16",
+        "DCH-01"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to implement this control may expose the tenant to security risks.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "SPO-SITE-003",
+      "name": "Site collection administrator visibility",
+      "category": "SITE",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": false,
+      "licensing": "E3",
+      "scfPrimary": "IAC-15",
+      "scfAdditional": [
+        "IAC-20"
+      ],
+      "impactSeverity": "Informational",
+      "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "SPO-ACCESS-001",
+      "name": "Conditional Access policy coverage for SharePoint",
+      "category": "ACCESS",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": "E5",
+      "scfPrimary": "IAC-06",
+      "scfAdditional": [
+        "IAC-10",
+        "NET-04"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to use automated mechanisms to enforce Multi-Factor Authentication (MFA) for:\n (1) Remote network access; \n (2) Third-party Technology Assets, Applications and/or Services (TAAS); and/ or\n (3) Non-console access to critical TAAS that store, transmit and/or process.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "SPO-ACCESS-002",
+      "name": "Unmanaged device sync restriction",
+      "category": "ACCESS",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "END-04",
+      "scfAdditional": [
+        "IAC-16",
+        "END-07"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
+    },
+    {
+      "checkId": "SPO-VERSIONING-001",
+      "name": "Version history configuration",
+      "category": "VERSIONING",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "BCD-05",
+      "scfAdditional": [
+        "DCH-09",
+        "BCD-04"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to conduct a Root Cause Analysis (RCA) and \"lessons learned\" activity every time the contingency plan is activated exposes the tenant to: Emergent properties and/or unintended consequences, Business interruption, Unmitigated vulnerabilities.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "cisaScubaControlId": "",
+      "stigControlId": ""
     }
   ]
 }

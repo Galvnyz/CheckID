@@ -25,8 +25,8 @@ Describe 'Control Registry Integrity' {
 
     # --- Check count and uniqueness ---
 
-    It 'Has at least 160 entries' {
-        $checks.Count | Should -BeGreaterOrEqual 160
+    It 'Has at least 251 entries' {
+        $checks.Count | Should -BeGreaterOrEqual 251
     }
 
     It 'Has no duplicate CheckIds' {
