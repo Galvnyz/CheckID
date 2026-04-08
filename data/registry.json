@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.0.0",
-  "dataVersion": "2026-04-07",
+  "dataVersion": "2026-04-08",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json",
   "checks": [
     {
@@ -2770,6 +2770,179 @@
         "severity": "Medium",
         "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
+      }
+    },
+    {
+      "checkId": "ENTRA-PIM-008",
+      "name": "MFA not required on Tier-0 role activation",
+      "category": "PIM",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E5"
+      },
+      "scf": {
+        "primaryControlId": "IAC-06.3",
+        "additionalControlIds": [
+          "IAC-21.3",
+          "IAC-10.7",
+          "IAC-06.2",
+          "IAC-06",
+          "IAC-06.1"
+        ],
+        "domain": "Identification & Authentication",
+        "controlName": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
+        "controlDescription": "Does the organization utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts?",
+        "relativeWeighting": 5,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "IAC-06.3_A01",
+            "text": "privileged accounts are identified."
+          },
+          {
+            "aoId": "IAC-06.3_A02",
+            "text": "multifactor authentication is implemented for local access to privileged accounts."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "5.2;5.4;6.3;6.4;6.5"
+        },
+        "cmmc": {
+          "controlId": "AC.L2-3.1.5;IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5"
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML1-P4;ML2-P3;ML2-P4;ML3-P3;ML3-P4"
+        },
+        "fedramp": {
+          "controlId": "AC-6;AC-6(5);IA-2(1);IA-2(2);IA-5"
+        },
+        "hipaa": {
+          "controlId": "1.M.A;1.M.B;1.S.A;164.308(a)(3)(i);164.312(a)(1);2.M.A;2.S.A;3.L.C;3.L.D;3.M.B;3.M.C;3.M.D;3.S.A;5.L.B;6.L.E;6.M.A;6.S.A;6.S.B;9.M.C"
+        },
+        "iso-27001": {
+          "controlId": "5.15;5.17;5.18;8.12;8.2;8.3"
+        },
+        "iso-27017": {
+          "controlId": "9.1.2;9.2.2;9.2.4;9.4.3"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1025;T1036;T1036.003;T1036.005;T1040;T1041;T1047;T1048;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.001;T1053.002;T1053.003;T1053.005;T1053.006;T1053.007;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.003;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1068;T1070;T1070.001;T1070.002;T1070.003;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1087.004;T1091;T1098;T1098.001;T1098.002;T1098.003;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1112;T1114;T1114.002;T1133;T1134;T1134.001;T1134.002;T1134.003;T1134.005;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1176;T1185;T1189;T1190;T1197;T1199;T1200;T1203;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.003;T1218;T1218.007;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1495;T1505;T1505.002;T1505.003;T1505.004;T1525;T1528;T1530;T1537;T1538;T1539;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1543.001;T1543.002;T1543.003;T1543.004;T1546.003;T1546.004;T1546.011;T1546.013;T1547.003;T1547.004;T1547.006;T1547.009;T1547.011;T1547.012;T1547.013;T1548;T1548.002;T1548.003;T1550;T1550.002;T1550.003;T1552;T1552.001;T1552.002;T1552.004;T1552.006;T1552.007;T1553;T1553.003;T1553.006;T1555;T1555.001;T1555.002;T1555.004;T1555.005;T1556;T1556.001;T1556.003;T1556.004;T1558;T1558.001;T1558.002;T1558.003;T1558.004;T1559;T1559.001;T1559.002;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.004;T1562.006;T1562.007;T1562.008;T1562.009;T1563;T1563.001;T1563.002;T1567;T1569;T1569.001;T1569.002;T1574;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.011;T1574.012;T1578;T1578.001;T1578.002;T1578.003;T1580;T1599;T1599.001;T1601;T1601.001;T1601.002;T1606;T1606.001;T1606.002;T1609;T1610;T1611;T1612;T1613;T1619"
+        },
+        "nis2": {
+          "controlId": "21.2(j)"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.5;3.5.3;3.5.8;3.5.9;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "AC-6;AC-6(5);IA-2(1);IA-2(2);IA-5;IA-5(1);SA-8(14)",
+          "title": "Least Privilege; Privileged Accounts; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Authenticator Management; Password-based Authentication",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-10",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-in-use are protected"
+        },
+        "pci-dss": {
+          "controlId": "1.3;3.4;3.4.2;7.1;7.2;7.2.1;7.2.2;7.2.3;7.2.6;7.3;7.3.1;7.3.2;7.3.3;8.2.3;8.2.4;8.3;8.3.1;8.3.10.1;8.3.11;8.3.3;8.3.5;8.3.7;8.3.9;8.4;8.4.1;8.4.2;8.4.3;8.5.1;8.6;8.6.1;8.6.3"
+        },
+        "soc2": {
+          "controlId": "CC5.2-POF3;CC6.1;CC6.1-POF12;CC6.1-POF13;CC6.1-POF7;CC6.6-POF3",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        },
+        "cis-m365-v6": {
+          "controlId": "5.3.7",
+          "profiles": [
+            "E5-L1"
+          ]
+        }
       }
     },
     {
@@ -8931,7 +9104,7 @@
       "collector": "Entra",
       "hasAutomatedCheck": true,
       "licensing": {
-        "minimum": "E3"
+        "minimum": "E5"
       },
       "scf": {
         "primaryControlId": "IAC-15.2",
@@ -9074,7 +9247,7 @@
       "collector": "Entra",
       "hasAutomatedCheck": true,
       "licensing": {
-        "minimum": "E3"
+        "minimum": "E5"
       },
       "scf": {
         "primaryControlId": "IAC-15.2",
@@ -9208,6 +9381,12 @@
         "soc2": {
           "controlId": "CC5.2-POF3;CC6.1;CC6.1-POF12;CC6.1-POF13;CC6.1-POF7",
           "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        },
+        "cis-m365-v6": {
+          "controlId": "5.3.8",
+          "profiles": [
+            "E5-L1"
+          ]
         }
       }
     },
@@ -16370,173 +16549,6 @@
       }
     },
     {
-      "checkId": "ENTRA-PIM-008",
-      "name": "MFA not required on Tier-0 role activation",
-      "category": "PIM",
-      "collector": "Entra",
-      "hasAutomatedCheck": true,
-      "licensing": {
-        "minimum": "E3"
-      },
-      "scf": {
-        "primaryControlId": "IAC-21.3",
-        "additionalControlIds": [
-          "IAC-06.3",
-          "IAC-10.7",
-          "IAC-06.2",
-          "IAC-06",
-          "IAC-06.1"
-        ],
-        "domain": "Identification & Authentication",
-        "controlName": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "controlDescription": "Does the organization restrict the assignment of privileged accounts to management-approved personnel and/or roles?",
-        "relativeWeighting": 10,
-        "csfFunction": "Protect",
-        "maturityLevels": {
-          "cmm0_notPerformed": true,
-          "cmm1_informal": true,
-          "cmm2_planned": true,
-          "cmm3_defined": true,
-          "cmm4_controlled": true,
-          "cmm5_improving": true
-        },
-        "assessmentObjectives": [
-          {
-            "aoId": "IAC-21.3_A01",
-            "text": "personnel or roles to which privileged accounts on the system are to be restricted are defined."
-          },
-          {
-            "aoId": "IAC-21.3_A02",
-            "text": "privileged accounts on the system are restricted to <A.03.01.06.ODP[01]: personnel or roles>."
-          }
-        ],
-        "risks": [
-          "R-AC-1",
-          "R-AC-2",
-          "R-AC-3",
-          "R-AC-4",
-          "R-AM-1",
-          "R-AM-2",
-          "R-AM-3",
-          "R-BC-1",
-          "R-BC-2",
-          "R-BC-3",
-          "R-BC-4",
-          "R-EX-1",
-          "R-EX-2",
-          "R-EX-3",
-          "R-EX-4",
-          "R-EX-5",
-          "R-EX-6",
-          "R-EX-7",
-          "R-GV-1",
-          "R-GV-2",
-          "R-GV-3",
-          "R-GV-4",
-          "R-GV-5",
-          "R-GV-6",
-          "R-GV-7",
-          "R-GV-8",
-          "R-IR-1",
-          "R-IR-2",
-          "R-IR-3",
-          "R-IR-4",
-          "R-SA-1",
-          "R-SC-1",
-          "R-SC-2",
-          "R-SC-3",
-          "R-SC-4",
-          "R-SC-5",
-          "R-SC-6"
-        ],
-        "threats": [
-          "MT-1",
-          "MT-10",
-          "MT-11",
-          "MT-12",
-          "MT-13",
-          "MT-14",
-          "MT-15",
-          "MT-2",
-          "MT-24",
-          "MT-25",
-          "MT-27",
-          "MT-3",
-          "MT-4",
-          "MT-5",
-          "MT-6",
-          "MT-7",
-          "MT-8",
-          "MT-9",
-          "NT-10",
-          "NT-11",
-          "NT-12",
-          "NT-13",
-          "NT-14",
-          "NT-2",
-          "NT-3",
-          "NT-4",
-          "NT-5",
-          "NT-6",
-          "NT-7",
-          "NT-8",
-          "NT-9"
-        ]
-      },
-      "frameworks": {
-        "cis-controls-v8": {
-          "controlId": "5.2;5.4;6.3;6.4;6.5"
-        },
-        "cmmc": {
-          "controlId": "AC.L2-3.1.5;IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5"
-        },
-        "essential-eight": {
-          "controlId": "ML1-P3;ML1-P4;ML2-P3;ML2-P4;ML3-P3;ML3-P4"
-        },
-        "fedramp": {
-          "controlId": "AC-6;AC-6(5);IA-2(1);IA-2(2);IA-5"
-        },
-        "hipaa": {
-          "controlId": "1.M.A;1.M.B;1.S.A;164.308(a)(3)(i);164.312(a)(1);2.M.A;2.S.A;3.L.C;3.L.D;3.M.B;3.M.C;3.M.D;3.S.A;5.L.B;6.L.E;6.M.A;6.S.A;6.S.B;9.M.C"
-        },
-        "iso-27001": {
-          "controlId": "5.15;5.17;5.18;8.12;8.2;8.3"
-        },
-        "iso-27017": {
-          "controlId": "9.1.2;9.2.2;9.2.4;9.4.3"
-        },
-        "mitre-attack": {
-          "controlId": "T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1025;T1036;T1036.003;T1036.005;T1040;T1041;T1047;T1048;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.001;T1053.002;T1053.003;T1053.005;T1053.006;T1053.007;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.003;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1068;T1070;T1070.001;T1070.002;T1070.003;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1087.004;T1091;T1098;T1098.001;T1098.002;T1098.003;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1112;T1114;T1114.002;T1133;T1134;T1134.001;T1134.002;T1134.003;T1134.005;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1176;T1185;T1189;T1190;T1197;T1199;T1200;T1203;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.003;T1218;T1218.007;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1495;T1505;T1505.002;T1505.003;T1505.004;T1525;T1528;T1530;T1537;T1538;T1539;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1543.001;T1543.002;T1543.003;T1543.004;T1546.003;T1546.004;T1546.011;T1546.013;T1547.003;T1547.004;T1547.006;T1547.009;T1547.011;T1547.012;T1547.013;T1548;T1548.002;T1548.003;T1550;T1550.002;T1550.003;T1552;T1552.001;T1552.002;T1552.004;T1552.006;T1552.007;T1553;T1553.003;T1553.006;T1555;T1555.001;T1555.002;T1555.004;T1555.005;T1556;T1556.001;T1556.003;T1556.004;T1558;T1558.001;T1558.002;T1558.003;T1558.004;T1559;T1559.001;T1559.002;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.004;T1562.006;T1562.007;T1562.008;T1562.009;T1563;T1563.001;T1563.002;T1567;T1569;T1569.001;T1569.002;T1574;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.011;T1574.012;T1578;T1578.001;T1578.002;T1578.003;T1580;T1599;T1599.001;T1601;T1601.001;T1601.002;T1606;T1606.001;T1606.002;T1609;T1610;T1611;T1612;T1613;T1619"
-        },
-        "nis2": {
-          "controlId": "21.2(j)"
-        },
-        "nist-800-171": {
-          "controlId": "3.1.5;3.5.3;3.5.8;3.5.9;3.7.5"
-        },
-        "nist-800-53": {
-          "controlId": "AC-6;AC-6(5);IA-2(1);IA-2(2);IA-5;IA-5(1);SA-8(14)",
-          "title": "Least Privilege; Privileged Accounts; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Authenticator Management; Password-based Authentication",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
-        },
-        "nist-csf": {
-          "controlId": "PR.AA-05;PR.DS-10",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-in-use are protected"
-        },
-        "pci-dss": {
-          "controlId": "1.3;3.4;3.4.2;7.1;7.2;7.2.1;7.2.2;7.2.3;7.2.6;7.3;7.3.1;7.3.2;7.3.3;8.2.3;8.2.4;8.3;8.3.1;8.3.10.1;8.3.11;8.3.3;8.3.5;8.3.7;8.3.9;8.4;8.4.1;8.4.2;8.4.3;8.5.1;8.6;8.6.1;8.6.3"
-        },
-        "soc2": {
-          "controlId": "CC5.2-POF3;CC6.1;CC6.1-POF12;CC6.1-POF13;CC6.1-POF7;CC6.6-POF3",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
-        }
-      }
-    },
-    {
       "checkId": "CA-ROLECOVERAGE-001",
       "name": "CA policies targeting directory roles miss active Tier-0 roles",
       "category": "ROLECOVERAGE",
@@ -20443,504 +20455,6 @@
         "severity": "Medium",
         "rationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
         "scfWeighting": 2
-      }
-    },
-    {
-      "checkId": "SPO-SYNC-002",
-      "name": "Mac Sync App Enabled",
-      "category": "SYNC",
-      "collector": "SharePoint",
-      "hasAutomatedCheck": true,
-      "licensing": {
-        "minimum": "E3"
-      },
-      "scf": {
-        "primaryControlId": "AST-02.3",
-        "additionalControlIds": [
-          "AST-02"
-        ],
-        "domain": "Asset Management",
-        "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "relativeWeighting": 2,
-        "csfFunction": "Identify",
-        "maturityLevels": {
-          "cmm0_notPerformed": true,
-          "cmm1_informal": true,
-          "cmm2_planned": true,
-          "cmm3_defined": true,
-          "cmm4_controlled": true,
-          "cmm5_improving": true
-        },
-        "assessmentObjectives": [
-          {
-            "aoId": "AST-02.3_A01",
-            "text": "an inventory of system components that accurately reflects the system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A02",
-            "text": "an inventory of system components that includes all components within the system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A03",
-            "text": "an inventory of system components that does not include duplicate accounting of components or components assigned to any other system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A04",
-            "text": "an inventory of system components that includes information is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A05",
-            "text": "the system component inventory is reviewed / updated frequently."
-          }
-        ],
-        "risks": [
-          "R-AC-2",
-          "R-AC-3",
-          "R-AC-4",
-          "R-AM-2",
-          "R-AM-3",
-          "R-BC-1",
-          "R-BC-2",
-          "R-BC-3",
-          "R-BC-4",
-          "R-EX-1",
-          "R-EX-2",
-          "R-EX-3",
-          "R-EX-4",
-          "R-EX-5",
-          "R-EX-6",
-          "R-GV-1",
-          "R-GV-2",
-          "R-GV-4",
-          "R-GV-5",
-          "R-GV-6",
-          "R-GV-7",
-          "R-IR-1",
-          "R-IR-3",
-          "R-SC-1",
-          "R-SC-2",
-          "R-SC-3",
-          "R-SC-4",
-          "R-SC-5",
-          "R-SC-6"
-        ],
-        "threats": [
-          "MT-1",
-          "MT-10",
-          "MT-11",
-          "MT-12",
-          "MT-13",
-          "MT-14",
-          "MT-15",
-          "MT-2",
-          "MT-24",
-          "MT-25",
-          "MT-27",
-          "MT-3",
-          "MT-4",
-          "MT-5",
-          "MT-6",
-          "MT-7",
-          "MT-8",
-          "MT-9",
-          "NT-10",
-          "NT-11",
-          "NT-12",
-          "NT-13",
-          "NT-14",
-          "NT-2",
-          "NT-3",
-          "NT-4",
-          "NT-5",
-          "NT-6",
-          "NT-7",
-          "NT-8",
-          "NT-9"
-        ]
-      },
-      "frameworks": {
-        "cis-controls-v8": {
-          "controlId": "1;1.1;1.3;2;2.1;2.2;2.4;6.6"
-        },
-        "cmmc": {
-          "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1"
-        },
-        "essential-eight": {
-          "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
-        },
-        "fedramp": {
-          "controlId": "CM-8"
-        },
-        "hipaa": {
-          "controlId": "164.310(d)(2)(iii);2.L.E;5.L.A;5.M.A;5.S.A;9.M.D"
-        },
-        "iso-27001": {
-          "controlId": "5.9"
-        },
-        "iso-27017": {
-          "controlId": "8.1.1"
-        },
-        "mitre-attack": {
-          "controlId": "T1011.001;T1020.001;T1021.001;T1021.003;T1021.004;T1021.005;T1021.006;T1046;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.001;T1059.005;T1059.007;T1068;T1072;T1091;T1092;T1098.004;T1119;T1127;T1127.001;T1133;T1137;T1137.001;T1189;T1190;T1195.003;T1203;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1218;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1221;T1495;T1505;T1505.001;T1505.002;T1505.004;T1530;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1546.002;T1546.006;T1546.014;T1547.007;T1548;T1548.004;T1553;T1553.006;T1557;T1557.001;T1557.002;T1559;T1559.002;T1563;T1563.001;T1563.002;T1564.006;T1564.007;T1565;T1565.001;T1565.002;T1574;T1574.004;T1574.007;T1574.008;T1574.009;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002"
-        },
-        "nis2": {
-          "controlId": "21.2(i)"
-        },
-        "nist-800-171": {
-          "controlId": "3.4.1;NFO-CM-8(5)"
-        },
-        "nist-800-53": {
-          "controlId": "CM-8;PM-5",
-          "title": "System Component Inventory; System Inventory",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
-        },
-        "nist-csf": {
-          "controlId": "ID.AM;ID.AM-01;ID.AM-02",
-          "title": "Asset Management; Inventories of hardware managed by the organization are maintained; Inventories of software, services, and systems managed by the organization are maintained"
-        },
-        "pci-dss": {
-          "controlId": "11.2;11.2.2;6.3.2;9.5.1;9.5.1.1"
-        },
-        "soc2": {
-          "controlId": "CC2.1-POF6;CC2.1-POF9;CC6.1-POF1"
-        }
-      }
-    },
-    {
-      "checkId": "SPO-LOOP-001",
-      "name": "Loop Components Enabled",
-      "category": "LOOP",
-      "collector": "SharePoint",
-      "hasAutomatedCheck": true,
-      "licensing": {
-        "minimum": "E3"
-      },
-      "scf": {
-        "primaryControlId": "AST-02.3",
-        "additionalControlIds": [
-          "AST-02"
-        ],
-        "domain": "Asset Management",
-        "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "relativeWeighting": 2,
-        "csfFunction": "Identify",
-        "maturityLevels": {
-          "cmm0_notPerformed": true,
-          "cmm1_informal": true,
-          "cmm2_planned": true,
-          "cmm3_defined": true,
-          "cmm4_controlled": true,
-          "cmm5_improving": true
-        },
-        "assessmentObjectives": [
-          {
-            "aoId": "AST-02.3_A01",
-            "text": "an inventory of system components that accurately reflects the system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A02",
-            "text": "an inventory of system components that includes all components within the system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A03",
-            "text": "an inventory of system components that does not include duplicate accounting of components or components assigned to any other system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A04",
-            "text": "an inventory of system components that includes information is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A05",
-            "text": "the system component inventory is reviewed / updated frequently."
-          }
-        ],
-        "risks": [
-          "R-AC-2",
-          "R-AC-3",
-          "R-AC-4",
-          "R-AM-2",
-          "R-AM-3",
-          "R-BC-1",
-          "R-BC-2",
-          "R-BC-3",
-          "R-BC-4",
-          "R-EX-1",
-          "R-EX-2",
-          "R-EX-3",
-          "R-EX-4",
-          "R-EX-5",
-          "R-EX-6",
-          "R-GV-1",
-          "R-GV-2",
-          "R-GV-4",
-          "R-GV-5",
-          "R-GV-6",
-          "R-GV-7",
-          "R-IR-1",
-          "R-IR-3",
-          "R-SC-1",
-          "R-SC-2",
-          "R-SC-3",
-          "R-SC-4",
-          "R-SC-5",
-          "R-SC-6"
-        ],
-        "threats": [
-          "MT-1",
-          "MT-10",
-          "MT-11",
-          "MT-12",
-          "MT-13",
-          "MT-14",
-          "MT-15",
-          "MT-2",
-          "MT-24",
-          "MT-25",
-          "MT-27",
-          "MT-3",
-          "MT-4",
-          "MT-5",
-          "MT-6",
-          "MT-7",
-          "MT-8",
-          "MT-9",
-          "NT-10",
-          "NT-11",
-          "NT-12",
-          "NT-13",
-          "NT-14",
-          "NT-2",
-          "NT-3",
-          "NT-4",
-          "NT-5",
-          "NT-6",
-          "NT-7",
-          "NT-8",
-          "NT-9"
-        ]
-      },
-      "frameworks": {
-        "cis-controls-v8": {
-          "controlId": "1;1.1;1.3;2;2.1;2.2;2.4;6.6"
-        },
-        "cmmc": {
-          "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1"
-        },
-        "essential-eight": {
-          "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
-        },
-        "fedramp": {
-          "controlId": "CM-8"
-        },
-        "hipaa": {
-          "controlId": "164.310(d)(2)(iii);2.L.E;5.L.A;5.M.A;5.S.A;9.M.D"
-        },
-        "iso-27001": {
-          "controlId": "5.9"
-        },
-        "iso-27017": {
-          "controlId": "8.1.1"
-        },
-        "mitre-attack": {
-          "controlId": "T1011.001;T1020.001;T1021.001;T1021.003;T1021.004;T1021.005;T1021.006;T1046;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.001;T1059.005;T1059.007;T1068;T1072;T1091;T1092;T1098.004;T1119;T1127;T1127.001;T1133;T1137;T1137.001;T1189;T1190;T1195.003;T1203;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1218;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1221;T1495;T1505;T1505.001;T1505.002;T1505.004;T1530;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1546.002;T1546.006;T1546.014;T1547.007;T1548;T1548.004;T1553;T1553.006;T1557;T1557.001;T1557.002;T1559;T1559.002;T1563;T1563.001;T1563.002;T1564.006;T1564.007;T1565;T1565.001;T1565.002;T1574;T1574.004;T1574.007;T1574.008;T1574.009;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002"
-        },
-        "nis2": {
-          "controlId": "21.2(i)"
-        },
-        "nist-800-171": {
-          "controlId": "3.4.1;NFO-CM-8(5)"
-        },
-        "nist-800-53": {
-          "controlId": "CM-8;PM-5",
-          "title": "System Component Inventory; System Inventory",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
-        },
-        "nist-csf": {
-          "controlId": "ID.AM;ID.AM-01;ID.AM-02",
-          "title": "Asset Management; Inventories of hardware managed by the organization are maintained; Inventories of software, services, and systems managed by the organization are maintained"
-        },
-        "pci-dss": {
-          "controlId": "11.2;11.2.2;6.3.2;9.5.1;9.5.1.1"
-        },
-        "soc2": {
-          "controlId": "CC2.1-POF6;CC2.1-POF9;CC6.1-POF1"
-        }
-      }
-    },
-    {
-      "checkId": "SPO-LOOP-002",
-      "name": "OneDrive Loop Sharing",
-      "category": "LOOP",
-      "collector": "SharePoint",
-      "hasAutomatedCheck": true,
-      "licensing": {
-        "minimum": "E3"
-      },
-      "scf": {
-        "primaryControlId": "AST-02.3",
-        "additionalControlIds": [
-          "AST-02"
-        ],
-        "domain": "Asset Management",
-        "controlName": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "controlDescription": "Does the organization establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories?",
-        "relativeWeighting": 2,
-        "csfFunction": "Identify",
-        "maturityLevels": {
-          "cmm0_notPerformed": true,
-          "cmm1_informal": true,
-          "cmm2_planned": true,
-          "cmm3_defined": true,
-          "cmm4_controlled": true,
-          "cmm5_improving": true
-        },
-        "assessmentObjectives": [
-          {
-            "aoId": "AST-02.3_A01",
-            "text": "an inventory of system components that accurately reflects the system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A02",
-            "text": "an inventory of system components that includes all components within the system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A03",
-            "text": "an inventory of system components that does not include duplicate accounting of components or components assigned to any other system is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A04",
-            "text": "an inventory of system components that includes information is developed and documented."
-          },
-          {
-            "aoId": "AST-02.3_A05",
-            "text": "the system component inventory is reviewed / updated frequently."
-          }
-        ],
-        "risks": [
-          "R-AC-2",
-          "R-AC-3",
-          "R-AC-4",
-          "R-AM-2",
-          "R-AM-3",
-          "R-BC-1",
-          "R-BC-2",
-          "R-BC-3",
-          "R-BC-4",
-          "R-EX-1",
-          "R-EX-2",
-          "R-EX-3",
-          "R-EX-4",
-          "R-EX-5",
-          "R-EX-6",
-          "R-GV-1",
-          "R-GV-2",
-          "R-GV-4",
-          "R-GV-5",
-          "R-GV-6",
-          "R-GV-7",
-          "R-IR-1",
-          "R-IR-3",
-          "R-SC-1",
-          "R-SC-2",
-          "R-SC-3",
-          "R-SC-4",
-          "R-SC-5",
-          "R-SC-6"
-        ],
-        "threats": [
-          "MT-1",
-          "MT-10",
-          "MT-11",
-          "MT-12",
-          "MT-13",
-          "MT-14",
-          "MT-15",
-          "MT-2",
-          "MT-24",
-          "MT-25",
-          "MT-27",
-          "MT-3",
-          "MT-4",
-          "MT-5",
-          "MT-6",
-          "MT-7",
-          "MT-8",
-          "MT-9",
-          "NT-10",
-          "NT-11",
-          "NT-12",
-          "NT-13",
-          "NT-14",
-          "NT-2",
-          "NT-3",
-          "NT-4",
-          "NT-5",
-          "NT-6",
-          "NT-7",
-          "NT-8",
-          "NT-9"
-        ]
-      },
-      "frameworks": {
-        "cis-controls-v8": {
-          "controlId": "1;1.1;1.3;2;2.1;2.2;2.4;6.6"
-        },
-        "cmmc": {
-          "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1"
-        },
-        "essential-eight": {
-          "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
-        },
-        "fedramp": {
-          "controlId": "CM-8"
-        },
-        "hipaa": {
-          "controlId": "164.310(d)(2)(iii);2.L.E;5.L.A;5.M.A;5.S.A;9.M.D"
-        },
-        "iso-27001": {
-          "controlId": "5.9"
-        },
-        "iso-27017": {
-          "controlId": "8.1.1"
-        },
-        "mitre-attack": {
-          "controlId": "T1011.001;T1020.001;T1021.001;T1021.003;T1021.004;T1021.005;T1021.006;T1046;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.001;T1059.005;T1059.007;T1068;T1072;T1091;T1092;T1098.004;T1119;T1127;T1127.001;T1133;T1137;T1137.001;T1189;T1190;T1195.003;T1203;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1218;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1221;T1495;T1505;T1505.001;T1505.002;T1505.004;T1530;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1546.002;T1546.006;T1546.014;T1547.007;T1548;T1548.004;T1553;T1553.006;T1557;T1557.001;T1557.002;T1559;T1559.002;T1563;T1563.001;T1563.002;T1564.006;T1564.007;T1565;T1565.001;T1565.002;T1574;T1574.004;T1574.007;T1574.008;T1574.009;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002"
-        },
-        "nis2": {
-          "controlId": "21.2(i)"
-        },
-        "nist-800-171": {
-          "controlId": "3.4.1;NFO-CM-8(5)"
-        },
-        "nist-800-53": {
-          "controlId": "CM-8;PM-5",
-          "title": "System Component Inventory; System Inventory",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
-        },
-        "nist-csf": {
-          "controlId": "ID.AM;ID.AM-01;ID.AM-02",
-          "title": "Asset Management; Inventories of hardware managed by the organization are maintained; Inventories of software, services, and systems managed by the organization are maintained"
-        },
-        "pci-dss": {
-          "controlId": "11.2;11.2.2;6.3.2;9.5.1;9.5.1.1"
-        },
-        "soc2": {
-          "controlId": "CC2.1-POF6;CC2.1-POF9;CC6.1-POF1"
-        }
       }
     },
     {
@@ -32698,6 +32212,639 @@
       }
     },
     {
+      "checkId": "SPO-SYNC-002",
+      "name": "Mac Sync App Enabled",
+      "category": "SYNC",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "AST-02.3",
+          "AST-02"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "1;1.1;1.3;2;2.1;2.2;2.4;4;4.6;4.8;6.6"
+        },
+        "cmmc": {
+          "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L2-3.4.6"
+        },
+        "essential-eight": {
+          "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
+        },
+        "fedramp": {
+          "controlId": "CM-7;CM-8"
+        },
+        "hipaa": {
+          "controlId": "1.M.A;1.S.A;164.310(d)(2)(iii);2.L.E;5.L.A;5.M.A;5.S.A;6.S.A;6.S.B;9.M.D"
+        },
+        "iso-27001": {
+          "controlId": "5.9;8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "8.1.1;9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1020.001;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1036;T1036.005;T1036.007;T1037;T1037.001;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.001;T1059.005;T1059.007;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1091;T1092;T1095;T1098;T1098.001;T1098.004;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1119;T1127;T1127.001;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1137;T1137.001;T1176;T1187;T1189;T1190;T1195;T1195.001;T1195.002;T1195.003;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1495;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.001;T1505.002;T1505.004;T1525;T1530;T1537;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1546.014;T1547.004;T1547.006;T1547.007;T1547.011;T1548;T1548.001;T1548.003;T1548.004;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1556;T1556.002;T1557;T1557.001;T1557.002;T1559;T1559.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.007;T1564.008;T1564.009;T1565;T1565.001;T1565.002;T1565.003;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nis2": {
+          "controlId": "21.2(i)"
+        },
+        "nist-800-171": {
+          "controlId": "3.4.1;3.4.6;NFO-CM-8(5)"
+        },
+        "nist-800-53": {
+          "controlId": "CM-7;CM-8;PM-5",
+          "title": "Least Functionality; System Component Inventory; System Inventory",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "ID.AM;ID.AM-01;ID.AM-02;PR.PS-05",
+          "title": "Asset Management; Inventories of hardware managed by the organization are maintained; Inventories of software, services, and systems managed by the organization are maintained; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;11.2;11.2.2;2.2.4;6.3.2;9.5.1;9.5.1.1"
+        },
+        "soc2": {
+          "controlId": "CC2.1-POF6;CC2.1-POF9;CC5.2-POF3;CC6.1-POF1;CC6.1-POF7;CC6.7-POF1"
+        }
+      }
+    },
+    {
+      "checkId": "SPO-LOOP-001",
+      "name": "Loop Components Enabled",
+      "category": "LOOP",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "AST-02.3",
+          "AST-02"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "1;1.1;1.3;2;2.1;2.2;2.4;4;4.6;4.8;6.6"
+        },
+        "cmmc": {
+          "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L2-3.4.6"
+        },
+        "essential-eight": {
+          "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
+        },
+        "fedramp": {
+          "controlId": "CM-7;CM-8"
+        },
+        "hipaa": {
+          "controlId": "1.M.A;1.S.A;164.310(d)(2)(iii);2.L.E;5.L.A;5.M.A;5.S.A;6.S.A;6.S.B;9.M.D"
+        },
+        "iso-27001": {
+          "controlId": "5.9;8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "8.1.1;9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1020.001;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1036;T1036.005;T1036.007;T1037;T1037.001;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.001;T1059.005;T1059.007;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1091;T1092;T1095;T1098;T1098.001;T1098.004;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1119;T1127;T1127.001;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1137;T1137.001;T1176;T1187;T1189;T1190;T1195;T1195.001;T1195.002;T1195.003;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1495;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.001;T1505.002;T1505.004;T1525;T1530;T1537;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1546.014;T1547.004;T1547.006;T1547.007;T1547.011;T1548;T1548.001;T1548.003;T1548.004;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1556;T1556.002;T1557;T1557.001;T1557.002;T1559;T1559.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.007;T1564.008;T1564.009;T1565;T1565.001;T1565.002;T1565.003;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nis2": {
+          "controlId": "21.2(i)"
+        },
+        "nist-800-171": {
+          "controlId": "3.4.1;3.4.6;NFO-CM-8(5)"
+        },
+        "nist-800-53": {
+          "controlId": "CM-7;CM-8;PM-5",
+          "title": "Least Functionality; System Component Inventory; System Inventory",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "ID.AM;ID.AM-01;ID.AM-02;PR.PS-05",
+          "title": "Asset Management; Inventories of hardware managed by the organization are maintained; Inventories of software, services, and systems managed by the organization are maintained; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;11.2;11.2.2;2.2.4;6.3.2;9.5.1;9.5.1.1"
+        },
+        "soc2": {
+          "controlId": "CC2.1-POF6;CC2.1-POF9;CC5.2-POF3;CC6.1-POF1;CC6.1-POF7;CC6.7-POF1"
+        }
+      }
+    },
+    {
+      "checkId": "SPO-LOOP-002",
+      "name": "OneDrive Loop Sharing",
+      "category": "LOOP",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "AST-02.3",
+          "AST-02"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "1;1.1;1.3;2;2.1;2.2;2.4;4;4.6;4.8;6.6"
+        },
+        "cmmc": {
+          "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L2-3.4.6"
+        },
+        "essential-eight": {
+          "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
+        },
+        "fedramp": {
+          "controlId": "CM-7;CM-8"
+        },
+        "hipaa": {
+          "controlId": "1.M.A;1.S.A;164.310(d)(2)(iii);2.L.E;5.L.A;5.M.A;5.S.A;6.S.A;6.S.B;9.M.D"
+        },
+        "iso-27001": {
+          "controlId": "5.9;8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "8.1.1;9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1020.001;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1036;T1036.005;T1036.007;T1037;T1037.001;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.001;T1059.005;T1059.007;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1091;T1092;T1095;T1098;T1098.001;T1098.004;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1119;T1127;T1127.001;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1137;T1137.001;T1176;T1187;T1189;T1190;T1195;T1195.001;T1195.002;T1195.003;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1495;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.001;T1505.002;T1505.004;T1525;T1530;T1537;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1546.014;T1547.004;T1547.006;T1547.007;T1547.011;T1548;T1548.001;T1548.003;T1548.004;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1556;T1556.002;T1557;T1557.001;T1557.002;T1559;T1559.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.007;T1564.008;T1564.009;T1565;T1565.001;T1565.002;T1565.003;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nis2": {
+          "controlId": "21.2(i)"
+        },
+        "nist-800-171": {
+          "controlId": "3.4.1;3.4.6;NFO-CM-8(5)"
+        },
+        "nist-800-53": {
+          "controlId": "CM-7;CM-8;PM-5",
+          "title": "Least Functionality; System Component Inventory; System Inventory",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "ID.AM;ID.AM-01;ID.AM-02;PR.PS-05",
+          "title": "Asset Management; Inventories of hardware managed by the organization are maintained; Inventories of software, services, and systems managed by the organization are maintained; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;11.2;11.2.2;2.2.4;6.3.2;9.5.1;9.5.1.1"
+        },
+        "soc2": {
+          "controlId": "CC2.1-POF6;CC2.1-POF9;CC5.2-POF3;CC6.1-POF1;CC6.1-POF7;CC6.7-POF1"
+        }
+      }
+    },
+    {
       "checkId": "TEAMS-APPS-001",
       "name": "Chat Resource-Specific Consent Enabled",
       "category": "APPS",
@@ -35307,7 +35454,7 @@
       "collector": "Entra",
       "hasAutomatedCheck": true,
       "licensing": {
-        "minimum": "E3"
+        "minimum": "E5"
       },
       "scf": {
         "primaryControlId": "MON-02.6",
@@ -35473,6 +35620,12 @@
         "soc2": {
           "controlId": "CC2.2-POF6;CC2.3-POF8;CC7.2;CC7.2-POF1;CC7.3;CC7.3-POF2;CC7.4;CC7.4-POF6;CC7.4-POF9",
           "title": "Monitoring System Components for Anomalies; Evaluation of Identified Security Events; Response to Identified Security Incidents"
+        },
+        "cis-m365-v6": {
+          "controlId": "5.3.9",
+          "profiles": [
+            "E5-L1"
+          ]
         }
       }
     },
@@ -48243,7 +48396,7 @@
       },
       "impactRating": {
         "severity": "Low",
-        "rationale": "Failure to are cryptographic mechanisms utilized to protect the confidentiality of data being transmitted exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
+        "rationale": "Failure to implement this control may expose the tenant to security risks.",
         "scfWeighting": 10
       }
     },

@@ -548,7 +548,7 @@
         "CRY-04"
       ],
       "impactSeverity": "Low",
-      "impactRationale": "Failure to are cryptographic mechanisms utilized to protect the confidentiality of data being transmitted exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
+      "impactRationale": "Failure to implement this control may expose the tenant to security risks.",
       "cisM365ControlId": "2.1.9",
       "cisM365Profiles": [
         "E3-L1",
@@ -3546,14 +3546,18 @@
       "category": "PIM",
       "collector": "Entra",
       "hasAutomatedCheck": true,
-      "licensing": "E3",
+      "licensing": "E5",
       "scfPrimary": "MON-02.6",
       "scfAdditional": [
         "IRO-09",
         "MON-02"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s)."
+      "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
+      "cisM365ControlId": "5.3.9",
+      "cisM365Profiles": [
+        "E5-L1"
+      ]
     },
     {
       "checkId": "ENTRA-STALEADMIN-001",
@@ -3706,13 +3710,14 @@
       "category": "PIM",
       "collector": "Entra",
       "hasAutomatedCheck": true,
-      "licensing": "E3",
+      "licensing": "E5",
       "scfPrimary": "IAC-15.2",
       "scfAdditional": [
         "IAC-15.3"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
+      "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
+      "cisM365ControlId": ""
     },
     {
       "checkId": "PURVIEW-RETENTION-004",
@@ -3735,17 +3740,21 @@
       "category": "PIM",
       "collector": "Entra",
       "hasAutomatedCheck": true,
-      "licensing": "E3",
-      "scfPrimary": "IAC-21.3",
+      "licensing": "E5",
+      "scfPrimary": "IAC-06.3",
       "scfAdditional": [
-        "IAC-06.3",
+        "IAC-21.3",
         "IAC-10.7",
         "IAC-06.2",
         "IAC-06",
         "IAC-06.1"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+      "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "cisM365ControlId": "5.3.7",
+      "cisM365Profiles": [
+        "E5-L1"
+      ]
     },
     {
       "checkId": "ENTRA-ENTAPP-002",
@@ -3768,13 +3777,17 @@
       "category": "PIM",
       "collector": "Entra",
       "hasAutomatedCheck": true,
-      "licensing": "E3",
+      "licensing": "E5",
       "scfPrimary": "IAC-15.2",
       "scfAdditional": [
         "IAC-21.1"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
+      "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
+      "cisM365ControlId": "5.3.8",
+      "cisM365Profiles": [
+        "E5-L1"
+      ]
     },
     {
       "checkId": "ENTRA-SECDEFAULT-001",
@@ -3886,12 +3899,13 @@
       "collector": "SharePoint",
       "hasAutomatedCheck": true,
       "licensing": "E3",
-      "scfPrimary": "AST-02.3",
+      "scfPrimary": "CFG-03",
       "scfAdditional": [
+        "AST-02.3",
         "AST-02"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties."
+      "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
     },
     {
       "checkId": "SPO-LOOP-001",
@@ -3900,12 +3914,13 @@
       "collector": "SharePoint",
       "hasAutomatedCheck": true,
       "licensing": "E3",
-      "scfPrimary": "AST-02.3",
+      "scfPrimary": "CFG-03",
       "scfAdditional": [
+        "AST-02.3",
         "AST-02"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties."
+      "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
     },
     {
       "checkId": "SPO-LOOP-002",
@@ -3914,12 +3929,13 @@
       "collector": "SharePoint",
       "hasAutomatedCheck": true,
       "licensing": "E3",
-      "scfPrimary": "AST-02.3",
+      "scfPrimary": "CFG-03",
       "scfAdditional": [
+        "AST-02.3",
         "AST-02"
       ],
       "impactSeverity": "",
-      "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties."
+      "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
     },
     {
       "checkId": "TEAMS-APPS-001",
