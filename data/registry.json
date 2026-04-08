@@ -1505,7 +1505,7 @@
         }
       },
       "impactRating": {
-        "severity": "High",
+        "severity": "Critical",
         "rationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
         "scfWeighting": 9
       }
@@ -12614,7 +12614,7 @@
         }
       },
       "impactRating": {
-        "severity": "Medium",
+        "severity": "Critical",
         "rationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
         "scfWeighting": 10
       }

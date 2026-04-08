@@ -2416,7 +2416,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "High",
+      "impactSeverity": "Critical",
       "impactRationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) third-party users and processes that provide services to the organization exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "7.2.3",
       "cisM365Profiles": [
@@ -2500,7 +2500,7 @@
       "scfAdditional": [
         "IAC-20"
       ],
-      "impactSeverity": "Medium",
+      "impactSeverity": "Critical",
       "impactRationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
       "cisM365ControlId": "7.2.7",
       "cisM365Profiles": [
