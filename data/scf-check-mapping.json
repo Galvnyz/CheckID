@@ -4804,6 +4804,176 @@
       "cisM365Profiles": [],
       "cisaScubaControlId": "",
       "stigControlId": ""
+    },
+    {
+      "checkId": "ENTRA-SOD-001",
+      "name": "Ensure separation of duties for critical admin roles",
+      "category": "SOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "HRS-11",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to implement separation of duties for privileged roles allows a single compromised account to perform all administrative functions without oversight, increasing risk of unauthorized changes, data exfiltration, and privilege abuse."
+    },
+    {
+      "checkId": "ENTRA-TOU-001",
+      "name": "Ensure Terms of Use agreement policy is configured",
+      "category": "TOU",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "SEA-18",
+      "scfAdditional": [
+        "SEA-18.1",
+        "SEA-18.2"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to present privacy and security notices before granting system access exposes the organization to legal and compliance risk, as users may not be informed of acceptable use policies, monitoring practices, or data handling requirements."
+    },
+    {
+      "checkId": "ENTRA-PRIVREMOTE-001",
+      "name": "Ensure privileged commands require PIM activation for remote access",
+      "category": "PRIVREMOTE",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-14.4",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to restrict privileged command execution via remote access enables persistent standing admin access, increasing the attack surface for credential theft, lateral movement, and unauthorized administrative actions."
+    },
+    {
+      "checkId": "INTUNE-MOBILEENCRYPT-001",
+      "name": "Ensure mobile device compliance policies require encryption",
+      "category": "MOBILEENCRYPT",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "MDM-03",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to require encryption on mobile devices exposes CUI and sensitive data to unauthorized disclosure if a device is lost, stolen, or physically compromised."
+    },
+    {
+      "checkId": "INTUNE-PORTSTORAGE-001",
+      "name": "Ensure portable storage devices are restricted on external systems",
+      "category": "PORTSTORAGE",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "DCH-13.2",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to restrict portable storage on external systems enables unauthorized data transfer via USB and removable media, increasing risk of data exfiltration and malware introduction."
+    },
+    {
+      "checkId": "INTUNE-APPCONTROL-001",
+      "name": "Ensure application control policies restrict unauthorized software",
+      "category": "APPCONTROL",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03.2",
+      "scfAdditional": [
+        "CFG-03.1"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to restrict unauthorized software execution allows users to install and run unapproved applications, increasing the attack surface for malware, supply chain compromise, and policy violations."
+    },
+    {
+      "checkId": "DEFENDER-VULNSCAN-001",
+      "name": "Ensure vulnerability scanning is active via Defender for Endpoint",
+      "category": "VULNSCAN",
+      "collector": "Defender",
+      "hasAutomatedCheck": true,
+      "licensing": "E5",
+      "scfPrimary": "VPM-06",
+      "scfAdditional": [
+        "VPM-06.3"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to perform routine vulnerability scanning leaves known vulnerabilities undetected, allowing attackers to exploit outdated software and misconfigurations across managed endpoints."
+    },
+    {
+      "checkId": "INTUNE-FIPS-001",
+      "name": "Ensure FIPS-validated cryptography is enforced on managed devices",
+      "category": "FIPS",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CRY-01",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to enforce FIPS-validated cryptographic algorithms allows the use of weak or non-compliant encryption, potentially exposing CUI and sensitive data to cryptographic attacks."
+    },
+    {
+      "checkId": "DEFENDER-REALTIMESCAN-001",
+      "name": "Ensure Defender Antivirus real-time protection is enabled",
+      "category": "REALTIMESCAN",
+      "collector": "Defender",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "END-04.7",
+      "scfAdditional": [],
+      "impactSeverity": "Critical",
+      "impactRationale": "Failure to enable real-time anti-malware scanning allows threats to execute unchecked, enabling ransomware, trojans, and other malware to persist and spread across the environment."
+    },
+    {
+      "checkId": "DEFENDER-SECUREMON-001",
+      "name": "Ensure continuous security monitoring via Microsoft Secure Score",
+      "category": "SECUREMON",
+      "collector": "Defender",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CPL-02",
+      "scfAdditional": [
+        "THR-01",
+        "THR-03"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to continuously monitor security controls allows configuration drift and emerging vulnerabilities to go undetected, degrading the overall security posture over time."
+    },
+    {
+      "checkId": "INTUNE-INVENTORY-001",
+      "name": "Ensure Intune serves as authoritative device inventory with categories",
+      "category": "INVENTORY",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "AST-02.9",
+      "scfAdditional": [],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to maintain an authoritative, categorized component inventory prevents accurate asset tracking and risk assessment, making it impossible to identify unauthorized devices or enforce policy consistently."
+    },
+    {
+      "checkId": "DEFENDER-CFGDETECT-001",
+      "name": "Ensure automated detection of misconfigured or unauthorized components",
+      "category": "CFGDETECT",
+      "collector": "Defender",
+      "hasAutomatedCheck": true,
+      "licensing": "E5",
+      "scfPrimary": "CFG-02.2",
+      "scfAdditional": [
+        "CFG-02.8",
+        "CFG-06",
+        "CFG-06.1"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to automatically detect misconfigured or unauthorized components allows configuration drift and rogue devices to persist undetected, creating exploitable gaps in the security perimeter."
+    },
+    {
+      "checkId": "INTUNE-AUTODISC-001",
+      "name": "Ensure automated device discovery and enrollment is configured",
+      "category": "AUTODISC",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "AST-02.9",
+      "scfAdditional": [],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to configure automated device discovery and enrollment allows devices to connect to organizational resources without management oversight, creating blind spots in the inventory and compliance posture."
     }
   ]
 }
