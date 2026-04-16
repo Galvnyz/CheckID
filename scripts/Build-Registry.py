@@ -258,6 +258,53 @@ SCF_DOMAIN_ORDER = [
 ]
 
 
+def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
+    """Load manually-curated AZ-* checks for Az-Assess (Azure ARM surface).
+
+    These checks are not SCF-database-derived — they are maintained directly in
+    data/az-assess-source-checks.json and merged into the registry at build time.
+    """
+    source_path = repo_root / "data" / "az-assess-source-checks.json"
+    if not source_path.exists():
+        return []
+    with open(source_path, encoding="utf-8") as f:
+        entries = json.load(f)
+
+    checks = []
+    for entry in entries:
+        check_obj = OrderedDict()
+        check_obj["checkId"] = entry["checkId"]
+        check_obj["name"] = entry["name"]
+        check_obj["category"] = entry["category"]
+        check_obj["collector"] = entry["collector"]
+        check_obj["hasAutomatedCheck"] = entry.get("hasAutomatedCheck", True)
+
+        lic = entry.get("licensing", {})
+        check_obj["licensing"] = OrderedDict([("minimum", lic.get("minimum", "AzureSubscription"))])
+
+        # SCF — use directly from source (no database enrichment for ARM checks)
+        scf_src = entry.get("scf", {})
+        scf_obj = OrderedDict()
+        for key in ("primaryControlId", "domain", "controlName", "controlDescription"):
+            if key in scf_src:
+                scf_obj[key] = scf_src[key]
+        check_obj["scf"] = scf_obj
+
+        check_obj["frameworks"] = entry.get("frameworks", {})
+
+        impact_src = entry.get("impactRating")
+        if impact_src:
+            impact = OrderedDict()
+            for key in ("severity", "rationale"):
+                if key in impact_src:
+                    impact[key] = impact_src[key]
+            check_obj["impactRating"] = impact
+
+        checks.append(check_obj)
+
+    return checks
+
+
 def scf_sort_key(check: dict) -> tuple:
     """Sort key: SCF domain order → SCF ID (numeric sort)."""
     scf = check.get("scf", {})
@@ -580,11 +627,21 @@ def main():
     # Sort by SCF domain → SCF ID
     checks.sort(key=scf_sort_key)
 
+    # Merge AZ-Assess checks (Azure ARM surface — not SCF-database-derived)
+    az_checks = load_az_assess_source_checks(REPO_ROOT)
+    if az_checks:
+        checks.extend(az_checks)
+        checks.sort(key=scf_sort_key)
+        print(f"Merged {len(az_checks)} AZ-* checks from az-assess-source-checks.json")
+
     # Build registry
     registry = OrderedDict()
     registry["schemaVersion"] = SCHEMA_VERSION
     registry["dataVersion"] = date.today().isoformat()
-    registry["generatedFrom"] = "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json"
+    sources = "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json"
+    if az_checks:
+        sources += " + data/az-assess-source-checks.json"
+    registry["generatedFrom"] = sources
     registry["checks"] = checks
 
     # Write output
