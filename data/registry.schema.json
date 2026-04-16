@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Galvnyz/CheckID/data/registry.schema.json",
   "title": "CheckID Registry",
-  "description": "Schema for CheckID registry.json — a universal identifier registry mapping M365 security checks across compliance frameworks. Source of truth: SCF (Secure Controls Framework).",
+  "description": "Schema for CheckID registry.json — a universal identifier registry mapping security checks across compliance frameworks. Source of truth: SCF (Secure Controls Framework).",
   "type": "object",
   "required": ["schemaVersion", "dataVersion", "generatedFrom", "checks"],
   "additionalProperties": false,
@@ -49,7 +49,7 @@
         },
         "category": {
           "type": "string",
-          "description": "Functional category (e.g., CLOUDADMIN, MFA)."
+          "description": "Functional category (e.g., CLOUDADMIN, MFA, ENCRYPTION_AT_REST)."
         },
         "collector": {
           "type": "string",
@@ -66,8 +66,8 @@
           "properties": {
             "minimum": {
               "type": "string",
-              "enum": ["E3", "E5"],
-              "description": "Minimum M365 license tier required."
+              "enum": ["E3", "E5", "AzureSubscription"],
+              "description": "Minimum license tier required. Use 'AzureSubscription' for Azure ARM checks."
             }
           }
         },
@@ -81,7 +81,7 @@
           "additionalProperties": {
             "$ref": "#/$defs/frameworkMapping"
           },
-          "description": "Map of framework identifiers to their mapping details. Derived from SCF, plus manual overlays for CIS M365, CISA ScuBA, and STIG."
+          "description": "Map of framework identifiers to their mapping details."
         },
         "impactRating": {
           "type": "object",
@@ -101,7 +101,7 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 10,
-              "description": "SCF relative control weighting (1-10). Mirrors scf.relativeWeighting for convenience."
+              "description": "SCF relative control weighting (1-10)."
             }
           }
         }
@@ -115,7 +115,7 @@
       "then": {
         "properties": {
           "collector": {
-            "enum": ["Entra", "CAEvaluator", "ExchangeOnline", "DNS", "Defender", "Compliance", "Intune", "SharePoint", "Teams", "PowerBI", "Purview", "StrykerReadiness", "Forms", "PurviewRetention", "EntApp"]
+            "enum": ["Entra", "CAEvaluator", "ExchangeOnline", "DNS", "Defender", "Compliance", "Intune", "SharePoint", "Teams", "PowerBI", "Purview", "StrykerReadiness", "Forms", "PurviewRetention", "EntApp", "AzAssess"]
           }
         }
       }
@@ -146,7 +146,7 @@
         "controlName": {
           "type": "string",
           "minLength": 1,
-          "description": "SCF control name / question form."
+          "description": "SCF control name."
         },
         "controlDescription": {
           "type": "string",
@@ -155,7 +155,7 @@
         },
         "controlQuestion": {
           "type": "string",
-          "description": "SCF control in question form (may duplicate controlName for some controls)."
+          "description": "SCF control in question form."
         },
         "relativeWeighting": {
           "type": "integer",
@@ -165,7 +165,7 @@
         },
         "csfFunction": {
           "type": "string",
-          "description": "NIST CSF 2.0 function grouping (e.g., Govern, Identify, Protect, Detect, Respond, Recover)."
+          "description": "NIST CSF 2.0 function grouping."
         },
         "maturityLevels": {
           "type": "object",
@@ -177,8 +177,7 @@
             "cmm3_defined":          { "type": "boolean" },
             "cmm4_controlled":       { "type": "boolean" },
             "cmm5_improving":        { "type": "boolean" }
-          },
-          "description": "SCF Capability & Process Maturity Model (C|P-CMM) levels 0-5."
+          }
         },
         "assessmentObjectives": {
           "type": "array",
@@ -187,27 +186,18 @@
             "required": ["aoId", "text"],
             "additionalProperties": false,
             "properties": {
-              "aoId": {
-                "type": "string",
-                "description": "Assessment objective identifier (e.g., IAC-06_A01)."
-              },
-              "text": {
-                "type": "string",
-                "description": "Assessment objective statement."
-              }
+              "aoId": { "type": "string" },
+              "text": { "type": "string" }
             }
-          },
-          "description": "SCF assessment objectives for audit/evidence purposes."
+          }
         },
         "risks": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^R-[A-Z]{2}-\\d+$" },
-          "description": "Associated SCF risk IDs (e.g., R-AC-1, R-AM-2)."
+          "items": { "type": "string", "pattern": "^R-[A-Z]{2}-\\d+$" }
         },
         "threats": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^[NM]T-\\d+$" },
-          "description": "Associated SCF threat IDs (e.g., NT-7, MT-1)."
+          "items": { "type": "string", "pattern": "^[NM]T-\\d+$" }
         }
       }
     },
@@ -227,12 +217,10 @@
         },
         "profiles": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Applicable profiles or baselines within the framework."
+          "items": { "type": "string" }
         },
         "evidenceType": {
-          "type": "string",
-          "description": "Type of evidence produced for this framework mapping."
+          "type": "string"
         }
       }
     }
