@@ -309,6 +309,10 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
                     impact[key] = impact_src[key]
             check_obj["impactRating"] = impact
 
+        remediation = entry.get("remediation", "")
+        if remediation:
+            check_obj["remediation"] = remediation
+
         checks.append(check_obj)
 
     return checks
@@ -639,6 +643,10 @@ def main():
             if weighting:
                 impact["scfWeighting"] = weighting
             check_obj["impactRating"] = impact
+
+        remediation = cm.get("remediation", "")
+        if remediation:
+            check_obj["remediation"] = remediation
 
         checks.append(check_obj)
 
