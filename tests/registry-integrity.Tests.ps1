@@ -47,8 +47,8 @@ Describe 'Control Registry Integrity' {
 
     It 'Every entry has a licensing.minimum field' {
         foreach ($check in $checks) {
-            $check.licensing.minimum | Should -BeIn @('E3', 'E5') `
-                -Because "$($check.checkId) must have a valid licensing.minimum (E3 or E5)"
+            $check.licensing.minimum | Should -BeIn @('E3', 'E5', 'AzureSubscription') `
+                -Because "$($check.checkId) must have a valid licensing.minimum (E3, E5, or AzureSubscription)"
         }
     }
 
@@ -174,7 +174,7 @@ Describe 'Control Registry Integrity' {
     }
 
     It 'Collector values are from the known set' {
-        $knownCollectors = @('Entra', 'CAEvaluator', 'ExchangeOnline', 'DNS', 'Defender', 'Compliance', 'Intune', 'SharePoint', 'Teams', 'PowerBI', 'StrykerReadiness', 'Forms', 'PurviewRetention', 'EntApp')
+        $knownCollectors = @('Entra', 'CAEvaluator', 'ExchangeOnline', 'DNS', 'Defender', 'Compliance', 'Intune', 'SharePoint', 'Teams', 'PowerBI', 'StrykerReadiness', 'Forms', 'PurviewRetention', 'EntApp', 'AzAssess')
         $automated = $checks | Where-Object { $_.hasAutomatedCheck -eq $true }
         foreach ($check in $automated) {
             $check.collector | Should -BeIn $knownCollectors `

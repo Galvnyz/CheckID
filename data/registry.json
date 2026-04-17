@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0.0",
   "dataVersion": "2026-04-16",
-  "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json",
+  "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
     {
       "checkId": "DEFENDER-SECUREMON-001",
@@ -2154,6 +2154,58 @@
       }
     },
     {
+      "checkId": "AZ-IDENTITY-001",
+      "name": "Guest User Count in Azure AD",
+      "category": "ACCOUNT_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "IAC-06",
+        "domain": "Identification & Authentication",
+        "controlName": "Account Management",
+        "controlDescription": "Guest user accounts in Azure AD should be reviewed and minimized. External identities with persistent access to Azure resources increase the risk of unauthorized access."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AC.L2-3.1.1",
+          "title": "Limit system access to authorized users"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Guest accounts are often over-privileged and rarely reviewed, creating persistent unauthorized access paths."
+      }
+    },
+    {
+      "checkId": "AZ-AKS-003",
+      "name": "AKS Azure AD Integration Enabled",
+      "category": "AUTHENTICATION",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "IAC-06",
+        "domain": "Identification & Authentication",
+        "controlName": "Account Management",
+        "controlDescription": "AKS clusters must have Azure AD integration (AAD profile or OIDC issuer) enabled to enforce organizational identity policies, MFA, and conditional access for cluster authentication."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "IA.L2-3.5.1",
+          "title": "Identify information system users, processes acting on behalf of users, and devices"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Without Azure AD integration, AKS authentication relies on local credentials that bypass organizational MFA and conditional access policies."
+      }
+    },
+    {
       "checkId": "CA-MFA-ADMIN-001",
       "name": "Ensure multifactor authentication is enabled for all users in administrative roles",
       "category": "MFA-ADMIN",
@@ -3571,6 +3623,32 @@
         "severity": "Critical",
         "rationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 5
+      }
+    },
+    {
+      "checkId": "AZ-IDENTITY-002",
+      "name": "Service Principals with Expired Credentials",
+      "category": "CREDENTIAL_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "IAC-07",
+        "domain": "Identification & Authentication",
+        "controlName": "Identifier Management",
+        "controlDescription": "Service principal credentials (client secrets and certificates) must not be expired. Expired credentials indicate abandoned applications or poor credential lifecycle management."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "IA.L2-3.5.2",
+          "title": "Authenticate the identities of users, processes, and devices"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Expired credentials on active service principals indicate unmanaged automation that may have been compromised or abandoned."
       }
     },
     {
@@ -5748,6 +5826,84 @@
         "severity": "Medium",
         "rationale": "Failure to force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
         "scfWeighting": 8
+      }
+    },
+    {
+      "checkId": "AZ-GOVERNANCE-001",
+      "name": "Subscription Owner Role Assignment Count",
+      "category": "PRIVILEGED_ACCESS",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "IAC-14",
+        "domain": "Identification & Authentication",
+        "controlName": "Least Privilege",
+        "controlDescription": "Access to Azure subscription management must be restricted. Owner role assignments should not exceed 3 principals to limit blast radius from compromised accounts."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AC.L2-3.1.1; AC.L2-3.1.5",
+          "title": "Limit system access to authorized users and enforce least privilege"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Excessive Owner assignments violate least privilege and expand the attack surface for subscription takeover."
+      }
+    },
+    {
+      "checkId": "AZ-IDENTITY-003",
+      "name": "Managed Identity Usage Review",
+      "category": "PRIVILEGED_ACCESS",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "IAC-14",
+        "domain": "Identification & Authentication",
+        "controlName": "Least Privilege",
+        "controlDescription": "Azure resources should use managed identities instead of service principals with stored secrets where possible, reducing credential exposure and enforcing least-privilege identity patterns."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AC.L2-3.1.5",
+          "title": "Employ the principle of least privilege"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Service principals with stored secrets are a common attack vector; managed identities eliminate secret management overhead."
+      }
+    },
+    {
+      "checkId": "AZ-AKS-001",
+      "name": "AKS Kubernetes RBAC Enabled",
+      "category": "AUTHORIZATION",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "IAC-14",
+        "domain": "Identification & Authentication",
+        "controlName": "Least Privilege",
+        "controlDescription": "All AKS clusters must have Kubernetes RBAC enabled to enforce role-based access control on Kubernetes API operations and prevent unauthorized access to cluster resources."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AC.L2-3.1.2",
+          "title": "Limit system access to the types of transactions and functions authorized users are permitted to execute"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Without RBAC, all authenticated users have unrestricted access to Kubernetes API operations including cluster-admin capabilities."
       }
     },
     {
@@ -23558,6 +23714,32 @@
       }
     },
     {
+      "checkId": "AZ-GOVERNANCE-003",
+      "name": "Azure Policy Compliance Review",
+      "category": "CONFIGURATION_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": false,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CFG-01",
+        "domain": "Configuration Management",
+        "controlName": "Configuration Management Policy",
+        "controlDescription": "Azure Policy compliance must be reviewed manually in the Portal to confirm that assigned policies are not generating non-compliant findings against baseline configurations."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "CM.L2-3.4.1",
+          "title": "Establish and maintain baseline configurations and inventories"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Unreviewed policy non-compliance indicates configuration drift from the security baseline."
+      }
+    },
+    {
       "checkId": "EXO-HIDDEN-001",
       "name": "Ensure no user mailboxes are hidden from the Global Address List",
       "category": "HIDDEN",
@@ -23841,6 +24023,32 @@
         "severity": "Low",
         "rationale": "Failure to develop, document and maintain secure baseline configurations for Technology Assets, Applications and/or Services (TAAS) that are consistent with industry-accepted system hardening standards exposes the tenant to: Inability to maintain individual accountability.",
         "scfWeighting": 10
+      }
+    },
+    {
+      "checkId": "AZ-GOVERNANCE-002",
+      "name": "Resource Locks Present on Subscription",
+      "category": "CONFIGURATION_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CFG-02",
+        "domain": "Configuration Management",
+        "controlName": "Configuration Baselines",
+        "controlDescription": "Azure subscriptions must have at least one resource lock configured to prevent accidental or unauthorized deletion or modification of critical resources."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "CM.L2-3.4.2",
+          "title": "Establish and enforce security configuration settings"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Absence of locks allows accidental or malicious deletion of production resources with no rollback protection."
       }
     },
     {
@@ -35381,6 +35589,84 @@
       }
     },
     {
+      "checkId": "AZ-DEFENDER-003",
+      "name": "Defender for Cloud Auto-Provisioning Enabled",
+      "category": "ENDPOINT_MONITORING",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "MON-01",
+        "domain": "Continuous Monitoring",
+        "controlName": "Audit Logging",
+        "controlDescription": "Defender for Cloud auto-provisioning of monitoring agents (MMA/AMA) must be enabled to ensure all VMs automatically receive threat detection coverage without manual intervention."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SI.L2-3.14.6",
+          "title": "Monitor organizational systems to detect attacks and indicators of potential attacks"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "VMs without monitoring agents are invisible to Defender for Cloud threat detection."
+      }
+    },
+    {
+      "checkId": "AZ-MONITOR-001",
+      "name": "Log Analytics Workspace Present",
+      "category": "AUDIT_LOGGING",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "MON-01",
+        "domain": "Continuous Monitoring",
+        "controlName": "Audit Logging",
+        "controlDescription": "At least one Log Analytics workspace must exist in the subscription to serve as a central repository for audit logs, diagnostic data, and security events."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AU.L2-3.3.1",
+          "title": "Create and retain system audit logs to enable monitoring, analysis, investigation, and reporting"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Without a Log Analytics workspace, audit log collection cannot be centralized, making incident investigation impossible."
+      }
+    },
+    {
+      "checkId": "AZ-SQL-002",
+      "name": "SQL Server Auditing Enabled",
+      "category": "AUDIT_LOGGING",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "MON-01",
+        "domain": "Continuous Monitoring",
+        "controlName": "Audit Logging",
+        "controlDescription": "SQL Server auditing must be enabled on all Azure SQL servers to track database events, schema changes, and data access for compliance and incident investigation."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AU.L2-3.3.1",
+          "title": "Create and retain system audit logs"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Without auditing, SQL Server access and schema changes are untracked and cannot be investigated after a breach."
+      }
+    },
+    {
       "checkId": "DEFENDER-ANTIMALWARE-002",
       "name": "Ensure notifications for internal users sending malware is Enabled",
       "category": "ANTIMALWARE",
@@ -37055,6 +37341,32 @@
         "cisa-scuba": {
           "controlId": "MS.INTUNE.1.3v1"
         }
+      }
+    },
+    {
+      "checkId": "AZ-MONITOR-002",
+      "name": "Activity Log Alert for Delete Policy Assignment",
+      "category": "AUDIT_LOGGING",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "MON-03",
+        "domain": "Continuous Monitoring",
+        "controlName": "Audit Log Review",
+        "controlDescription": "An enabled Activity Log Alert must exist for the Microsoft.Authorization/policyAssignments/delete operation to detect and respond to unauthorized removal of security policies."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AU.L2-3.3.5",
+          "title": "Correlate audit record review, analysis, and reporting processes"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Silent policy deletion can remove compliance guardrails without anyone noticing until the next audit."
       }
     },
     {
@@ -39103,6 +39415,32 @@
       }
     },
     {
+      "checkId": "AZ-NETWORK-003",
+      "name": "VMs with Public IP Addresses",
+      "category": "NETWORK_SECURITY",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": false,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "NET-01",
+        "domain": "Network Security",
+        "controlName": "Network Architecture",
+        "controlDescription": "VMs with public IP addresses must each have an associated NSG. Review all public-IP VMs to verify the exposure is intentional and protected."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.1",
+          "title": "Monitor, control, and protect organizational communications"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Public IPs without NSGs expose the VM attack surface directly to the internet."
+      }
+    },
+    {
       "checkId": "CA-NAMEDLOC-001",
       "name": "Trusted IP-based named locations susceptible to spoofing",
       "category": "NAMEDLOC",
@@ -39270,6 +39608,110 @@
         "severity": "High",
         "rationale": "Failure to treat all users and devices as potential threats and prevent access to data and resources until the users can be properly authenticated and their access authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of.",
         "scfWeighting": 8
+      }
+    },
+    {
+      "checkId": "AZ-NETWORK-001",
+      "name": "NSG Allows RDP from Internet",
+      "category": "NETWORK_SECURITY",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "NET-03",
+        "domain": "Network Security",
+        "controlName": "Boundary Protection",
+        "controlDescription": "Network Security Groups must not allow inbound RDP (TCP 3389) from any internet source (0.0.0.0/0, *, or Internet). Unrestricted RDP exposure is a primary vector for brute-force and ransomware attacks."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.1",
+          "title": "Monitor, control, and protect organizational communications"
+        }
+      },
+      "impactRating": {
+        "severity": "Critical",
+        "rationale": "Internet-exposed RDP is consistently exploited for ransomware deployment and lateral movement."
+      }
+    },
+    {
+      "checkId": "AZ-NETWORK-002",
+      "name": "NSG Allows SSH from Internet",
+      "category": "NETWORK_SECURITY",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "NET-03",
+        "domain": "Network Security",
+        "controlName": "Boundary Protection",
+        "controlDescription": "Network Security Groups must not allow inbound SSH (TCP 22) from any internet source. Unrestricted SSH exposure enables brute-force credential attacks against Linux VMs."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.1",
+          "title": "Monitor, control, and protect organizational communications"
+        }
+      },
+      "impactRating": {
+        "severity": "Critical",
+        "rationale": "Internet-exposed SSH is a top attack vector for Linux VM compromise and cryptomining deployments."
+      }
+    },
+    {
+      "checkId": "AZ-SQL-003",
+      "name": "SQL Server Firewall Rules Not Overly Permissive",
+      "category": "NETWORK_SECURITY",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "NET-03",
+        "domain": "Network Security",
+        "controlName": "Boundary Protection",
+        "controlDescription": "Azure SQL Server firewall rules must not allow unrestricted access from all Azure services (0.0.0.0-0.0.0.0) or from the entire internet (0.0.0.0-255.255.255.255)."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.1",
+          "title": "Monitor, control, and protect organizational communications"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Overly broad SQL firewall rules expose the database server to unauthorized connection attempts from anywhere in Azure or the internet."
+      }
+    },
+    {
+      "checkId": "AZ-AKS-002",
+      "name": "AKS Network Policy Configured",
+      "category": "NETWORK_SECURITY",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "NET-03",
+        "domain": "Network Security",
+        "controlName": "Boundary Protection",
+        "controlDescription": "AKS clusters must have a network policy (Azure or Calico) configured to control pod-to-pod traffic and enforce microsegmentation within the cluster."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.1",
+          "title": "Monitor, control, and protect organizational communications"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Without network policies, a compromised pod can communicate freely with all other pods, enabling lateral movement."
       }
     },
     {
@@ -47684,6 +48126,32 @@
       }
     },
     {
+      "checkId": "AZ-VM-002",
+      "name": "Endpoint Protection Extension on All VMs",
+      "category": "ENDPOINT_SECURITY",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "END-04",
+        "domain": "Endpoint Security",
+        "controlName": "Malicious Code Protection",
+        "controlDescription": "All virtual machines must have an endpoint protection extension installed (Microsoft Antimalware or Microsoft Defender for Endpoint) to detect and prevent malicious code execution."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SI.L2-3.14.2",
+          "title": "Provide protection from malicious code at appropriate locations within organizational systems"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "VMs without endpoint protection are undefended against malware, ransomware, and fileless attacks."
+      }
+    },
+    {
       "checkId": "INTUNE-UPDATE-001",
       "name": "Windows Update Ring Configuration",
       "category": "UPDATE",
@@ -50263,6 +50731,84 @@
       }
     },
     {
+      "checkId": "AZ-KEYVAULT-001",
+      "name": "Key Vault Soft Delete Enabled",
+      "category": "DATA_PROTECTION",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-02",
+        "domain": "Cryptographic Protections",
+        "controlName": "Key Management",
+        "controlDescription": "Azure Key Vaults must have soft delete enabled to allow recovery of accidentally or maliciously deleted secrets, keys, and certificates within the retention period."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.10",
+          "title": "Employ FIPS-validated cryptography"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Without soft delete, a deleted Key Vault permanently destroys all cryptographic material, potentially causing application outages."
+      }
+    },
+    {
+      "checkId": "AZ-KEYVAULT-002",
+      "name": "Key Vault Purge Protection Enabled",
+      "category": "DATA_PROTECTION",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-02",
+        "domain": "Cryptographic Protections",
+        "controlName": "Key Management",
+        "controlDescription": "Azure Key Vaults must have purge protection enabled to prevent permanent deletion during the soft-delete retention period, protecting against ransomware-style attacks targeting cryptographic material."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.10",
+          "title": "Employ FIPS-validated cryptography"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Without purge protection, an attacker with Key Vault delete permissions can permanently destroy all secrets, keys, and certificates."
+      }
+    },
+    {
+      "checkId": "AZ-KEYVAULT-003",
+      "name": "Key Vault Keys and Secrets Expiry Configured",
+      "category": "CREDENTIAL_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-02",
+        "domain": "Cryptographic Protections",
+        "controlName": "Key Management",
+        "controlDescription": "Cryptographic keys and secrets stored in Azure Key Vault must have expiry dates configured to enforce key rotation and reduce the window of exposure if a key is compromised."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "IA.L2-3.5.10",
+          "title": "Store and transmit only cryptographically-protected passwords"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Keys without expiry never rotate, allowing long-term exploitation of any compromise without detection."
+      }
+    },
+    {
       "checkId": "DNS-DKIM-001",
       "name": "Ensure that DKIM is enabled for all Exchange Online Domains",
       "category": "DKIM",
@@ -50578,6 +51124,136 @@
         "severity": "High",
         "rationale": "Failure to implement this control may expose the tenant to security risks.",
         "scfWeighting": 10
+      }
+    },
+    {
+      "checkId": "AZ-STORAGE-002",
+      "name": "Storage Account HTTPS-Only Traffic",
+      "category": "ENCRYPTION_IN_TRANSIT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-03",
+        "domain": "Cryptographic Protections",
+        "controlName": "Encryption in Transit",
+        "controlDescription": "All storage accounts must enforce HTTPS-only traffic to protect data in transit. HTTP connections must be rejected to prevent interception of data or credentials."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.8",
+          "title": "Implement cryptographic mechanisms to prevent unauthorized disclosure"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Unencrypted HTTP transfers can expose storage access keys and data to network-level interception."
+      }
+    },
+    {
+      "checkId": "AZ-STORAGE-003",
+      "name": "Storage Account Minimum TLS Version",
+      "category": "ENCRYPTION_IN_TRANSIT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-03",
+        "domain": "Cryptographic Protections",
+        "controlName": "Encryption in Transit",
+        "controlDescription": "Storage accounts must enforce TLS 1.2 as the minimum version. TLS 1.0 and 1.1 have known vulnerabilities (POODLE, BEAST) that can be exploited to decrypt communications."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.8",
+          "title": "Implement cryptographic mechanisms to prevent unauthorized disclosure"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "TLS 1.0/1.1 vulnerabilities allow downgrade attacks against storage communications."
+      }
+    },
+    {
+      "checkId": "AZ-STORAGE-001",
+      "name": "Storage Account Anonymous Blob Access",
+      "category": "DATA_PROTECTION",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-04",
+        "domain": "Cryptographic Protections",
+        "controlName": "Encryption at Rest",
+        "controlDescription": "Storage accounts must not allow anonymous (unauthenticated) access to blob containers. Public blob access exposes potentially sensitive data to the internet without any authentication."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.3",
+          "title": "Employ architectural designs and implement security functionality"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Public blob containers have caused numerous data breaches through accidental exposure of sensitive files."
+      }
+    },
+    {
+      "checkId": "AZ-VM-001",
+      "name": "Azure Disk Encryption Extension on All VMs",
+      "category": "ENCRYPTION_AT_REST",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-04",
+        "domain": "Cryptographic Protections",
+        "controlName": "Encryption at Rest",
+        "controlDescription": "All virtual machines must have the Azure Disk Encryption extension installed and in a Succeeded provisioning state to protect OS and data disks with BitLocker (Windows) or dm-crypt (Linux)."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.16",
+          "title": "Protect the confidentiality of CUI at rest"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Unencrypted VM disks expose CUI if the underlying hardware is repurposed or physically accessed."
+      }
+    },
+    {
+      "checkId": "AZ-SQL-001",
+      "name": "SQL Database Transparent Data Encryption",
+      "category": "ENCRYPTION_AT_REST",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "CRY-04",
+        "domain": "Cryptographic Protections",
+        "controlName": "Encryption at Rest",
+        "controlDescription": "All Azure SQL databases (excluding system databases) must have Transparent Data Encryption enabled to protect database files, log files, and backups at rest."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.16",
+          "title": "Protect the confidentiality of CUI at rest"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Unencrypted SQL databases expose CUI stored in database files and backups."
       }
     },
     {
@@ -50968,6 +51644,58 @@
         "severity": "High",
         "rationale": "Failure to perform routine vulnerability scanning leaves known vulnerabilities undetected, allowing attackers to exploit outdated software and misconfigurations across managed endpoints.",
         "scfWeighting": 9
+      }
+    },
+    {
+      "checkId": "AZ-DEFENDER-001",
+      "name": "Defender for Cloud Plans Enabled",
+      "category": "VULNERABILITY_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "VUL-01",
+        "domain": "Vulnerability & Patch Management",
+        "controlName": "Vulnerability Management",
+        "controlDescription": "Microsoft Defender for Cloud paid plans (Servers, Databases, Storage, etc.) must be enabled to provide threat detection, vulnerability assessment, and security recommendations for CUI-handling workloads."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "RA.L2-3.11.2",
+          "title": "Scan for vulnerabilities in organizational systems"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Without paid Defender plans, threat detection and vulnerability scanning are absent for critical workloads."
+      }
+    },
+    {
+      "checkId": "AZ-DEFENDER-002",
+      "name": "Defender for Cloud Secure Score Threshold",
+      "category": "VULNERABILITY_MANAGEMENT",
+      "collector": "AzAssess",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "AzureSubscription"
+      },
+      "scf": {
+        "primaryControlId": "VUL-01",
+        "domain": "Vulnerability & Patch Management",
+        "controlName": "Vulnerability Management",
+        "controlDescription": "The Defender for Cloud Secure Score must meet a minimum threshold (>=50%) to indicate that foundational security recommendations have been addressed across the subscription."
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "RA.L2-3.11.2",
+          "title": "Scan for vulnerabilities in organizational systems"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "A low secure score indicates widespread unresolved security findings that increase risk of compromise."
       }
     }
   ]
