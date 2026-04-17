@@ -135,12 +135,25 @@ def load_framework_mappings(
 
 
 # ---------------------------------------------------------------------------
-# CIS M365 crosswalk loader
+# CIS M365 crosswalk and SCuBA NIST loaders
 # ---------------------------------------------------------------------------
 
 def load_cis_m365_crosswalk(repo_root: Path) -> dict:
-    """{cisId: {title, nist800_53: [...], fedramp: {high, moderate, low}}} or {} if absent."""
+    """{cisId: {title, nist800_53: [...], ...}} or {} if absent."""
     path = repo_root / "data" / "cis-m365-crosswalk.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data.get("controls", {})
+
+
+def load_scuba_nist_mapping(repo_root: Path) -> dict:
+    """{base_scuba_id: [nist_ids]} or {} if absent.
+
+    Keys are version-stripped (e.g. 'MS.AAD.3.2') so they match regardless
+    of which policy version the registry stores.
+    """
+    path = repo_root / "data" / "scuba-nist-mapping.json"
     if not path.exists():
         return {}
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -536,10 +549,13 @@ def main():
         fw_overrides = overrides_data.get("overrides", {})
         print(f"Loaded {len(fw_overrides)} framework overrides")
 
-    # Load CIS M365 crosswalk (authoritative NIST + FedRAMP source for CIS-mapped checks)
+    # Load CIS M365 and SCuBA NIST sources
     cis_crosswalk = load_cis_m365_crosswalk(REPO_ROOT)
     if cis_crosswalk:
         print(f"Loaded CIS M365 crosswalk ({len(cis_crosswalk)} controls)")
+    scuba_nist = load_scuba_nist_mapping(REPO_ROOT)
+    if scuba_nist:
+        print(f"Loaded SCuBA NIST mapping ({len(scuba_nist)} policies)")
 
     # Connect to SCF database
     print(f"Connecting to SCF database at {args.scf_db}")
@@ -608,26 +624,30 @@ def main():
                 cis_entry["profiles"] = cis_profiles
             frameworks["cis-m365-v6"] = cis_entry
 
-        # Enrich NIST 800-53 and FedRAMP from CIS M365 authoritative crosswalk.
-        # CIS IDs are placed first (benchmark-specific); SCF-derived IDs are appended
-        # if not already present (union strategy).
-        cis_data = cis_crosswalk.get(cis_id, {}) if cis_id else {}
-        if cis_data:
-            cis_nist = cis_data.get("nist800_53", [])
-            if cis_nist and "nist-800-53" in frameworks:
-                frameworks["nist-800-53"]["controlId"] = merge_control_ids(
-                    cis_nist, frameworks["nist-800-53"].get("controlId", "")
-                )
-                new_title = resolve_title(frameworks["nist-800-53"]["controlId"], "nist-800-53", titles)
-                if new_title:
-                    frameworks["nist-800-53"]["title"] = new_title
+        # Enrich NIST 800-53 from M365-specific authoritative sources.
+        # Priority: SCuBA (CISA, FedRAMP High) > CIS transitive path > SCF.
+        # Each source adds IDs not already present; SCF-derived IDs stay as supplement.
+        scuba_id_raw = cm.get("cisaScubaControlId", "")
+        scuba_nist_ids: list[str] = []
+        if scuba_id_raw:
+            seen: set[str] = set()
+            for sid in (s.strip() for s in scuba_id_raw.split(";") if s.strip()):
+                base = re.sub(r'v\d+$', '', sid)
+                for nid in scuba_nist.get(base, []):
+                    if nid not in seen:
+                        seen.add(nid)
+                        scuba_nist_ids.append(nid)
 
-            fedramp_cis = cis_data.get("fedramp", {})
-            if fedramp_cis and "fedramp" in frameworks:
-                order = ["Low", "Moderate", "High"]
-                profiles = [lvl for lvl in order if fedramp_cis.get(lvl.lower())]
-                if profiles:
-                    frameworks["fedramp"]["profiles"] = profiles
+        cis_nist_ids = cis_crosswalk.get(cis_id, {}).get("nist800_53", []) if cis_id else []
+
+        combined = scuba_nist_ids + [x for x in cis_nist_ids if x not in scuba_nist_ids]
+        if combined and "nist-800-53" in frameworks:
+            frameworks["nist-800-53"]["controlId"] = merge_control_ids(
+                combined, frameworks["nist-800-53"].get("controlId", "")
+            )
+            new_title = resolve_title(frameworks["nist-800-53"]["controlId"], "nist-800-53", titles)
+            if new_title:
+                frameworks["nist-800-53"]["title"] = new_title
 
         scuba_id = cm.get("cisaScubaControlId", "")
         if scuba_id:

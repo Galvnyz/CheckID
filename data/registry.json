@@ -854,8 +854,8 @@
           "controlId": "3.1.1;3.1.2;3.5.1;3.5.2"
         },
         "nist-800-53": {
-          "controlId": "AC-02;AC-03;AC-05;IA-02;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Information Input Validation",
+          "controlId": "CM-7;AC-02;AC-03;AC-05;IA-02;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Least Functionality; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -1221,12 +1221,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "IA-02;IA-02(01);IA-02(02);IA-02(08);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-02;IA-02(01);IA-02(02);IA-02(08);IA-05;IA-05(01)"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(i)"
@@ -1247,14 +1242,14 @@
           "controlId": "3.1.1;3.5.1;3.5.2;3.5.3;3.5.4;3.5.8;3.5.9;3.7.5"
         },
         "nist-800-53": {
-          "controlId": "IA-2(1);IA-2(8);IA-5;IA-02;IA-02(01);IA-02(02);IA-02(08);IA-05;IA-05(01)",
+          "controlId": "IA-2(1);IA-2(2);IA-5;IA-2(8);IA-02;IA-02(01);IA-02(02);IA-02(08);IA-05;IA-05(01)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Multi-factor Authentication to Privileged Accounts; Access to Accounts — Replay Resistant; Authenticator Management"
+          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Authenticator Management; Access to Accounts — Replay Resistant"
         },
         "nist-csf": {
           "controlId": "PR.AA-01;PR.AA-03;PR.AA-04;PR.AA-05",
@@ -1418,12 +1413,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "IA-02;IA-02(01);IA-02(02);IA-02(08);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-02;IA-02(01);IA-02(02);IA-02(08);IA-05;IA-05(01)"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(i)"
@@ -1444,14 +1434,14 @@
           "controlId": "3.1.1;3.5.1;3.5.2;3.5.3;3.5.4;3.5.8;3.5.9;3.7.5"
         },
         "nist-800-53": {
-          "controlId": "IA-2(1);IA-2(13);IA-2(2);IA-2(8);IA-5;IA-02;IA-02(01);IA-02(02);IA-02(08);IA-02(13);IA-05;IA-05(01)",
+          "controlId": "CM-7;IA-5;AC-19;IA-2(1);IA-2(2);IA-02;IA-02(01);IA-02(02);IA-02(08);IA-02(13);IA-05;IA-05(01)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Multi-factor Authentication to Privileged Accounts; Out-of-band Authentication; Multi-factor Authentication to Non-privileged Accounts; Access to Accounts — Replay Resistant; Authenticator Management"
+          "title": "Least Functionality; Authenticator Management; Access Control for Mobile Devices; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts"
         },
         "nist-csf": {
           "controlId": "PR.AA-01;PR.AA-03;PR.AA-04;PR.AA-05",
@@ -1601,12 +1591,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii)"
@@ -1624,8 +1609,8 @@
           "controlId": "3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2;IA-8;AC-02;AC-03;AC-05;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Identification and Authentication (Non-organizational Users); Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -1779,12 +1764,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;ACL2.-3.1.2;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii)"
@@ -1802,8 +1782,8 @@
           "controlId": "3.1.1;3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-3;IA-8;AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Access Enforcement; Identification and Authentication (Non-organizational Users); Information Input Validation",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -1957,12 +1937,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;ACL2.-3.1.2;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii)"
@@ -1980,8 +1955,8 @@
           "controlId": "3.1.1;3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-3;IA-8;AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Access Enforcement; Identification and Authentication (Non-organizational Users); Information Input Validation",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-02;AC-03;AC-05;AC-06;IA-08;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -2375,12 +2350,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -2398,14 +2368,14 @@
           "controlId": "3.5.3;3.5.8;3.5.9;3.7.5"
         },
         "nist-800-53": {
-          "controlId": "IA-2(1);IA-2(2);IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
+          "controlId": "IA-2(1);IA-2(2);IA-5;IA-2(8);IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts"
+          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Authenticator Management; Access to Accounts — Replay Resistant"
         },
         "pci-dss": {
           "controlId": "8.2.3;8.2.4;8.3;8.3.1;8.3.10.1;8.3.11;8.3.3;8.3.5;8.3.7;8.3.9;8.4;8.4.1;8.4.2;8.4.3;8.5.1;8.6.3"
@@ -2565,12 +2535,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -2588,14 +2553,14 @@
           "controlId": "3.5.3;3.5.8;3.5.9;3.7.5"
         },
         "nist-800-53": {
-          "controlId": "IA-2(1);IA-2(2);IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
+          "controlId": "IA-2(1);IA-2(2);IA-5;IA-2(8);IA-2(13);IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts"
+          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Authenticator Management; Access to Accounts — Replay Resistant; Out-of-band Authentication"
         },
         "pci-dss": {
           "controlId": "8.2.3;8.2.4;8.3;8.3.1;8.3.10.1;8.3.11;8.3.3;8.3.5;8.3.7;8.3.9;8.4;8.4.1;8.4.2;8.4.3;8.5.1;8.6.3"
@@ -2755,12 +2720,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "AC-02(05);AC-11;IA-02(01);IA-02(02);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02(05);AC-11;IA-02(01);IA-02(02);IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -2778,8 +2738,8 @@
           "controlId": "3.1.10;3.5.3;3.5.8;3.5.9;3.7.5"
         },
         "nist-800-53": {
-          "controlId": "AC-11;IA-2(1);AC-02(05);IA-02(01);IA-02(02);IA-05;IA-05(01)",
-          "title": "Device Lock; Multi-factor Authentication to Privileged Accounts",
+          "controlId": "AC-20;IA-3;IA-2(1);IA-2(2);AC-02(05);AC-11;IA-02(01);IA-02(02);IA-05;IA-05(01)",
+          "title": "Use of External Systems; Device Identification and Authentication; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Device Lock",
           "profiles": [
             "Low",
             "Moderate",
@@ -2942,12 +2902,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -3126,12 +3081,7 @@
           "controlId": "ML1-P3;ML2-P3;ML3-P3"
         },
         "fedramp": {
-          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-02(01);IA-02(02);IA-02(06);IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -4201,11 +4151,12 @@
           "controlId": "3.1.1;3.1.2;3.1.3"
         },
         "nist-800-53": {
-          "controlId": "AC-02(07);AC-06(07)",
+          "controlId": "AC-5;AC-02(07);AC-06(07)",
           "profiles": [
             "Moderate",
             "High"
-          ]
+          ],
+          "title": "Separation of Duties"
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
@@ -4370,12 +4321,7 @@
           "controlId": "IAL2.-3.5.7;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -4576,12 +4522,7 @@
           "controlId": "IAL2.-3.5.7;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -4779,12 +4720,7 @@
           "controlId": "IAL2.-3.5.7;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -4982,12 +4918,7 @@
           "controlId": "IAL2.-3.5.7;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -5002,14 +4933,13 @@
           "controlId": "3.5.7;3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "IA-5(1);IA-05;IA-05(01)",
+          "controlId": "IA-05;IA-05(01)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
-          ],
-          "title": "Password-based Authentication"
+          ]
         },
         "pci-dss": {
           "controlId": "8.2.4;8.3;8.3.1;8.3.10.1;8.3.11;8.3.3;8.3.5;8.3.6;8.3.7;8.3.9;8.6.3"
@@ -5296,12 +5226,7 @@
           "controlId": "IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18"
@@ -5316,14 +5241,14 @@
           "controlId": "3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "IA-5;IA-05;IA-05(01);IA-05(05)",
+          "controlId": "AC-2(1);AC-3;IA-05;IA-05(01);IA-05(05)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Authenticator Management"
+          "title": "Automated System Account Management; Access Enforcement"
         },
         "pci-dss": {
           "controlId": "2.2.2;2.3.1;6.5.2;8.2.4;8.3;8.3.1;8.3.10.1;8.3.11;8.3.3;8.3.5;8.3.7;8.3.9;8.6.3"
@@ -5753,12 +5678,7 @@
       },
       "frameworks": {
         "fedramp": {
-          "controlId": "IA-11",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "IA-11"
         },
         "mitre-attack": {
           "controlId": "T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1556.006;T1556.007"
@@ -6348,12 +6268,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;ACL2.-3.1.2;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii)"
@@ -6371,8 +6286,8 @@
           "controlId": "3.1.1;3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-3;AC-02;AC-03;AC-05;AC-06;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Access Enforcement; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -6733,12 +6648,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-08;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-08;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii)"
@@ -6756,8 +6666,8 @@
           "controlId": "3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2;SI-8;AC-02;AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-08;SI-10",
-          "title": "Account Management; Spam Protection; Information Input Validation",
+          "controlId": "SC-8;SC-7;AC-02;AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-08;SI-10",
+          "title": "Transmission Confidentiality and Integrity; Boundary Protection; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -7125,12 +7035,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.308(a)(3)(ii)(C);164.312(a)(1);164.312(a)(2)(ii)"
@@ -7148,8 +7053,8 @@
           "controlId": "3.1.1;3.1.2;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-6;AC-02;AC-03;AC-05;AC-06;IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Least Privilege; Information Input Validation",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-02;AC-03;AC-05;AC-06;IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -7513,12 +7418,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(01);IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(01);IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.308(a)(3)(ii)(C);164.312(a)(1);164.312(a)(2)(ii)"
@@ -7536,8 +7436,8 @@
           "controlId": "3.1.2;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-6(1);AC-02;AC-03;AC-05;AC-06;AC-06(01);IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Authorize Access to Security Functions; Information Input Validation",
+          "controlId": "AC-2;AC-2(1);IA-4;IA-5;AC-1;AC-02;AC-03;AC-05;AC-06;AC-06(01);IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Automated System Account Management; Identifier Management; Authenticator Management; Policy and Procedures; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -7924,8 +7824,8 @@
           "controlId": "3.1.2;3.5.6"
         },
         "nist-800-53": {
-          "controlId": "AC-02;AC-02(03);AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Information Input Validation",
+          "controlId": "AC-2;AC-02;AC-02(03);AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -9127,11 +9027,7 @@
           "controlId": "ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(01);AC-02(03)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(01);AC-02(03)"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(ii)"
@@ -9149,14 +9045,14 @@
           "controlId": "3.1.1;3.1.2;3.5.1;3.5.2;3.5.6"
         },
         "nist-800-53": {
-          "controlId": "AC-2(1);AC-2(3);AC-02;AC-02(01);AC-02(03)",
+          "controlId": "AC-6(5);AC-2;AC-2(3);AC-02;AC-02(01);AC-02(03)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Automated System Account Management; Disable Accounts"
+          "title": "Privileged Accounts; Account Management; Disable Accounts"
         },
         "pci-dss": {
           "controlId": "8.2.4;8.2.6;8.3.10;8.6;8.6.1"
@@ -9291,11 +9187,7 @@
           "controlId": "ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(01);AC-02(03)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(01);AC-02(03)"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(ii)"
@@ -9313,14 +9205,14 @@
           "controlId": "3.1.1;3.1.2;3.5.1;3.5.2;3.5.6"
         },
         "nist-800-53": {
-          "controlId": "AC-2(1);AC-2(3);AC-02;AC-02(01);AC-02(03)",
+          "controlId": "AC-6(5);AC-2;AC-2(3);AC-02;AC-02(01);AC-02(03)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Automated System Account Management; Disable Accounts"
+          "title": "Privileged Accounts; Account Management; Disable Accounts"
         },
         "pci-dss": {
           "controlId": "8.2.4;8.2.6;8.3.10;8.6;8.6.1"
@@ -9473,12 +9365,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(02);AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(02);AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii)"
@@ -9496,8 +9383,8 @@
           "controlId": "3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-2(2);AC-02;AC-02(02);AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Automated Temporary and Emergency Account Management; Information Input Validation",
+          "controlId": "AC-2;AC-02;AC-02(02);AC-03;AC-05;IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -9664,11 +9551,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(02);CP-01;CP-02;CP-10;IR-04(03);PM-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(02);CP-01;CP-02;CP-10;IR-04(03);PM-08"
         },
         "gdpr": {
           "controlId": "Article 32.1(c)"
@@ -9692,8 +9575,8 @@
           "controlId": "3.1.2"
         },
         "nist-800-53": {
-          "controlId": "AC-6;AC-6(5);AC-02;AC-02(02);CP-01;CP-02;CP-10;IR-04(03);PM-08",
-          "title": "Least Privilege; Privileged Accounts; System Recovery and Reconstitution",
+          "controlId": "CM-7;AC-6(2);AC-6(5);AC-02;AC-02(02);CP-01;CP-02;CP-10;IR-04(03);PM-08",
+          "title": "Least Functionality; Non-privileged Access for Nonsecurity Functions; Privileged Accounts; System Recovery and Reconstitution",
           "profiles": [
             "Low",
             "Moderate",
@@ -10865,12 +10748,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18"
@@ -10885,8 +10763,8 @@
           "controlId": "3.1.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Information Input Validation",
+          "controlId": "AC-6(10);IA-4;IA-5;AC-1;AC-2;AC-2(1);AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Identifier Management; Authenticator Management; Policy and Procedures; Account Management; Automated System Account Management; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -11276,12 +11154,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18"
@@ -11296,8 +11169,8 @@
           "controlId": "3.1.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -11684,12 +11557,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18"
@@ -11704,8 +11572,8 @@
           "controlId": "3.1.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Information Input Validation",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -12262,12 +12130,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -12285,8 +12148,8 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6;AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Least Privilege; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -12468,12 +12331,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -12491,8 +12349,8 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6;AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Least Privilege; Information Input Validation",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -12675,12 +12533,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -12698,8 +12551,8 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "CM-6;IA-2(1);IA-2(2);AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Configuration Settings; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Information Input Validation",
+          "controlId": "IA-2(1);IA-2(2);IA-5;IA-2(8);AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Authenticator Management; Access to Accounts — Replay Resistant; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -12879,12 +12732,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -12902,8 +12750,8 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6;AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Least Privilege; Information Input Validation",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-02;AC-03;AC-05;AC-06;SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -13067,11 +12915,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -13089,14 +12933,14 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6;AC-03;AC-06;SA-08(14)",
+          "controlId": "AC-6;IA-4;IA-5;AC-1;AC-2;AC-2(1);AC-03;AC-06;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege"
+          "title": "Least Privilege; Identifier Management; Authenticator Management; Policy and Procedures; Account Management; Automated System Account Management"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -13260,11 +13104,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -13282,14 +13122,14 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6;AC-03;AC-06;SA-08(14)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-03;AC-06;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -13447,11 +13287,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -13469,14 +13305,13 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6;AC-03;AC-06;SA-08(14)",
+          "controlId": "AC-03;AC-06;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
-          ],
-          "title": "Least Privilege"
+          ]
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -13635,11 +13470,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(01)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(01)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -13657,13 +13488,13 @@
           "controlId": "3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6(1);AC-06;AC-06(01);SA-08(14)",
+          "controlId": "AC-6(9);IA-4;IA-5;AC-1;AC-2;AC-2(1);AC-06;AC-06(01);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Authorize Access to Security Functions"
+          "title": "Log Use of Privileged Functions; Identifier Management; Authenticator Management; Policy and Procedures; Account Management; Automated System Account Management"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -13824,11 +13655,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(01)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(01)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -13846,13 +13673,13 @@
           "controlId": "3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6(1);AC-06;AC-06(01);SA-08(14)",
+          "controlId": "AC-6(9);IA-4;IA-5;AC-1;AC-2;AC-2(1);AC-06;AC-06(01);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Authorize Access to Security Functions"
+          "title": "Log Use of Privileged Functions; Identifier Management; Authenticator Management; Policy and Procedures; Account Management; Automated System Account Management"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -15623,12 +15450,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.308(a)(3)(ii)(C);164.312(a)(1);164.312(a)(2)(ii)"
@@ -15646,8 +15468,8 @@
           "controlId": "3.1.2;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-6(5);AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Privileged Accounts; Information Input Validation",
+          "controlId": "AC-2;AC-6(2);AC-6(5);AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Non-privileged Access for Nonsecurity Functions; Privileged Accounts; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -15813,12 +15635,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.308(a)(3)(ii)(C);164.312(a)(1);164.312(a)(2)(ii)"
@@ -15836,8 +15653,8 @@
           "controlId": "3.1.2;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-2;AC-6(5);AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Account Management; Privileged Accounts; Information Input Validation",
+          "controlId": "AC-2;AC-6(2);AC-6(5);AC-02;AC-03;AC-05;AC-06;AC-06(05);IA-12(04);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Non-privileged Access for Nonsecurity Functions; Privileged Accounts; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -15971,11 +15788,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -15993,13 +15806,13 @@
           "controlId": "3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6(5);AC-06;AC-06(05);SA-08(14)",
+          "controlId": "AC-6(5);AC-2;AC-06;AC-06(05);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Privileged Accounts"
+          "title": "Privileged Accounts; Account Management"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -16140,11 +15953,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;AC-06(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;AC-06(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -16162,14 +15971,14 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-6;AC-6(5);AC-03;AC-06;AC-06(05);SA-08(14)",
+          "controlId": "AC-6(2);AC-6(5);AC-03;AC-06;AC-06(05);SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Privileged Accounts"
+          "title": "Non-privileged Access for Nonsecurity Functions; Privileged Accounts"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -16322,12 +16131,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -16345,8 +16149,8 @@
           "controlId": "3.1.1;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6(5);AC-02;AC-03;AC-05;AC-06;AC-06(05);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Privileged Accounts; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(05);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -16488,12 +16292,7 @@
           "controlId": "ML1-P4;ML1-P6;ML1-P7;ML2-P4;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-15(05)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-15(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1);164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -16514,8 +16313,8 @@
           "controlId": "3.1.5;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "AC-6(5);CM-6;AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-08(14);SA-15(05)",
-          "title": "Privileged Accounts; Configuration Settings; Baseline Selection",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-08(14);SA-15(05)",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -16657,12 +16456,7 @@
           "controlId": "ML1-P4;ML1-P6;ML1-P7;ML2-P4;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-15(05)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-15(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1);164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -16683,8 +16477,8 @@
           "controlId": "3.1.5;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "AC-6(5);CM-6;AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-08(14);SA-15(05)",
-          "title": "Privileged Accounts; Configuration Settings; Baseline Selection",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-06;AC-06(05);CM-02;CM-06;PL-10;SA-08;SA-08(14);SA-15(05)",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -16825,11 +16619,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-04;AC-06;AC-06(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;AC-06;AC-06(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -16847,13 +16637,13 @@
           "controlId": "3.1.3;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-4;AC-6(5);AC-04;AC-06;AC-06(05);SA-08(14)",
+          "controlId": "CM-6;CM-7;AC-04;AC-06;AC-06(05);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Information Flow Enforcement; Privileged Accounts"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -16987,11 +16777,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-04;AC-06;AC-06(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;AC-06;AC-06(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -17009,13 +16795,13 @@
           "controlId": "3.1.3;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-4;AC-6(5);AC-04;AC-06;AC-06(05);SA-08(14)",
+          "controlId": "CM-6;CM-7;AC-04;AC-06;AC-06(05);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Information Flow Enforcement; Privileged Accounts"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -17145,11 +16931,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-04;AC-06;AC-06(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;AC-06;AC-06(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -17167,13 +16949,13 @@
           "controlId": "3.1.3;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-4;AC-6(5);AC-04;AC-06;AC-06(05);SA-08(14)",
+          "controlId": "CM-6;CM-7;AC-04;AC-06;AC-06(05);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Information Flow Enforcement; Privileged Accounts"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -17303,11 +17085,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-04;AC-06;AC-06(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;AC-06;AC-06(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -17325,13 +17103,13 @@
           "controlId": "3.1.3;3.1.5"
         },
         "nist-800-53": {
-          "controlId": "AC-4;AC-6(5);AC-04;AC-06;AC-06(05);SA-08(14)",
+          "controlId": "CM-6;CM-7;AC-04;AC-06;AC-06(05);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Information Flow Enforcement; Privileged Accounts"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -18604,11 +18382,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -18626,13 +18400,13 @@
           "controlId": "3.1.5;3.1.7"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);AC-06;AC-06(10);SA-08(14)",
+          "controlId": "AC-3;IA-4;IA-5;AC-1;AC-2;AC-2(1);AC-06;AC-06(10);SA-08(14)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions"
+          "title": "Access Enforcement; Identifier Management; Authenticator Management; Policy and Procedures; Account Management; Automated System Account Management"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10",
@@ -18796,12 +18570,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(10);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(10);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -18819,8 +18588,8 @@
           "controlId": "3.1.1;3.1.5;3.1.7"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6(10);AC-02;AC-03;AC-05;AC-06;AC-06(10);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prohibit Non-privileged Users from Executing Privileged Functions; Information Input Validation",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-02;AC-03;AC-05;AC-06;AC-06(10);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -18987,12 +18756,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(10);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(10);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -19010,8 +18774,8 @@
           "controlId": "3.1.1;3.1.5;3.1.7"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6(10);AC-02;AC-03;AC-05;AC-06;AC-06(10);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prohibit Non-privileged Users from Executing Privileged Functions; Information Input Validation",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-02;AC-03;AC-05;AC-06;AC-06(10);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -19178,12 +18942,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(10);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-06(10);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -19201,8 +18960,8 @@
           "controlId": "3.1.1;3.1.5;3.1.7"
         },
         "nist-800-53": {
-          "controlId": "AC-3;AC-6(10);AC-02;AC-03;AC-05;AC-06;AC-06(10);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prohibit Non-privileged Users from Executing Privileged Functions; Information Input Validation",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-02;AC-03;AC-05;AC-06;AC-06(10);SA-08(14);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -19370,13 +19129,14 @@
           "controlId": "3.1.5;3.1.7;3.4.6;3.4.8"
         },
         "nist-800-53": {
-          "controlId": "AC-06;AC-06(10);CM-07;CM-07(04);CM-07(05);SA-08(14);SC-18(04)",
+          "controlId": "IA-5(1);AC-06;AC-06(10);CM-07;CM-07(04);CM-07(05);SA-08(14);SC-18(04)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
-          ]
+          ],
+          "title": "Password-based Authentication"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -19886,11 +19646,7 @@
           "controlId": "ACL2.-3.1.10;ACL2.-3.1.11"
         },
         "fedramp": {
-          "controlId": "AC-02(05);AC-11;AC-12",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02(05);AC-11;AC-12"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii)"
@@ -19902,8 +19658,8 @@
           "controlId": "3.1.10;3.1.11"
         },
         "nist-800-53": {
-          "controlId": "AC-11;AC-12;AC-02(05)",
-          "title": "Device Lock; Session Termination",
+          "controlId": "AC-2(5);AC-11;AC-11(1);AC-12;AC-02(05)",
+          "title": "Inactivity Logout; Device Lock; Pattern-hiding Displays; Session Termination",
           "profiles": [
             "Moderate",
             "High"
@@ -20062,11 +19818,7 @@
           "controlId": "ACL2.-3.1.10;ACL2.-3.1.11"
         },
         "fedramp": {
-          "controlId": "AC-02(05);AC-11;AC-12",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02(05);AC-11;AC-12"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii)"
@@ -20078,8 +19830,8 @@
           "controlId": "3.1.10;3.1.11"
         },
         "nist-800-53": {
-          "controlId": "AC-11;AC-12;AC-02(05)",
-          "title": "Device Lock; Session Termination",
+          "controlId": "AC-2(5);AC-11;AC-11(1);AC-12;AC-02(05)",
+          "title": "Inactivity Logout; Device Lock; Pattern-hiding Displays; Session Termination",
           "profiles": [
             "Moderate",
             "High"
@@ -20237,11 +19989,7 @@
           "controlId": "ACL2.-3.1.10;ACL2.-3.1.11"
         },
         "fedramp": {
-          "controlId": "AC-02(05);AC-11;AC-12",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02(05);AC-11;AC-12"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii)"
@@ -20253,8 +20001,8 @@
           "controlId": "3.1.10;3.1.11"
         },
         "nist-800-53": {
-          "controlId": "AC-11;AC-12;AC-02(05)",
-          "title": "Device Lock; Session Termination",
+          "controlId": "AC-6(1);AC-2(5);AC-11;AC-11(1);AC-12;AC-02(05)",
+          "title": "Authorize Access to Security Functions; Inactivity Logout; Device Lock; Pattern-hiding Displays; Session Termination",
           "profiles": [
             "Moderate",
             "High"
@@ -20428,11 +20176,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2;PSL2.-3.9.2;SIL2.-3.14.7"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii);164.312(b);164.312(c)(2)"
@@ -20450,14 +20194,14 @@
           "controlId": "3.1.2;3.14.7;3.9.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2(12);AC-2(13);AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
+          "controlId": "AC-2(12);AC-2(13);SI-4;SI-4(4);AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Account Monitoring for Atypical Usage; Disable Accounts for High-risk Individuals"
+          "title": "Account Monitoring for Atypical Usage; Disable Accounts for High-risk Individuals; System Monitoring; Inbound and Outbound Communications Traffic"
         },
         "nist-csf": {
           "controlId": "DE.CM;DE.CM-03",
@@ -20629,11 +20373,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2;PSL2.-3.9.2;SIL2.-3.14.7"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii);164.312(b);164.312(c)(2)"
@@ -20651,14 +20391,14 @@
           "controlId": "3.1.2;3.14.7;3.9.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2(12);AC-2(13);AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
+          "controlId": "AC-2(12);AC-2(13);SI-4;SI-4(4);AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Account Monitoring for Atypical Usage; Disable Accounts for High-risk Individuals"
+          "title": "Account Monitoring for Atypical Usage; Disable Accounts for High-risk Individuals; System Monitoring; Inbound and Outbound Communications Traffic"
         },
         "nist-csf": {
           "controlId": "DE.CM;DE.CM-03",
@@ -20830,11 +20570,7 @@
           "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2;PSL2.-3.9.2;SIL2.-3.14.7"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(ii)(C);164.312(a)(2)(ii);164.312(b);164.312(c)(2)"
@@ -20852,14 +20588,14 @@
           "controlId": "3.1.2;3.14.7;3.9.2"
         },
         "nist-800-53": {
-          "controlId": "AC-2(12);AC-2(13);AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
+          "controlId": "AC-2(12);AC-2(13);SI-4;SI-4(4);AC-02;AC-02(12);AC-02(13);IR-04(13);PS-04;SI-04(11)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Account Monitoring for Atypical Usage; Disable Accounts for High-risk Individuals"
+          "title": "Account Monitoring for Atypical Usage; Disable Accounts for High-risk Individuals; System Monitoring; Inbound and Outbound Communications Traffic"
         },
         "nist-csf": {
           "controlId": "DE.CM;DE.CM-03",
@@ -21224,12 +20960,7 @@
           "controlId": "ATL2.-3.2.1"
         },
         "fedramp": {
-          "controlId": "AT-02",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AT-02"
         },
         "hipaa": {
           "controlId": "164.308(a)(5)(i);164.530(b)(2)(i);164.530(b)(2)(i)(A);164.530(b)(2)(i)(B);164.530(b)(2)(i)(C);164.530(b)(2)(ii)"
@@ -21241,14 +20972,13 @@
           "controlId": "3.2.1"
         },
         "nist-800-53": {
-          "controlId": "AT-2;AT-02",
+          "controlId": "AT-02",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
-          ],
-          "title": "Literacy Training and Awareness"
+          ]
         },
         "nist-csf": {
           "controlId": "PR.AT;PR.AT-01",
@@ -21412,12 +21142,7 @@
           "controlId": "ML1-P1;ML1-P2;ML1-P6;ML1-P7;ML2-P1;ML2-P2;ML2-P5;ML2-P6;ML2-P7;ML3-P1;ML3-P2;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;CM-08;PL-10;PM-05;SA-08;SA-15(05)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;CM-08;PL-10;PM-05;SA-08;SA-15(05)"
         },
         "hipaa": {
           "controlId": "164.310(d)(2)(iii);164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -21438,8 +21163,8 @@
           "controlId": "3.3.3;3.4.1;3.4.2;NFO - CM-8(5)"
         },
         "nist-800-53": {
-          "controlId": "CM-6;CM-8;CM-02;CM-06;CM-08;PL-10;PM-05;SA-08;SA-15(05)",
-          "title": "Configuration Settings; System Component Inventory; Baseline Selection",
+          "controlId": "CM-02;CM-06;CM-08;PL-10;PM-05;SA-08;SA-15(05)",
+          "title": "Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -23186,12 +22911,7 @@
           "controlId": "AC.L1-B.1.III;AC.L1-B.1.III[a];AC.L1-B.1.III[b];AC.L1-B.1.III[c];AC.L1-B.1.III[d];AC.L1-B.1.III[e];AC.L1-B.1.III[f];ACL2.-3.1.20;IA.L1-B.1.V;IA.L1-B.1.VI;IA.L3-3.5.1E;IAL2.-3.5.1;IAL2.-3.5.2"
         },
         "fedramp": {
-          "controlId": "AC-20;IA-03;IA-03(04)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-20;IA-03;IA-03(04)"
         },
         "iso-27001": {
           "controlId": "5.16"
@@ -23203,8 +22923,8 @@
           "controlId": "3.1.20;3.5.1;3.5.2"
         },
         "nist-800-53": {
-          "controlId": "AC-20;IA-3;IA-03;IA-03(01);IA-03(04)",
-          "title": "Use of External Systems; Device Identification and Authentication",
+          "controlId": "IA-2(1);IA-5;IA-2(8);IA-2(2);AC-20;IA-03;IA-03(01);IA-03(04)",
+          "title": "Multi-factor Authentication to Privileged Accounts; Authenticator Management; Access to Accounts — Replay Resistant; Multi-factor Authentication to Non-privileged Accounts; Use of External Systems",
           "profiles": [
             "Low",
             "Moderate",
@@ -23418,12 +23138,7 @@
           "controlId": "AC.L1-B.1.III;AC.L1-B.1.III[a];AC.L1-B.1.III[b];AC.L1-B.1.III[c];AC.L1-B.1.III[d];AC.L1-B.1.III[e];AC.L1-B.1.III[f];ACL2.-3.1.20;IA.L1-B.1.V;IA.L1-B.1.VI;IA.L3-3.5.1E;IAL2.-3.5.1;IAL2.-3.5.2"
         },
         "fedramp": {
-          "controlId": "AC-20;IA-03;IA-03(04)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-20;IA-03;IA-03(04)"
         },
         "iso-27001": {
           "controlId": "5.16"
@@ -23435,8 +23150,8 @@
           "controlId": "3.1.20;3.5.1;3.5.2"
         },
         "nist-800-53": {
-          "controlId": "AC-20;IA-3;IA-03;IA-03(01);IA-03(04)",
-          "title": "Use of External Systems; Device Identification and Authentication",
+          "controlId": "AC-20;IA-3;IA-2(1);IA-2(2);IA-03;IA-03(01);IA-03(04)",
+          "title": "Use of External Systems; Device Identification and Authentication; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts",
           "profiles": [
             "Low",
             "Moderate",
@@ -23750,12 +23465,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-21;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-21;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.506(c)(1);164.506(c)(2);164.506(c)(3);164.506(c)(4);164.508(a)(1);164.508(a)(4)(i)"
@@ -23773,8 +23483,8 @@
           "controlId": "3.1.1"
         },
         "nist-800-53": {
-          "controlId": "AC-21;AC-3;AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Information Sharing; Access Enforcement; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-21;SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Sharing; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -23935,12 +23645,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-21;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-21;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "hipaa": {
           "controlId": "164.506(c)(1);164.506(c)(2);164.506(c)(3);164.506(c)(4);164.508(a)(1);164.508(a)(4)(i)"
@@ -23958,8 +23663,8 @@
           "controlId": "3.1.1"
         },
         "nist-800-53": {
-          "controlId": "AC-21;AC-3;AC-02;AC-03;AC-05;AC-06;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Information Sharing; Access Enforcement; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;AC-21;SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Information Sharing; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -25452,12 +25157,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -25478,8 +25178,8 @@
           "controlId": "3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-08",
-          "title": "Configuration Settings; Spam Protection; Baseline Selection",
+          "controlId": "SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-08",
+          "title": "Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -25664,12 +25364,7 @@
           "controlId": "ML1-P3;ML1-P6;ML1-P7;ML2-P3;ML2-P5;ML2-P6;ML2-P7;ML3-P3;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;IA-02(01);IA-02(02);IA-05;IA-05(01);PL-10;SA-08;SA-15(05)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;IA-02(01);IA-02(02);IA-05;IA-05(01);PL-10;SA-08;SA-15(05)"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -25690,8 +25385,8 @@
           "controlId": "3.3.3;3.4.1;3.4.2;3.5.3;3.5.8;3.5.9;3.7.5"
         },
         "nist-800-53": {
-          "controlId": "CM-6;IA-2(1);IA-2(2);CM-02;CM-06;IA-02(01);IA-02(02);IA-05;IA-05(01);PL-10;SA-08;SA-15(05)",
-          "title": "Configuration Settings; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Baseline Selection",
+          "controlId": "IA-2(1);IA-2(2);CM-02;CM-06;IA-02(01);IA-02(02);IA-05;IA-05(01);PL-10;SA-08;SA-15(05)",
+          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -25858,12 +25553,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;IA-05;IA-05(01);PL-10;SA-08;SA-15(05)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;IA-05;IA-05(01);PL-10;SA-08;SA-15(05)"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -25884,8 +25574,8 @@
           "controlId": "3.3.3;3.4.1;3.4.2;3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "CM-6;IA-5;CM-02;CM-06;IA-05;IA-05(01);IA-05(05);PL-10;SA-08;SA-15(05)",
-          "title": "Configuration Settings; Authenticator Management; Baseline Selection",
+          "controlId": "IA-5(1);CM-02;CM-06;IA-05;IA-05(01);IA-05(05);PL-10;SA-08;SA-15(05)",
+          "title": "Password-based Authentication; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -26786,12 +26476,7 @@
           "controlId": "CML2.-3.4.6;CML2.-3.4.9"
         },
         "fedramp": {
-          "controlId": "CM-07;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;CM-11;CM-11(02)"
         },
         "iso-27001": {
           "controlId": "8.12;8.19;8.3;8.9"
@@ -26806,8 +26491,8 @@
           "controlId": "3.4.6;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "CM-11;CM-7;CM-07;CM-11(02)",
-          "title": "User-installed Software; Least Functionality",
+          "controlId": "CM-6;CM-7;CM-07;CM-11;CM-11(02)",
+          "title": "Configuration Settings; Least Functionality; User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -26996,12 +26681,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -27016,14 +26696,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -27220,12 +26900,7 @@
           "controlId": "ACL2.-3.1.18;CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "AC-19;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-19;CM-07"
         },
         "iso-27001": {
           "controlId": "8.1;8.12;8.3;8.9"
@@ -27240,8 +26915,8 @@
           "controlId": "3.1.18;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-19;CM-7;CM-07",
-          "title": "Access Control for Mobile Devices; Least Functionality",
+          "controlId": "AC-19(5);SC-39;CM-6;CM-7;AC-19;CM-07",
+          "title": "Full Device or Container-based Encryption; Process Isolation; Configuration Settings; Least Functionality; Access Control for Mobile Devices",
           "profiles": [
             "Low",
             "Moderate",
@@ -27421,12 +27096,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -27441,13 +27111,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "CM-6;CM-7;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -27644,12 +27314,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;CML2.-3.4.6;IA.L1-B.1.V[b]"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;CM-07;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;CM-07;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18;8.12;8.3;8.9"
@@ -27664,8 +27329,8 @@
           "controlId": "3.1.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-3;CM-7;AC-02;AC-03;AC-05;AC-06;CM-07;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Least Functionality; Information Input Validation",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-02;AC-03;AC-05;AC-06;CM-07;SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -27847,12 +27512,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -27867,13 +27527,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "CM-7;CM-6;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Least Functionality; Configuration Settings"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -28053,12 +27713,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -28073,13 +27728,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "CM-7;CM-6;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Least Functionality; Configuration Settings"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -28255,12 +27910,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -28275,13 +27925,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "CM-6;CM-7;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -28461,12 +28111,7 @@
           "controlId": "CML2.-3.4.6;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "CM-07;IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18;8.12;8.3;8.9"
@@ -28481,14 +28126,14 @@
           "controlId": "3.4.6;3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "CM-7;IA-5;CM-07;IA-05;IA-05(01);IA-05(05)",
+          "controlId": "CM-7;IA-2(1);IA-2(2);CM-07;IA-05;IA-05(01);IA-05(05)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Authenticator Management"
+          "title": "Least Functionality; Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -28672,12 +28317,7 @@
           "controlId": "CML2.-3.4.6;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "CM-07;IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18;8.12;8.3;8.9"
@@ -28692,14 +28332,14 @@
           "controlId": "3.4.6;3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "CM-7;IA-5;CM-07;IA-05;IA-05(01);IA-05(05)",
+          "controlId": "IA-2(1);IA-2(2);CM-07;IA-05;IA-05(01);IA-05(05)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Authenticator Management"
+          "title": "Multi-factor Authentication to Privileged Accounts; Multi-factor Authentication to Non-privileged Accounts"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -28881,12 +28521,7 @@
           "controlId": "CML2.-3.4.6;CML2.-3.4.9"
         },
         "fedramp": {
-          "controlId": "CM-07;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;CM-11;CM-11(02)"
         },
         "iso-27001": {
           "controlId": "8.12;8.19;8.3;8.9"
@@ -28901,8 +28536,8 @@
           "controlId": "3.4.6;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "CM-11;CM-7;CM-07;CM-11(02)",
-          "title": "User-installed Software; Least Functionality",
+          "controlId": "CM-10;CM-11;SC-18;CM-07;CM-11(02)",
+          "title": "Software Usage Restrictions; User-installed Software; Mobile Code",
           "profiles": [
             "Low",
             "Moderate",
@@ -29083,12 +28718,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -29103,13 +28733,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "AC-17(2);IA-5;IA-5(1);SC-8;SC-8(1);CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Protection of Confidentiality and Integrity Using Encryption; Authenticator Management; Password-based Authentication; Transmission Confidentiality and Integrity; Cryptographic Protection"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -29292,12 +28922,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -29312,14 +28937,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -29495,12 +29120,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -29515,13 +29135,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "CM-7;AC-18;SC-23;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Least Functionality; Wireless Access; Session Authenticity"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -29719,12 +29339,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07;IA-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;IA-08"
         },
         "iso-27001": {
           "controlId": "5.16;8.12;8.3;8.9"
@@ -29739,13 +29354,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;IA-8;CM-07;IA-08",
+          "controlId": "AC-17(2);IA-5;IA-5(1);SC-8;SC-8(1);CM-07;IA-08",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality; Identification and Authentication (Non-organizational Users)"
+          "title": "Protection of Confidentiality and Integrity Using Encryption; Authenticator Management; Password-based Authentication; Transmission Confidentiality and Integrity; Cryptographic Protection"
         },
         "nist-csf": {
           "controlId": "PR.AA-01;PR.AA-03;PR.AA-05;PR.PS-05",
@@ -29942,12 +29557,7 @@
           "controlId": "ACL2.-3.1.18;CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "AC-19;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-19;CM-07"
         },
         "iso-27001": {
           "controlId": "8.1;8.12;8.3;8.9"
@@ -29962,8 +29572,8 @@
           "controlId": "3.1.18;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-19;CM-7;CM-07",
-          "title": "Access Control for Mobile Devices; Least Functionality",
+          "controlId": "AC-19;CM-07",
+          "title": "Access Control for Mobile Devices",
           "profiles": [
             "Low",
             "Moderate",
@@ -30547,12 +30157,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -30567,14 +30172,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -30758,12 +30363,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -30778,14 +30378,13 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
-          ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          ]
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -30965,12 +30564,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SI-08"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -30985,13 +30579,12 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SI-8;CM-07;SI-08",
+          "controlId": "CM-07;SI-08",
           "profiles": [
             "Low",
             "Moderate",
             "High"
-          ],
-          "title": "Least Functionality; Spam Protection"
+          ]
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -31166,12 +30759,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -31186,13 +30774,12 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
-          ],
-          "title": "Least Functionality"
+          ]
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -31375,12 +30962,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -31395,14 +30977,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "PL-8;SA-8;CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Security and Privacy Architectures; Security and Privacy Engineering Principles"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -31578,12 +31160,7 @@
           "controlId": "CML2.-3.4.6"
         },
         "fedramp": {
-          "controlId": "CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.9"
@@ -31598,13 +31175,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;CM-07",
+          "controlId": "PL-8;SA-8;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
           ],
-          "title": "Least Functionality"
+          "title": "Security and Privacy Architectures; Security and Privacy Engineering Principles"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -31787,12 +31364,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;CM-07"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -31810,14 +31382,14 @@
           "controlId": "3.1.1;3.1.5;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-6;CM-7;AC-03;AC-06;CM-07;SA-08(14)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-2;AC-6(1);AC-6(7);AU-9(4);AC-03;AC-06;CM-07;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Least Functionality"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Account Management; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -31996,12 +31568,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;CM-07"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -32019,14 +31586,14 @@
           "controlId": "3.1.1;3.1.5;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-6;CM-7;AC-03;AC-06;CM-07;SA-08(14)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-2;AC-6(1);AC-6(7);AU-9(4);AC-03;AC-06;CM-07;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Least Functionality"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Account Management; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -32209,12 +31776,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;CM-07"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -32232,14 +31794,14 @@
           "controlId": "3.1.1;3.1.5;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-6;CM-7;AC-03;AC-06;CM-07;SA-08(14)",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-03;AC-06;CM-07;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Least Functionality"
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -32418,12 +31980,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;CM-07"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -32441,14 +31998,14 @@
           "controlId": "3.1.1;3.1.5;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-6;CM-7;AC-03;AC-06;CM-07;SA-08(14)",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-03;AC-06;CM-07;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Least Functionality"
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -32631,12 +32188,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;CM-07"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -32654,14 +32206,14 @@
           "controlId": "3.1.1;3.1.5;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-6;CM-7;AC-03;AC-06;CM-07;SA-08(14)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-03;AC-06;CM-07;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Least Functionality"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -32844,12 +32396,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-03;AC-06;CM-07",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-03;AC-06;CM-07"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -32867,14 +32414,14 @@
           "controlId": "3.1.1;3.1.5;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "AC-6;CM-7;AC-03;AC-06;CM-07;SA-08(14)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-03;AC-06;CM-07;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Privilege; Least Functionality"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access"
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
@@ -33053,12 +32600,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -33073,14 +32615,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "PL-8;SA-8;CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Security and Privacy Architectures; Security and Privacy Engineering Principles"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -33259,12 +32801,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -33279,14 +32816,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "PL-8;SA-8;CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Security and Privacy Architectures; Security and Privacy Engineering Principles"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -33498,12 +33035,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "CM-07;SI-02;SI-02(04);SI-03",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SI-02;SI-02(04);SI-03"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.7;8.8;8.9"
@@ -33521,14 +33053,14 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SI-3;CM-07;SI-02;SI-02(04);SI-03",
+          "controlId": "CM-6;CM-7;CM-07;SI-02;SI-02(04);SI-03",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Malicious Code Protection"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "DE.CM-09;ID.RA-01;ID.RA-08;PR.PS-02;PR.PS-05",
@@ -33740,12 +33272,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "CM-07;SI-02;SI-02(04);SI-03",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SI-02;SI-02(04);SI-03"
         },
         "iso-27001": {
           "controlId": "8.12;8.3;8.7;8.8;8.9"
@@ -33763,14 +33290,14 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SI-3;CM-07;SI-02;SI-02(04);SI-03",
+          "controlId": "CM-6;CM-7;CM-07;SI-02;SI-02(04);SI-03",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Malicious Code Protection"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "DE.CM-09;ID.RA-01;ID.RA-08;PR.PS-02;PR.PS-05",
@@ -33949,12 +33476,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -33969,14 +33491,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-2;AC-6(1);AC-6(7);AU-9(4);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Account Management; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -34155,12 +33677,7 @@
           "controlId": "CML2.-3.4.6;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21;8.3;8.9"
@@ -34175,14 +33692,14 @@
           "controlId": "3.13.1;3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-7;SC-7(10);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-2;AC-6(1);AC-6(7);AU-9(4);CM-07;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Prevent Exfiltration"
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Account Management; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -34362,12 +33879,7 @@
           "controlId": "CML2.-3.4.6;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "CM-07;IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18;8.12;8.3;8.9"
@@ -34382,14 +33894,14 @@
           "controlId": "3.4.6;3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "CM-7;IA-5;CM-07;IA-05;IA-05(01);IA-05(05)",
+          "controlId": "CM-6;CM-7;CM-07;IA-05;IA-05(01);IA-05(05)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Authenticator Management"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -34569,12 +34081,7 @@
           "controlId": "CML2.-3.4.6;IAL2.-3.5.8;IAL2.-3.5.9"
         },
         "fedramp": {
-          "controlId": "CM-07;IA-05;IA-05(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-07;IA-05;IA-05(01)"
         },
         "iso-27001": {
           "controlId": "5.17;5.18;8.12;8.3;8.9"
@@ -34589,14 +34096,14 @@
           "controlId": "3.4.6;3.5.8;3.5.9"
         },
         "nist-800-53": {
-          "controlId": "CM-7;IA-5;CM-07;IA-05;IA-05(01);IA-05(05)",
+          "controlId": "CM-6;CM-7;CM-07;IA-05;IA-05(01);IA-05(05)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Least Functionality; Authenticator Management"
+          "title": "Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -34782,12 +34289,13 @@
           "controlId": "3.4.6"
         },
         "nist-800-53": {
-          "controlId": "CM-07",
+          "controlId": "CM-4;CM-07",
           "profiles": [
             "Low",
             "Moderate",
             "High"
-          ]
+          ],
+          "title": "Impact Analyses"
         },
         "nist-csf": {
           "controlId": "PR.PS-05",
@@ -36228,12 +35736,7 @@
           "controlId": "CML2.-3.4.9"
         },
         "fedramp": {
-          "controlId": "CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-11;CM-11(02)"
         },
         "iso-27001": {
           "controlId": "8.19"
@@ -36248,8 +35751,8 @@
           "controlId": "3.4.9"
         },
         "nist-800-53": {
-          "controlId": "CM-11;CM-11(02)",
-          "title": "User-installed Software",
+          "controlId": "CM-7(5);CM-10;CM-11;CM-11(02)",
+          "title": "Authorized Software — Allow-by-exception; Software Usage Restrictions; User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -36801,12 +36304,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10);CM-04",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10);CM-04"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -36824,14 +36322,14 @@
           "controlId": "3.1.5;3.1.7;3.4.4"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);CM-4;AC-06;AC-06(10);CM-04;SA-08(14)",
+          "controlId": "AC-6(10);CM-5;CM-7(5);CM-10;AC-06;AC-06(10);CM-04;SA-08(14)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Impact Analyses"
+          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; Authorized Software — Allow-by-exception; Software Usage Restrictions"
         },
         "nist-csf": {
           "controlId": "ID.RA-07;PR.AA-05;PR.DS-10",
@@ -37439,12 +36937,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "AU-01;SI-02;SI-02(04);SI-03;SI-04;SI-04(05)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-01;SI-02;SI-02(04);SI-03;SI-04;SI-04(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
@@ -37465,8 +36958,8 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4;3.14.6;3.3.3;NFO - AU-1;NFO - SI-4(5)"
         },
         "nist-800-53": {
-          "controlId": "SI-3;SI-4(5);AU-01;PM-31;SI-02;SI-02(04);SI-03;SI-04;SI-04(05)",
-          "title": "Malicious Code Protection; System-generated Alerts; Continuous Monitoring Strategy",
+          "controlId": "IR-1;IR-8;AU-01;PM-31;SI-02;SI-02(04);SI-03;SI-04;SI-04(05)",
+          "title": "Policy and Procedures; Incident Response Plan; Continuous Monitoring Strategy",
           "profiles": [
             "Low",
             "Moderate",
@@ -37620,11 +37113,7 @@
           "controlId": "AUL2.-3.3.3;SIL2.-3.14.6"
         },
         "fedramp": {
-          "controlId": "AU-01;SI-04;SI-04(05);SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-01;SI-04;SI-04(05);SI-08"
         },
         "hipaa": {
           "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
@@ -37642,8 +37131,8 @@
           "controlId": "3.14.6;3.3.3;NFO - AU-1;NFO - SI-4(5)"
         },
         "nist-800-53": {
-          "controlId": "SI-4(5);SI-8;AU-01;PM-31;SI-04;SI-04(05);SI-08",
-          "title": "System-generated Alerts; Spam Protection; Continuous Monitoring Strategy",
+          "controlId": "AC-2;SC-7;AU-01;PM-31;SI-04;SI-04(05);SI-08",
+          "title": "Account Management; Boundary Protection; Continuous Monitoring Strategy",
           "profiles": [
             "Low",
             "Moderate",
@@ -37793,11 +37282,7 @@
           "controlId": "AUL2.-3.3.3;SIL2.-3.14.6"
         },
         "fedramp": {
-          "controlId": "AU-01;SI-04;SI-04(05)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-01;SI-04;SI-04(05)"
         },
         "hipaa": {
           "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
@@ -37815,8 +37300,8 @@
           "controlId": "3.14.6;3.3.3;NFO - AU-1;NFO - SI-4(5)"
         },
         "nist-800-53": {
-          "controlId": "SI-4(5);AU-01;PM-31;SI-04;SI-04(05)",
-          "title": "System-generated Alerts; Continuous Monitoring Strategy",
+          "controlId": "SI-3;SI-16;AU-01;PM-31;SI-04;SI-04(05)",
+          "title": "Malicious Code Protection; Memory Protection; Continuous Monitoring Strategy",
           "profiles": [
             "Low",
             "Moderate",
@@ -37965,11 +37450,7 @@
           "controlId": "AUL2.-3.3.3;AUL2.-3.3.4;SIL2.-3.14.6"
         },
         "fedramp": {
-          "controlId": "AU-01;AU-05;AU-05(02);SI-04;SI-04(05);SI-04(12)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-01;AU-05;AU-05(02);SI-04;SI-04(05);SI-04(12)"
         },
         "hipaa": {
           "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
@@ -37987,8 +37468,8 @@
           "controlId": "3.14.6;3.3.3;3.3.4;NFO - AU-1;NFO - SI-4(5)"
         },
         "nist-800-53": {
-          "controlId": "SI-4(12);SI-4(5);AU-01;AU-05;AU-05(02);PM-31;SI-04;SI-04(05);SI-04(12)",
-          "title": "Automated Organization-generated Alerts; System-generated Alerts; Continuous Monitoring Strategy",
+          "controlId": "AU-01;AU-05;AU-05(02);PM-31;SI-04;SI-04(05);SI-04(12)",
+          "title": "Continuous Monitoring Strategy",
           "profiles": [
             "Low",
             "Moderate",
@@ -39144,12 +38625,7 @@
           "controlId": "AUL2.-3.3.6"
         },
         "fedramp": {
-          "controlId": "AU-07;AU-07(01);AU-12",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-07;AU-07(01);AU-12"
         },
         "iso-27001": {
           "controlId": "6.8;8.15"
@@ -39161,8 +38637,8 @@
           "controlId": "3.3.6"
         },
         "nist-800-53": {
-          "controlId": "AU-12;AU-07;AU-07(01)",
-          "title": "Audit Record Generation",
+          "controlId": "AU-2;AU-7;AU-12;AU-07;AU-07(01)",
+          "title": "Event Logging; Audit Record Reduction and Report Generation; Audit Record Generation",
           "profiles": [
             "Low",
             "Moderate",
@@ -39325,12 +38801,7 @@
           "controlId": "AUL2.-3.3.6"
         },
         "fedramp": {
-          "controlId": "AU-07;AU-07(01);AU-12",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-07;AU-07(01);AU-12"
         },
         "iso-27001": {
           "controlId": "6.8;8.15"
@@ -39342,8 +38813,8 @@
           "controlId": "3.3.6"
         },
         "nist-800-53": {
-          "controlId": "AU-12;AU-07;AU-07(01)",
-          "title": "Audit Record Generation",
+          "controlId": "AU-2;AU-7;AU-12;AU-07;AU-07(01)",
+          "title": "Event Logging; Audit Record Reduction and Report Generation; Audit Record Generation",
           "profiles": [
             "Low",
             "Moderate",
@@ -39506,12 +38977,7 @@
           "controlId": "AUL2.-3.3.6"
         },
         "fedramp": {
-          "controlId": "AU-07;AU-07(01);AU-12",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-07;AU-07(01);AU-12"
         },
         "iso-27001": {
           "controlId": "6.8;8.15"
@@ -39523,8 +38989,8 @@
           "controlId": "3.3.6"
         },
         "nist-800-53": {
-          "controlId": "AU-12;AU-07;AU-07(01)",
-          "title": "Audit Record Generation",
+          "controlId": "AU-2;AU-7;AU-12;AU-07;AU-07(01)",
+          "title": "Event Logging; Audit Record Reduction and Report Generation; Audit Record Generation",
           "profiles": [
             "Low",
             "Moderate",
@@ -39687,12 +39153,7 @@
           "controlId": "AUL2.-3.3.6"
         },
         "fedramp": {
-          "controlId": "AU-07;AU-07(01);AU-12",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AU-07;AU-07(01);AU-12"
         },
         "iso-27001": {
           "controlId": "6.8;8.15"
@@ -39704,8 +39165,8 @@
           "controlId": "3.3.6"
         },
         "nist-800-53": {
-          "controlId": "AU-12;AU-07;AU-07(01)",
-          "title": "Audit Record Generation",
+          "controlId": "AU-3;AU-3(1);AU-7;AU-12;AU-07;AU-07(01)",
+          "title": "Content of Audit Records; Additional Audit Information; Audit Record Reduction and Report Generation; Audit Record Generation",
           "profiles": [
             "Low",
             "Moderate",
@@ -41542,12 +41003,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18;8.12;8.2;8.21"
@@ -41562,8 +41018,8 @@
           "controlId": "3.1.1;3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-7(10);AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prevent Exfiltration; Information Input Validation",
+          "controlId": "CM-6;CM-7;AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
+          "title": "Configuration Settings; Least Functionality; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -41724,12 +41180,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18;8.12;8.2;8.21"
@@ -41744,8 +41195,8 @@
           "controlId": "3.1.1;3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-7(10);AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prevent Exfiltration; Information Input Validation",
+          "controlId": "CM-6;CM-7;AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
+          "title": "Configuration Settings; Least Functionality; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -41867,10 +41318,7 @@
           "controlId": "SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "High"
-          ]
+          "controlId": "SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21"
@@ -41885,14 +41333,14 @@
           "controlId": "3.13.1"
         },
         "nist-800-53": {
-          "controlId": "SC-7(10);SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AU-11;CM-12;SI-12;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Prevent Exfiltration"
+          "title": "Audit Record Retention; Information Location; Information Management and Retention"
         },
         "pci-dss": {
           "controlId": "1.3.2;1.3.3;1.4;1.4.1;1.4.2;11.5.1;A3.2.6"
@@ -42012,10 +41460,7 @@
           "controlId": "SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "High"
-          ]
+          "controlId": "SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "iso-27001": {
           "controlId": "8.12;8.2;8.21"
@@ -42030,14 +41475,14 @@
           "controlId": "3.13.1"
         },
         "nist-800-53": {
-          "controlId": "SC-7(10);SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "controlId": "AU-11;CM-12;SI-12;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Prevent Exfiltration"
+          "title": "Audit Record Retention; Information Location; Information Management and Retention"
         },
         "pci-dss": {
           "controlId": "1.3.2;1.3.3;1.4;1.4.1;1.4.2;11.5.1;A3.2.6"
@@ -42191,12 +41636,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18;8.12;8.2;8.21"
@@ -42211,8 +41651,8 @@
           "controlId": "3.1.1;3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-7(10);AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prevent Exfiltration; Information Input Validation",
+          "controlId": "RA-2;AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
+          "title": "Security Categorization; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -42360,11 +41800,7 @@
           "controlId": "AC.L3-3.1.3E;ACL2.-3.1.3;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-04;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18);SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18);SI-08"
         },
         "iso-27001": {
           "controlId": "5.14;8.12;8.2;8.21;8.3"
@@ -42379,14 +41815,13 @@
           "controlId": "3.1.3;3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-4;SC-7(10);SI-8;AC-04;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18);SI-08",
+          "controlId": "AC-04;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18);SI-08",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
-          ],
-          "title": "Information Flow Enforcement; Prevent Exfiltration; Spam Protection"
+          ]
         },
         "pci-dss": {
           "controlId": "1.1;1.3;1.3.1;1.3.2;1.3.3;1.4;1.4.1;1.4.2;1.4.3;11.5.1;5.4;5.4.1;A3.2.6"
@@ -42541,12 +41976,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18;8.12;8.2;8.21"
@@ -42561,8 +41991,8 @@
           "controlId": "3.1.1;3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-7(10);AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prevent Exfiltration; Information Input Validation",
+          "controlId": "CM-12;PM-5(1);RA-2;AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
+          "title": "Information Location; Inventory of Personally Identifiable Information; Security Categorization; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -42718,12 +42148,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18;8.12;8.2;8.21"
@@ -42738,8 +42163,8 @@
           "controlId": "3.1.1;3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-7(10);AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Prevent Exfiltration; Information Input Validation",
+          "controlId": "CM-12;PM-5(1);RA-2;AC-02;AC-03;AC-05;AC-06;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-03;SI-04;SI-04(18);SI-05;SI-07;SI-10",
+          "title": "Information Location; Inventory of Personally Identifiable Information; Security Categorization; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -42895,11 +42320,7 @@
           "controlId": "SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-21;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-21;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "hipaa": {
           "controlId": "164.506(c)(1);164.506(c)(2);164.506(c)(3);164.506(c)(4);164.508(a)(1);164.508(a)(4)(i)"
@@ -42917,8 +42338,8 @@
           "controlId": "3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-21;SC-7(10);SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "title": "Information Sharing; Prevent Exfiltration",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-21;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Sharing",
           "profiles": [
             "Low",
             "Moderate",
@@ -43070,11 +42491,7 @@
           "controlId": "SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-21;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-21;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)"
         },
         "hipaa": {
           "controlId": "164.506(c)(1);164.506(c)(2);164.506(c)(3);164.506(c)(4);164.508(a)(1);164.508(a)(4)(i)"
@@ -43092,8 +42509,8 @@
           "controlId": "3.13.1"
         },
         "nist-800-53": {
-          "controlId": "AC-21;SC-7(10);SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
-          "title": "Information Sharing; Prevent Exfiltration",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-21;SC-07;SC-07(09);SC-07(10);SC-07(11);SI-04(18)",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; Information Sharing",
           "profiles": [
             "Low",
             "Moderate",
@@ -43409,11 +42826,7 @@
           "controlId": "AC.L3-3.1.3E;ACL2.-3.1.3"
         },
         "fedramp": {
-          "controlId": "AC-04;SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;SI-08"
         },
         "iso-27001": {
           "controlId": "5.14;8.2;8.3"
@@ -43428,12 +42841,12 @@
           "controlId": "3.1.3"
         },
         "nist-800-53": {
-          "controlId": "AC-4;SI-8;AC-04;SI-08",
+          "controlId": "SI-3;SI-8;AC-04;SI-08",
           "profiles": [
             "Moderate",
             "High"
           ],
-          "title": "Information Flow Enforcement; Spam Protection"
+          "title": "Malicious Code Protection; Spam Protection"
         },
         "pci-dss": {
           "controlId": "1.1;1.3;1.3.1;1.3.2;1.4.2;1.4.3;5.4;5.4.1"
@@ -43605,11 +43018,7 @@
           "controlId": "AC.L3-3.1.3E;ACL2.-3.1.3"
         },
         "fedramp": {
-          "controlId": "AC-04;SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04;SI-08"
         },
         "iso-27001": {
           "controlId": "5.14;8.2;8.3"
@@ -43624,12 +43033,12 @@
           "controlId": "3.1.3"
         },
         "nist-800-53": {
-          "controlId": "AC-4;SI-8;AC-04;SI-08",
+          "controlId": "SI-3;SI-8;AC-04;SI-08",
           "profiles": [
             "Moderate",
             "High"
           ],
-          "title": "Information Flow Enforcement; Spam Protection"
+          "title": "Malicious Code Protection; Spam Protection"
         },
         "pci-dss": {
           "controlId": "1.1;1.3;1.3.1;1.3.2;1.4.2;1.4.3;5.4;5.4.1"
@@ -43997,11 +43406,7 @@
           "controlId": "AC.L3-3.1.3E;ACL2.-3.1.3"
         },
         "fedramp": {
-          "controlId": "AC-04",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-04"
         },
         "iso-27001": {
           "controlId": "5.14;8.2;8.3"
@@ -45060,12 +44465,7 @@
           "controlId": "ACL2.-3.1.12;SC.L1-B.1.X;SC.L1-B.1.X[a];SC.L1-B.1.X[b];SC.L1-B.1.X[c];SC.L1-B.1.X[d];SC.L1-B.1.X[e];SC.L1-B.1.X[f];SC.L1-B.1.X[g];SC.L1-B.1.X[h];SCL2.-3.13.1"
         },
         "fedramp": {
-          "controlId": "AC-17;SC-07;SC-07(09);SC-07(11)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-17;SC-07;SC-07(09);SC-07(11)"
         },
         "iso-27001": {
           "controlId": "6.7;8.2;8.21"
@@ -45253,12 +44653,7 @@
           "controlId": "ACL2.-3.1.12"
         },
         "fedramp": {
-          "controlId": "AC-17",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-17"
         },
         "iso-27001": {
           "controlId": "6.7"
@@ -46155,12 +45550,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -46178,8 +45568,8 @@
           "controlId": "3.1.5;3.1.7;3.4.5;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);CM-5;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; User-installed Software",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -46338,12 +45728,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -46361,8 +45746,8 @@
           "controlId": "3.1.5;3.1.7;3.4.5;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);CM-5;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; User-installed Software",
+          "controlId": "CM-7(5);CM-10;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
+          "title": "Authorized Software — Allow-by-exception; Software Usage Restrictions; User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -46524,12 +45909,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -46547,8 +45927,8 @@
           "controlId": "3.1.5;3.1.7;3.4.5;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);CM-5;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; User-installed Software",
+          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
+          "title": "User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -46707,12 +46087,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -46730,8 +46105,8 @@
           "controlId": "3.1.5;3.1.7;3.4.5;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);CM-5;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; User-installed Software",
+          "controlId": "AC-3;AC-5;AC-6;MP-2;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
+          "title": "Access Enforcement; Separation of Duties; Least Privilege; Media Access; User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -46890,12 +46265,7 @@
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
         },
         "fedramp": {
-          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-06;AC-06(10);CM-05;CM-11;CM-11(02)"
         },
         "hipaa": {
           "controlId": "164.308(a)(3)(i);164.312(a)(1)"
@@ -46913,8 +46283,8 @@
           "controlId": "3.1.5;3.1.7;3.4.5;3.4.9"
         },
         "nist-800-53": {
-          "controlId": "AC-6(10);CM-5;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
-          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; User-installed Software",
+          "controlId": "AC-6(10);CM-5;AC-3;AC-5;AC-6;MP-2;AC-06;AC-06(10);CM-05;CM-11;CM-11(02);SA-08(14)",
+          "title": "Prohibit Non-privileged Users from Executing Privileged Functions; Access Restrictions for Change; Access Enforcement; Separation of Duties; Least Privilege; Media Access; User-installed Software",
           "profiles": [
             "Low",
             "Moderate",
@@ -47152,12 +46522,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -47178,8 +46543,8 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
+          "controlId": "SI-3;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "title": "Malicious Code Protection; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -47416,12 +46781,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -47442,8 +46802,8 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
+          "controlId": "SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "title": "Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -47681,12 +47041,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -47707,8 +47062,8 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
+          "controlId": "SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "title": "Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -47945,12 +47300,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;SI-02;SI-02(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;SI-02;SI-02(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "8.7;8.8"
@@ -47968,8 +47318,8 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4"
         },
         "nist-800-53": {
-          "controlId": "SI-3;AC-02;AC-03;AC-05;SI-02;SI-02(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Malicious Code Protection; Information Input Validation",
+          "controlId": "SI-3;SI-8;AC-02;AC-03;AC-05;SI-02;SI-02(04);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Malicious Code Protection; Spam Protection; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -48203,12 +47553,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -48229,8 +47574,8 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
+          "controlId": "IR-1;IR-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "title": "Policy and Procedures; Incident Response Plan; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -48465,12 +47810,7 @@
           "controlId": "ML1-P1;ML1-P2;ML1-P6;ML1-P7;ML2-P1;ML2-P2;ML2-P5;ML2-P6;ML2-P7;ML3-P1;ML3-P2;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-02(04);SI-03",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-02(04);SI-03"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -48491,8 +47831,8 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-02(04);SI-03",
-          "title": "Configuration Settings; Malicious Code Protection; Baseline Selection",
+          "controlId": "SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-02(04);SI-03",
+          "title": "Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -48726,12 +48066,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -48752,8 +48087,8 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
+          "controlId": "SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "title": "Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -48987,12 +48322,7 @@
           "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
         },
         "fedramp": {
-          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08"
         },
         "hipaa": {
           "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
@@ -49013,8 +48343,8 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
-          "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
+          "controlId": "SI-3;SI-8;SI-4;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "title": "Malicious Code Protection; Spam Protection; System Monitoring; Baseline Selection",
           "profiles": [
             "Low",
             "Moderate",
@@ -49248,12 +48578,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "SI-02;SI-02(04);SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-02;SI-02(04);SI-03;SI-08"
         },
         "iso-27001": {
           "controlId": "8.7;8.8"
@@ -49271,14 +48596,14 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4"
         },
         "nist-800-53": {
-          "controlId": "SI-3;SI-8;SI-02;SI-02(04);SI-03;SI-08",
+          "controlId": "SI-3;SI-02;SI-02(04);SI-03;SI-08",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Malicious Code Protection; Spam Protection"
+          "title": "Malicious Code Protection"
         },
         "nist-csf": {
           "controlId": "DE.CM-09;ID.RA-01;ID.RA-08;PR.PS-02",
@@ -49753,12 +49078,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "SI-02;SI-02(04);SI-03;SI-08",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-02;SI-02(04);SI-03;SI-08"
         },
         "iso-27001": {
           "controlId": "8.7;8.8"
@@ -49776,14 +49096,14 @@
           "controlId": "3.11.3;3.14.1;3.14.2;3.14.4"
         },
         "nist-800-53": {
-          "controlId": "AC-19;CM-7;SI-02;SI-02(04);SI-03;SI-08",
+          "controlId": "AC-19(5);SC-39;CM-6;CM-7;SI-02;SI-02(04);SI-03;SI-08",
           "profiles": [
             "Low",
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Access Control for Mobile Devices; Least Functionality"
+          "title": "Full Device or Container-based Encryption; Process Isolation; Configuration Settings; Least Functionality"
         },
         "nist-csf": {
           "controlId": "DE.CM-09;ID.RA-01;ID.RA-08;PR.PS-02",
@@ -50505,12 +49825,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;SI-02;SI-02(04);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;SI-02;SI-02(04);SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "8.7;8.8"
@@ -51263,22 +50578,18 @@
           "controlId": "9.0;9.6;9.7"
         },
         "fedramp": {
-          "controlId": "SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-08"
         },
         "mitre-attack": {
           "controlId": "T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1204;T1204.001;T1204.002;T1204.003;T1221;T1566;T1566.001;T1566.002;T1566.003;T1598;T1598.001;T1598.002;T1598.003"
         },
         "nist-800-53": {
-          "controlId": "SI-8;SI-08",
+          "controlId": "SI-3;AT-2(3);SI-08",
           "profiles": [
             "Moderate",
             "High"
           ],
-          "title": "Spam Protection"
+          "title": "Malicious Code Protection; Social Engineering and Mining"
         },
         "pci-dss": {
           "controlId": "5.4;5.4.1"
@@ -51412,22 +50723,18 @@
           "controlId": "9.0;9.6;9.7"
         },
         "fedramp": {
-          "controlId": "SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-08"
         },
         "mitre-attack": {
           "controlId": "T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1204;T1204.001;T1204.002;T1204.003;T1221;T1566;T1566.001;T1566.002;T1566.003;T1598;T1598.001;T1598.002;T1598.003"
         },
         "nist-800-53": {
-          "controlId": "SI-8;SI-08",
+          "controlId": "SI-3;SI-8;SI-08",
           "profiles": [
             "Moderate",
             "High"
           ],
-          "title": "Spam Protection"
+          "title": "Malicious Code Protection; Spam Protection"
         },
         "pci-dss": {
           "controlId": "5.4;5.4.1"
@@ -51563,22 +50870,18 @@
           "controlId": "9.0;9.6;9.7"
         },
         "fedramp": {
-          "controlId": "SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-08"
         },
         "mitre-attack": {
           "controlId": "T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1204;T1204.001;T1204.002;T1204.003;T1221;T1566;T1566.001;T1566.002;T1566.003;T1598;T1598.001;T1598.002;T1598.003"
         },
         "nist-800-53": {
-          "controlId": "SI-8;SI-08",
+          "controlId": "SI-3;SI-8;SI-08",
           "profiles": [
             "Moderate",
             "High"
           ],
-          "title": "Spam Protection"
+          "title": "Malicious Code Protection; Spam Protection"
         },
         "pci-dss": {
           "controlId": "5.4;5.4.1"
@@ -51845,22 +51148,18 @@
           "controlId": "9.0;9.6;9.7"
         },
         "fedramp": {
-          "controlId": "SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-08"
         },
         "mitre-attack": {
           "controlId": "T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1204;T1204.001;T1204.002;T1204.003;T1221;T1566;T1566.001;T1566.002;T1566.003;T1598;T1598.001;T1598.002;T1598.003"
         },
         "nist-800-53": {
-          "controlId": "SI-8;SI-08",
+          "controlId": "SI-3;SI-8;SI-08",
           "profiles": [
             "Moderate",
             "High"
           ],
-          "title": "Spam Protection"
+          "title": "Malicious Code Protection; Spam Protection"
         },
         "pci-dss": {
           "controlId": "5.4;5.4.1"
@@ -51994,11 +51293,7 @@
           "controlId": "9.0;9.6;9.7"
         },
         "fedramp": {
-          "controlId": "SI-08",
-          "profiles": [
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SI-08"
         },
         "mitre-attack": {
           "controlId": "T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1204;T1204.001;T1204.002;T1204.003;T1221;T1566;T1566.001;T1566.002;T1566.003;T1598;T1598.001;T1598.002;T1598.003"
@@ -52388,12 +51683,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SCL2.-3.13.12"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-15;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-15;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18"
@@ -52408,8 +51698,8 @@
           "controlId": "3.1.1;3.13.12"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-15;AC-02;AC-03;AC-05;AC-06;SC-15(01);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Collaborative Computing Devices and Applications; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-15;SC-15(01);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Collaborative Computing Devices and Applications; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -52569,12 +51859,7 @@
           "controlId": "SCL2.-3.13.12"
         },
         "fedramp": {
-          "controlId": "SC-15",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SC-15"
         },
         "nist-800-171": {
           "controlId": "3.13.12"
@@ -52737,12 +52022,7 @@
           "controlId": "SCL2.-3.13.12"
         },
         "fedramp": {
-          "controlId": "SC-15",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SC-15"
         },
         "nist-800-171": {
           "controlId": "3.13.12"
@@ -52926,12 +52206,7 @@
           "controlId": "AC.L1-B.1.I;AC.L1-B.1.I[a];AC.L1-B.1.I[b];AC.L1-B.1.I[d];AC.L1-B.1.I[e];AC.L1-B.1.I[f];AC.L1-B.1.Ic];ACL2.-3.1.1;IA.L1-B.1.V[b];SCL2.-3.13.12"
         },
         "fedramp": {
-          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-15;SI-03;SI-04;SI-05;SI-07;SI-10",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-15;SI-03;SI-04;SI-05;SI-07;SI-10"
         },
         "iso-27001": {
           "controlId": "5.18"
@@ -52946,8 +52221,8 @@
           "controlId": "3.1.1;3.13.12"
         },
         "nist-800-53": {
-          "controlId": "AC-3;SC-15;AC-02;AC-03;AC-05;AC-06;SC-15(01);SI-03;SI-04;SI-05;SI-07;SI-10",
-          "title": "Access Enforcement; Collaborative Computing Devices and Applications; Information Input Validation",
+          "controlId": "AC-02;AC-03;AC-05;AC-06;SC-15;SC-15(01);SI-03;SI-04;SI-05;SI-07;SI-10",
+          "title": "Collaborative Computing Devices and Applications; Information Input Validation",
           "profiles": [
             "Low",
             "Moderate",
@@ -53121,12 +52396,7 @@
           "controlId": "ML1-P1;ML1-P2;ML2-P1;ML2-P2;ML3-P1;ML3-P2"
         },
         "fedramp": {
-          "controlId": "AC-19;CM-08;PM-05",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "AC-19;CM-08;PM-05"
         },
         "hipaa": {
           "controlId": "164.310(d)(2)(iii)"
@@ -53147,8 +52417,8 @@
           "controlId": "3.1.18;3.4.1;NFO - CM-8(5)"
         },
         "nist-800-53": {
-          "controlId": "AC-19;CM-8;CM-08;PM-05",
-          "title": "Access Control for Mobile Devices; System Component Inventory",
+          "controlId": "AC-2;AC-5;AC-6;AC-6(1);AC-6(7);AU-9(4);AC-19;CM-08;PM-05",
+          "title": "Account Management; Separation of Duties; Least Privilege; Authorize Access to Security Functions; Review of User Privileges; Access by Subset of Privileged Users; Access Control for Mobile Devices",
           "profiles": [
             "Low",
             "Moderate",
@@ -53824,12 +53094,7 @@
           "controlId": "SCL2.-3.13.8"
         },
         "fedramp": {
-          "controlId": "SC-08;SC-08(01);SC-16(01);SC-28(01)",
-          "profiles": [
-            "Low",
-            "Moderate",
-            "High"
-          ]
+          "controlId": "SC-08;SC-08(01);SC-16(01);SC-28(01)"
         },
         "hipaa": {
           "controlId": "164.312(e)(1);164.312(e)(2)(i)"
@@ -53847,13 +53112,13 @@
           "controlId": "3.13.8;NFO - SI-1"
         },
         "nist-800-53": {
-          "controlId": "SC-8;SC-08;SC-08(01);SC-16(01);SC-28(01)",
+          "controlId": "SI-8;SC-7;SC-08;SC-08(01);SC-16(01);SC-28(01)",
           "profiles": [
             "Moderate",
             "High",
             "Privacy"
           ],
-          "title": "Transmission Confidentiality and Integrity"
+          "title": "Spam Protection; Boundary Protection"
         },
         "nist-csf": {
           "controlId": "PR.DS-02",
