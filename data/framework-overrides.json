@@ -329,6 +329,31 @@
       "nist-csf": {
         "controlId": "PR.AA-05"
       }
+    },
+    "ENTRA-CA-SESSIONFREQ-001": {
+      "cmmc": {
+        "controlId": "SC.L2-3.13.9"
+      }
+    },
+    "INTUNE-MOBILECODE-001": {
+      "cmmc": {
+        "controlId": "SC.L2-3.13.13"
+      }
+    },
+    "ENTRA-SESSIONAUTH-001": {
+      "cmmc": {
+        "controlId": "SC.L2-3.13.15"
+      }
+    },
+    "SPO-CUIACCESS-001": {
+      "cmmc": {
+        "controlId": "MP.L2-3.8.2"
+      }
+    },
+    "BACKUP-ENABLED-001": {
+      "cmmc": {
+        "controlId": "MP.L2-3.8.9"
+      }
     }
   }
 }

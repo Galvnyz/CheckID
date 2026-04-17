@@ -5,6 +5,29 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.5.0] - 2026-04-17
+
+### Added
+
+- 10 new CMMC L2 checks (Sprint 1 + Sprint 2 of Phase 3 continuation), closing assessable gaps from the Phase 3 coverage audit
+  - `COMPLIANCE-COMMS-001` — Communication Compliance Policies Enabled (MON-01.3)
+  - `COMPLIANCE-DLP-003` — DLP Policies Cover Exchange and SharePoint/OneDrive (NET-03.5)
+  - `COMPLIANCE-LABELS-002` — Auto-Sensitivity Labeling Policies Configured (DCH-04.1)
+  - `INTUNE-REMOVABLEMEDIA-001` — Removable Media Blocked on Managed Devices (DCH-10 / MP.L2-3.8.7)
+  - `ENTRA-ADMINROLE-SEPARATION-001` — Admin Accounts Separated from Daily-Use Accounts (IAC-21.2 / SC.L2-3.13.3)
+  - `ENTRA-CA-SESSIONFREQ-001` — CA Sign-In Frequency Enforcement (NET-07 / SC.L2-3.13.9)
+  - `INTUNE-MOBILECODE-001` — PowerShell Execution Policy Restriction (END-10 / SC.L2-3.13.13)
+  - `ENTRA-SESSIONAUTH-001` — Legacy Auth Block / Session Authenticity (NET-09 / SC.L2-3.13.15)
+  - `SPO-CUIACCESS-001` — SharePoint External Sharing CUI Access Restriction (DCH-03 / MP.L2-3.8.2)
+  - `BACKUP-ENABLED-001` — M365 Backup Protection for Backup CUI (BCD-11.4 / MP.L2-3.8.9)
+- 5 CMMC framework overrides in `framework-overrides.json` for practices with no SCF→CMMC DB mappings (SC.L2-3.13.9/13/15, MP.L2-3.8.2/9)
+- 10-spike M365 API feasibility research for Phase 3 gap candidates — 5 confirmed assessable, 5 documented as out-of-scope (network/OS/physical/procedural controls)
+
+### Changed
+
+- Registry: 292 → **302 checks** (+10)
+- CMMC coverage: 285 → **295 checks** (+10)
+
 ## [2.1.0] - 2026-03-23
 
 ### Added

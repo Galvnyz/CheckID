@@ -21890,6 +21890,189 @@
       }
     },
     {
+      "checkId": "SPO-CUIACCESS-001",
+      "name": "Ensure SharePoint External Sharing Restricts Access to CUI on Digital Media",
+      "category": "CUIACCESS",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "DCH-03",
+        "additionalControlIds": [
+          "NET-03.5"
+        ],
+        "domain": "Data Classification & Handling",
+        "controlName": "Does the organization control and restrict access to digital and non-digital media to authorized individuals?",
+        "controlDescription": "Does the organization control and restrict access to digital and non-digital media to authorized individuals?",
+        "relativeWeighting": 8,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "DCH-03_A01",
+            "text": "access to sensitive / regulated data on system media is restricted to authorized personnel or roles."
+          },
+          {
+            "aoId": "DCH-03_A02",
+            "text": "types of digital media to which access is restricted are defined."
+          },
+          {
+            "aoId": "DCH-03_A03",
+            "text": "personnel or roles authorized to access digital media is/are defined."
+          },
+          {
+            "aoId": "DCH-03_A04",
+            "text": "types of non-digital media to which access is restricted are defined."
+          },
+          {
+            "aoId": "DCH-03_A05",
+            "text": "personnel or roles authorized to access non-digital media is/are defined."
+          },
+          {
+            "aoId": "DCH-03_A06",
+            "text": "access to types of non-digital media is restricted to personnel or roles."
+          },
+          {
+            "aoId": "DCH-03_A07",
+            "text": "access to CUI on system media is restricted to authorized personnel or roles."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SA-2",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;3.1;3.3;9.6"
+        },
+        "cmmc": {
+          "controlId": "AC.L2-3.1.3;MP.L2-3.8.2;SC.L1-B.1.X;SC.L2-3.13.1"
+        },
+        "fedramp": {
+          "controlId": "MP-2;SC-7;SC-7(10)"
+        },
+        "hipaa": {
+          "controlId": "164.310(d)(1);6.M.A;6.M.B;6.M.D"
+        },
+        "iso-27001": {
+          "controlId": "7.10;8.12;8.20;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1029;T1030;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1090;T1090.001;T1090.002;T1090.003;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218.012;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.3;3.13.1;3.8.2"
+        },
+        "nist-800-53": {
+          "controlId": "MP-2;SC-7;SC-7(10);SC-7(11);SC-7(9)",
+          "title": "Media Access; Boundary Protection; Prevent Exfiltration; Restrict Incoming Communications Traffic; Restrict Threatening Outgoing Communications Traffic",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS",
+          "title": "Data Security"
+        },
+        "pci-dss": {
+          "controlId": "1.3.2;1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "C1.1;CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.7-POF1;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to restrict SharePoint external sharing allows CUI stored in cloud digital media to be accessed by unauthorized external parties, violating media access controls and data governance requirements.",
+        "scfWeighting": 8
+      }
+    },
+    {
       "checkId": "COMPLIANCE-LABELS-002",
       "name": "Ensure Auto-Sensitivity Labeling Policies are Configured",
       "category": "LABELS",
@@ -43511,6 +43694,247 @@
       }
     },
     {
+      "checkId": "ENTRA-CA-SESSIONFREQ-001",
+      "name": "Ensure Conditional Access Enforces Session Sign-In Frequency",
+      "category": "SESSIONFREQ",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "NET-07",
+        "domain": "Network Security",
+        "controlName": "Does the organization terminate network connections at the end of a session or after an organization-defined time period of inactivity?",
+        "controlDescription": "Does the organization terminate network connections at the end of a session or after an organization-defined time period of inactivity?",
+        "relativeWeighting": 8,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "NET-07_A01",
+            "text": "a period of inactivity to terminate network connections associated with communications sessions is defined."
+          },
+          {
+            "aoId": "NET-07_A02",
+            "text": "network connections associated with communications sessions are terminated at the end of the sessions."
+          },
+          {
+            "aoId": "NET-07_A03",
+            "text": "network connections associated with communications sessions are terminated after the defined period of inactivity."
+          },
+          {
+            "aoId": "NET-07_A04",
+            "text": "network connections are terminated when nonlocal maintenance is completed."
+          },
+          {
+            "aoId": "NET-07_A05",
+            "text": "the time period of inactivity after which the system terminates a network connection associated with a communications session is defined."
+          },
+          {
+            "aoId": "NET-07_A06",
+            "text": "the network connection associated with a communications session is terminated at the end of the session or after an organization-defined time period of inactivity."
+          },
+          {
+            "aoId": "NET-07_A07",
+            "text": "the network connection associated with a communications session is terminated at the end of the session or after <A.03.13.09.ODP[01]: time period> of inactivity."
+          }
+        ],
+        "risks": [
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.9"
+        },
+        "fedramp": {
+          "controlId": "SC-10"
+        },
+        "mitre-attack": {
+          "controlId": "T1071;T1071.001;T1071.002;T1071.003;T1071.004"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.9"
+        },
+        "nist-800-53": {
+          "controlId": "SC-10",
+          "title": "Network Disconnect",
+          "profiles": [
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.8"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to enforce session sign-in frequency via Conditional Access allows cloud application sessions to persist indefinitely, leaving inactive connections open and exposing CUI to unauthorized access if a session is hijacked.",
+        "scfWeighting": 8
+      }
+    },
+    {
+      "checkId": "ENTRA-SESSIONAUTH-001",
+      "name": "Ensure Legacy Authentication Protocols are Blocked to Protect Session Authenticity",
+      "category": "SESSIONAUTH",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "NET-09",
+        "domain": "Network Security",
+        "controlName": "Does the organization protect the authenticity and integrity of communications sessions?",
+        "controlDescription": "Does the organization protect the authenticity and integrity of communications sessions?",
+        "relativeWeighting": 8,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "NET-09_A01",
+            "text": "the authenticity of communications sessions is protected."
+          },
+          {
+            "aoId": "NET-09_A02",
+            "text": "the confidentiality and/or integrity of information is/are maintained during preparation for transmission."
+          },
+          {
+            "aoId": "NET-09_A03",
+            "text": "the confidentiality and/or integrity of information is/are maintained during reception."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-1",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.15"
+        },
+        "fedramp": {
+          "controlId": "SC-23"
+        },
+        "mitre-attack": {
+          "controlId": "T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1185;T1535;T1550.004;T1557;T1557.001;T1557.002;T1562.006;T1562.009;T1563.001;T1573;T1573.001;T1573.002"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.15"
+        },
+        "nist-800-53": {
+          "controlId": "SC-23",
+          "title": "Session Authenticity",
+          "profiles": [
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.4.1"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to block legacy authentication protocols allows sessions to be established without modern authentication mechanisms, undermining communications session authenticity and enabling credential-spraying and man-in-the-middle attacks.",
+        "scfWeighting": 8
+      }
+    },
+    {
       "checkId": "EXO-DIRECTSEND-001",
       "name": "Ensure Direct Send is not allowed for unauthorized relay",
       "category": "DIRECTSEND",
@@ -50120,6 +50544,205 @@
       }
     },
     {
+      "checkId": "INTUNE-MOBILECODE-001",
+      "name": "Ensure PowerShell Execution Policy Restricts Script Execution on Managed Devices",
+      "category": "MOBILECODE",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "END-10",
+        "domain": "Endpoint Security",
+        "controlName": "Does the organization address mobile code / operating system-independent applications?",
+        "controlDescription": "Does the organization address mobile code / operating system-independent applications?",
+        "relativeWeighting": 4,
+        "csfFunction": "Detect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "END-10_A01",
+            "text": "acceptable mobile code technologies are defined."
+          },
+          {
+            "aoId": "END-10_A02",
+            "text": "unacceptable mobile code technologies are defined."
+          },
+          {
+            "aoId": "END-10_A03",
+            "text": "the use of mobile code is authorized, monitored and controlled."
+          },
+          {
+            "aoId": "END-10_A04",
+            "text": "the download of unacceptable mobile code is prevented."
+          },
+          {
+            "aoId": "END-10_A05",
+            "text": "the execution of unacceptable mobile code is prevented."
+          },
+          {
+            "aoId": "END-10_A06",
+            "text": "corrective actions to be taken when unacceptable mobile code is identified are defined."
+          },
+          {
+            "aoId": "END-10_A07",
+            "text": "corrective actions are taken if unacceptable mobile code is identified."
+          },
+          {
+            "aoId": "END-10_A08",
+            "text": "mobile code requirements for the acquisition, development and use of mobile code to be deployed in the system are defined."
+          },
+          {
+            "aoId": "END-10_A09",
+            "text": "the acquisition of mobile code to be deployed in the system meets mobile code requirements."
+          },
+          {
+            "aoId": "END-10_A10",
+            "text": "the development of mobile code to be deployed in the system meets mobile code requirements."
+          },
+          {
+            "aoId": "END-10_A11",
+            "text": "the use of mobile code to be deployed in the system meets mobile code requirements."
+          },
+          {
+            "aoId": "END-10_A12",
+            "text": "unacceptable mobile code to be prevented from downloading and executing is defined."
+          },
+          {
+            "aoId": "END-10_A13",
+            "text": "software applications in which the automatic execution of mobile code is to be prevented are defined."
+          },
+          {
+            "aoId": "END-10_A14",
+            "text": "actions to be enforced by the system prior to executing mobile code are defined."
+          },
+          {
+            "aoId": "END-10_A15",
+            "text": "the automatic execution of mobile code in software applications is prevented."
+          },
+          {
+            "aoId": "END-10_A16",
+            "text": "platform-independent applications to be included within organizational systems are defined."
+          },
+          {
+            "aoId": "END-10_A17",
+            "text": "platform-independent applications are included within organizational systems."
+          },
+          {
+            "aoId": "END-10_A18",
+            "text": "acceptable mobile code is defined."
+          },
+          {
+            "aoId": "END-10_A19",
+            "text": "the use of mobile code is authorized."
+          },
+          {
+            "aoId": "END-10_A20",
+            "text": "the use of mobile code is monitored."
+          },
+          {
+            "aoId": "END-10_A21",
+            "text": "the use of mobile code is controlled."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.13"
+        },
+        "fedramp": {
+          "controlId": "SC-18"
+        },
+        "hipaa": {
+          "controlId": "1.L.A;6.L.D"
+        },
+        "mitre-attack": {
+          "controlId": "T1021.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1059;T1059.005;T1059.007;T1068;T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1189;T1190;T1203;T1210;T1211;T1212;T1218.001;T1548;T1548.004;T1559;T1559.001;T1559.002;T1611"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.13"
+        },
+        "nist-800-53": {
+          "controlId": "SC-18;SC-18(1);SC-18(2);SC-18(3);SC-18(4);SC-27",
+          "title": "Mobile Code; Identify Unacceptable Code and Take Corrective Actions; Acquisition, Development, and Use; Prevent Downloading and Execution; Prevent Automatic Execution; Platform-independent Applications",
+          "profiles": [
+            "Moderate",
+            "High"
+          ]
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to restrict PowerShell execution on managed endpoints allows arbitrary script execution, enabling malware deployment, credential theft, and lateral movement that bypasses traditional AV-based controls.",
+        "scfWeighting": 4
+      }
+    },
+    {
       "checkId": "TEAMS-MEETING-001",
       "name": "Ensure anonymous users can't join a meeting",
       "category": "MEETING",
@@ -52166,6 +52789,164 @@
       "impactRating": {
         "severity": "Medium",
         "rationale": "Failure to conduct a Root Cause Analysis (RCA) and \"lessons learned\" activity every time the contingency plan is activated exposes the tenant to: Emergent properties and/or unintended consequences, Business interruption, Unmitigated vulnerabilities.",
+        "scfWeighting": 9
+      }
+    },
+    {
+      "checkId": "BACKUP-ENABLED-001",
+      "name": "Ensure Microsoft 365 Backup is Enabled to Protect Backup CUI Confidentiality",
+      "category": "BACKUP",
+      "collector": "Compliance",
+      "hasAutomatedCheck": false,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "BCD-11.4",
+        "additionalControlIds": [
+          "BCD-11"
+        ],
+        "domain": "Business Continuity & Disaster Recovery",
+        "controlName": "Are cryptographic mechanisms utilized to prevent the unauthorized disclosure and/or modification of backup information?",
+        "controlDescription": "Are cryptographic mechanisms utilized to prevent the unauthorized disclosure and/or modification of backup information?",
+        "relativeWeighting": 9,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "BCD-11.4_A01",
+            "text": "the confidentiality of backup information is protected."
+          },
+          {
+            "aoId": "BCD-11.4_A02",
+            "text": "backup information to protect against unauthorized disclosure and modification is defined."
+          },
+          {
+            "aoId": "BCD-11.4_A03",
+            "text": "cryptographic mechanisms are implemented to prevent the unauthorized disclosure of sensitive / regulated data at backup storage locations."
+          },
+          {
+            "aoId": "BCD-11.4_A04",
+            "text": "cryptographic mechanisms are implemented to prevent the unauthorized disclosure of CUI at backup storage locations."
+          }
+        ],
+        "risks": [
+          "R-AC-4",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-4"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "11.2;11.3"
+        },
+        "cmmc": {
+          "controlId": "MP.L2-3.8.9"
+        },
+        "essential-eight": {
+          "controlId": "ML1-P8;ML2-P8;ML3-P8"
+        },
+        "fedramp": {
+          "controlId": "CP-9;CP-9(8)"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(7)(ii)(A);164.310(d)(2)(iv);4.M.D"
+        },
+        "iso-27001": {
+          "controlId": "8.13"
+        },
+        "iso-27017": {
+          "controlId": "12.3.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.003;T1005;T1025;T1070;T1070.001;T1070.002;T1119;T1485;T1486;T1490;T1491;T1491.001;T1491.002;T1561;T1561.001;T1561.002;T1565;T1565.001;T1565.003"
+        },
+        "nis2": {
+          "controlId": "21.2(c)"
+        },
+        "nist-800-171": {
+          "controlId": "3.8.9"
+        },
+        "nist-800-53": {
+          "controlId": "CP-9;CP-9(8);SC-28(1);SC-28(2)",
+          "title": "System Backup; Cryptographic Protection; Offline Storage",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-11",
+          "title": "Backups of data are created, protected, maintained, and tested"
+        },
+        "pci-dss": {
+          "controlId": "12.10.1;9.4.1.1;9.4.1.2"
+        },
+        "soc2": {
+          "controlId": "A1.2;A1.2-POF7;A1.2-POF8;CC7.5",
+          "title": "Identification of Recovery from Identified Security Incidents"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to enable Microsoft 365 Backup for SharePoint, OneDrive, and Exchange leaves backup CUI without verified confidentiality protection, increasing risk of data loss or unauthorized disclosure from backup storage.",
         "scfWeighting": 9
       }
     },
