@@ -1,7 +1,7 @@
 @{
     # Module metadata
     RootModule        = 'CheckID.psm1'
-    ModuleVersion     = '2.5.0'
+    ModuleVersion     = '2.6.0'
     GUID              = 'a3b7c4d5-1e2f-4a5b-8c9d-0e1f2a3b4c5d'
     Author            = 'Galvnyz'
     CompanyName       = 'Galvnyz'

@@ -5,6 +5,28 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.6.0] - 2026-04-17
+
+### Added
+
+- 4 new CMMC L2 checks (Phase 4 — all remaining M365-assessable gaps), confirmed feasible via spike research:
+  - `INTUNE-VPNCONFIG-001` — Prevent VPN Split Tunneling on Managed Devices (SC.L2-3.13.7 / CFG-03.4)
+  - `INTUNE-WIFI-001` — WiFi Enterprise Authentication and Encryption (AC.L2-3.1.16 + AC.L2-3.1.17 / NET-15.1)
+  - `CA-REMOTEDEVICE-001` — Remote Access Enforces Device Compliance via CA Policy (AC.L2-3.1.13 / NET-14.2)
+  - `INTUNE-REMOTEVPN-001` — Always-On VPN for Managed Remote Access Routing (AC.L2-3.1.14 / NET-14.3)
+- `docs/cmmc-l2-coverage-audit.md` — formal audit table for all 110 CMMC L2 practices with M365 vs EZ-CMMC disposition
+- Override append mode in `Build-Registry.py` — `mode: "append"` in `framework-overrides.json` entries now merges controlIds into existing framework mappings (backwards-compatible; default behavior unchanged)
+
+### Fixed
+
+- `ENTRA-ADMINROLE-SEPARATION-001` CMMC mapping now correctly includes `SC.L2-3.13.3` alongside SCF-derived `AC.L2-3.1.5;AC.L2-3.1.6`, using the new override append mode
+
+### Changed
+
+- Registry: 302 → **306 checks** (+4)
+- CMMC coverage: 295 → **299 checks** (+4); **83 of 107 L2 practices now covered**
+- All remaining 24 L2 gaps are formally documented as EZ-CMMC handoff or out-of-scope (no M365-assessable L2 practices remain unaddressed)
+
 ## [2.5.0] - 2026-04-17
 
 ### Added
