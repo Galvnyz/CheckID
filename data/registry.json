@@ -15069,6 +15069,158 @@
       }
     },
     {
+      "checkId": "ENTRA-ADMINROLE-SEPARATION-001",
+      "name": "Ensure Admin Accounts are Separated from Daily-Use Accounts",
+      "category": "ADMINROLE",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "IAC-21.2",
+        "additionalControlIds": [
+          "IAC-21.3"
+        ],
+        "domain": "Identification & Authentication",
+        "controlName": "Does the organization prohibit privileged users from using privileged accounts, while performing non-security functions?",
+        "controlDescription": "Does the organization prohibit privileged users from using privileged accounts, while performing non-security functions?",
+        "relativeWeighting": 9,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "IAC-21.2_A01",
+            "text": "non-security functions are identified."
+          },
+          {
+            "aoId": "IAC-21.2_A02",
+            "text": "users (or roles) with privileged accounts are required to use non-privileged accounts when accessing non-security functions or non-security information."
+          },
+          {
+            "aoId": "IAC-21.2_A03",
+            "text": "security functions or security-relevant information, the access to which requires users to use non-privileged accounts to access non-security functions, are defined."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "5.4"
+        },
+        "cmmc": {
+          "controlId": "AC.L2-3.1.5;AC.L2-3.1.6"
+        },
+        "essential-eight": {
+          "controlId": "ML1-P4;ML2-P4;ML3-P4"
+        },
+        "fedramp": {
+          "controlId": "AC-6;AC-6(2);AC-6(5)"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(3)(i);164.312(a)(1);2.M.A;2.S.A;3.L.C;3.M.B;3.S.A;5.L.B;6.L.E;6.S.A;6.S.B;9.M.C"
+        },
+        "iso-27001": {
+          "controlId": "5.15;5.18;8.12;8.2;8.3"
+        },
+        "iso-27017": {
+          "controlId": "9.1.2;9.2.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1025;T1036;T1036.003;T1036.005;T1041;T1047;T1048;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.001;T1053.002;T1053.003;T1053.005;T1053.006;T1053.007;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.003;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1068;T1070;T1070.001;T1070.002;T1070.003;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1087.004;T1091;T1098;T1098.001;T1098.002;T1098.003;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1112;T1133;T1134;T1134.001;T1134.002;T1134.003;T1134.005;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1176;T1185;T1189;T1190;T1197;T1199;T1200;T1203;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.003;T1218;T1218.007;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1495;T1505;T1505.002;T1505.003;T1505.004;T1525;T1528;T1530;T1537;T1538;T1539;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1543.001;T1543.002;T1543.003;T1543.004;T1546.003;T1546.004;T1546.011;T1546.013;T1547.003;T1547.004;T1547.006;T1547.009;T1547.011;T1547.012;T1547.013;T1548;T1548.002;T1548.003;T1550;T1550.002;T1550.003;T1552;T1552.001;T1552.002;T1552.006;T1552.007;T1553;T1553.003;T1553.006;T1556;T1556.001;T1556.003;T1556.004;T1558;T1558.001;T1558.002;T1558.003;T1559;T1559.001;T1559.002;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.004;T1562.006;T1562.007;T1562.008;T1562.009;T1563;T1563.001;T1563.002;T1567;T1569;T1569.001;T1569.002;T1574;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.011;T1574.012;T1578;T1578.001;T1578.002;T1578.003;T1580;T1599;T1599.001;T1601;T1601.001;T1601.002;T1606;T1606.001;T1606.002;T1609;T1610;T1611;T1612;T1613;T1619"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.5;3.1.6"
+        },
+        "nist-800-53": {
+          "controlId": "AC-6;AC-6(2);AC-6(5);SA-8(14)",
+          "title": "Least Privilege; Non-privileged Access for Nonsecurity Functions; Privileged Accounts",
+          "profiles": [
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-10",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-in-use are protected"
+        },
+        "pci-dss": {
+          "controlId": "1.3;3.4;3.4.2;7.1;7.2;7.2.1;7.2.2;7.2.3;7.2.6;7.3;7.3.1;7.3.2;7.3.3;8.6;8.6.1"
+        },
+        "soc2": {
+          "controlId": "CC5.2-POF3;CC6.1;CC6.1-POF12;CC6.1-POF13;CC6.1-POF7",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to separate privileged admin accounts from daily-use accounts violates user/system management separation, increasing the blast radius of account compromise and enabling privilege escalation through shared identity.",
+        "scfWeighting": 9
+      }
+    },
+    {
       "checkId": "ENTRA-CLOUDADMIN-001",
       "name": "Ensure Administrative accounts are cloud-only",
       "category": "CLOUDADMIN",
@@ -21738,6 +21890,141 @@
       }
     },
     {
+      "checkId": "COMPLIANCE-LABELS-002",
+      "name": "Ensure Auto-Sensitivity Labeling Policies are Configured",
+      "category": "LABELS",
+      "collector": "Compliance",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E5"
+      },
+      "scf": {
+        "primaryControlId": "DCH-04.1",
+        "additionalControlIds": [
+          "NET-03.5",
+          "NET-17"
+        ],
+        "domain": "Data Classification & Handling",
+        "controlName": "Does the organization use automated mechanisms to mark physical media and digital files to indicate the distribution limitations, handling requirements and applicable security markings (if any) of the information to aid Data Loss Prevention (DLP) technologies?",
+        "controlDescription": "Does the organization use automated mechanisms to mark physical media and digital files to indicate the distribution limitations, handling requirements and applicable security markings (if any) of the information to aid Data Loss Prevention (DLP) technologies?",
+        "relativeWeighting": 2,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "DCH-04.1_A01",
+            "text": "automated mechanisms mark media and system output to indicate the distribution limitations, handling requirements and applicable security markings (if any) of the information to enable the use of Data Loss Prevention (DLP) and similar automated data protection technologies."
+          }
+        ],
+        "risks": [
+          "R-AC-4",
+          "R-AM-3",
+          "R-BC-2",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-2",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;3.13;9.6"
+        },
+        "cmmc": {
+          "controlId": "MP.L2-3.8.4;SC.L1-B.1.X;SC.L2-3.13.1"
+        },
+        "fedramp": {
+          "controlId": "MP-3;SC-7;SC-7(10)"
+        },
+        "hipaa": {
+          "controlId": "4.L.A;4.M.B;4.M.E;6.M.A;6.M.B;6.M.D"
+        },
+        "iso-27001": {
+          "controlId": "5.10;5.13;8.12;8.20;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2;8.2.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1029;T1030;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1090;T1090.001;T1090.002;T1090.003;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218.012;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1;3.8.4"
+        },
+        "nist-800-53": {
+          "controlId": "MP-3;SC-7;SC-7(10);SC-7(11);SC-7(9);SI-4(18)",
+          "title": "Media Marking; Boundary Protection; Prevent Exfiltration; Restrict Incoming Communications Traffic; Restrict Threatening Outgoing Communications Traffic; Analyze Traffic and Covert Exfiltration",
+          "profiles": [
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3.2;1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.7-POF1;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to configure auto-sensitivity labeling relies solely on user discretion to classify CUI, leading to inconsistent labeling that undermines DLP enforcement and data governance controls.",
+        "scfWeighting": 2
+      }
+    },
+    {
       "checkId": "SPO-SITE-002",
       "name": "Sensitive sites have restricted external sharing",
       "category": "SITE",
@@ -21944,6 +22231,149 @@
       "impactRating": {
         "severity": "High",
         "rationale": "Failure to implement this control may expose the tenant to security risks.",
+        "scfWeighting": 8
+      }
+    },
+    {
+      "checkId": "INTUNE-REMOVABLEMEDIA-001",
+      "name": "Ensure Removable Media Use is Blocked on Managed Devices",
+      "category": "REMOVABLEMEDIA",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "DCH-10",
+        "domain": "Data Classification & Handling",
+        "controlName": "Does the organization restrict the use of types of digital media on systems or system components?",
+        "controlDescription": "Does the organization restrict the use of types of digital media on systems or system components?",
+        "relativeWeighting": 8,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "DCH-10_A01",
+            "text": "the use of removable media on system components is controlled."
+          },
+          {
+            "aoId": "DCH-10_A02",
+            "text": "organization-defined types of system media are restricted or prohibited."
+          },
+          {
+            "aoId": "DCH-10_A03",
+            "text": "types of system media with usage restrictions or that are prohibited from use are defined."
+          },
+          {
+            "aoId": "DCH-10_A04",
+            "text": "systems or system components on which the use of specific types of system media to be restricted or prohibited are defined."
+          },
+          {
+            "aoId": "DCH-10_A05",
+            "text": "controls to restrict or prohibit the use of specific types of system media on systems or system components are defined."
+          },
+          {
+            "aoId": "DCH-10_A06",
+            "text": "the use of types of system media is organization-defined criteria on systems or system components using controls."
+          },
+          {
+            "aoId": "DCH-10_A07",
+            "text": "the use of portable storage devices in organizational systems is prohibited when such devices have no identifiable owner."
+          },
+          {
+            "aoId": "DCH-10_A08",
+            "text": "the use of the following types of system media is restricted or prohibited: <A.03.08.07.ODP[01]: types of system media>."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-1",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "MP.L2-3.8.7"
+        },
+        "fedramp": {
+          "controlId": "MP-7"
+        },
+        "iso-27001": {
+          "controlId": "7.10"
+        },
+        "iso-27017": {
+          "controlId": "8.3.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1025;T1052;T1052.001;T1091;T1092;T1200"
+        },
+        "nist-800-171": {
+          "controlId": "3.8.7"
+        },
+        "nist-800-53": {
+          "controlId": "MP-7;SC-8(2)",
+          "title": "Media Use; Pre- and Post-transmission Handling",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "soc2": {
+          "controlId": "CC6.7",
+          "title": "Data Transmission and Movement Restriction"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to block removable media on managed endpoints enables data exfiltration of CUI via USB drives and SD cards, and introduces malware vectors that bypass network-based controls.",
         "scfWeighting": 8
       }
     },
@@ -35667,6 +36097,187 @@
       }
     },
     {
+      "checkId": "COMPLIANCE-COMMS-001",
+      "name": "Ensure Communication Compliance Policies are Enabled",
+      "category": "COMMS",
+      "collector": "Compliance",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E5"
+      },
+      "scf": {
+        "primaryControlId": "MON-01.3",
+        "additionalControlIds": [
+          "MON-02.6",
+          "IRO-14"
+        ],
+        "domain": "Continuous Monitoring",
+        "controlName": "Does the organization continuously monitor inbound and outbound communications traffic for unusual or unauthorized activities or conditions?",
+        "controlDescription": "Does the organization continuously monitor inbound and outbound communications traffic for unusual or unauthorized activities or conditions?",
+        "relativeWeighting": 9,
+        "csfFunction": "Detect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "MON-01.3_A01",
+            "text": "criteria for unusual or unauthorized activities or conditions for inbound communications traffic are defined."
+          },
+          {
+            "aoId": "MON-01.3_A02",
+            "text": "criteria for unusual or unauthorized activities or conditions for outbound communications traffic are defined."
+          },
+          {
+            "aoId": "MON-01.3_A03",
+            "text": "unusual or unauthorized activities or conditions that are to be monitored in outbound communications traffic are defined."
+          },
+          {
+            "aoId": "MON-01.3_A04",
+            "text": "inbound communications traffic is monitored to detect unusual or unauthorized activities or conditions."
+          },
+          {
+            "aoId": "MON-01.3_A05",
+            "text": "outbound communications traffic is monitored to detect unusual or unauthorized activities or conditions."
+          },
+          {
+            "aoId": "MON-01.3_A06",
+            "text": "anomalous or suspicious behavior is defined."
+          },
+          {
+            "aoId": "MON-01.3_A07",
+            "text": "systems, applications and services are monitored to detect attacks and indicators of potential attacks."
+          },
+          {
+            "aoId": "MON-01.3_A08",
+            "text": "communications at external managed interfaces to the system are monitored."
+          },
+          {
+            "aoId": "MON-01.3_A09",
+            "text": "communications at key internal managed interfaces within the system are monitored."
+          },
+          {
+            "aoId": "MON-01.3_A10",
+            "text": "the frequency at which to monitor inbound communications traffic for unusual or unauthorized activities or conditions is defined."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13;13.1;13.6;3.14;8;8.1;8.12;8.2;8.3;8.4;8.5;8.6;8.7;8.8;8.9"
+        },
+        "cmmc": {
+          "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;SI.L2-3.14.6"
+        },
+        "fedramp": {
+          "controlId": "AU-1;AU-2;AU-6;IR-6;SI-4;SI-4(4)"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b);6.L.B;6.M.C;8.L.B;8.L.E;8.M.C;9.L.B;9.L.D"
+        },
+        "iso-27001": {
+          "controlId": "8.15;8.16"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1;CLD.12.4.5"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1025;T1027;T1027.002;T1029;T1030;T1036;T1036.001;T1036.003;T1036.005;T1036.007;T1037;T1037.002;T1037.003;T1037.004;T1037.005;T1040;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.001;T1053.002;T1053.003;T1053.005;T1053.006;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.002;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1068;T1070;T1070.001;T1070.002;T1070.003;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1091;T1092;T1095;T1098;T1098.001;T1098.002;T1098.003;T1098.004;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1114;T1114.001;T1114.002;T1114.003;T1119;T1127;T1127.001;T1129;T1132;T1132.001;T1132.002;T1133;T1135;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1176;T1185;T1187;T1189;T1190;T1197;T1201;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.010;T1218.011;T1218.012;T1218.013;T1218.014;T1219;T1220;T1221;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.002;T1505.003;T1505.004;T1525;T1528;T1530;T1537;T1539;T1542.004;T1542.005;T1543;T1543.002;T1546.002;T1546.003;T1546.004;T1546.006;T1546.008;T1546.013;T1546.014;T1547.002;T1547.003;T1547.004;T1547.005;T1547.006;T1547.007;T1547.008;T1547.009;T1547.011;T1547.012;T1547.013;T1548;T1548.001;T1548.002;T1548.003;T1548.004;T1550.001;T1550.003;T1552;T1552.001;T1552.002;T1552.003;T1552.004;T1552.005;T1552.006;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1555;T1555.001;T1555.002;T1555.004;T1555.005;T1556;T1556.001;T1556.002;T1556.003;T1556.004;T1557;T1557.001;T1557.002;T1558;T1558.002;T1558.003;T1558.004;T1559;T1559.002;T1560;T1560.001;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.010;T1563;T1563.001;T1563.002;T1564.002;T1564.004;T1564.006;T1564.007;T1564.008;T1564.009;T1565;T1565.001;T1565.002;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1568;T1568.002;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1578;T1578.001;T1578.002;T1578.003;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1610;T1611;T1612;T1613"
+        },
+        "nist-800-171": {
+          "controlId": "3.14.6;3.3.1;3.3.3;3.3.5;3.3.6;3.3.8;3.3.9;NFO-AU-1"
+        },
+        "nist-800-53": {
+          "controlId": "AU-1;AU-2;AU-6;IR-4(4);IR-6;PM-31;SI-4;SI-4(4)",
+          "title": "Policy and Procedures; Event Logging; Audit Record Review, Analysis, and Reporting; Information Correlation; Incident Reporting; Continuous Monitoring Strategy; System Monitoring; Inbound and Outbound Communications Traffic",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "DE.AE;DE.AE-03;DE.AE-06;DE.CM-01;DE.CM-03;DE.CM-06;DE.CM-09;PR.PS-04",
+          "title": "Adverse Event Analysis; Information is correlated from multiple sources; Information on adverse events is provided to authorized staff and tools; Networks and network services are monitored to find potentially adverse events; Personnel activity and technology usage are monitored to find potentially adverse events; External service provider activities and services are monitored to find potentially adverse events; Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events; Log records are generated and made available for continuous monitoring"
+        },
+        "pci-dss": {
+          "controlId": "10.1;10.3.3;10.4;10.4.1;10.4.1.1;10.4.3;10.7;10.7.1;10.7.2;10.7.3"
+        },
+        "soc2": {
+          "controlId": "CC2.3;CC7.2;CC7.2-POF1;CC7.3;CC7.4",
+          "title": "COSO Principle 15: External Communication; Monitoring System Components for Anomalies; Evaluation of Identified Security Events; Response to Identified Security Incidents"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to enable communication compliance policies leaves organizational communications unmonitored for policy violations, harassment, and data leakage, increasing legal, regulatory, and insider-threat risk.",
+        "scfWeighting": 9
+      }
+    },
+    {
       "checkId": "DEFENDER-ANTIMALWARE-002",
       "name": "Ensure notifications for internal users sending malware is Enabled",
       "category": "ANTIMALWARE",
@@ -41371,6 +41982,147 @@
       "impactRating": {
         "severity": "Medium",
         "rationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
+        "scfWeighting": 5
+      }
+    },
+    {
+      "checkId": "COMPLIANCE-DLP-003",
+      "name": "Ensure DLP Policies Cover Exchange and SharePoint/OneDrive",
+      "category": "DLP",
+      "collector": "Compliance",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "NET-03.5",
+        "additionalControlIds": [
+          "NET-17",
+          "DCH-10.1"
+        ],
+        "domain": "Network Security",
+        "controlName": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
+        "controlDescription": "Does the organization use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces?",
+        "relativeWeighting": 5,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "NET-03.5_A01",
+            "text": "the exfiltration of information is prevented."
+          },
+          {
+            "aoId": "NET-03.5_A02",
+            "text": "the frequency for conducting exfiltration tests is defined."
+          },
+          {
+            "aoId": "NET-03.5_A03",
+            "text": "exfiltration tests are conducted per an organization-defined frequency."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;3.13;9.6"
+        },
+        "cmmc": {
+          "controlId": "MP.L2-3.8.7;SC.L1-B.1.X;SC.L2-3.13.1"
+        },
+        "fedramp": {
+          "controlId": "MP-7;SC-7;SC-7(10)"
+        },
+        "hipaa": {
+          "controlId": "4.L.A;4.M.E;6.M.A;6.M.B;6.M.D"
+        },
+        "iso-27001": {
+          "controlId": "7.10;8.12;8.20;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2;8.3.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1025;T1029;T1030;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1090;T1090.001;T1090.002;T1090.003;T1091;T1092;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1200;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218.012;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1;3.8.7"
+        },
+        "nist-800-53": {
+          "controlId": "MP-7;SC-7;SC-7(10);SC-7(11);SC-7(9);SC-8(2);SI-4(18)",
+          "title": "Media Use; Boundary Protection; Prevent Exfiltration; Restrict Incoming Communications Traffic; Restrict Threatening Outgoing Communications Traffic; Pre- and Post-transmission Handling; Analyze Traffic and Covert Exfiltration",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3.2;1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.7;CC6.7-POF1;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Data Transmission and Movement Restriction; Prevention and Detection of Unauthorized Software"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to extend DLP coverage to Exchange and SharePoint/OneDrive leaves the primary workloads for CUI storage and transmission unprotected against accidental or malicious data exfiltration.",
         "scfWeighting": 5
       }
     },
