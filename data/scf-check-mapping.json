@@ -4974,6 +4974,77 @@
       "scfAdditional": [],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to configure automated device discovery and enrollment allows devices to connect to organizational resources without management oversight, creating blind spots in the inventory and compliance posture."
+    },
+    {
+      "checkId": "COMPLIANCE-COMMS-001",
+      "name": "Ensure Communication Compliance Policies are Enabled",
+      "category": "COMMS",
+      "collector": "Compliance",
+      "hasAutomatedCheck": true,
+      "licensing": "E5",
+      "scfPrimary": "MON-01.3",
+      "scfAdditional": [
+        "MON-02.6",
+        "IRO-14"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to enable communication compliance policies leaves organizational communications unmonitored for policy violations, harassment, and data leakage, increasing legal, regulatory, and insider-threat risk."
+    },
+    {
+      "checkId": "COMPLIANCE-DLP-003",
+      "name": "Ensure DLP Policies Cover Exchange and SharePoint/OneDrive",
+      "category": "DLP",
+      "collector": "Compliance",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-03.5",
+      "scfAdditional": [
+        "NET-17",
+        "DCH-10.1"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to extend DLP coverage to Exchange and SharePoint/OneDrive leaves the primary workloads for CUI storage and transmission unprotected against accidental or malicious data exfiltration."
+    },
+    {
+      "checkId": "COMPLIANCE-LABELS-002",
+      "name": "Ensure Auto-Sensitivity Labeling Policies are Configured",
+      "category": "LABELS",
+      "collector": "Compliance",
+      "hasAutomatedCheck": true,
+      "licensing": "E5",
+      "scfPrimary": "DCH-04.1",
+      "scfAdditional": [
+        "NET-03.5",
+        "NET-17"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to configure auto-sensitivity labeling relies solely on user discretion to classify CUI, leading to inconsistent labeling that undermines DLP enforcement and data governance controls."
+    },
+    {
+      "checkId": "INTUNE-REMOVABLEMEDIA-001",
+      "name": "Ensure Removable Media Use is Blocked on Managed Devices",
+      "category": "REMOVABLEMEDIA",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "DCH-10",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to block removable media on managed endpoints enables data exfiltration of CUI via USB drives and SD cards, and introduces malware vectors that bypass network-based controls."
+    },
+    {
+      "checkId": "ENTRA-ADMINROLE-SEPARATION-001",
+      "name": "Ensure Admin Accounts are Separated from Daily-Use Accounts",
+      "category": "ADMINROLE",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.2",
+      "scfAdditional": [
+        "IAC-21.3"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to separate privileged admin accounts from daily-use accounts violates user/system management separation, increasing the blast radius of account compromise and enabling privilege escalation through shared identity."
     }
   ]
 }
