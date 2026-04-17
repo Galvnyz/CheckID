@@ -135,6 +135,26 @@ def load_framework_mappings(
 
 
 # ---------------------------------------------------------------------------
+# CIS M365 crosswalk loader
+# ---------------------------------------------------------------------------
+
+def load_cis_m365_crosswalk(repo_root: Path) -> dict:
+    """{cisId: {title, nist800_53: [...], fedramp: {high, moderate, low}}} or {} if absent."""
+    path = repo_root / "data" / "cis-m365-crosswalk.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return data.get("controls", {})
+
+
+def merge_control_ids(primary: list[str], secondary_str: str) -> str:
+    """Prepend primary IDs; append any secondary IDs not already present."""
+    secondary = [x.strip() for x in secondary_str.split(";") if x.strip()]
+    merged = primary + [x for x in secondary if x not in primary]
+    return ";".join(merged)
+
+
+# ---------------------------------------------------------------------------
 # Framework map helpers
 # ---------------------------------------------------------------------------
 
@@ -464,7 +484,12 @@ def derive_frameworks(
                     profiles.append(profile_name)
                     break
         if profiles:
-            # Canonical order for NIST baselines
+            # Propagate cumulative baseline inheritance (Low ⊆ Moderate ⊆ High by NIST definition).
+            # SCF 2026.1 maps controls to the *lowest* baseline tier only; we propagate upward.
+            if "Low" in profiles:
+                profiles += ["Moderate", "High"]
+            elif "Moderate" in profiles:
+                profiles += ["High"]
             order = ["Low", "Moderate", "High", "Privacy"]
             profiles = [p for p in order if p in profiles]
             frameworks[fw_key]["profiles"] = profiles
@@ -510,6 +535,11 @@ def main():
             overrides_data = json.load(f)
         fw_overrides = overrides_data.get("overrides", {})
         print(f"Loaded {len(fw_overrides)} framework overrides")
+
+    # Load CIS M365 crosswalk (authoritative NIST + FedRAMP source for CIS-mapped checks)
+    cis_crosswalk = load_cis_m365_crosswalk(REPO_ROOT)
+    if cis_crosswalk:
+        print(f"Loaded CIS M365 crosswalk ({len(cis_crosswalk)} controls)")
 
     # Connect to SCF database
     print(f"Connecting to SCF database at {args.scf_db}")
@@ -578,6 +608,27 @@ def main():
                 cis_entry["profiles"] = cis_profiles
             frameworks["cis-m365-v6"] = cis_entry
 
+        # Enrich NIST 800-53 and FedRAMP from CIS M365 authoritative crosswalk.
+        # CIS IDs are placed first (benchmark-specific); SCF-derived IDs are appended
+        # if not already present (union strategy).
+        cis_data = cis_crosswalk.get(cis_id, {}) if cis_id else {}
+        if cis_data:
+            cis_nist = cis_data.get("nist800_53", [])
+            if cis_nist and "nist-800-53" in frameworks:
+                frameworks["nist-800-53"]["controlId"] = merge_control_ids(
+                    cis_nist, frameworks["nist-800-53"].get("controlId", "")
+                )
+                new_title = resolve_title(frameworks["nist-800-53"]["controlId"], "nist-800-53", titles)
+                if new_title:
+                    frameworks["nist-800-53"]["title"] = new_title
+
+            fedramp_cis = cis_data.get("fedramp", {})
+            if fedramp_cis and "fedramp" in frameworks:
+                order = ["Low", "Moderate", "High"]
+                profiles = [lvl for lvl in order if fedramp_cis.get(lvl.lower())]
+                if profiles:
+                    frameworks["fedramp"]["profiles"] = profiles
+
         scuba_id = cm.get("cisaScubaControlId", "")
         if scuba_id:
             scuba_entry = OrderedDict([("controlId", scuba_id)])
@@ -603,9 +654,7 @@ def main():
             mode = fw_data.get("mode", "replace")
             if mode == "append" and fw_key in frameworks:
                 existing_ids = [x.strip() for x in frameworks[fw_key].get("controlId", "").split(";") if x.strip()]
-                new_ids = [x.strip() for x in fw_data["controlId"].split(";") if x.strip()]
-                merged = existing_ids + [x for x in new_ids if x not in existing_ids]
-                frameworks[fw_key]["controlId"] = ";".join(merged)
+                frameworks[fw_key]["controlId"] = merge_control_ids(existing_ids, fw_data["controlId"])
             elif fw_key not in frameworks:
                 entry = OrderedDict([("controlId", fw_data["controlId"])])
                 title = resolve_title(fw_data["controlId"], fw_key, titles)
