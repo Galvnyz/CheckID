@@ -294,7 +294,7 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
         # SCF — use directly from source (no database enrichment for ARM checks)
         scf_src = entry.get("scf", {})
         scf_obj = OrderedDict()
-        for key in ("primaryControlId", "domain", "controlName", "controlDescription"):
+        for key in ("primaryControlId", "domain", "controlName", "controlDescription", "csfFunction"):
             if key in scf_src:
                 scf_obj[key] = scf_src[key]
         check_obj["scf"] = scf_obj

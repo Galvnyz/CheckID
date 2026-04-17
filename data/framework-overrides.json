@@ -336,19 +336,43 @@
         "controlId": "SC.L2-3.13.3"
       }
     },
+    "CA-SESSION-001": {
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    },
+    "ENTRA-TOU-001": {
+      "soc2": {
+        "controlId": "CC2.2"
+      }
+    },
     "ENTRA-CA-SESSIONFREQ-001": {
       "cmmc": {
         "controlId": "SC.L2-3.13.9"
+      },
+      "soc2": {
+        "controlId": "CC6.6"
       }
     },
     "INTUNE-MOBILECODE-001": {
       "cmmc": {
         "controlId": "SC.L2-3.13.13"
+      },
+      "soc2": {
+        "controlId": "CC6.6"
       }
     },
     "ENTRA-SESSIONAUTH-001": {
       "cmmc": {
         "controlId": "SC.L2-3.13.15"
+      },
+      "soc2": {
+        "controlId": "CC6.6"
+      }
+    },
+    "INTUNE-WIFI-001": {
+      "soc2": {
+        "controlId": "CC6.1;CC6.3"
       }
     },
     "SPO-CUIACCESS-001": {
