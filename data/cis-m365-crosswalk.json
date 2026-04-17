@@ -1,2077 +1,1865 @@
 {
-  "schemaVersion": "1.0.0",
-  "source": "CIS_M365_to_NIST_to_FedRAMP_Crosswalk.csv",
+  "schemaVersion": "1.1.0",
+  "source": "CIS_Microsoft_365_Foundations_Benchmark_v6.0.1.xlsx + CIS_Controls_v8.1_Mapping_to_NIST_SP_800-53_Rev5.csv",
+  "derivation": "CIS M365 recommendation -> CIS Controls v8 safeguard -> NIST 800-53 R5",
   "controls": {
     "1.1.1": {
       "title": "Ensure Administrative accounts are cloud-only",
-      "section": "Microsoft 365 admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "AC-6(5)"
+      "safeguards": [
+        "5.4"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-6(2)",
+        "AC-6(5)"
+      ]
     },
     "1.1.2": {
       "title": "Ensure two emergency access accounts have been defined",
-      "section": "Microsoft 365 admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "AC-2(2)"
+      "safeguards": [
+        "5.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2"
+      ]
     },
     "1.1.3": {
       "title": "Ensure that between two and four global admins are designated",
-      "section": "Microsoft 365 admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(5)"
+      "safeguards": [
+        "5.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "AC-2"
+      ]
     },
     "1.1.4": {
       "title": "Ensure administrative accounts use licenses with a reduced application footprint",
-      "section": "Microsoft 365 admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6",
-        "AC-6(5)"
+      "safeguards": [
+        "5.4"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "AC-6(2)",
+        "AC-6(5)"
+      ]
     },
     "1.2.1": {
       "title": "Ensure that only organizationally managed/approved public groups exist",
-      "section": "Microsoft 365 admin center",
+      "section": "Teams & groups",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)",
-        "CM-5"
+      "safeguards": [
+        "3.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
     },
     "1.2.2": {
       "title": "Ensure sign-in to shared mailboxes is blocked",
-      "section": "Microsoft 365 admin center",
+      "section": "Teams & groups",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "AC-3"
+      "safeguards": [
+        "0.0"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": []
     },
     "1.3.1": {
       "title": "Ensure the 'Password expiration policy' is set to 'Set passwords to never expire (recommended)'",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L1",
       "license": "E3",
+      "safeguards": [
+        "5.2"
+      ],
       "nist800_53": [
         "IA-5(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      ]
     },
     "1.3.2": {
       "title": "Ensure 'Idle session timeout'  is set to '3 hours (or less)' for unmanaged devices",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-11",
-        "AC-12"
+      "safeguards": [
+        "4.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "AC-2(5)",
+        "AC-11",
+        "AC-11(1)",
+        "AC-12"
+      ]
     },
     "1.3.3": {
       "title": "Ensure 'External sharing' of calendars is not available",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "SC-7(10)"
+      "safeguards": [
+        "4.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
     },
     "1.3.4": {
       "title": "Ensure 'User owned apps and services' is restricted",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "CM-11",
-        "CM-7"
+      "safeguards": [
+        "4.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
     },
     "1.3.5": {
       "title": "Ensure internal phishing protection for Forms is enabled",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "SI-8"
+      "safeguards": [
+        "10.1",
+        "14.2"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SI-3",
+        "AT-2(3)"
+      ]
     },
     "1.3.6": {
       "title": "Ensure the customer lockbox feature is enabled",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L2",
       "license": "E5",
-      "nist800_53": [
-        "AC-3",
-        "AC-6"
+      "safeguards": [
+        "0.0"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": []
     },
     "1.3.7": {
       "title": "Ensure 'third-party storage services' are restricted in 'Microsoft 365 on the web'",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
+      "safeguards": [
+        "3.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
     },
     "1.3.8": {
       "title": "Ensure that Sways cannot be shared with people outside of your organization",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "SC-7(10)"
+      "safeguards": [
+        "4.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
     },
     "1.3.9": {
       "title": "Ensure shared bookings pages are restricted to select users",
-      "section": "Microsoft 365 admin center",
+      "section": "Settings",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "AC-6"
+      "safeguards": [
+        "6.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
     },
     "2.1.1": {
       "title": "Ensure Safe Links for Office Applications is Enabled",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L2",
       "license": "E5",
-      "nist800_53": [
-        "CM-6",
-        "SI-3",
-        "SI-8"
+      "safeguards": [
+        "10.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SI-3"
+      ]
     },
     "2.1.2": {
       "title": "Ensure the Common Attachment Types Filter is enabled",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
+      "safeguards": [
+        "9.6"
+      ],
       "nist800_53": [
-        "CM-6",
         "SI-3",
         "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      ]
     },
     "2.1.3": {
       "title": "Ensure notifications for internal users sending malware is Enabled",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "SI-3",
-        "SI-4(5)"
+      "safeguards": [
+        "17.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "IR-1",
+        "IR-8"
+      ]
     },
     "2.1.4": {
       "title": "Ensure Safe Attachments policy is enabled",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L2",
       "license": "E5",
+      "safeguards": [
+        "9.7"
+      ],
       "nist800_53": [
-        "CM-6",
         "SI-3",
         "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      ]
     },
     "2.1.5": {
       "title": "Ensure Safe Attachments for SharePoint, OneDrive, and Microsoft Teams is Enabled",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L2",
       "license": "E5",
-      "nist800_53": [
-        "SI-3"
+      "safeguards": [
+        "9.7",
+        "10.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.1.6": {
       "title": "Ensure Exchange Online Spam Policies are set to notify administrators",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "CM-6",
-        "SI-3",
-        "SI-8"
+      "safeguards": [
+        "17.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "IR-1",
+        "IR-8"
+      ]
     },
     "2.1.7": {
       "title": "Ensure that an anti-phishing policy has been created",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L2",
       "license": "E5",
-      "nist800_53": [
-        "SI-8"
+      "safeguards": [
+        "9.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.1.8": {
       "title": "Ensure that SPF records are published for all Exchange Domains",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "SI-8"
+      "safeguards": [
+        "9.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SC-7"
+      ]
     },
     "2.1.9": {
       "title": "Ensure that DKIM is enabled for all Exchange Online Domains",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "SC-8"
+      "safeguards": [
+        "9.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SC-7"
+      ]
     },
     "2.1.10": {
       "title": "Ensure DMARC Records for all Exchange Online domains are published",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "SI-4(5)",
-        "SI-8"
+      "safeguards": [
+        "9.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SC-7"
+      ]
     },
     "2.1.11": {
       "title": "Ensure comprehensive attachment filtering is applied",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "CM-6",
-        "SI-3"
+      "safeguards": [
+        "9.6"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.1.12": {
       "title": "Ensure the connection filter IP allow list is not used",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-4",
-        "SI-8"
+      "safeguards": [
+        "9.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.1.13": {
       "title": "Ensure the connection filter safe list is off",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-4",
-        "SI-8"
+      "safeguards": [
+        "9.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.1.14": {
       "title": "Ensure inbound anti-spam policies do not contain allowed domains",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "SI-8"
+      "safeguards": [
+        "9.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.1.15": {
       "title": "Ensure outbound anti-spam message limits are in place",
-      "section": "Microsoft 365 Defender",
+      "section": "Email & collaboration",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "CM-6",
-        "SI-8"
+      "safeguards": [
+        "9.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
     },
     "2.2.1": {
       "title": "Ensure emergency access account activity is monitored",
-      "section": "Microsoft 365 Defender",
+      "section": "Cloud apps",
       "level": "L1",
       "license": "E5",
-      "nist800_53": [
-        "AU-12",
-        "AU-2",
-        "AU-7"
+      "safeguards": [
+        "8.2"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AU-2",
+        "AU-7",
+        "AU-12"
+      ]
     },
     "2.4.1": {
       "title": "Ensure Priority account protection is enabled and configured",
-      "section": "Microsoft 365 Defender",
+      "section": "System",
       "level": "L1",
       "license": "E5",
+      "safeguards": [
+        "9.7"
+      ],
       "nist800_53": [
-        "CM-6",
         "SI-3",
         "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      ]
     },
     "2.4.2": {
       "title": "Ensure Priority accounts have 'Strict protection' presets applied",
-      "section": "Microsoft 365 Defender",
+      "section": "System",
       "level": "L1",
       "license": "E5",
-      "nist800_53": [
-        "CM-6",
-        "SI-3",
-        "SI-8"
+      "safeguards": [
+        "9.7",
+        "10.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-8",
+        "SI-4"
+      ]
     },
     "2.4.3": {
       "title": "Ensure Microsoft Defender for Cloud Apps is enabled and configured",
-      "section": "Microsoft 365 Defender",
+      "section": "System",
       "level": "L2",
       "license": "E5",
-      "nist800_53": [
-        "SI-4(5)"
+      "safeguards": [
+        "10.1",
+        "10.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "SI-3",
+        "SI-16"
+      ]
     },
     "2.4.4": {
       "title": "Ensure Zero-hour auto purge for Microsoft Teams is on",
-      "section": "Microsoft 365 Defender",
+      "section": "System",
       "level": "L1",
       "license": "E5",
-      "nist800_53": [
-        "SI-3",
-        "SI-8"
+      "safeguards": [
+        "10.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "SI-3"
+      ]
     },
     "3.1.1": {
       "title": "Ensure Microsoft 365 audit log search is Enabled",
-      "section": "Microsoft Purview",
+      "section": "Audit",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AU-12"
+      "safeguards": [
+        "8.2"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AU-2",
+        "AU-7",
+        "AU-12"
+      ]
     },
     "3.2.1": {
       "title": "Ensure DLP policies are enabled",
-      "section": "Microsoft Purview",
+      "section": "Data loss protection",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "SC-7(10)"
+      "safeguards": [
+        "3.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": false,
-        "low": false
-      }
+      "nist800_53": [
+        "AU-11",
+        "CM-12",
+        "SI-12"
+      ]
     },
     "3.2.2": {
       "title": "Ensure DLP policies are enabled for Microsoft Teams",
-      "section": "Microsoft Purview",
+      "section": "Data loss protection",
       "level": "L1",
       "license": "E5",
-      "nist800_53": [
-        "SC-7(10)"
+      "safeguards": [
+        "3.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": false,
-        "low": false
-      }
+      "nist800_53": [
+        "AU-11",
+        "CM-12",
+        "SI-12"
+      ]
     },
     "3.3.1": {
       "title": "Ensure Information Protection sensitivity label policies are published",
-      "section": "Microsoft Purview",
+      "section": "Information Protection",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "SC-7(10)"
+      "safeguards": [
+        "3.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "RA-2"
+      ]
     },
     "4.1": {
       "title": "Ensure devices without a compliance policy are marked 'not compliant'",
       "section": "Microsoft Intune admin center",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "CM-6",
-        "CM-8"
+      "safeguards": [
+        "0.0"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": []
     },
     "4.2": {
       "title": "Ensure device enrollment for personally owned devices is blocked by default",
       "section": "Microsoft Intune admin center",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-19",
-        "CM-7"
+      "safeguards": [
+        "4.12",
+        "4.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-19(5)",
+        "SC-39",
+        "CM-6",
+        "CM-7"
+      ]
     },
     "5.1.2.1": {
       "title": "Ensure 'Per-user MFA' is disabled",
-      "section": "Microsoft Entra admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
       "nist800_53": [
-        "CM-6",
         "IA-2(1)",
         "IA-2(2)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      ]
     },
     "5.1.2.2": {
       "title": "Ensure third party integrated applications are not allowed",
-      "section": "Microsoft Entra admin center",
+      "section": "Users",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)",
-        "CM-5"
+      "safeguards": [
+        "2.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "CM-7(5)",
+        "CM-10"
+      ]
     },
     "5.1.2.3": {
       "title": "Ensure 'Restrict non-admin users from creating tenants' is set to 'Yes'",
-      "section": "Microsoft Entra admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)",
-        "CM-5"
+      "safeguards": [
+        "0.0"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": []
     },
     "5.1.2.4": {
       "title": "Ensure access to the Entra admin center is restricted",
-      "section": "Microsoft Entra admin center",
+      "section": "Users",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "AC-6(5)"
+      "safeguards": [
+        "0.0"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": []
     },
     "5.1.2.5": {
       "title": "Ensure the option to remain signed in is hidden",
-      "section": "Microsoft Entra admin center",
+      "section": "Users",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-11",
-        "AC-12"
+      "safeguards": [
+        "4.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "AC-2(5)",
+        "AC-11",
+        "AC-11(1)",
+        "AC-12"
+      ]
     },
     "5.1.2.6": {
       "title": "Ensure 'LinkedIn account connections' is disabled",
-      "section": "Microsoft Entra admin center",
+      "section": "Users",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "CM-7"
+      "safeguards": [
+        "4.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
     },
     "5.1.3.1": {
       "title": "Ensure a dynamic group for guest users is created",
-      "section": "Microsoft Entra admin center",
+      "section": "Groups",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "AC-6"
+      "safeguards": [
+        "3.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
     },
     "5.1.3.2": {
       "title": "Ensure users cannot create security groups",
-      "section": "Microsoft Entra admin center",
+      "section": "Groups",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)",
-        "CM-5"
+      "safeguards": [
+        "3.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
     },
     "5.1.4.1": {
       "title": "Ensure the ability to join devices to Entra is restricted",
-      "section": "Microsoft Entra admin center",
+      "section": "Devices",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "CM-7"
+      "safeguards": [
+        "6.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
     },
     "5.1.4.2": {
       "title": "Ensure the maximum number of devices per user is limited",
-      "section": "Microsoft Entra admin center",
+      "section": "Devices",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-19",
-        "CM-8"
+      "safeguards": [
+        "6.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
     },
     "5.1.4.3": {
       "title": "Ensure the GA role is not added as a local administrator during Entra join",
-      "section": "Microsoft Entra admin center",
+      "section": "Devices",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(5)",
-        "CM-6"
+      "safeguards": [
+        "6.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
     },
     "5.1.4.4": {
       "title": "Ensure local administrator assignment is limited during Entra join",
-      "section": "Microsoft Entra admin center",
+      "section": "Devices",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(5)",
-        "CM-6"
+      "safeguards": [
+        "6.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
     },
     "5.1.4.5": {
       "title": "Ensure Local Administrator Password Solution is enabled",
-      "section": "Microsoft Entra admin center",
+      "section": "Devices",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "CM-6",
-        "IA-5"
+      "safeguards": [
+        "5.2"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "IA-5(1)"
+      ]
     },
     "5.1.4.6": {
       "title": "Ensure users are restricted from recovering BitLocker keys",
-      "section": "Microsoft Entra admin center",
+      "section": "Devices",
       "level": "L2",
       "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
       "nist800_53": [
         "AC-3",
-        "AC-6"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
     },
     "5.1.5.1": {
       "title": "Ensure user consent to apps accessing company data on their behalf is not allowed",
-      "section": "Microsoft Entra admin center",
+      "section": "Applications",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)",
-        "CM-5"
+      "safeguards": [
+        "3.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
     },
     "5.1.5.2": {
       "title": "Ensure the admin consent workflow is enabled",
-      "section": "Microsoft Entra admin center",
+      "section": "Applications",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)",
-        "CM-4"
+      "safeguards": [
+        "2.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "CM-7(5)",
+        "CM-10"
+      ]
     },
     "5.1.6.1": {
       "title": "Ensure that collaboration invitations are sent to allowed domains only",
-      "section": "Microsoft Entra admin center",
+      "section": "External Identities",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-3"
+      "safeguards": [
+        "6.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "IA-4",
+        "IA-5",
+        "AC-1",
+        "AC-2",
+        "AC-2(1)"
+      ]
     },
     "5.1.6.2": {
       "title": "Ensure that guest user access is restricted",
-      "section": "Microsoft Entra admin center",
+      "section": "External Identities",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "AC-6"
+      "safeguards": [
+        "6.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "IA-4",
+        "IA-5",
+        "AC-1",
+        "AC-2",
+        "AC-2(1)"
+      ]
     },
     "5.1.6.3": {
       "title": "Ensure guest user invitations are limited to the Guest Inviter role",
-      "section": "Microsoft Entra admin center",
+      "section": "External Identities",
       "level": "L2",
       "license": "E3",
-      "nist800_53": [
-        "AC-6(10)"
+      "safeguards": [
+        "6.1"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
+      "nist800_53": [
+        "IA-4",
+        "IA-5",
+        "AC-1",
+        "AC-2",
+        "AC-2(1)"
+      ]
     },
     "5.1.8.1": {
       "title": "Ensure that password hash sync is enabled for hybrid deployments",
-      "section": "Microsoft Entra admin center",
+      "section": "Hybrid management",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "IA-5"
+      "safeguards": [
+        "6.7"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2(1)",
+        "AC-3"
+      ]
     },
     "5.2.2.1": {
       "title": "Ensure multifactor authentication is enabled for all users in administrative roles",
-      "section": "Microsoft Entra admin center",
+      "section": "Risk-based Conditional Access",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "IA-2(1)",
-        "IA-2(2)"
+      "safeguards": [
+        "6.5"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "IA-2(1)"
+      ]
     },
     "5.2.2.2": {
       "title": "Ensure multifactor authentication is enabled for all users",
-      "section": "Microsoft Entra admin center",
+      "section": "Risk-based Conditional Access",
       "level": "L1",
       "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      ]
     },
     "5.2.2.3": {
       "title": "Enable Conditional Access policies to block legacy authentication",
-      "section": "Microsoft Entra admin center",
+      "section": "Risk-based Conditional Access",
       "level": "L1",
       "license": "E3",
-      "nist800_53": [
-        "CM-7"
+      "safeguards": [
+        "4.8"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.2.4": {
-      "title": "Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-11",
-        "AC-12"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.2.2.5": {
-      "title": "Ensure 'Phishing-resistant MFA strength' is required for Administrators",
-      "section": "Microsoft Entra admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "IA-2(1)",
-        "IA-2(8)",
-        "IA-5"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.2.6": {
-      "title": "Enable Identity Protection user risk policies",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E5",
-      "nist800_53": [
-        "AC-2(12)",
-        "AC-2(13)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.2.2.7": {
-      "title": "Enable Identity Protection sign-in risk policies",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E5",
-      "nist800_53": [
-        "AC-2(12)",
-        "AC-2(13)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.2.2.8": {
-      "title": "Ensure 'sign-in risk' is blocked for medium and high risk",
-      "section": "Microsoft Entra admin center",
-      "level": "L2",
-      "license": "E5",
-      "nist800_53": [
-        "AC-2(12)",
-        "AC-2(13)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.2.2.9": {
-      "title": "Ensure a managed device is required for authentication",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-20",
-        "IA-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.2.10": {
-      "title": "Ensure a managed device is required to register security information",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-20",
-        "IA-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.2.11": {
-      "title": "Ensure sign-in frequency for Intune Enrollment is set to 'Every time'",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-11",
-        "IA-2(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.2.12": {
-      "title": "Ensure the device code sign-in flow is blocked",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.1": {
-      "title": "Ensure Microsoft Authenticator is configured to protect against MFA fatigue",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-2(1)",
-        "IA-2(13)",
-        "IA-2(2)",
-        "IA-2(8)",
-        "IA-5"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.2": {
-      "title": "Ensure custom banned passwords lists are used",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-5(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.3": {
-      "title": "Ensure password protection is enabled for on-prem Active Directory",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-5(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.4": {
-      "title": "Ensure all member users are 'MFA capable'",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-2(1)",
-        "IA-2(2)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.5": {
-      "title": "Ensure weak authentication methods are disabled",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "IA-5"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.6": {
-      "title": "Ensure system-preferred multifactor authentication is enabled",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-2(1)",
-        "IA-2(2)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.3.7": {
-      "title": "Ensure the email OTP authentication method is disabled",
-      "section": "Microsoft Entra admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "IA-5"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.2.4.1": {
-      "title": "Ensure 'Self service password reset enabled' is set to 'All'",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-5(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.3.1": {
-      "title": "Ensure 'Privileged Identity Management' is used to manage roles",
-      "section": "Microsoft Entra admin center",
-      "level": "L2",
-      "license": "E5",
-      "nist800_53": [
-        "AC-2",
-        "AC-6(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "5.3.2": {
-      "title": "Ensure 'Access reviews' for Guest Users are configured",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E5",
-      "nist800_53": [
-        "AC-2(1)",
-        "AC-2(3)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.3.3": {
-      "title": "Ensure 'Access reviews' for privileged roles are configured",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E5",
-      "nist800_53": [
-        "AC-2(1)",
-        "AC-2(3)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.3.4": {
-      "title": "Ensure approval is required for Global Administrator role activation",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E5",
-      "nist800_53": [
-        "AC-6(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "5.3.5": {
-      "title": "Ensure approval is required for Privileged Role Administrator activation",
-      "section": "Microsoft Entra admin center",
-      "level": "L1",
-      "license": "E5",
-      "nist800_53": [
-        "AC-6(1)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "6.1.1": {
-      "title": "Ensure 'AuditDisabled' organizationally is set to 'False'",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AU-12"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.1.2": {
-      "title": "Ensure mailbox audit actions are configured",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AU-12"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.1.3": {
-      "title": "Ensure 'AuditBypassEnabled' is not enabled on mailboxes",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AU-12"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.2.1": {
-      "title": "Ensure all forms of mail forwarding are blocked and/or disabled",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-4"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "6.2.2": {
-      "title": "Ensure mail transport rules do not whitelist specific domains",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "6.2.3": {
-      "title": "Ensure email from external senders is identified",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "6.3.1": {
-      "title": "Ensure users installing Outlook add-ins is not allowed",
-      "section": "Exchange admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-11",
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.5.1": {
-      "title": "Ensure modern authentication for Exchange Online is enabled",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.5.2": {
-      "title": "Ensure MailTips are enabled for end users",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AT-2"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.5.3": {
-      "title": "Ensure additional storage providers are restricted in Outlook on the web",
-      "section": "Exchange admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.5.4": {
-      "title": "Ensure SMTP AUTH is disabled",
-      "section": "Exchange admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "6.5.5": {
-      "title": "Ensure Direct Send submissions are rejected",
-      "section": "Exchange admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-18",
-        "SC-23"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.1": {
-      "title": "Ensure modern authentication for SharePoint applications is required",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "IA-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.2": {
-      "title": "Ensure SharePoint and OneDrive integration with Azure AD B2B is enabled",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "IA-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.3": {
-      "title": "Ensure external content sharing is restricted",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "AC-3",
-        "IA-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.4": {
-      "title": "Ensure OneDrive content sharing is restricted",
-      "section": "SharePoint admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-2",
-        "AC-3",
-        "IA-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.5": {
-      "title": "Ensure that SharePoint guest users cannot share items they don't own",
-      "section": "SharePoint admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "AC-6(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.6": {
-      "title": "Ensure SharePoint external sharing is restricted",
-      "section": "SharePoint admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "AC-6(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.7": {
-      "title": "Ensure link sharing is restricted in SharePoint and OneDrive",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-6"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "7.2.8": {
-      "title": "Ensure external sharing is restricted by security group",
-      "section": "SharePoint admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "AC-6(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.9": {
-      "title": "Ensure guest access to a site or OneDrive will expire automatically",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-21",
-        "AC-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.10": {
-      "title": "Ensure reauthentication with verification code is restricted",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "IA-11"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.2.11": {
-      "title": "Ensure the SharePoint default sharing link permission is set",
-      "section": "SharePoint admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-6"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "7.3.1": {
-      "title": "Ensure Office 365 SharePoint infected files are disallowed for download",
-      "section": "SharePoint admin center",
-      "level": "L2",
-      "license": "E5",
-      "nist800_53": [
-        "SI-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "7.3.2": {
-      "title": "Ensure OneDrive sync is restricted for unmanaged devices",
-      "section": "SharePoint admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-19",
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.1.1": {
-      "title": "Ensure external file sharing in Teams is enabled for only approved cloud storage services",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.1.2": {
-      "title": "Ensure users can't send emails to a channel email address",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-4",
-        "SC-7(10)",
-        "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "8.2.1": {
-      "title": "Ensure external domains are restricted in the Teams admin center",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.2.2": {
-      "title": "Ensure communication with unmanaged Teams users is disabled",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.2.3": {
-      "title": "Ensure external Teams users cannot initiate conversations",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SI-8"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.2.4": {
-      "title": "Ensure the organization cannot communicate with accounts in trial Teams tenants",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.4.1": {
-      "title": "Ensure app permission policies are configured",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-11"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.1": {
-      "title": "Ensure anonymous users can't join a meeting",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "SC-15"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.2": {
-      "title": "Ensure anonymous users and dial-in callers can't start a meeting",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "SC-15"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.3": {
-      "title": "Ensure only people in my org can bypass the lobby",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.4": {
-      "title": "Ensure users dialing in can't bypass the lobby",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "SC-15"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.5": {
-      "title": "Ensure meeting chat does not allow anonymous users",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "SC-15"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.6": {
-      "title": "Ensure only organizers and co-organizers can present",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "AC-21",
-        "AC-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.7": {
-      "title": "Ensure external participants can't give or request control",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-17"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.8": {
-      "title": "Ensure external meeting chat is off",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.5.9": {
-      "title": "Ensure meeting recording is off by default",
-      "section": "Microsoft Teams admin center",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "8.6.1": {
-      "title": "Ensure users can report security concerns in Teams",
-      "section": "Microsoft Teams admin center",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "SI-4(12)",
-        "SI-4(5)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "9.1.1": {
-      "title": "Ensure guest user access is restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-6",
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.2": {
-      "title": "Ensure external user invitations are restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-6",
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.3": {
-      "title": "Ensure guest access to content is restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-6",
-        "CM-7"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.4": {
-      "title": "Ensure 'Publish to web' is restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.5": {
-      "title": "Ensure 'Interact with and share R and Python' visuals is 'Disabled'",
-      "section": "Microsoft Fabric",
-      "level": "L2",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SI-3"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.6": {
-      "title": "Ensure 'Allow users to apply sensitivity labels for content' is 'Enabled'",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-3",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.7": {
-      "title": "Ensure shareable links are restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-21",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "9.1.8": {
-      "title": "Ensure enabling of external data sharing is restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "SC-7(10)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.9": {
-      "title": "Ensure 'Block ResourceKey Authentication' is 'Enabled'",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "CM-7",
-        "IA-5"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
-    },
-    "9.1.10": {
-      "title": "Ensure access to APIs by service principals is restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-4",
-        "AC-6(5)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "9.1.11": {
-      "title": "Ensure service principals cannot create and use profiles",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
-      "nist800_53": [
-        "AC-4",
-        "AC-6(5)"
-      ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": false
-      }
-    },
-    "9.1.12": {
-      "title": "Ensure service principals ability to create workspaces, connections and deployment pipelines is restricted",
-      "section": "Microsoft Fabric",
-      "level": "L1",
-      "license": "E3",
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ]
+    },
+    "5.2.2.4": {
+      "title": "Ensure Sign-in frequency is enabled and browser sessions are not persistent for Administrative users",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "4.3"
       ],
-      "fedramp": {
-        "high": true,
-        "moderate": true,
-        "low": true
-      }
+      "nist800_53": [
+        "AC-2(5)",
+        "AC-11",
+        "AC-11(1)",
+        "AC-12"
+      ]
+    },
+    "5.2.2.5": {
+      "title": "Ensure 'Phishing-resistant MFA strength' is required for Administrators",
+      "section": "Risk-based Conditional Access",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "6.5"
+      ],
+      "nist800_53": [
+        "IA-2(1)"
+      ]
+    },
+    "5.2.2.6": {
+      "title": "Enable Identity Protection user risk policies",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E5",
+      "safeguards": [
+        "13.3"
+      ],
+      "nist800_53": [
+        "SI-4",
+        "SI-4(4)"
+      ]
+    },
+    "5.2.2.7": {
+      "title": "Enable Identity Protection sign-in risk policies",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E5",
+      "safeguards": [
+        "13.3"
+      ],
+      "nist800_53": [
+        "SI-4",
+        "SI-4(4)"
+      ]
+    },
+    "5.2.2.8": {
+      "title": "Ensure 'sign-in risk' is blocked for medium and high risk",
+      "section": "Risk-based Conditional Access",
+      "level": "L2",
+      "license": "E5",
+      "safeguards": [
+        "13.3"
+      ],
+      "nist800_53": [
+        "SI-4",
+        "SI-4(4)"
+      ]
+    },
+    "5.2.2.9": {
+      "title": "Ensure a managed device is required for authentication",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.2.10": {
+      "title": "Ensure a managed device is required to register security information",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.2.11": {
+      "title": "Ensure sign-in frequency for Intune Enrollment is set to 'Every time'",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.2.12": {
+      "title": "Ensure the device code sign-in flow is blocked",
+      "section": "Risk-based Conditional Access",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "16.7"
+      ],
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
+    },
+    "5.2.3.1": {
+      "title": "Ensure Microsoft Authenticator is configured to protect against MFA fatigue",
+      "section": "Authentication Methods",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.4"
+      ],
+      "nist800_53": [
+        "AC-19",
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.3.2": {
+      "title": "Ensure custom banned passwords lists are used",
+      "section": "Authentication Methods",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "5.2"
+      ],
+      "nist800_53": [
+        "IA-5(1)"
+      ]
+    },
+    "5.2.3.3": {
+      "title": "Ensure password protection is enabled for on-prem Active Directory",
+      "section": "Authentication Methods",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "5.2"
+      ],
+      "nist800_53": [
+        "IA-5(1)"
+      ]
+    },
+    "5.2.3.4": {
+      "title": "Ensure all member users are 'MFA capable'",
+      "section": "Authentication Methods",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.3.5": {
+      "title": "Ensure weak authentication methods are disabled",
+      "section": "Authentication Methods",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.3.6": {
+      "title": "Ensure system-preferred multifactor authentication is enabled",
+      "section": "Authentication Methods",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.3.7": {
+      "title": "Ensure the email OTP authentication method is disabled",
+      "section": "Authentication Methods",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "6.3"
+      ],
+      "nist800_53": [
+        "IA-2(1)",
+        "IA-2(2)"
+      ]
+    },
+    "5.2.4.1": {
+      "title": "Ensure 'Self service password reset enabled' is set to 'All'",
+      "section": "Password reset",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "5.3.1": {
+      "title": "Ensure 'Privileged Identity Management' is used to manage roles",
+      "section": "ID Governance",
+      "level": "L2",
+      "license": "E5",
+      "safeguards": [
+        "6.1",
+        "6.2"
+      ],
+      "nist800_53": [
+        "IA-4",
+        "IA-5",
+        "AC-1",
+        "AC-2",
+        "AC-2(1)"
+      ]
+    },
+    "5.3.2": {
+      "title": "Ensure 'Access reviews' for Guest Users are configured",
+      "section": "ID Governance",
+      "level": "L1",
+      "license": "E5",
+      "safeguards": [
+        "5.1",
+        "5.3"
+      ],
+      "nist800_53": [
+        "AC-2",
+        "AC-2(3)"
+      ]
+    },
+    "5.3.3": {
+      "title": "Ensure 'Access reviews' for privileged roles are configured",
+      "section": "ID Governance",
+      "level": "L1",
+      "license": "E5",
+      "safeguards": [
+        "5.1",
+        "5.3"
+      ],
+      "nist800_53": [
+        "AC-2",
+        "AC-2(3)"
+      ]
+    },
+    "5.3.4": {
+      "title": "Ensure approval is required for Global Administrator role activation",
+      "section": "ID Governance",
+      "level": "L1",
+      "license": "E5",
+      "safeguards": [
+        "6.1",
+        "6.2"
+      ],
+      "nist800_53": [
+        "IA-4",
+        "IA-5",
+        "AC-1",
+        "AC-2",
+        "AC-2(1)"
+      ]
+    },
+    "5.3.5": {
+      "title": "Ensure approval is required for Privileged Role Administrator activation",
+      "section": "ID Governance",
+      "level": "L1",
+      "license": "E5",
+      "safeguards": [
+        "6.1",
+        "6.2"
+      ],
+      "nist800_53": [
+        "IA-4",
+        "IA-5",
+        "AC-1",
+        "AC-2",
+        "AC-2(1)"
+      ]
+    },
+    "6.1.1": {
+      "title": "Ensure 'AuditDisabled' organizationally is set to 'False'",
+      "section": "Audit",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "8.2"
+      ],
+      "nist800_53": [
+        "AU-2",
+        "AU-7",
+        "AU-12"
+      ]
+    },
+    "6.1.2": {
+      "title": "Ensure mailbox audit actions are configured",
+      "section": "Audit",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "8.2"
+      ],
+      "nist800_53": [
+        "AU-2",
+        "AU-7",
+        "AU-12"
+      ]
+    },
+    "6.1.3": {
+      "title": "Ensure 'AuditBypassEnabled' is not enabled on mailboxes",
+      "section": "Audit",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "8.5"
+      ],
+      "nist800_53": [
+        "AU-3",
+        "AU-3(1)",
+        "AU-7",
+        "AU-12"
+      ]
+    },
+    "6.2.1": {
+      "title": "Ensure all forms of mail forwarding are blocked and/or disabled",
+      "section": "Mail flow",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "6.2.2": {
+      "title": "Ensure mail transport rules do not whitelist specific domains",
+      "section": "Mail flow",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "9.7"
+      ],
+      "nist800_53": [
+        "SI-3",
+        "SI-8"
+      ]
+    },
+    "6.2.3": {
+      "title": "Ensure email from external senders is identified",
+      "section": "Mail flow",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "6.3.1": {
+      "title": "Ensure users installing Outlook add-ins is not allowed",
+      "section": "Roles",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "9.4"
+      ],
+      "nist800_53": [
+        "CM-10",
+        "CM-11",
+        "SC-18"
+      ]
+    },
+    "6.5.1": {
+      "title": "Ensure modern authentication for Exchange Online is enabled",
+      "section": "Settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.10"
+      ],
+      "nist800_53": [
+        "AC-17(2)",
+        "IA-5",
+        "IA-5(1)",
+        "SC-8",
+        "SC-8(1)"
+      ]
+    },
+    "6.5.2": {
+      "title": "Ensure MailTips are enabled for end users",
+      "section": "Settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "6.5.3": {
+      "title": "Ensure additional storage providers are restricted in Outlook on the web",
+      "section": "Settings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "6.5.4": {
+      "title": "Ensure SMTP AUTH is disabled",
+      "section": "Settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "12.6"
+      ],
+      "nist800_53": [
+        "AC-18",
+        "SC-23"
+      ]
+    },
+    "6.5.5": {
+      "title": "Ensure Direct Send submissions are rejected",
+      "section": "Settings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "12.6"
+      ],
+      "nist800_53": [
+        "AC-18",
+        "SC-23"
+      ]
+    },
+    "7.2.1": {
+      "title": "Ensure modern authentication for SharePoint applications is required",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.10"
+      ],
+      "nist800_53": [
+        "AC-17(2)",
+        "IA-5",
+        "IA-5(1)",
+        "SC-8",
+        "SC-8(1)"
+      ]
+    },
+    "7.2.2": {
+      "title": "Ensure SharePoint and OneDrive integration with Azure AD B2B is enabled",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "7.2.3": {
+      "title": "Ensure external content sharing is restricted",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "7.2.4": {
+      "title": "Ensure OneDrive content sharing is restricted",
+      "section": "Policies",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "7.2.5": {
+      "title": "Ensure that SharePoint guest users cannot share items they don't own",
+      "section": "Policies",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "7.2.6": {
+      "title": "Ensure SharePoint external sharing is restricted",
+      "section": "Policies",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "7.2.7": {
+      "title": "Ensure link sharing is restricted in SharePoint and OneDrive",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "7.2.8": {
+      "title": "Ensure external sharing is restricted by security group",
+      "section": "Policies",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "6.8"
+      ],
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
+    },
+    "7.2.9": {
+      "title": "Ensure guest access to a site or OneDrive will expire automatically",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "7.2.10": {
+      "title": "Ensure reauthentication with verification code is restricted",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "7.2.11": {
+      "title": "Ensure the SharePoint default sharing link permission is set",
+      "section": "Policies",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "7.3.1": {
+      "title": "Ensure Office 365 SharePoint infected files are disallowed for download",
+      "section": "Settings",
+      "level": "L2",
+      "license": "E5",
+      "safeguards": [
+        "10.1"
+      ],
+      "nist800_53": [
+        "SI-3"
+      ]
+    },
+    "7.3.2": {
+      "title": "Ensure OneDrive sync is restricted for unmanaged devices",
+      "section": "Settings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.1.1": {
+      "title": "Ensure external file sharing in Teams is enabled for only approved cloud storage services",
+      "section": "Teams",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "8.1.2": {
+      "title": "Ensure users can't send emails to a channel email address",
+      "section": "Teams",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.2.1": {
+      "title": "Ensure external domains are restricted in the Teams admin center",
+      "section": "Users",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.2.2": {
+      "title": "Ensure communication with unmanaged Teams users is disabled",
+      "section": "Users",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.2.3": {
+      "title": "Ensure external Teams users cannot initiate conversations",
+      "section": "Users",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.2.4": {
+      "title": "Ensure the organization cannot communicate with accounts in trial Teams tenants",
+      "section": "Users",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.4.1": {
+      "title": "Ensure app permission policies are configured",
+      "section": "Teams apps",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "2.5"
+      ],
+      "nist800_53": [
+        "CM-7(5)",
+        "CM-10"
+      ]
+    },
+    "8.5.1": {
+      "title": "Ensure anonymous users can't join a meeting",
+      "section": "Meetings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.5.2": {
+      "title": "Ensure anonymous users and dial-in callers can't start a meeting",
+      "section": "Meetings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.5.3": {
+      "title": "Ensure only people in my org can bypass the lobby",
+      "section": "Meetings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.8"
+      ],
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
+    },
+    "8.5.4": {
+      "title": "Ensure users dialing in can't bypass the lobby",
+      "section": "Meetings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.5.5": {
+      "title": "Ensure meeting chat does not allow anonymous users",
+      "section": "Meetings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.5.6": {
+      "title": "Ensure only organizers and co-organizers can present",
+      "section": "Meetings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.5.7": {
+      "title": "Ensure external participants can't give or request control",
+      "section": "Meetings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "8.5.8": {
+      "title": "Ensure external meeting chat is off",
+      "section": "Meetings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "16.10"
+      ],
+      "nist800_53": [
+        "PL-8",
+        "SA-8"
+      ]
+    },
+    "8.5.9": {
+      "title": "Ensure meeting recording is off by default",
+      "section": "Meetings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "16.10"
+      ],
+      "nist800_53": [
+        "PL-8",
+        "SA-8"
+      ]
+    },
+    "8.6.1": {
+      "title": "Ensure users can report security concerns in Teams",
+      "section": "Messaging",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "0.0"
+      ],
+      "nist800_53": []
+    },
+    "9.1.1": {
+      "title": "Ensure guest user access is restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.3",
+        "6.8"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2",
+        "AC-2",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
+    },
+    "9.1.2": {
+      "title": "Ensure external user invitations are restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "6.8"
+      ],
+      "nist800_53": [
+        "AC-2",
+        "AC-5",
+        "AC-6",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
+    },
+    "9.1.3": {
+      "title": "Ensure guest access to content is restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "9.1.4": {
+      "title": "Ensure 'Publish to web' is restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "16.10"
+      ],
+      "nist800_53": [
+        "PL-8",
+        "SA-8"
+      ]
+    },
+    "9.1.5": {
+      "title": "Ensure 'Interact with and share R and Python' visuals is 'Disabled'",
+      "section": "Tenant settings",
+      "level": "L2",
+      "license": "E3",
+      "safeguards": [
+        "4.8"
+      ],
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
+    },
+    "9.1.6": {
+      "title": "Ensure 'Allow users to apply sensitivity labels for content' is 'Enabled'",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.2",
+        "3.7"
+      ],
+      "nist800_53": [
+        "CM-12",
+        "PM-5(1)",
+        "RA-2"
+      ]
+    },
+    "9.1.7": {
+      "title": "Ensure shareable links are restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.3"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2"
+      ]
+    },
+    "9.1.8": {
+      "title": "Ensure enabling of external data sharing is restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "3.3",
+        "6.8"
+      ],
+      "nist800_53": [
+        "AC-3",
+        "AC-5",
+        "AC-6",
+        "MP-2",
+        "AC-2",
+        "AC-6(1)",
+        "AC-6(7)",
+        "AU-9(4)"
+      ]
+    },
+    "9.1.9": {
+      "title": "Ensure 'Block ResourceKey Authentication' is 'Enabled'",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "4.8"
+      ],
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
+    },
+    "9.1.10": {
+      "title": "Ensure access to APIs by service principals is restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "4.8"
+      ],
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
+    },
+    "9.1.11": {
+      "title": "Ensure service principals cannot create and use profiles",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "4.8"
+      ],
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
+    },
+    "9.1.12": {
+      "title": "Ensure service principals ability to create workspaces, connections and deployment pipelines is restricted",
+      "section": "Tenant settings",
+      "level": "L1",
+      "license": "E3",
+      "safeguards": [
+        "4.8"
+      ],
+      "nist800_53": [
+        "CM-6",
+        "CM-7"
+      ]
     }
   }
 }
