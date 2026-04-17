@@ -147,14 +147,14 @@ Test-Check "All automated checks have collector" {
 # ------------------------------------------------------------------
 Write-Host "`nSCF consistency checks:" -ForegroundColor Yellow
 $mapping = $null
-Test-Check "scf-check-mapping.json is valid and matches registry count" {
+Test-Check "scf-check-mapping.json is valid and registry contains all mapping checks" {
     try {
         $script:mapping = Get-Content $mappingPath -Raw | ConvertFrom-Json -ErrorAction Stop
     } catch {
         return "Invalid JSON: $($_.Exception.Message)"
     }
-    if ($mapping.checks.Count -ne $reg.checks.Count) {
-        return "Mapping has $($mapping.checks.Count) checks, registry has $($reg.checks.Count)"
+    if ($reg.checks.Count -lt $mapping.checks.Count) {
+        return "Mapping has $($mapping.checks.Count) checks but registry only has $($reg.checks.Count)"
     }
 }
 

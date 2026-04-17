@@ -9,9 +9,9 @@ Describe 'SCF Mapping Consistency' {
 
     # --- Source file consistency ---
 
-    It 'Registry check count matches scf-check-mapping.json count' {
-        $checks.Count | Should -Be $mapping.checks.Count `
-            -Because "every check in scf-check-mapping.json should produce a registry entry"
+    It 'Registry check count is at least the scf-check-mapping.json count' {
+        $checks.Count | Should -BeGreaterOrEqual $mapping.checks.Count `
+            -Because "every check in scf-check-mapping.json should produce a registry entry (registry may have additional source-specific checks)"
     }
 
     It 'All CheckIds in scf-check-mapping.json appear in registry' {
@@ -38,6 +38,7 @@ Describe 'SCF Mapping Consistency' {
             $mappingLookup[$mc.checkId] = $mc.scfPrimary
         }
         foreach ($check in $checks) {
+            if (-not $mappingLookup.ContainsKey($check.checkId)) { continue }
             $expected = $mappingLookup[$check.checkId]
             $check.scf.primaryControlId | Should -Be $expected `
                 -Because "$($check.checkId) registry SCF primary should match mapping file"
