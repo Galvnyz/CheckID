@@ -5045,6 +5045,70 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to separate privileged admin accounts from daily-use accounts violates user/system management separation, increasing the blast radius of account compromise and enabling privilege escalation through shared identity."
+    },
+    {
+      "checkId": "ENTRA-CA-SESSIONFREQ-001",
+      "name": "Ensure Conditional Access Enforces Session Sign-In Frequency",
+      "category": "SESSIONFREQ",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-07",
+      "scfAdditional": [],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to enforce session sign-in frequency via Conditional Access allows cloud application sessions to persist indefinitely, leaving inactive connections open and exposing CUI to unauthorized access if a session is hijacked."
+    },
+    {
+      "checkId": "INTUNE-MOBILECODE-001",
+      "name": "Ensure PowerShell Execution Policy Restricts Script Execution on Managed Devices",
+      "category": "MOBILECODE",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "END-10",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to restrict PowerShell execution on managed endpoints allows arbitrary script execution, enabling malware deployment, credential theft, and lateral movement that bypasses traditional AV-based controls."
+    },
+    {
+      "checkId": "ENTRA-SESSIONAUTH-001",
+      "name": "Ensure Legacy Authentication Protocols are Blocked to Protect Session Authenticity",
+      "category": "SESSIONAUTH",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-09",
+      "scfAdditional": [],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to block legacy authentication protocols allows sessions to be established without modern authentication mechanisms, undermining communications session authenticity and enabling credential-spraying and man-in-the-middle attacks."
+    },
+    {
+      "checkId": "SPO-CUIACCESS-001",
+      "name": "Ensure SharePoint External Sharing Restricts Access to CUI on Digital Media",
+      "category": "CUIACCESS",
+      "collector": "SharePoint",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "DCH-03",
+      "scfAdditional": [
+        "NET-03.5"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to restrict SharePoint external sharing allows CUI stored in cloud digital media to be accessed by unauthorized external parties, violating media access controls and data governance requirements."
+    },
+    {
+      "checkId": "BACKUP-ENABLED-001",
+      "name": "Ensure Microsoft 365 Backup is Enabled to Protect Backup CUI Confidentiality",
+      "category": "BACKUP",
+      "collector": "Compliance",
+      "hasAutomatedCheck": false,
+      "licensing": "E3",
+      "scfPrimary": "BCD-11.4",
+      "scfAdditional": [
+        "BCD-11"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to enable Microsoft 365 Backup for SharePoint, OneDrive, and Exchange leaves backup CUI without verified confidentiality protection, increasing risk of data loss or unauthorized disclosure from backup storage."
     }
   ]
 }
