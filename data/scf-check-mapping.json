@@ -5109,6 +5109,53 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to enable Microsoft 365 Backup for SharePoint, OneDrive, and Exchange leaves backup CUI without verified confidentiality protection, increasing risk of data loss or unauthorized disclosure from backup storage."
+    },
+    {
+      "checkId": "INTUNE-VPNCONFIG-001",
+      "name": "Ensure VPN Split Tunneling is Prevented on Managed Devices",
+      "category": "VPNCONFIG",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03.4",
+      "impactSeverity": "High",
+      "impactRationale": "Allowing split tunneling on VPN-connected devices permits simultaneous access to organizational systems and untrusted networks, creating a data exfiltration pathway and bypassing organizational security controls."
+    },
+    {
+      "checkId": "INTUNE-WIFI-001",
+      "name": "Ensure WiFi Enterprise Authentication and Encryption on Managed Devices",
+      "category": "WIFI",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-15.1",
+      "scfAdditional": [
+        "NET-15"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to enforce enterprise-grade WiFi authentication (WPA2-Enterprise/EAP-TLS) allows unauthorized devices to connect to corporate wireless networks and exposes CUI transmitted over unencrypted or weakly-encrypted channels."
+    },
+    {
+      "checkId": "CA-REMOTEDEVICE-001",
+      "name": "Ensure Remote Access Enforces Device Compliance via Conditional Access",
+      "category": "REMOTEDEVICE",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-14.2",
+      "impactSeverity": "High",
+      "impactRationale": "Without device compliance requirements scoped to remote (non-corporate-network) access, unmanaged or compromised endpoints can authenticate to organizational systems from external networks, violating least privilege for remote access."
+    },
+    {
+      "checkId": "INTUNE-REMOTEVPN-001",
+      "name": "Ensure Always-On VPN Is Configured for Managed Remote Devices",
+      "category": "REMOTEVPN",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-14.3",
+      "impactSeverity": "Medium",
+      "impactRationale": "Without an Always-On VPN profile routing all remote device traffic through a managed access control point, remote endpoints may connect directly to the internet, bypassing organizational security controls and logging."
     }
   ]
 }

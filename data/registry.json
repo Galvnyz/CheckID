@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.0.0",
-  "dataVersion": "2026-04-16",
+  "dataVersion": "2026-04-17",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
     {
@@ -35308,6 +35308,131 @@
       }
     },
     {
+      "checkId": "INTUNE-VPNCONFIG-001",
+      "name": "Ensure VPN Split Tunneling is Prevented on Managed Devices",
+      "category": "VPNCONFIG",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03.4",
+        "domain": "Configuration Management",
+        "controlName": "Does the organization prevent split tunneling for remote devices unless the split tunnel is securely provisioned using organization-defined safeguards?\n\nPrevent split tunneling for remote devices unless the split tunnel is securely provisioned using organization-defined safeguards?",
+        "controlDescription": "Does the organization prevent split tunneling for remote devices unless the split tunnel is securely provisioned using organization-defined safeguards?\n\nPrevent split tunneling for remote devices unless the split tunnel is securely provisioned using organization-defined safeguards?",
+        "relativeWeighting": 8,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03.4_A01",
+            "text": "safeguards to securely provision split tunneling are defined."
+          },
+          {
+            "aoId": "CFG-03.4_A02",
+            "text": "remote devices are prevented from simultaneously establishing non-remote connections with the system and communicating via some other connection to resources in external networks (e.g., split tunneling)."
+          }
+        ],
+        "risks": [
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-3",
+          "R-BC-2",
+          "R-BC-4",
+          "R-EX-7",
+          "R-GV-2",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-IR-1",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "4;4.6;4.8"
+        },
+        "cmmc": {
+          "controlId": "CM.L2-3.4.6;SC.L2-3.13.7"
+        },
+        "fedramp": {
+          "controlId": "CM-7;SC-7(7)"
+        },
+        "hipaa": {
+          "controlId": "1.M.A;1.S.A;6.S.A;6.S.B"
+        },
+        "iso-27001": {
+          "controlId": "8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1036;T1036.005;T1036.007;T1037;T1037.001;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.005;T1059.007;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1092;T1095;T1098;T1098.001;T1098.004;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1127;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1176;T1187;T1190;T1195;T1195.001;T1195.002;T1197;T1199;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1213;T1213.001;T1213.002;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1525;T1530;T1537;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1547.004;T1547.006;T1547.007;T1547.011;T1548;T1548.001;T1548.003;T1548.004;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1556;T1556.002;T1557;T1557.001;T1557.002;T1559;T1559.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.008;T1564.009;T1565;T1565.003;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.7;3.4.6"
+        },
+        "nist-800-53": {
+          "controlId": "CM-7;SC-7(7)",
+          "title": "Least Functionality; Split Tunneling for Remote Devices",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.PS-05",
+          "title": "Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;1.5.1;2.2.4"
+        },
+        "soc2": {
+          "controlId": "CC5.2-POF3;CC6.1-POF7;CC6.7-POF1"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Allowing split tunneling on VPN-connected devices permits simultaneous access to organizational systems and untrusted networks, creating a data exfiltration pathway and bypassing organizational security controls.",
+        "scfWeighting": 8
+      }
+    },
+    {
       "checkId": "TEAMS-APPS-002",
       "name": "Ensure app permission policies are configured",
       "category": "APPS",
@@ -44334,6 +44459,278 @@
       }
     },
     {
+      "checkId": "CA-REMOTEDEVICE-001",
+      "name": "Ensure Remote Access Enforces Device Compliance via Conditional Access",
+      "category": "REMOTEDEVICE",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "NET-14.2",
+        "domain": "Network Security",
+        "controlName": "Are cryptographic mechanisms utilized to protect the confidentiality and integrity of remote access sessions (e.g., VPN)?",
+        "controlDescription": "Are cryptographic mechanisms utilized to protect the confidentiality and integrity of remote access sessions (e.g., VPN)?",
+        "relativeWeighting": 9,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "NET-14.2_A01",
+            "text": "cryptographic mechanisms to protect the confidentiality of remote access sessions are identified."
+          },
+          {
+            "aoId": "NET-14.2_A02",
+            "text": "cryptographic mechanisms to protect the confidentiality of remote access sessions are implemented."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-1",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "12.7"
+        },
+        "cmmc": {
+          "controlId": "AC.L2-3.1.12;AC.L2-3.1.13"
+        },
+        "fedramp": {
+          "controlId": "AC-17;AC-17(2)"
+        },
+        "hipaa": {
+          "controlId": "1.M.B;2.L.B;2.S.A;3.M.D;6.M.D;6.S.A;9.M.C"
+        },
+        "iso-27001": {
+          "controlId": "6.7"
+        },
+        "iso-27017": {
+          "controlId": "6.2.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1037;T1037.001;T1040;T1047;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1070;T1070.001;T1070.002;T1114;T1114.001;T1114.002;T1114.003;T1119;T1133;T1137;T1137.002;T1213;T1213.001;T1213.002;T1219;T1505.004;T1530;T1537;T1543;T1547.003;T1547.004;T1547.009;T1547.011;T1547.012;T1547.013;T1550.001;T1552;T1552.002;T1552.004;T1552.007;T1557;T1557.002;T1558;T1558.002;T1558.003;T1558.004;T1563;T1563.001;T1563.002;T1565;T1565.001;T1565.002;T1602;T1602.001;T1602.002;T1609;T1610;T1612;T1613;T1619"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.12;3.1.13"
+        },
+        "nist-800-53": {
+          "controlId": "AC-17;AC-17(2);AC-17(6)",
+          "title": "Remote Access; Protection of Confidentiality and Integrity Using Encryption; Protection of Mechanism Information",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "12.8.1;3.4.2;7.2.5;8.2.3;8.2.7"
+        },
+        "soc2": {
+          "controlId": "CC6.6;CC6.6-POF3",
+          "title": "Restriction of Access to System Boundaries"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Without device compliance requirements scoped to remote (non-corporate-network) access, unmanaged or compromised endpoints can authenticate to organizational systems from external networks, violating least privilege for remote access.",
+        "scfWeighting": 9
+      }
+    },
+    {
+      "checkId": "INTUNE-REMOTEVPN-001",
+      "name": "Ensure Always-On VPN Is Configured for Managed Remote Devices",
+      "category": "REMOTEVPN",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "NET-14.3",
+        "domain": "Network Security",
+        "controlName": "Does the organization route all remote accesses through managed network access control points (e.g., VPN concentrator)?",
+        "controlDescription": "Does the organization route all remote accesses through managed network access control points (e.g., VPN concentrator)?",
+        "relativeWeighting": 9,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "NET-14.3_A01",
+            "text": "managed access control points are identified and implemented."
+          },
+          {
+            "aoId": "NET-14.3_A02",
+            "text": "remote access is routed through managed network access control points."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-IR-1",
+          "R-IR-4",
+          "R-SA-1"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "12.7"
+        },
+        "cmmc": {
+          "controlId": "AC.L2-3.1.12;AC.L2-3.1.14"
+        },
+        "fedramp": {
+          "controlId": "AC-17;AC-17(3)"
+        },
+        "hipaa": {
+          "controlId": "1.M.B;2.L.B;2.S.A;3.M.D;6.M.D;6.S.A;9.M.C"
+        },
+        "iso-27001": {
+          "controlId": "6.7"
+        },
+        "iso-27017": {
+          "controlId": "6.2.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1037;T1037.001;T1040;T1047;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1070;T1070.001;T1070.002;T1114;T1114.001;T1114.002;T1114.003;T1119;T1133;T1137;T1137.002;T1213;T1213.001;T1213.002;T1219;T1505.004;T1530;T1537;T1543;T1547.003;T1547.004;T1547.009;T1547.011;T1547.012;T1547.013;T1550.001;T1552;T1552.002;T1552.004;T1552.007;T1557;T1557.002;T1558;T1558.002;T1558.003;T1558.004;T1563;T1563.001;T1563.002;T1565;T1565.001;T1565.002;T1602;T1602.001;T1602.002;T1609;T1610;T1612;T1613;T1619"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.12;3.1.14"
+        },
+        "nist-800-53": {
+          "controlId": "AC-17;AC-17(3);AC-17(6)",
+          "title": "Remote Access; Managed Access Control Points; Protection of Mechanism Information",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "12.8.1;3.4.2;7.2.5;8.2.3;8.2.7"
+        },
+        "soc2": {
+          "controlId": "CC6.1-POF5;CC6.1-POF6;CC6.6;CC6.6-POF3;CC6.6-POF4",
+          "title": "Restriction of Access to System Boundaries"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Without an Always-On VPN profile routing all remote device traffic through a managed access control point, remote endpoints may connect directly to the internet, bypassing organizational security controls and logging.",
+        "scfWeighting": 9
+      }
+    },
+    {
       "checkId": "ENTRA-PRIVREMOTE-001",
       "name": "Ensure privileged commands require PIM activation for remote access",
       "category": "PRIVREMOTE",
@@ -44479,6 +44876,157 @@
         "severity": "High",
         "rationale": "Failure to restrict privileged command execution via remote access enables persistent standing admin access, increasing the attack surface for credential theft, lateral movement, and unauthorized administrative actions.",
         "scfWeighting": 8
+      }
+    },
+    {
+      "checkId": "INTUNE-WIFI-001",
+      "name": "Ensure WiFi Enterprise Authentication and Encryption on Managed Devices",
+      "category": "WIFI",
+      "collector": "Intune",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "NET-15.1",
+        "additionalControlIds": [
+          "NET-15"
+        ],
+        "domain": "Network Security",
+        "controlName": "Does the organization secure Wi-Fi (e.g., IEEE 802.11) and prevent unauthorized access by:\n (1) Authenticating devices trying to connect; and \n (2) Encrypting transmitted data?",
+        "controlDescription": "Does the organization secure Wi-Fi (e.g., IEEE 802.11) and prevent unauthorized access by:\n (1) Authenticating devices trying to connect; and \n (2) Encrypting transmitted data?",
+        "relativeWeighting": 9,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": true,
+          "cmm1_informal": true,
+          "cmm2_planned": true,
+          "cmm3_defined": true,
+          "cmm4_controlled": true,
+          "cmm5_improving": true
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "NET-15.1_A01",
+            "text": "wireless access to the system is protected using authentication."
+          },
+          {
+            "aoId": "NET-15.1_A02",
+            "text": "wireless access to the system is protected using encryption."
+          },
+          {
+            "aoId": "NET-15.1_A03",
+            "text": "information is/are maintained during preparation for transmission."
+          },
+          {
+            "aoId": "NET-15.1_A04",
+            "text": "information is/are maintained during reception."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cmmc": {
+          "controlId": "AC.L2-3.1.16;AC.L2-3.1.17"
+        },
+        "fedramp": {
+          "controlId": "AC-18;AC-18(1)"
+        },
+        "iso-27001": {
+          "controlId": "8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1011;T1011.001;T1020.001;T1040;T1070;T1070.001;T1070.002;T1119;T1530;T1552;T1552.004;T1557;T1557.002;T1558;T1558.002;T1558.003;T1558.004;T1565;T1565.001;T1565.002;T1602;T1602.001;T1602.002"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.16;3.1.17"
+        },
+        "nist-800-53": {
+          "controlId": "AC-18;AC-18(1)",
+          "title": "Wireless Access; Authentication and Encryption",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3;11.2;11.2.1;11.2.2;2.3;2.3.1;2.3.2;4.2.1"
+        }
+      },
+      "impactRating": {
+        "severity": "High",
+        "rationale": "Failure to enforce enterprise-grade WiFi authentication (WPA2-Enterprise/EAP-TLS) allows unauthorized devices to connect to corporate wireless networks and exposes CUI transmitted over unencrypted or weakly-encrypted channels.",
+        "scfWeighting": 9
       }
     },
     {
