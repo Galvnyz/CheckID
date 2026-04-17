@@ -1,12 +1,14 @@
 {
   "$schema": "./sku-feature-map.schema.json",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "featureGroups": {
     "conditional-access": {
       "displayName": "Conditional Access",
       "description": "Policy-based access controls that evaluate sign-in conditions (location, device, risk) to enforce MFA, block access, or require compliant devices.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-CA-001",
         "ENTRA-CA-002",
@@ -23,13 +25,22 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy",
+      "prerequisites": [
+        "device-management",
+        "identity-protection"
+      ]
     },
     "mfa-enforcement": {
       "displayName": "Multi-Factor Authentication",
       "description": "Enforce MFA for all users and administrators through Conditional Access policies and per-user MFA settings.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM", "MFA_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM",
+        "MFA_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-MFA-001",
         "ENTRA-MFA-002",
@@ -41,13 +52,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-getstarted",
+      "prerequisites": []
     },
     "authentication-methods": {
       "displayName": "Authentication Methods and Password Protection",
       "description": "Configure strong authentication methods, disable weak methods, enable password protection with custom banned password lists, and configure SSPR.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-AUTHMETHOD-001",
         "ENTRA-AUTHMETHOD-002",
@@ -63,13 +79,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-sspr-deployment",
+      "prerequisites": []
     },
     "privileged-identity-management": {
       "displayName": "Privileged Identity Management",
       "description": "Just-in-time role activation, access reviews for privileged roles and guest users, and approval workflows for critical role assignments.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM_P2"],
+      "servicePlans": [
+        "AAD_PREMIUM_P2"
+      ],
       "detectionChecks": [
         "ENTRA-PIM-001",
         "ENTRA-PIM-002",
@@ -84,13 +105,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Strategic",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure",
+      "prerequisites": []
     },
     "identity-protection": {
       "displayName": "Identity Protection Risk Policies",
       "description": "Automated detection and remediation of identity-based risks using sign-in risk and user risk policies powered by Entra ID P2.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM_P2"],
+      "servicePlans": [
+        "AAD_PREMIUM_P2"
+      ],
       "detectionChecks": [
         "CA-SIGNINRISK-001",
         "CA-SIGNINRISK-002",
@@ -98,13 +124,20 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Strategic",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-risk-policies",
+      "prerequisites": [
+        "mfa-enforcement"
+      ]
     },
     "admin-governance": {
       "displayName": "Administrative Account Governance",
       "description": "Controls for global admin count, cloud-only admin accounts, break-glass accounts, restricted admin center access, and stale admin detection.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-ADMIN-001",
         "ENTRA-ADMIN-002",
@@ -119,13 +152,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access",
+      "prerequisites": []
     },
     "guest-and-external-access": {
       "displayName": "Guest and External Access Controls",
       "description": "Restrict guest user access, limit invitation permissions, enforce domain restrictions, and control external collaboration settings.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-GUEST-001",
         "ENTRA-GUEST-002",
@@ -140,13 +178,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview",
+      "prerequisites": []
     },
     "app-registration-governance": {
       "displayName": "Application and Enterprise App Governance",
       "description": "Control user app registrations, consent flows, enterprise app permissions, and detect overprivileged or inactive applications.",
       "category": "Identity",
-      "servicePlans": ["AAD_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-APPREG-001",
         "ENTRA-APPS-001",
@@ -165,13 +208,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent",
+      "prerequisites": []
     },
     "device-management": {
       "displayName": "Device Management and Compliance",
       "description": "Intune device enrollment, compliance policies, encryption, update rings, and Entra device join restrictions.",
       "category": "Security",
-      "servicePlans": ["INTUNE_A"],
+      "servicePlans": [
+        "INTUNE_A"
+      ],
       "detectionChecks": [
         "ENTRA-DEVICE-001",
         "ENTRA-DEVICE-002",
@@ -191,13 +239,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities",
+      "prerequisites": []
     },
     "defender-antimalware": {
       "displayName": "Defender Anti-Malware and Anti-Spam",
       "description": "Exchange Online Protection policies for malware filtering, common attachment type blocking, anti-spam, outbound spam limits, and administrator notifications.",
       "category": "Security",
-      "servicePlans": ["EXCHANGE_S_ENTERPRISE"],
+      "servicePlans": [
+        "EXCHANGE_S_ENTERPRISE"
+      ],
       "detectionChecks": [
         "DEFENDER-ANTIMALWARE-001",
         "DEFENDER-ANTIMALWARE-002",
@@ -209,38 +262,53 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-protection-about",
+      "prerequisites": []
     },
     "defender-safe-attachments": {
       "displayName": "Safe Attachments",
       "description": "Defender for Office 365 Safe Attachments policies that scan email attachments and files in SharePoint, OneDrive, and Teams for malware.",
       "category": "Security",
-      "servicePlans": ["ATP_ENTERPRISE"],
+      "servicePlans": [
+        "ATP_ENTERPRISE"
+      ],
       "detectionChecks": [
         "DEFENDER-SAFEATTACH-001",
         "DEFENDER-SAFEATTACH-002"
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-about",
+      "prerequisites": []
     },
     "defender-safe-links": {
       "displayName": "Safe Links",
       "description": "Defender for Office 365 Safe Links policies providing time-of-click URL scanning and rewriting for email messages and Office applications.",
       "category": "Security",
-      "servicePlans": ["ATP_ENTERPRISE"],
+      "servicePlans": [
+        "ATP_ENTERPRISE"
+      ],
       "detectionChecks": [
         "DEFENDER-SAFELINKS-001"
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-about",
+      "prerequisites": []
     },
     "defender-antiphishing": {
       "displayName": "Anti-Phishing Protection",
       "description": "Advanced anti-phishing policies including impersonation protection, mailbox intelligence, and spoof settings in Defender for Office 365.",
       "category": "Security",
-      "servicePlans": ["ATP_ENTERPRISE"],
+      "servicePlans": [
+        "ATP_ENTERPRISE"
+      ],
       "detectionChecks": [
         "DEFENDER-ANTIPHISH-001",
         "EXO-ANTIPHISH-001",
@@ -248,50 +316,70 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about",
+      "prerequisites": []
     },
     "defender-priority-accounts": {
       "displayName": "Priority Account Protection",
       "description": "Enable priority account tagging and apply strict protection presets for high-value user accounts.",
       "category": "Security",
-      "servicePlans": ["ATP_ENTERPRISE"],
+      "servicePlans": [
+        "ATP_ENTERPRISE"
+      ],
       "detectionChecks": [
         "DEFENDER-PRIORITY-001",
         "DEFENDER-PRIORITY-002"
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-security-recommendations",
+      "prerequisites": []
     },
     "defender-cloud-apps": {
       "displayName": "Defender for Cloud Apps",
       "description": "Microsoft Defender for Cloud Apps providing visibility, data control, and threat protection across cloud services.",
       "category": "Security",
-      "servicePlans": ["ADALLOM_S_STANDALONE"],
+      "servicePlans": [
+        "ADALLOM_S_STANDALONE"
+      ],
       "detectionChecks": [
         "DEFENDER-CLOUDAPPS-001"
       ],
       "valueCategory": "Security",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Strategic",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps",
+      "prerequisites": []
     },
     "defender-endpoint": {
       "displayName": "Defender for Endpoint",
       "description": "Microsoft Defender for Endpoint providing endpoint detection and response, threat hunting, and automated investigation and remediation.",
       "category": "Security",
-      "servicePlans": ["WINDEFATP"],
+      "servicePlans": [
+        "WINDEFATP"
+      ],
       "detectionChecks": [
         "DEFENDER-SECURESCORE-001"
       ],
       "valueCategory": "Security",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Strategic",
+      "learnUrl": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint",
+      "prerequisites": []
     },
     "email-authentication": {
       "displayName": "Email Authentication (SPF/DKIM/DMARC)",
       "description": "DNS-based email authentication records including SPF, DKIM signing, and DMARC policies for all Exchange Online domains.",
       "category": "Security",
-      "servicePlans": ["EXCHANGE_S_ENTERPRISE"],
+      "servicePlans": [
+        "EXCHANGE_S_ENTERPRISE"
+      ],
       "detectionChecks": [
         "DNS-SPF-001",
         "DNS-DKIM-001",
@@ -300,13 +388,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dmarc-configure",
+      "prerequisites": []
     },
     "exchange-transport-security": {
       "displayName": "Exchange Transport and Mail Flow Security",
       "description": "Exchange Online mail flow rules, forwarding controls, external sender tagging, connection filters, modern authentication, and shared mailbox hardening.",
       "category": "Security",
-      "servicePlans": ["EXCHANGE_S_ENTERPRISE"],
+      "servicePlans": [
+        "EXCHANGE_S_ENTERPRISE"
+      ],
       "detectionChecks": [
         "EXO-AUTH-001",
         "EXO-AUTH-002",
@@ -325,38 +418,53 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/outbound-spam-policies-external-email-forwarding",
+      "prerequisites": []
     },
     "dlp-policies": {
       "displayName": "Data Loss Prevention",
       "description": "DLP policies across Exchange, SharePoint, OneDrive, and Teams to detect and prevent sharing of sensitive information.",
       "category": "Compliance",
-      "servicePlans": ["MIP_S_CLP1"],
+      "servicePlans": [
+        "MIP_S_CLP1"
+      ],
       "detectionChecks": [
         "COMPLIANCE-DLP-001",
         "COMPLIANCE-DLP-002"
       ],
       "valueCategory": "Compliance",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Strategic",
+      "learnUrl": "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp",
+      "prerequisites": []
     },
     "sensitivity-labels": {
       "displayName": "Sensitivity Labels and Information Protection",
       "description": "Publish sensitivity label policies for classifying and protecting documents and emails with encryption and access restrictions.",
       "category": "Compliance",
-      "servicePlans": ["MIP_S_CLP1"],
+      "servicePlans": [
+        "MIP_S_CLP1"
+      ],
       "detectionChecks": [
         "COMPLIANCE-LABELS-001"
       ],
       "valueCategory": "Compliance",
       "estimatedEffort": "High",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Strategic",
+      "learnUrl": "https://learn.microsoft.com/en-us/purview/sensitivity-labels",
+      "prerequisites": []
     },
     "audit-logging": {
       "displayName": "Audit Logging",
       "description": "Unified audit log search, mailbox auditing, and advanced audit capabilities for forensic investigation and compliance monitoring.",
       "category": "Compliance",
-      "servicePlans": ["EXCHANGE_S_ENTERPRISE"],
+      "servicePlans": [
+        "EXCHANGE_S_ENTERPRISE"
+      ],
       "detectionChecks": [
         "COMPLIANCE-AUDIT-001",
         "COMPLIANCE-ALERTPOLICY-001",
@@ -367,25 +475,37 @@
       ],
       "valueCategory": "Compliance",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/purview/audit-mailboxes",
+      "prerequisites": []
     },
     "customer-lockbox": {
       "displayName": "Customer Lockbox",
       "description": "Require approval before Microsoft support engineers can access tenant data during service requests.",
       "category": "Compliance",
-      "servicePlans": ["LOCKBOX_ENTERPRISE"],
+      "servicePlans": [
+        "LOCKBOX_ENTERPRISE"
+      ],
       "detectionChecks": [
         "EXO-LOCKBOX-001"
       ],
       "valueCategory": "Compliance",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/purview/customer-lockbox-requests",
+      "prerequisites": []
     },
     "data-retention": {
       "displayName": "Data Retention Policies",
       "description": "Retention policies covering Exchange, Teams, and SharePoint/OneDrive to ensure compliance with data retention requirements.",
       "category": "Compliance",
-      "servicePlans": ["EXCHANGE_S_ENTERPRISE", "SHAREPOINTENTERPRISE", "TEAMS1"],
+      "servicePlans": [
+        "EXCHANGE_S_ENTERPRISE",
+        "SHAREPOINTENTERPRISE",
+        "TEAMS1"
+      ],
       "detectionChecks": [
         "PURVIEW-RETENTION-001",
         "PURVIEW-RETENTION-002",
@@ -395,13 +515,18 @@
       ],
       "valueCategory": "Compliance",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/purview/retention-policies-exchange",
+      "prerequisites": []
     },
     "sharepoint-external-sharing": {
       "displayName": "SharePoint and OneDrive External Sharing",
       "description": "Control external content sharing, guest access expiration, sharing link defaults, domain restrictions, and sync restrictions for unmanaged devices.",
       "category": "Collaboration",
-      "servicePlans": ["SHAREPOINTENTERPRISE"],
+      "servicePlans": [
+        "SHAREPOINTENTERPRISE"
+      ],
       "detectionChecks": [
         "SPO-SHARING-001",
         "SPO-SHARING-002",
@@ -426,13 +551,18 @@
       ],
       "valueCategory": "Collaboration",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off",
+      "prerequisites": []
     },
     "teams-security": {
       "displayName": "Teams Meeting and Collaboration Security",
       "description": "Teams meeting policies, external access controls, guest access settings, app permissions, and security reporting.",
       "category": "Collaboration",
-      "servicePlans": ["TEAMS1"],
+      "servicePlans": [
+        "TEAMS1"
+      ],
       "detectionChecks": [
         "TEAMS-MEETING-001",
         "TEAMS-MEETING-002",
@@ -457,13 +587,18 @@
       ],
       "valueCategory": "Collaboration",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/microsoftteams/manage-external-access",
+      "prerequisites": []
     },
     "forms-security": {
       "displayName": "Microsoft Forms Security",
       "description": "Restrict external access to Forms, enable phishing protection, control collaboration and result visibility for surveys and forms.",
       "category": "Collaboration",
-      "servicePlans": ["FORMS_PLAN_E3"],
+      "servicePlans": [
+        "FORMS_PLAN_E3"
+      ],
       "detectionChecks": [
         "FORMS-CONFIG-001",
         "FORMS-CONFIG-002",
@@ -474,13 +609,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Quick Win",
+      "learnUrl": "https://learn.microsoft.com/en-us/microsoft-forms/administrator-settings-microsoft-forms",
+      "prerequisites": []
     },
     "power-bi-security": {
       "displayName": "Power BI Tenant Security",
       "description": "Power BI sharing restrictions, guest access controls, publish-to-web restrictions, service principal controls, and sensitivity label enforcement.",
       "category": "Collaboration",
-      "servicePlans": ["EXCHANGE_S_ENTERPRISE"],
+      "servicePlans": [
+        "EXCHANGE_S_ENTERPRISE"
+      ],
       "detectionChecks": [
         "PBI-AUTH-001",
         "PBI-API-001",
@@ -510,13 +650,18 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Medium",
-      "quickWin": false
+      "quickWin": false,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/power-bi/admin/service-admin-portal",
+      "prerequisites": []
     },
     "tenant-and-org-settings": {
       "displayName": "Tenant and Organization Settings",
       "description": "Tenant-wide settings including restricting tenant creation, LinkedIn connections, third-party storage, session timeout, and org-wide security controls.",
       "category": "Security",
-      "servicePlans": ["AAD_PREMIUM"],
+      "servicePlans": [
+        "AAD_PREMIUM"
+      ],
       "detectionChecks": [
         "ENTRA-TENANT-001",
         "ENTRA-LINKEDIN-001",
@@ -530,7 +675,10 @@
       ],
       "valueCategory": "Security",
       "estimatedEffort": "Low",
-      "quickWin": true
+      "quickWin": true,
+      "effortTier": "Medium",
+      "learnUrl": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/mail-flow-rules",
+      "prerequisites": []
     }
   },
   "skuTiers": {
@@ -586,5 +734,6 @@
         "ATA"
       ]
     }
-  }
+  },
+  "$comment": "featureGroups schema v2.1.0: restored effortTier, learnUrl, prerequisites fields for downstream compatibility"
 }
