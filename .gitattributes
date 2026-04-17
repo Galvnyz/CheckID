@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Generated data files — always LF so diffs show only real content changes
+*.json text eol=lf
+*.csv  text eol=lf
