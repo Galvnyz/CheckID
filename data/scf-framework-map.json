@@ -1,77 +1,78 @@
 {
-  "$comment": "Maps SCF database framework_id values to CheckID framework keys. Source: SecFrame/SCF/scf.db frameworks table (SCF 2025.4).",
+  "$comment": "Maps SCF database framework_id values to CheckID framework keys. Source: SecFrame/SCF/scf.db frameworks table (SCF 2026.1).",
   "version": "1.0.0",
-  "scfDatabaseVersion": "2025.4",
+  "scfDatabaseVersion": "2026.1",
   "frameworks": {
     "nist-800-53": {
-      "scfFrameworkId": 45,
+      "scfFrameworkId": 46,
       "scfName": "NIST 800-53 R5",
       "baselines": {
-        "Low":     { "scfFrameworkId": 47, "scfName": "NIST 800-53B R5 (low)" },
-        "Moderate":{ "scfFrameworkId": 48, "scfName": "NIST 800-53B R5 (moderate)" },
-        "High":    { "scfFrameworkId": 49, "scfName": "NIST 800-53B R5 (high)" },
-        "Privacy": { "scfFrameworkId": 46, "scfName": "NIST 800-53B R5 (privacy)" }
+        "Low":     { "scfFrameworkId": 48, "scfName": "NIST 800-53B R5 (low)" },
+        "Moderate":{ "scfFrameworkId": 49, "scfName": "NIST 800-53B R5 (moderate)" },
+        "High":    { "scfFrameworkId": 50, "scfName": "NIST 800-53B R5 (high)" },
+        "Privacy": { "scfFrameworkId": 47, "scfName": "NIST 800-53B R5 (privacy)" }
       }
     },
     "nist-csf": {
-      "scfFrameworkId": 69,
+      "scfFrameworkId": 70,
       "scfName": "NIST CSF 2.0"
     },
     "iso-27001": {
-      "scfFrameworkId": [24, 25],
+      "scfFrameworkId": [28, 29],
       "scfName": "ISO 27001:2022 + ISO 27002:2022",
-      "$comment": "24=ISO 27001 (requirements clauses), 25=ISO 27002 (Annex A controls). Old registry used Annex A notation (A.5.15 = 27002 5.15). Union both for full coverage."
+      "$comment": "28=ISO 27001 (requirements clauses), 29=ISO 27002 (Annex A controls). Old registry used Annex A notation (A.5.15 = 27002 5.15). Union both for full coverage."
     },
     "pci-dss": {
-      "scfFrameworkId": 72,
+      "scfFrameworkId": 73,
       "scfName": "PCI DSS 4.0.1"
     },
     "cmmc": {
-      "scfFrameworkId": [93, 95, 96],
+      "scfFrameworkId": [99, 100, 101, 102],
       "scfName": "US CMMC 2.0",
-      "$comment": "93=Level 1, 95=Level 2, 96=Level 3. Union all control IDs."
+      "$comment": "99=Level 1, 100=Level 1 AOs, 101=Level 2, 102=Level 3. Union all control IDs."
     },
     "hipaa": {
-      "scfFrameworkId": [130, 131, 132, 133, 134],
+      "scfFrameworkId": [124, 125],
       "scfName": "US HIPAA",
-      "$comment": "130=Administrative Simplification (171 SCF), 131=Security Rule (136 SCF), 132=HICP Small (83 SCF), 133=HICP Medium (138 SCF), 134=HICP Large (233 SCF). Union all for maximum coverage."
+      "$comment": "124=Administrative Simplification 2013, 125=Security Rule / NIST SP 800-66 R2. HICP entries removed in SCF 2026.1."
     },
     "soc2": {
-      "scfFrameworkId": 1,
+      "scfFrameworkId": 2,
       "scfName": "AICPA TSC 2017:2022 (used for SOC 2)"
     },
     "fedramp": {
-      "scfFrameworkId": 118,
-      "scfName": "US FedRAMP R5"
+      "scfFrameworkId": [114, 115, 116, 117],
+      "scfName": "US FedRAMP R5",
+      "$comment": "114=low, 115=moderate, 116=high, 117=LI-SaaS. Split from single ID 118 in SCF 2025.4."
     },
     "cis-controls-v8": {
-      "scfFrameworkId": 4,
+      "scfFrameworkId": 5,
       "scfName": "CIS CSC 8.1"
     },
     "essential-eight": {
-      "scfFrameworkId": 219,
+      "scfFrameworkId": 210,
       "scfName": "APAC Australia Essential 8"
     },
     "mitre-attack": {
-      "scfFrameworkId": 33,
-      "scfName": "MITRE ATT&CK 10"
+      "scfFrameworkId": 37,
+      "scfName": "MITRE ATT&CK 16"
     },
     "gdpr": {
-      "scfFrameworkId": 175,
+      "scfFrameworkId": 164,
       "scfName": "EMEA EU GDPR"
     },
     "iso-27017": {
-      "scfFrameworkId": 26,
+      "scfFrameworkId": 30,
       "scfName": "ISO 27017 2015",
       "$comment": "ISO/IEC 27017:2015 — cloud-specific security controls, extends ISO 27001/27002."
     },
     "nist-800-171": {
-      "scfFrameworkId": 62,
+      "scfFrameworkId": 63,
       "scfName": "NIST 800-171 R2",
       "$comment": "NIST SP 800-171 R2 — protecting CUI in non-federal systems. DoD contractor requirement."
     },
     "nis2": {
-      "scfFrameworkId": 176,
+      "scfFrameworkId": 165,
       "scfName": "EMEA EU NIS2",
       "$comment": "EU NIS2 Directive (2022/2555) — network and information security measures for essential/important entities."
     }

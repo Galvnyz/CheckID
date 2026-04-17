@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CheckID Mapping Pipeline</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      margin: 0;
+      padding: 32px 40px;
+      max-width: 1400px;
+    }
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin: 0 0 4px;
+    }
+    p.subtitle {
+      font-size: 0.875rem;
+      color: #8b949e;
+      margin: 0 0 32px;
+    }
+
+    /* ── Diagram ── */
+    .mermaid {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 36px;
+      overflow-x: auto;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: #8b949e;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── Component reference ── */
+    h2.section-heading {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      margin: 48px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #21262d;
+    }
+    .components {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .card-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #f0f6fc;
+      font-family: "Cascadia Code", "Fira Code", monospace;
+    }
+    .card-role {
+      font-size: 0.75rem;
+      color: #8b949e;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .card-body {
+      font-size: 0.8rem;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+    .card-body ul {
+      margin: 6px 0 0;
+      padding-left: 18px;
+    }
+    .card-body li {
+      margin-bottom: 3px;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: "Cascadia Code", "Fira Code", monospace;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: #8b949e;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>CheckID — Control Mapping Pipeline</h1>
+  <p class="subtitle">How a check ID gets enriched from source inputs to the final registry.json output</p>
+
+  <div class="mermaid">
+flowchart TD
+    subgraph IN["Input Files"]
+        direction TB
+        MAPPING["<b>scf-check-mapping.json</b>\ncheckId · name · category · collector\nscfPrimary · scfAdditional\ncisM365ControlId · cisaScubaControlId\nstigControlId · remediation"]
+        OVERRIDES["<b>framework-overrides.json</b>\nGap-fill: adds or appends\nframework IDs missing\nfrom the SCF database"]
+        MAPPING~~~OVERRIDES
+    end
+
+    subgraph DB["SCF Database  ·  scf.db"]
+        direction TB
+        C["<b>controls</b>\nscf_id · scf_domain · control_name\ndescription · csf_function\nrelative_weighting · cmm_0–5"]
+        AO["<b>assessment_objectives</b>\nao_number · objective_text"]
+        R["<b>control_risks</b>\nrisk_id"]
+        T["<b>control_threats</b>\nthreat_id"]
+        CM["<b>control_mappings</b>\nframework_id · framework_control_id\n(10+ external frameworks)"]
+        C~~~AO~~~R~~~T~~~CM
+    end
+
+    subgraph SUPPORT["Support Files"]
+        direction TB
+        FWMAP["<b>scf-framework-map.json</b>\nDB framework_id → CheckID key\ne.g. 45 → nist-800-53"]
+        TITLES["<b>framework-titles.json</b>\ncontrol ID → human-readable title\ne.g. AC-6 → Least Privilege"]
+        FWMAP~~~TITLES
+    end
+
+    BUILD(("<b>Build-Registry.py</b>"))
+
+    subgraph OUT["registry.json  ·  per check object"]
+        direction TB
+        META["<b>metadata</b>\ncheckId · name · category\ncollector · licensing"]
+        SCF["<b>scf { }</b>\nprimaryControlId · domain · controlName\ncsfFunction · relativeWeighting\nmaturityLevels · assessmentObjectives\nrisks · threats"]
+        FW["<b>frameworks { }</b>\nnist-800-53 · nist-csf · cmmc\npci-dss · iso-27001 · hipaa\ncis-m365-v6 · cisa-scuba · stig\n+ 8 more"]
+        IMPACT["<b>impactRating { }</b>\nseverity · rationale · scfWeighting"]
+        REM["<b>remediation</b>\nM365-specific fix guidance"]
+        META~~~SCF~~~FW~~~IMPACT~~~REM
+    end
+
+    subgraph CONSUMERS["Consumers  (read-only)"]
+        direction LR
+        M365["M365-Assess"]
+        EZ["EZ-CMMC"]
+        SF["SecFrame"]
+    end
+
+    MAPPING -- "scfPrimary as join key\n+ manual framework IDs\n+ remediation text" --> BUILD
+    OVERRIDES -- "fill SCF DB gaps" --> BUILD
+
+    C -- "SQL on scf_id" --> BUILD
+    AO -- "SQL on scf_id" --> BUILD
+    R -- "SQL on scf_id" --> BUILD
+    T -- "SQL on scf_id" --> BUILD
+    CM -- "SQL on scf_id" --> BUILD
+
+    FWMAP -- "resolve DB ID → key" --> BUILD
+    TITLES -- "resolve control ID → title" --> BUILD
+
+    BUILD --> OUT
+
+    OUT --> CONSUMERS
+
+    style IN fill:#1a2332,stroke:#388bfd,color:#e6edf3
+    style DB fill:#1a2b1a,stroke:#3fb950,color:#e6edf3
+    style SUPPORT fill:#2b2a1a,stroke:#d29922,color:#e6edf3
+    style OUT fill:#2b1a2b,stroke:#bc8cff,color:#e6edf3
+    style CONSUMERS fill:#1a2332,stroke:#388bfd,color:#e6edf3
+    style BUILD fill:#21262d,stroke:#f0883e,stroke-width:3px,color:#f0883e
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#388bfd"></div>CheckID-authored files</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3fb950"></div>SCF database (SecFrame upstream)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#d29922"></div>Generated support files</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#bc8cff"></div>Build output</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f0883e"></div>Build script</div>
+  </div>
+
+  <!-- ── Component Reference ─────────────────────────────────── -->
+  <h2 class="section-heading">Component Reference</h2>
+  <div class="components">
+
+    <!-- scf-check-mapping.json -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#388bfd"></div>
+        <span class="card-title">scf-check-mapping.json</span>
+      </div>
+      <div class="card-role">Primary input for M365 checks (278 of 306 total)</div>
+      <div class="card-body">
+        The source of truth for all M365-surface checks. The 28 AZ-* (Azure ARM) checks come from a separate file — <code>az-assess-source-checks.json</code> — which carries its own pre-populated <span class="tag">scf {}</span> and <span class="tag">frameworks {}</span> objects and bypasses the DB lookup entirely. Most fields here are hand-authored; <span class="tag">impactRationale</span> is the exception — it is written back into this file by <code>Generate-ImpactRationale.py</code>. <code>Build-ScfMigration.py</code> can also seed it as a draft when onboarding a new batch of checks.
+        <ul>
+          <li><span class="tag">checkId</span> Unique identifier (e.g. <code>ENTRA-ADMIN-001</code>) — also the join key used by M365-Assess collectors.</li>
+          <li><span class="tag">scfPrimary</span> The SCF control ID (e.g. <code>IAC-21.3</code>) used to look up all governance metadata from the DB.</li>
+          <li><span class="tag">scfAdditional</span> Extra SCF controls whose risks and threats are merged in — useful when a check spans multiple governance areas.</li>
+          <li><span class="tag">cisM365ControlId</span> / <span class="tag">cisaScubaControlId</span> / <span class="tag">stigControlId</span> Manual framework references for frameworks that have no presence in the SCF database.</li>
+          <li><span class="tag">impactSeverity</span> CheckID's own risk rating (Low / Medium / High / Critical), independent of SCF weighting.</li>
+          <li><span class="tag">impactRationale</span> Auto-generated by <code>Generate-ImpactRationale.py</code> — written back into this file in-place.</li>
+          <li><span class="tag">remediation</span> Hand-authored M365-specific fix guidance — UI navigation path or PowerShell command to resolve a failing check.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- framework-overrides.json -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#388bfd"></div>
+        <span class="card-title">framework-overrides.json</span>
+      </div>
+      <div class="card-role">Gap-fill — patches SCF DB coverage holes per check</div>
+      <div class="card-body">
+        The SCF database maps controls to frameworks at the control level, but its coverage is uneven — some checks need framework IDs that the DB simply doesn't carry for their SCF control. This file supplies those missing mappings.
+        <ul>
+          <li>Keyed by <span class="tag">checkId</span>, so overrides are surgical — one check at a time.</li>
+          <li><span class="tag">mode: replace</span> (default) adds a framework entry only if it's absent from the DB-derived set.</li>
+          <li><span class="tag">mode: append</span> merges additional control IDs into an existing framework entry — used when the DB has partial coverage and the manual entry extends it.</li>
+          <li>Common use: adding CMMC L2 practice IDs for checks where SCF's CMMC mapping is incomplete or missing entirely.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- controls table -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#3fb950"></div>
+        <span class="card-title">scf.db → controls</span>
+      </div>
+      <div class="card-role">Core governance metadata for each SCF control</div>
+      <div class="card-body">
+        The primary table in the SCF SQLite database. Queried once at build time using <span class="tag">scfPrimary</span> as the lookup key. Contributes most of the content inside the <span class="tag">scf {}</span> output object.
+        <ul>
+          <li><span class="tag">scf_domain</span> The governance domain (e.g. <em>Identification &amp; Authentication</em>).</li>
+          <li><span class="tag">control_name</span> The full SCF control question — the governance requirement being assessed.</li>
+          <li><span class="tag">csf_function</span> NIST CSF function bucket: Identify / Protect / Detect / Respond / Recover.</li>
+          <li><span class="tag">relative_weighting</span> SCF's numeric risk weight (1–20); combined with <span class="tag">impactSeverity</span> to form the <span class="tag">impactRating</span> output block.</li>
+          <li><span class="tag">cmm_0–5</span> Capability Maturity Model flags — indicates which maturity levels this control applies to.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- assessment_objectives -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#3fb950"></div>
+        <span class="card-title">scf.db → assessment_objectives</span>
+      </div>
+      <div class="card-role">Per-control auditor questions from the SCF framework</div>
+      <div class="card-body">
+        Stores the structured assessment questions that an auditor would ask to verify a control is in place. Each objective has a numbered ID (e.g. <code>IAC-21.3_A01</code>) and a text statement.
+        <ul>
+          <li>One control can have multiple objectives — they're collected into an array in the output.</li>
+          <li>These map directly to the <span class="tag">assessmentObjectives</span> array in the <span class="tag">scf {}</span> output block.</li>
+          <li>Useful for audit tooling that needs to generate evidence-collection checklists from check data.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- control_risks / control_threats -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#3fb950"></div>
+        <span class="card-title">scf.db → control_risks &amp; control_threats</span>
+      </div>
+      <div class="card-role">Risk and threat taxonomy linked to each control</div>
+      <div class="card-body">
+        Join tables that associate SCF risk IDs and threat IDs with controls. Both are queried for the primary control and any additional controls, then merged into a single deduplicated list.
+        <ul>
+          <li><span class="tag">risks</span> Reference SCF's risk taxonomy — e.g. <code>R-AC-1</code> (Access Control risk). Help consumers understand the risk categories a failing check contributes to.</li>
+          <li><span class="tag">threats</span> Reference SCF's MITRE-aligned threat taxonomy — e.g. <code>MT-1</code>. Useful for threat-modeling workflows.</li>
+          <li>The union across primary + additional controls means a multi-domain check accumulates all relevant risk/threat IDs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- control_mappings -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#3fb950"></div>
+        <span class="card-title">scf.db → control_mappings</span>
+      </div>
+      <div class="card-role">The bridge from SCF controls to external compliance frameworks</div>
+      <div class="card-body">
+        The most data-rich table in the pipeline. For each SCF control, it holds the corresponding control IDs in every framework that SecFrame has mapped. This is where the multi-framework coverage in registry.json actually comes from.
+        <ul>
+          <li>Uses a numeric <span class="tag">framework_id</span> — translated to a human-readable CheckID key by <code>scf-framework-map.json</code>.</li>
+          <li>Covers 10+ frameworks: NIST 800-53, NIST CSF, CMMC, PCI DSS, ISO 27001, HIPAA, SOX, GDPR, and more.</li>
+          <li>If a sub-control (e.g. <code>IAC-21.3</code>) has no mapping for a framework, the build script falls back to the parent control (<code>IAC-21</code>) automatically.</li>
+          <li>CIS M365, CISA ScuBA, and STIG are <em>not</em> in this table — those come from the input file directly.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- scf-framework-map.json -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#d29922"></div>
+        <span class="card-title">scf-framework-map.json</span>
+      </div>
+      <div class="card-role">ID translation table — DB integer → CheckID key</div>
+      <div class="card-body">
+        The SCF database identifies frameworks by opaque integer IDs (e.g. <code>45</code>, <code>72</code>). This file is the lookup table that translates those integers to the stable string keys used in CheckID's output (e.g. <code>nist-800-53</code>, <code>pci-dss</code>).
+        <ul>
+          <li>Also specifies which DB IDs map to the same CheckID key — some frameworks have multiple DB entries (e.g. NIST 800-53 Rev 4 and Rev 5 are separate DB rows but merge into one output key).</li>
+          <li>Controls which frameworks are included in the registry — any DB framework_id not listed here is silently ignored.</li>
+          <li>Generated by <code>Build-FrameworkTitles.py</code> and committed; not edited by hand.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- framework-titles.json -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#d29922"></div>
+        <span class="card-title">framework-titles.json</span>
+      </div>
+      <div class="card-role">Human-readable titles for framework control IDs</div>
+      <div class="card-body">
+        Maps individual framework control IDs to their descriptive titles — e.g. <code>AC-6</code> → <em>"Least Privilege"</em>, <code>PR.AA-05</code> → <em>"Access permissions and entitlements are managed"</em>.
+        <ul>
+          <li>Titles are written into the <span class="tag">title</span> field on each framework entry in the output, making the registry human-readable without requiring a separate lookup.</li>
+          <li>Generated by <code>Build-FrameworkTitles.py</code> from the SCF DB — not edited by hand.</li>
+          <li>Only applies to DB-derived frameworks. CIS M365, CISA ScuBA, and STIG entries get titles from their own source files.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Build-Registry.py -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#f0883e"></div>
+        <span class="card-title">Build-Registry.py</span>
+      </div>
+      <div class="card-role">The build script — orchestrates all inputs into registry.json</div>
+      <div class="card-body">
+        The single script that reads every input, runs all SQL queries, and assembles the final output. Run manually or in CI; the output is committed as a static file. Consumers never query the DB themselves.
+        <ul>
+          <li>Loads all DB tables into memory at startup (one pass), then processes each check entry without additional queries.</li>
+          <li>Falls back from sub-control to parent control when a framework mapping is missing.</li>
+          <li>Handles the AZ-* surface check path separately — those checks come from <code>az-assess-source-checks.json</code> and bypass the main SCF lookup, copying only the fields their source already provides.</li>
+          <li>Applies overrides last, after DB-derived and manual frameworks are assembled — ensuring the override only fills genuine gaps.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- registry.json -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#bc8cff"></div>
+        <span class="card-title">registry.json</span>
+      </div>
+      <div class="card-role">The output — fully denormalized, static, consumer-ready</div>
+      <div class="card-body">
+        The single file all consumers read. Every check object is fully self-contained — no joins, no DB access needed at query time. Schema v2.0.0, validated against <code>registry.schema.json</code> in CI.
+        <ul>
+          <li><span class="tag">scf {}</span> Full governance context: control name, domain, CSF function, maturity levels, assessment objectives, risks, threats.</li>
+          <li><span class="tag">frameworks {}</span> All compliance framework mappings in one place — 18 frameworks, each with control IDs and human-readable titles.</li>
+          <li><span class="tag">impactRating {}</span> Combines CheckID's <span class="tag">impactSeverity</span> with SCF's numeric weighting into a single risk signal.</li>
+          <li><span class="tag">remediation</span> M365-specific fix steps — present on ~215 of 278 checks (28 AZ-* and some others have no remediation text yet).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Consumers -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot" style="background:#388bfd"></div>
+        <span class="card-title">Consumers</span>
+      </div>
+      <div class="card-role">Downstream projects that depend on registry.json</div>
+      <div class="card-body">
+        All consumers treat registry.json as a read-only data dependency. They sync it as a static file — no submodule, no module installation, no DB access.
+        <ul>
+          <li><strong>M365-Assess</strong> — uses <span class="tag">checkId</span> to key collector output, reads <span class="tag">frameworks</span> for compliance reporting, and will read <span class="tag">remediation</span> to replace hardcoded fix text in collector scripts.</li>
+          <li><strong>EZ-CMMC</strong> — reads CMMC framework entries from <span class="tag">frameworks.cmmc</span> to identify non-M365 practices that need procedural or architectural controls.</li>
+          <li><strong>SecFrame</strong> — the upstream that owns the SCF DB; CheckID flows data <em>from</em> SecFrame, not to it. SecFrame needs no changes when CheckID's schema evolves.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
