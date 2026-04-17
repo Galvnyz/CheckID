@@ -2,9 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Galvnyz/CheckID/data/registry.schema.json",
   "title": "CheckID Registry",
-  "description": "Schema for CheckID registry.json — a universal identifier registry mapping security checks across compliance frameworks. Source of truth: SCF (Secure Controls Framework).",
+  "description": "Schema for CheckID registry.json \u2014 a universal identifier registry mapping security checks across compliance frameworks. Source of truth: SCF (Secure Controls Framework).",
   "type": "object",
-  "required": ["schemaVersion", "dataVersion", "generatedFrom", "checks"],
+  "required": [
+    "schemaVersion",
+    "dataVersion",
+    "generatedFrom",
+    "checks"
+  ],
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {
@@ -34,7 +39,16 @@
   "$defs": {
     "check": {
       "type": "object",
-      "required": ["checkId", "name", "category", "collector", "hasAutomatedCheck", "licensing", "scf", "frameworks"],
+      "required": [
+        "checkId",
+        "name",
+        "category",
+        "collector",
+        "hasAutomatedCheck",
+        "licensing",
+        "scf",
+        "frameworks"
+      ],
       "additionalProperties": false,
       "properties": {
         "checkId": {
@@ -61,19 +75,25 @@
         },
         "licensing": {
           "type": "object",
-          "required": ["minimum"],
+          "required": [
+            "minimum"
+          ],
           "additionalProperties": false,
           "properties": {
             "minimum": {
               "type": "string",
-              "enum": ["E3", "E5", "AzureSubscription"],
+              "enum": [
+                "E3",
+                "E5",
+                "AzureSubscription"
+              ],
               "description": "Minimum license tier required. Use 'AzureSubscription' for Azure ARM checks."
             }
           }
         },
         "scf": {
           "$ref": "#/$defs/scfMapping",
-          "description": "SCF (Secure Controls Framework) metadata — the authoritative source for this check's compliance identity."
+          "description": "SCF (Secure Controls Framework) metadata \u2014 the authoritative source for this check's compliance identity."
         },
         "frameworks": {
           "type": "object",
@@ -85,12 +105,20 @@
         },
         "impactRating": {
           "type": "object",
-          "required": ["severity"],
+          "required": [
+            "severity"
+          ],
           "additionalProperties": false,
           "properties": {
             "severity": {
               "type": "string",
-              "enum": ["Critical", "High", "Medium", "Low", "Informational"],
+              "enum": [
+                "Critical",
+                "High",
+                "Medium",
+                "Low",
+                "Informational"
+              ],
               "description": "Impact severity if this check fails."
             },
             "rationale": {
@@ -104,25 +132,55 @@
               "description": "SCF relative control weighting (1-10)."
             }
           }
+        },
+        "remediation": {
+          "type": "string",
+          "description": "Actionable guidance for resolving a failing check \u2014 UI navigation path or PowerShell command."
         }
       },
       "if": {
         "properties": {
-          "hasAutomatedCheck": { "const": true }
+          "hasAutomatedCheck": {
+            "const": true
+          }
         },
-        "required": ["hasAutomatedCheck"]
+        "required": [
+          "hasAutomatedCheck"
+        ]
       },
       "then": {
         "properties": {
           "collector": {
-            "enum": ["Entra", "CAEvaluator", "ExchangeOnline", "DNS", "Defender", "Compliance", "Intune", "SharePoint", "Teams", "PowerBI", "Purview", "StrykerReadiness", "Forms", "PurviewRetention", "EntApp", "AzAssess"]
+            "enum": [
+              "Entra",
+              "CAEvaluator",
+              "ExchangeOnline",
+              "DNS",
+              "Defender",
+              "Compliance",
+              "Intune",
+              "SharePoint",
+              "Teams",
+              "PowerBI",
+              "Purview",
+              "StrykerReadiness",
+              "Forms",
+              "PurviewRetention",
+              "EntApp",
+              "AzAssess"
+            ]
           }
         }
       }
     },
     "scfMapping": {
       "type": "object",
-      "required": ["primaryControlId", "domain", "controlName", "controlDescription"],
+      "required": [
+        "primaryControlId",
+        "domain",
+        "controlName",
+        "controlDescription"
+      ],
       "additionalProperties": false,
       "properties": {
         "primaryControlId": {
@@ -171,39 +229,66 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "cmm0_notPerformed":     { "type": "boolean" },
-            "cmm1_informal":         { "type": "boolean" },
-            "cmm2_planned":          { "type": "boolean" },
-            "cmm3_defined":          { "type": "boolean" },
-            "cmm4_controlled":       { "type": "boolean" },
-            "cmm5_improving":        { "type": "boolean" }
+            "cmm0_notPerformed": {
+              "type": "boolean"
+            },
+            "cmm1_informal": {
+              "type": "boolean"
+            },
+            "cmm2_planned": {
+              "type": "boolean"
+            },
+            "cmm3_defined": {
+              "type": "boolean"
+            },
+            "cmm4_controlled": {
+              "type": "boolean"
+            },
+            "cmm5_improving": {
+              "type": "boolean"
+            }
           }
         },
         "assessmentObjectives": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["aoId", "text"],
+            "required": [
+              "aoId",
+              "text"
+            ],
             "additionalProperties": false,
             "properties": {
-              "aoId": { "type": "string" },
-              "text": { "type": "string" }
+              "aoId": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
             }
           }
         },
         "risks": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^R-[A-Z]{2}-\\d+$" }
+          "items": {
+            "type": "string",
+            "pattern": "^R-[A-Z]{2}-\\d+$"
+          }
         },
         "threats": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^[NM]T-\\d+$" }
+          "items": {
+            "type": "string",
+            "pattern": "^[NM]T-\\d+$"
+          }
         }
       }
     },
     "frameworkMapping": {
       "type": "object",
-      "required": ["controlId"],
+      "required": [
+        "controlId"
+      ],
       "additionalProperties": false,
       "properties": {
         "controlId": {
@@ -217,7 +302,9 @@
         },
         "profiles": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "evidenceType": {
           "type": "string"
