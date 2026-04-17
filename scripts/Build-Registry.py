@@ -6,13 +6,15 @@ SQLite database for all control metadata, framework mappings, risks, threats,
 and assessment objectives. Produces registry.json v2.0.0.
 
 Pipeline:
-    scf-check-mapping.json  →  check definitions
+    scf-check-mapping.json       →  check definitions
            +
-       scf.db               →  SCF metadata + framework derivation
+       scf.db                    →  SCF metadata + framework derivation
            +
-    scf-framework-map.json  →  which frameworks to include
+    scf-framework-map.json       →  which frameworks to include
            +
-    framework-titles.json   →  human-readable titles
+    framework-titles.json        →  human-readable titles
+           +
+    az-assess-source-checks.json →  AZ-* checks (Azure ARM surface, optional)
            ↓
        registry.json (v2.0.0)
 
@@ -268,7 +270,14 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
     if not source_path.exists():
         return []
     with open(source_path, encoding="utf-8") as f:
-        entries = json.load(f)
+        try:
+            entries = json.load(f)
+        except json.JSONDecodeError as exc:
+            print(f"WARN: az-assess-source-checks.json is invalid JSON — skipping: {exc}")
+            return []
+    if not isinstance(entries, list):
+        print(f"WARN: az-assess-source-checks.json must be a JSON array, got {type(entries).__name__} — skipping")
+        return []
 
     checks = []
     for entry in entries:
@@ -624,14 +633,11 @@ def main():
 
         checks.append(check_obj)
 
-    # Sort by SCF domain → SCF ID
-    checks.sort(key=scf_sort_key)
-
     # Merge AZ-Assess checks (Azure ARM surface — not SCF-database-derived)
     az_checks = load_az_assess_source_checks(REPO_ROOT)
+    checks.extend(az_checks)
+    checks.sort(key=scf_sort_key)
     if az_checks:
-        checks.extend(az_checks)
-        checks.sort(key=scf_sort_key)
         print(f"Merged {len(az_checks)} AZ-* checks from az-assess-source-checks.json")
 
     # Build registry

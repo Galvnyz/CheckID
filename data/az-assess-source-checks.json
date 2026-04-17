@@ -8,7 +8,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "IAC-14",
-      "domain": "Identity & Access Management",
+      "domain": "Identification & Authentication",
       "controlName": "Least Privilege",
       "controlDescription": "Access to Azure subscription management must be restricted. Owner role assignments should not exceed 3 principals to limit blast radius from compromised accounts."
     },
@@ -26,7 +26,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CFG-02",
-      "domain": "Configuration & Change Management",
+      "domain": "Configuration Management",
       "controlName": "Configuration Baselines",
       "controlDescription": "Azure subscriptions must have at least one resource lock configured to prevent accidental or unauthorized deletion or modification of critical resources."
     },
@@ -44,7 +44,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CFG-01",
-      "domain": "Configuration & Change Management",
+      "domain": "Configuration Management",
       "controlName": "Configuration Management Policy",
       "controlDescription": "Azure Policy compliance must be reviewed manually in the Portal to confirm that assigned policies are not generating non-compliant findings against baseline configurations."
     },
@@ -62,7 +62,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "IAC-06",
-      "domain": "Identity & Access Management",
+      "domain": "Identification & Authentication",
       "controlName": "Account Management",
       "controlDescription": "Guest user accounts in Azure AD should be reviewed and minimized. External identities with persistent access to Azure resources increase the risk of unauthorized access."
     },
@@ -80,7 +80,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "IAC-07",
-      "domain": "Identity & Access Management",
+      "domain": "Identification & Authentication",
       "controlName": "Identifier Management",
       "controlDescription": "Service principal credentials (client secrets and certificates) must not be expired. Expired credentials indicate abandoned applications or poor credential lifecycle management."
     },
@@ -98,7 +98,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "IAC-14",
-      "domain": "Identity & Access Management",
+      "domain": "Identification & Authentication",
       "controlName": "Least Privilege",
       "controlDescription": "Azure resources should use managed identities instead of service principals with stored secrets where possible, reducing credential exposure and enforcing least-privilege identity patterns."
     },
@@ -170,7 +170,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-04",
-      "domain": "Data Protection & Privacy",
+      "domain": "Cryptographic Protections",
       "controlName": "Encryption at Rest",
       "controlDescription": "Storage accounts must not allow anonymous (unauthenticated) access to blob containers. Public blob access exposes potentially sensitive data to the internet without any authentication."
     },
@@ -188,7 +188,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-03",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Encryption in Transit",
       "controlDescription": "All storage accounts must enforce HTTPS-only traffic to protect data in transit. HTTP connections must be rejected to prevent interception of data or credentials."
     },
@@ -206,7 +206,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-03",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Encryption in Transit",
       "controlDescription": "Storage accounts must enforce TLS 1.2 as the minimum version. TLS 1.0 and 1.1 have known vulnerabilities (POODLE, BEAST) that can be exploited to decrypt communications."
     },
@@ -224,7 +224,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-02",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Key Management",
       "controlDescription": "Azure Key Vaults must have soft delete enabled to allow recovery of accidentally or maliciously deleted secrets, keys, and certificates within the retention period."
     },
@@ -242,7 +242,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-02",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Key Management",
       "controlDescription": "Azure Key Vaults must have purge protection enabled to prevent permanent deletion during the soft-delete retention period, protecting against ransomware-style attacks targeting cryptographic material."
     },
@@ -260,7 +260,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-02",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Key Management",
       "controlDescription": "Cryptographic keys and secrets stored in Azure Key Vault must have expiry dates configured to enforce key rotation and reduce the window of exposure if a key is compromised."
     },
@@ -314,7 +314,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "MON-01",
-      "domain": "Monitoring",
+      "domain": "Continuous Monitoring",
       "controlName": "Audit Logging",
       "controlDescription": "Defender for Cloud auto-provisioning of monitoring agents (MMA/AMA) must be enabled to ensure all VMs automatically receive threat detection coverage without manual intervention."
     },
@@ -332,7 +332,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "MON-01",
-      "domain": "Monitoring",
+      "domain": "Continuous Monitoring",
       "controlName": "Audit Logging",
       "controlDescription": "At least one Log Analytics workspace must exist in the subscription to serve as a central repository for audit logs, diagnostic data, and security events."
     },
@@ -350,7 +350,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "MON-03",
-      "domain": "Monitoring",
+      "domain": "Continuous Monitoring",
       "controlName": "Audit Log Review",
       "controlDescription": "An enabled Activity Log Alert must exist for the Microsoft.Authorization/policyAssignments/delete operation to detect and respond to unauthorized removal of security policies."
     },
@@ -368,7 +368,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-04",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Encryption at Rest",
       "controlDescription": "All virtual machines must have the Azure Disk Encryption extension installed and in a Succeeded provisioning state to protect OS and data disks with BitLocker (Windows) or dm-crypt (Linux)."
     },
@@ -404,7 +404,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "CRY-04",
-      "domain": "Cryptography",
+      "domain": "Cryptographic Protections",
       "controlName": "Encryption at Rest",
       "controlDescription": "All Azure SQL databases (excluding system databases) must have Transparent Data Encryption enabled to protect database files, log files, and backups at rest."
     },
@@ -422,7 +422,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "MON-01",
-      "domain": "Monitoring",
+      "domain": "Continuous Monitoring",
       "controlName": "Audit Logging",
       "controlDescription": "SQL Server auditing must be enabled on all Azure SQL servers to track database events, schema changes, and data access for compliance and incident investigation."
     },
@@ -458,7 +458,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "IAC-14",
-      "domain": "Identity & Access Management",
+      "domain": "Identification & Authentication",
       "controlName": "Least Privilege",
       "controlDescription": "All AKS clusters must have Kubernetes RBAC enabled to enforce role-based access control on Kubernetes API operations and prevent unauthorized access to cluster resources."
     },
@@ -494,7 +494,7 @@
     "licensing": { "minimum": "AzureSubscription" },
     "scf": {
       "primaryControlId": "IAC-06",
-      "domain": "Identity & Access Management",
+      "domain": "Identification & Authentication",
       "controlName": "Account Management",
       "controlDescription": "AKS clusters must have Azure AD integration (AAD profile or OIDC issuer) enabled to enforce organizational identity policies, MFA, and conditional access for cluster authentication."
     },
