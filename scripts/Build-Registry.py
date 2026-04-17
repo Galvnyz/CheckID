@@ -591,9 +591,18 @@ def main():
             frameworks["stig"] = stig_entry
 
         # Apply manual framework overrides (for gaps in SCF coverage)
+        # mode: "replace" (default) — fills when key is absent; "append" — merges controlIds into existing entry
         check_overrides = fw_overrides.get(check_id, {})
         for fw_key, fw_data in check_overrides.items():
-            if fw_key not in frameworks and fw_data.get("controlId"):
+            if not fw_data.get("controlId"):
+                continue
+            mode = fw_data.get("mode", "replace")
+            if mode == "append" and fw_key in frameworks:
+                existing_ids = [x.strip() for x in frameworks[fw_key].get("controlId", "").split(";") if x.strip()]
+                new_ids = [x.strip() for x in fw_data["controlId"].split(";") if x.strip()]
+                merged = existing_ids + [x for x in new_ids if x not in existing_ids]
+                frameworks[fw_key]["controlId"] = ";".join(merged)
+            elif fw_key not in frameworks:
                 entry = OrderedDict([("controlId", fw_data["controlId"])])
                 title = resolve_title(fw_data["controlId"], fw_key, titles)
                 if title:

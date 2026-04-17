@@ -330,6 +330,12 @@
         "controlId": "PR.AA-05"
       }
     },
+    "ENTRA-ADMINROLE-SEPARATION-001": {
+      "cmmc": {
+        "mode": "append",
+        "controlId": "SC.L2-3.13.3"
+      }
+    },
     "ENTRA-CA-SESSIONFREQ-001": {
       "cmmc": {
         "controlId": "SC.L2-3.13.9"
