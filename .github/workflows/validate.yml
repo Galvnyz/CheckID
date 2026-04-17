@@ -245,29 +245,22 @@ jobs:
       - name: Run Python tests
         run: python -m pytest tests/test_generate_rationale.py -v
 
-      - name: Validate committed JSON outputs
-        run: |
-          python -c "import json; json.load(open('data/scf-check-mapping.json'))"
-          echo "  OK: data/scf-check-mapping.json"
-          python -c "import json; json.load(open('data/scf-framework-map.json'))"
-          echo "  OK: data/scf-framework-map.json"
-          python -c "import json; json.load(open('data/framework-titles.json'))"
-          echo "  OK: data/framework-titles.json"
-
       - name: Validate all data/ JSON files are valid UTF-8
         run: |
           python -c "
           import glob, json, sys
-          errors = []
-          for f in sorted(glob.glob('data/**/*.json', recursive=True)):
+          files = sorted(glob.glob('data/**/*.json', recursive=True))
+          error_count = 0
+          for f in files:
               try:
-                  json.load(open(f, encoding='utf-8'))
+                  with open(f, encoding='utf-8') as fh:
+                      json.load(fh)
                   print(f'  OK: {f}')
               except Exception as e:
-                  errors.append(f'{f}: {e}')
+                  error_count += 1
                   print(f'  FAIL: {f}: {e}')
-          if errors:
-              print(f'::error::{len(errors)} file(s) failed UTF-8 validation')
+          if error_count:
+              print(f'::error::{error_count} file(s) failed UTF-8 validation')
               sys.exit(1)
-          print(f'All {len(glob.glob(\"data/**/*.json\", recursive=True))} JSON files are valid UTF-8')
+          print(f'All {len(files)} JSON files are valid UTF-8')
           "
