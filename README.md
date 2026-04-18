@@ -1,6 +1,6 @@
 # CheckID
 
-[![Checks](https://img.shields.io/badge/checks-251-blue)](https://github.com/Galvnyz/CheckID/blob/main/data/registry.json)
+[![Checks](https://img.shields.io/badge/checks-1092-blue)](https://github.com/Galvnyz/CheckID/blob/main/data/registry.json)
 [![Frameworks](https://img.shields.io/badge/frameworks-18-blue)](https://github.com/Galvnyz/CheckID/blob/main/SCHEMA.md#supported-frameworks-18)
 [![Release](https://img.shields.io/github/v/release/Galvnyz/CheckID)](https://github.com/Galvnyz/CheckID/releases/latest)
 
@@ -15,11 +15,17 @@ CheckID gives every security check a permanent ID and maps it to controls across
 **Format:** `{SERVICE}-{AREA}-{NNN}` (e.g., `ENTRA-ADMIN-001`, `DEFENDER-SAFELINKS-001`)
 
 **Current coverage:**
-- 222 checks across Microsoft 365 (Entra ID, Exchange Online, Defender, SharePoint, Teams, Intune, Compliance)
-- 15 compliance frameworks mapped per check
+- 278 checks across Microsoft 365 (Entra ID, Exchange Online, Defender, SharePoint, Teams, Intune, Compliance)
+- 814 checks across Azure infrastructure sourced from 5 CIS benchmarks:
+  - CIS Microsoft Azure Foundations Benchmark v5.0.0
+  - CIS Microsoft Azure Compute Services Benchmark v2.0.0
+  - CIS Microsoft Azure Database Services Benchmark v2.0.0
+  - CIS Azure Kubernetes Service (AKS) Benchmark v1.8.0
+  - CIS Microsoft Windows Server 2025 Benchmark v2.0.0
+- 18 compliance frameworks mapped per check
 - Full SCF metadata: maturity levels, assessment objectives, risks, and threats
 
-CheckID starts with M365 but is designed to expand. The identifier format, registry schema, and framework mapping approach are platform-agnostic — new services and platforms can be added without breaking existing consumers.
+The identifier format, registry schema, and framework mapping approach are platform-agnostic — new services and platforms can be added without breaking existing consumers.
 
 ## Quick Start
 
@@ -91,38 +97,39 @@ All framework mappings are derived from the SCF database, supplemented by manual
 
 | Framework | Key | Coverage | Source | Profiles |
 |-----------|-----|----------|--------|----------|
-| NIST SP 800-53 Rev 5 | `nist-800-53` | 222 checks | SCF | Low, Moderate, High, Privacy |
-| FedRAMP Rev 5 | `fedramp` | 222 checks | SCF | |
-| SOC 2 Trust Services Criteria | `soc2` | 222 checks | SCF + override | |
-| CMMC 2.0 | `cmmc` | 215 checks | SCF | |
-| MITRE ATT&CK v10 | `mitre-attack` | 213 checks | SCF | |
-| PCI DSS v4.0.1 | `pci-dss` | 213 checks | SCF | |
-| ISO/IEC 27001:2022 | `iso-27001` | 210 checks | SCF | |
-| NIST Cybersecurity Framework 2.0 | `nist-csf` | 207 checks | SCF + override | |
-| HIPAA | `hipaa` | 203 checks | SCF | |
-| CIS Controls v8.1 | `cis-controls-v8` | 199 checks | SCF | |
-| CIS Microsoft 365 v6.0.1 | `cis-m365-v6` | 175 checks | Manual | E3-L1, E3-L2, E5-L1, E5-L2 |
-| Essential Eight (ASD) | `essential-eight` | 103 checks | SCF | ML1, ML2, ML3 |
+| NIST SP 800-53 Rev 5 | `nist-800-53` | 1,033 checks | SCF | Low, Moderate, High, Privacy |
+| FedRAMP Rev 5 | `fedramp` | 1,033 checks | SCF | |
+| CMMC 2.0 | `cmmc` | 1,067 checks | SCF | |
+| SOC 2 Trust Services Criteria | `soc2` | 1,064 checks | SCF + override | |
+| CIS Controls v8.1 | `cis-controls-v8` | 991 checks | SCF | |
+| ISO/IEC 27001:2022 | `iso-27001` | 990 checks | SCF | |
+| PCI DSS v4.0.1 | `pci-dss` | 1,013 checks | SCF | |
+| NIST Cybersecurity Framework 2.0 | `nist-csf` | 801 checks | SCF + override | |
+| Essential Eight (ASD) | `essential-eight` | 617 checks | SCF | ML1, ML2, ML3 |
+| NIS2 | `nis2` | 300 checks | SCF | |
+| HIPAA | `hipaa` | 477 checks | SCF | |
+| MITRE ATT&CK v10 | `mitre-attack` | 863 checks | SCF | |
+| CIS Microsoft 365 v6.0.1 | `cis-m365-v6` | 178 checks | Manual | E3-L1, E3-L2, E5-L1, E5-L2 |
 | CISA SCuBA | `cisa-scuba` | 54 checks | Manual | |
 | DISA STIG | `stig` | 13 checks | Manual | |
-| EU GDPR | `gdpr` | 8 checks | SCF | |
+| EU GDPR | `gdpr` | 11 checks | SCF | |
 
 ### NIST 800-53 Baseline Profiles
 
-NIST 800-53 Rev 5 defines 1,189 controls covering everything from physical security to cloud configuration. CheckID maps the subset that is verifiable through M365 configuration export -- 59 unique controls across 7 families (AC, AT, AU, CM, IA, SC, SI).
+NIST 800-53 Rev 5 defines 1,189 controls covering everything from physical security to cloud configuration. CheckID maps the subset that is verifiable through automated configuration assessment — across M365, Azure, and Windows Server.
 
-Each registry entry's `nist-800-53` mapping includes a `profiles` array indicating which NIST baselines the mapped controls belong to:
+Each registry entry's `nist-800-53` mapping includes a `profiles` array indicating which NIST baselines the mapped controls belong to (Low ⊆ Moderate ⊆ High by NIST definition):
 
-| Baseline | Total Controls | M365-Assessable | Notes |
-|----------|---------------|-----------------|-------|
-| Low | 149 | 25 | Subset of Moderate |
-| Moderate | 287 | 41 | Subset of High |
-| High | 370 | 43 | Superset of all |
-| Privacy | 96 | 2 | Independent set |
+| Baseline | Total Controls | CheckID-Assessable |
+|----------|---------------|--------------------|
+| Low | 149 | assessed by M365 + Azure + Windows checks |
+| Moderate | 287 | assessed by M365 + Azure + Windows checks |
+| High | 370 | assessed by M365 + Azure + Windows checks |
+| Privacy | 96 | assessed by M365 checks |
 
-The remaining NIST controls cover areas outside M365's scope: physical security (PE), contingency planning (CP), personnel security (PS), media protection (MP), and other organizational/procedural domains. This is by design -- CheckID assesses configuration state, not procedural compliance.
+Controls not covered include physical security (PE), contingency planning (CP), personnel security (PS), media protection (MP), and other organizational/procedural domains — CheckID assesses configuration state, not procedural compliance.
 
-Consumers can use baseline profiles to report accurately: *"Of the 149 Low baseline controls, 25 are M365-assessable and we check all 25"* rather than the misleading *"25 of 1,189 total controls."*
+Consumers can use baseline profiles to report accurately: *"Of the 287 Moderate baseline controls, X are assessable and we check all X"* rather than the misleading *"X of 1,189 total controls."*
 
 ### Essential Eight Maturity Model
 
@@ -147,26 +154,32 @@ Essential Eight mappings are derived directly from SCF control mappings (framewo
 
 ```
 CheckID/
-├── data/                          Registry data
-│   ├── registry.json              Master registry (222 checks, 15 frameworks, schema v2.0.0)
-│   ├── scf-check-mapping.json     Check → SCF control assignments (source of truth)
-│   ├── scf-framework-map.json     SCF framework ID → CheckID key config
-│   ├── framework-overrides.json   Manual framework mappings for SCF coverage gaps
-│   ├── framework-titles.json      Human-readable control titles
-│   └── frameworks/                Framework definitions (15 JSON files)
+├── data/                              Registry data
+│   ├── registry.json                  Master registry (1,092 checks, 18 frameworks, schema v2.0.0)
+│   ├── scf-check-mapping.json         M365 check → SCF control assignments (source of truth)
+│   ├── az-assess-source-checks.json   Azure/Windows checks from CIS benchmarks (814 checks)
+│   ├── cis-azure-section-map.json     CIS benchmark section → SERVICE-AREA prefix config
+│   ├── scf-framework-map.json         SCF framework ID → CheckID key config
+│   ├── framework-overrides.json       Manual framework mappings for SCF coverage gaps
+│   ├── framework-titles.json          Human-readable control titles
+│   └── frameworks/                    Framework definitions (18 JSON files)
+├── candidates/                        Human-review staging area for new checks
+│   ├── README.md                      Promote workflow documentation
+│   └── az-candidates.json             Generated candidates (promote → az-assess-source-checks.json)
 ├── scripts/
-│   ├── Build-Registry.py          Generates registry.json from SCF database
-│   ├── Build-Registry.ps1         PowerShell wrapper for Build-Registry.py
-│   ├── Build-ScfMigration.py      One-time NIST→SCF migration script
-│   ├── Build-FrameworkTitles.py   Title lookup generator from OSCAL
-│   ├── Export-ComplianceMatrix.ps1 XLSX multi-framework compliance report
-│   └── Test-RegistryData.ps1      Data quality validation
-├── tests/                         Pester 5.x tests
-│   ├── registry-integrity.Tests.ps1  28 schema + SCF validation tests
-│   └── scf-mapping.Tests.ps1        7 SCF consistency tests
+│   ├── Build-Registry.py              Generates registry.json from SCF database + source checks
+│   ├── Build-Registry.ps1             PowerShell wrapper for Build-Registry.py
+│   ├── Build-CisAzureCandidates.py    Generates candidates from CIS benchmark CSVs (SecFrame)
+│   ├── Build-ScfMigration.py          One-time NIST→SCF migration script
+│   ├── Build-FrameworkTitles.py       Title lookup generator from OSCAL
+│   ├── Export-ComplianceMatrix.ps1    XLSX multi-framework compliance report
+│   └── Test-RegistryData.ps1          Data quality validation
+├── tests/                             Pester 5.x tests
+│   ├── registry-integrity.Tests.ps1   Schema + SCF validation tests
+│   └── scf-mapping.Tests.ps1          SCF consistency tests
 └── docs/
-    ├── architecture.md            Mermaid architecture diagrams
-    └── CheckId-Guide.md           Detailed system documentation
+    ├── architecture.md                Mermaid architecture diagrams
+    └── CheckId-Guide.md               Detailed system documentation
 ```
 
 ## Registry Schema (v2.0.0)
@@ -208,7 +221,10 @@ Top-level fields: `schemaVersion` (`"2.0.0"`), `dataVersion` (date), `generatedF
 
 ## Rebuilding the Registry
 
-The registry is built from `scf-check-mapping.json` + the SCF SQLite database (`scf.db` from SecFrame):
+The registry is built from two sources merged at build time:
+
+- **M365 checks** — defined in `data/scf-check-mapping.json` with full SCF enrichment from `scf.db`
+- **Azure/Windows checks** — curated in `data/az-assess-source-checks.json`; framework mappings derived from each check's SCF primary control at build time
 
 ```powershell
 # Requires SecFrame/SCF/scf.db accessible locally
@@ -216,6 +232,23 @@ python scripts/Build-Registry.py
 # Or via PowerShell wrapper:
 ./scripts/Build-Registry.ps1
 ```
+
+### Adding Azure/Windows checks
+
+New CIS benchmark checks flow through a candidate pipeline:
+
+```
+SecFrame (csv-exports/CIS/) → Build-CisAzureCandidates.py → candidates/az-candidates.json
+                                                                       ↓ human review
+                                             data/az-assess-source-checks.json → registry.json
+```
+
+Run locally:
+```powershell
+python scripts/Build-CisAzureCandidates.py --csv-dir C:/git/SecFrame/csv-exports/CIS --scf-db C:/git/SecFrame/SCF/scf.db
+```
+
+CI automatically regenerates candidates when SecFrame CSV exports change (via `secframe-azure-updated` repository dispatch → `.github/workflows/rebuild-cis-azure-candidates.yml`).
 
 Then validate:
 
