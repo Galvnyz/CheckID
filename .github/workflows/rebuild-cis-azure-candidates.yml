@@ -1,0 +1,108 @@
+name: Rebuild CIS Azure Candidates
+
+on:
+  repository_dispatch:
+    types: [secframe-azure-updated]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-candidates:
+    name: Generate CIS Azure/Server check candidates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements-ci.txt 2>/dev/null || true
+
+      - name: Fetch CIS Azure CSV exports from SecFrame
+        env:
+          GH_TOKEN: ${{ secrets.CROSS_REPO_TOKEN }}
+        run: |
+          mkdir -p /tmp/cis-azure
+          BENCHMARKS=(
+            "CIS_Microsoft_Azure_Foundations_Benchmark_v5.0.0"
+            "CIS_Microsoft_Azure_Compute_Services_Benchmark_v2.0.0"
+            "CIS_Microsoft_Azure_Database_Services_Benchmark_v2.0.0"
+            "CIS_Azure_Kubernetes_Service_(AKS)_Benchmark_v1.8.0"
+            "CIS_Microsoft_Windows_Server_2025_Benchmark_v2.0.0"
+          )
+          for BENCH in "${BENCHMARKS[@]}"; do
+            echo "Fetching $BENCH CSV directory..."
+            mkdir -p "/tmp/cis-azure/$BENCH"
+            # List sheets for this benchmark
+            SHEETS=$(gh api "repos/Galvnyz/SecFrame/contents/csv-exports/CIS/$BENCH" --jq '.[].name' 2>/dev/null || true)
+            if [ -z "$SHEETS" ]; then
+              echo "  [SKIP] No CSVs found for $BENCH"
+              continue
+            fi
+            while IFS= read -r SHEET; do
+              gh api "repos/Galvnyz/SecFrame/contents/csv-exports/CIS/$BENCH/$SHEET" \
+                --jq '.content' | base64 -d > "/tmp/cis-azure/$BENCH/$SHEET" 2>/dev/null || true
+              echo "  Fetched $SHEET"
+            done <<< "$SHEETS"
+          done
+
+      - name: Fetch SCF database from SecFrame
+        env:
+          GH_TOKEN: ${{ secrets.CROSS_REPO_TOKEN }}
+        run: |
+          gh api repos/Galvnyz/SecFrame/contents/SCF/scf.db \
+            --jq '.content' | base64 -d > /tmp/scf.db || true
+          if [ -f /tmp/scf.db ] && [ -s /tmp/scf.db ]; then
+            echo "SCF database fetched successfully"
+          else
+            echo "[WARNING] Could not fetch scf.db — SCF lookups will be skipped"
+          fi
+
+      - name: Run candidate generator
+        run: |
+          python scripts/Build-CisAzureCandidates.py \
+            --csv-dir /tmp/cis-azure \
+            --scf-db /tmp/scf.db
+
+      - name: Check for changes
+        id: diff
+        run: |
+          git diff --quiet candidates/ && echo "changed=false" >> "$GITHUB_OUTPUT" \
+            || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open PR with updated candidates
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.CROSS_REPO_TOKEN }}
+        run: |
+          BRANCH="chore/cis-azure-candidates-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+          git add candidates/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: regenerate CIS Azure/Server check candidates"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "chore: regenerate CIS Azure/Server check candidates" \
+            --body "Automated candidate generation triggered by SecFrame Azure CSV update.
+
+          ## Review instructions
+
+          1. Open \`candidates/az-candidates.json\`
+          2. For each entry, fill all \`\"TODO\"\` fields:
+             - \`scf.primaryControlId\` — look up the CIS control in SecFrame or the SCF database
+             - \`scf.domain\`, \`scf.csfFunction\` — derived from the SCF control above
+             - \`impactRating.severity\` — Critical / High / Medium / Low / Informational
+             - \`impactRating.rationale\` — one sentence explaining the severity
+          3. Remove \`_source\` helper fields from finalised entries
+          4. Append finalised entries to \`data/az-assess-source-checks.json\`
+          5. Run \`pwsh -NoProfile -File scripts/Build-Registry.ps1\` to rebuild \`registry.json\`
+          6. Commit and push — CI validates the rebuilt registry" \
+            --base main \
+            --head "$BRANCH"

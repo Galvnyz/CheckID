@@ -721,10 +721,24 @@ def main():
 
     # Merge AZ-Assess checks (Azure ARM surface — not SCF-database-derived)
     az_checks = load_az_assess_source_checks(REPO_ROOT)
+    # Derive framework mappings for any az-assess check that has none (e.g. newly
+    # promoted CIS candidates whose frameworks field was left as {}).
+    fw_derived = 0
+    for az in az_checks:
+        if not az.get("frameworks"):
+            scf_primary = az.get("scf", {}).get("primaryControlId", "")
+            if scf_primary:
+                az["frameworks"] = derive_frameworks(
+                    scf_primary, [],
+                    all_fw_mappings, fwid_to_key, baseline_fwids, titles,
+                )
+                fw_derived += 1
     checks.extend(az_checks)
     checks.sort(key=scf_sort_key)
     if az_checks:
         print(f"Merged {len(az_checks)} AZ-* checks from az-assess-source-checks.json")
+    if fw_derived:
+        print(f"  Derived framework mappings for {fw_derived} checks with empty frameworks")
 
     # Build registry
     registry = OrderedDict()

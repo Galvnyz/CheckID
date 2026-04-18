@@ -1,0 +1,41 @@
+{
+  "_comment": "Maps CIS benchmark 'Recommendation #' first-digit section to CheckID SERVICE-AREA prefix. '*' = all sections. Sections not listed are skipped. Adjust after verifying actual XLSX sheet structure.",
+  "azure-foundations": {
+    "2": "AZ-ANALYTICS",
+    "3": "AZ-COMPUTE",
+    "4": "AZ-SQL",
+    "5": "AZ-IDENTITY",
+    "6": "AZ-GOVERNANCE",
+    "7": "AZ-NETWORK",
+    "8": "AZ-DEFENDER",
+    "9": "AZ-STORAGE"
+  },
+  "azure-compute": {
+    "2": "AZ-APPSVC",
+    "3": "AZ-CONTAINER",
+    "16": "AZ-VM",
+    "19": "AZ-VM",
+    "20": "AZ-VM"
+  },
+  "azure-database": {
+    "3": "AZ-COSMOS",
+    "5": "AZ-MYSQL",
+    "6": "AZ-POSTGRES",
+    "9": "AZ-SQL",
+    "10": "AZ-SQL",
+    "11": "AZ-SQL"
+  },
+  "azure-aks": {
+    "*": "AZ-AKS"
+  },
+  "windows-server-2025": {
+    "1": "WIN-ACCOUNT",
+    "2": "WIN-AUDIT",
+    "3": "WIN-LOGGING",
+    "5": "WIN-SERVICES",
+    "9": "WIN-FIREWALL",
+    "17": "WIN-AUDIT",
+    "18": "WIN-CONFIG",
+    "19": "WIN-CONFIG"
+  }
+}
