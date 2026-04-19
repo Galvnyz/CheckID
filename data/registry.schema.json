@@ -47,7 +47,8 @@
         "hasAutomatedCheck",
         "licensing",
         "scf",
-        "frameworks"
+        "frameworks",
+        "effort"
       ],
       "additionalProperties": false,
       "properties": {
@@ -130,6 +131,47 @@
               "minimum": 1,
               "maximum": 10,
               "description": "SCF relative control weighting (1-10)."
+            }
+          }
+        },
+        "effort": {
+          "type": "object",
+          "required": [
+            "complexity",
+            "isPhased",
+            "phaseCount",
+            "disruptionRisk"
+          ],
+          "additionalProperties": false,
+          "description": "Implementation effort metadata for remediation planning.",
+          "properties": {
+            "complexity": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5,
+              "description": "Implementation complexity (1 = single config toggle; 5 = multi-team, multi-phase project)."
+            },
+            "isPhased": {
+              "type": "boolean",
+              "description": "Whether this check requires a staged rollout rather than a single implementation step."
+            },
+            "phaseCount": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Number of sequential implementation phases required. Always 1 when isPhased is false."
+            },
+            "disruptionRisk": {
+              "type": "boolean",
+              "description": "Whether implementing this check risks disrupting users, services, or administrators."
+            },
+            "disruptionScope": {
+              "type": "string",
+              "enum": [
+                "user-facing",
+                "admin-only",
+                "service"
+              ],
+              "description": "Scope of potential disruption. Omitted when disruptionRisk is false."
             }
           }
         },
