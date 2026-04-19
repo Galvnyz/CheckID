@@ -64,6 +64,231 @@
       "phaseCount": 1,
       "disruptionRisk": false,
       "_rationale": "EXO-DKIM-001 is the Exchange Online DKIM signing configuration check (enabling signing in the portal), distinct from DNS-DKIM-001 which covers DNS record publication. The Exchange Online activation itself is low-risk; DNS propagation is the complex step covered separately."
+    },
+
+    "SPO-SHARING-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Restricting external content sharing breaks existing sharing workflows for users who actively share with external parties. Must audit current sharing before tightening — two phases: identify/communicate impact → enforce new policy. Derivation missed disruptionScope because SharePoint collector is not in _EMAIL_COLLECTORS or _AUTH_COLLECTORS."
+    },
+    "SPO-SHARING-004": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Restricting link sharing (anyone/org-wide links) breaks existing shared links users have distributed externally. Same pattern as SPO-SHARING-001 — requires audit and communication before enforcement."
+    },
+    "SPO-ACCESS-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 3,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "CA policy coverage for SharePoint gates access to all SharePoint resources by device compliance or network location. Non-compliant/unmanaged devices lose SharePoint access immediately without phasing (report-only → pilot → enforce). Derivation missed disruptionScope because SharePoint collector is not in _AUTH_COLLECTORS."
+    },
+    "SPO-OD-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Restricting OneDrive sharing settings affects users who rely on external sharing from OneDrive. Single policy change but disruptionScope derivation missed SharePoint collector. Not inherently phased but communication to users is required before enforcement."
+    },
+    "SPO-SITE-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Site-level sharing settings affect site owners and users who share content externally. Tightening tenant-level policy can override site owner settings, disrupting established sharing workflows."
+    },
+    "SPO-SITE-002": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Restricting external sharing on sensitive sites may break existing collaboration with external parties. Requires inventory of current external access before enforcement."
+    },
+    "SPO-CUIACCESS-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Restricting access to SharePoint content to specific groups affects all users currently accessing via anonymous or broad links. DisruptionScope missed by derivation due to SharePoint collector not being in _AUTH_COLLECTORS."
+    },
+    "SPO-AUTH-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Modern authentication enforcement for SharePoint breaks legacy apps and scripts using basic auth. Disruption is service-level (apps/integrations) rather than user-facing. Single policy change."
+    },
+    "TEAMS-GUEST-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Changing guest access settings affects existing guest users in Teams and internal users collaborating with them. Restricting guest access removes existing guest access immediately — communication required. DisruptionScope missed because Teams collector not in derivation rules."
+    },
+    "TEAMS-MEETING-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Blocking anonymous meeting join is a policy change that affects users who regularly invite external parties to meetings without requiring them to sign in. Low complexity (single Teams admin policy), but user-facing disruption for existing meeting patterns."
+    },
+
+    "ENTRA-ADMIN-003": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Defining emergency access (break-glass) accounts is an administrative provisioning task — create two accounts, store credentials securely, configure exclusions from MFA/CA policies. Not phased, admin-only. Derivation overcounted complexity (5) and misclassified as user-facing; the accounts themselves don't affect end users."
+    },
+    "ENTRA-SOD-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Separation of duties for critical admin roles requires reviewing and removing conflicting role assignments from admin accounts. Affects only administrators — removing roles from admin accounts disrupts those admins' access to specific functions but not end users."
+    },
+    "ENTRA-CLOUDADMIN-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Migrating admin accounts to cloud-only (not synced from on-prem AD) requires reprovisioning admin credentials and updating MFA/SSPR for each affected admin. Phased: audit synced admin accounts → provision cloud-only equivalents → decommission hybrid admin accounts. Disrupts only affected administrators."
+    },
+    "ENTRA-PIM-003": {
+      "complexity": 4,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Configuring access reviews for privileged roles in PIM is an admin governance task. The review process itself is admin-only workflow — end users are not affected. Not inherently phased; it is a PIM configuration step."
+    },
+    "ENTRA-PIM-004": {
+      "complexity": 5,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Requiring approval for Global Administrator role activation is a significant governance change. Affects all admins who currently activate GA via PIM without approval — their activation workflow changes immediately. Two phases: configure approvers/notifications → enforce approval requirement. Admin-only disruption."
+    },
+    "ENTRA-PIM-005": {
+      "complexity": 5,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Same pattern as ENTRA-PIM-004 — requiring approval for Privileged Role Administrator activation changes the workflow for a critical role that can assign all other roles. Admin-only disruption."
+    },
+
+    "ENTRA-SECDEFAULT-002": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Security Defaults Gap Analysis is a detection/reporting check — it identifies gaps in CA policy coverage, it does not enforce or change anything. No remediation action is taken by enabling this check. Derivation overcounted complexity because it scored against severity; the check itself is a read-only assessment."
+    },
+    "PURVIEW-AUDIT-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Enabling Unified Audit Logging is a single toggle in the Purview compliance portal. No user impact, no service disruption. Complexity 2 (requires E5 or add-on licensing verification before enabling). Derivation miscounted this as phased because complexity reached 4 due to SCF weighting adjustment."
+    },
+    "ENTRA-ENTAPP-020": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Investigating and removing foreign apps impersonating Microsoft branding is an admin investigation/remediation task. Requires reviewing app registrations and removing or renaming offending apps — admin-only process. Not phased but requires careful review before acting."
+    },
+    "ENTRA-ENTAPP-019": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Reviewing and disabling Tier 0 apps with no sign-in activity is an admin governance task. No end-user impact unless an app that appears unused is actually still referenced. Requires investigation before removal — admin-only."
+    },
+    "ENTRA-ENTAPP-010": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Internal apps with Tier 0 (Global Reader, Directory Read All, etc.) application permissions represent significant privilege. Revoking permissions breaks app functionality — requires testing in non-production first. Phased: audit and triage → revoke in controlled batches. Service-level disruption to app integrations."
+    },
+    "ENTRA-ENTAPP-015": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Service principals with permanent client secrets and Tier 0 privileges require secret rotation and privilege reduction. Rotating secrets breaks app authentication until the new secret is deployed — phased: coordinate secret rotation with app teams → reduce permissions. Service-level disruption."
+    },
+    "ENTRA-ENTAPP-016": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Removing owners from Tier 0 permission apps restricts who can modify those apps — admin-only change. Not inherently phased but requires identifying correct ownership before removing incorrect owners."
+    },
+
+    "EXO-AUTH-002": {
+      "complexity": 5,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Disabling SMTP AUTH is one of the most commonly underestimated M365 changes. Legacy printers, scanners, MFDs, LOB applications, and monitoring systems frequently use SMTP AUTH without IT's knowledge. Orgs routinely discover unknown senders only after enforcement. Two phases: SMTP AUTH audit via message trace (identify senders) → disable with per-mailbox re-enablement for verified legacy devices. Complexity was understated by derivation."
+    },
+
+    "BACKUP-ENABLED-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Enabling Microsoft 365 Backup is a service enablement action — select workloads, assign licenses, configure retention. No disruption to end users or services. Complexity 3 (licensing acquisition, policy scoping, and validation required). Derivation overcounted to 5 because severity is High with SCF weighting adjustment."
+    },
+    "DEFENDER-SAFELINKS-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Safe Links is a Defender for Office 365 P1/P2 policy — enabling it rewrites URLs in email and Office documents for time-of-click protection. Transparent to users in most cases; only affects users if a link is detonated and blocked. Not disruptive to enable; not phased. Derivation overcounted to 5 from severity + SCF weighting."
+    },
+    "DEFENDER-SAFEATTACH-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Safe Attachments detonates email attachments in a sandbox before delivery. May add delivery delay (minutes) for flagged attachments; not a user-visible disruption in practice. Policy-level enable — not phased. Derivation overcounted from severity + SCF weighting adjustment."
+    },
+
+    "INTUNE-COMPLIANCE-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Marking devices without a compliance policy as 'Not Compliant' is a policy change that, combined with CA policy enforcement, can block non-compliant devices from accessing M365 resources. If CA enforcement is active, this immediately affects users on non-compliant devices. Two phases: audit compliance policy coverage gaps → enable marking with CA enforcement review."
     }
   }
 }

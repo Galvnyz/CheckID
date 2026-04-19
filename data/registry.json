@@ -701,10 +701,11 @@
         "scfWeighting": 8
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only"
       },
       "remediation": "Investigate foreign apps using Microsoft product names -- they may be social engineering attempts. Verify the publisher and appId against known Microsoft first-party apps. Remove if suspicious."
     },
@@ -1099,11 +1100,10 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false
       },
       "remediation": "No action needed. Conditional Access policies provide equivalent coverage to Security Defaults."
     },
@@ -1867,10 +1867,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 5,
+        "complexity": 4,
         "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -SharingCapability ExistingExternalUserSharingOnly. SharePoint admin center > Policies > Sharing."
     },
@@ -2046,10 +2047,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "SharePoint admin center > Policies > Sharing > OneDrive > set to \"Existing guests\" or more restrictive."
     },
@@ -2232,10 +2234,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 5,
+        "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Ensure Policy.Read.All permission is consented. Create a CA policy targeting SharePoint Online (00000003-0000-0ff1-ce00-000000000000) or All Cloud Apps."
     },
@@ -12084,10 +12087,10 @@
       },
       "effort": {
         "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "admin-only"
       },
       "remediation": "Entra admin center > Identity Governance > Access reviews > New access review > Review type: Members of a group or Users assigned to a privileged role."
     },
@@ -12269,11 +12272,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 5,
-        "isPhased": true,
-        "phaseCount": 3,
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "admin-only"
       },
       "remediation": "Maintain at least two cloud-only emergency access accounts excluded from all Conditional Access policies."
     },
@@ -13104,10 +13107,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only"
       },
       "remediation": "Review apps with Tier 0 permissions that show no sign-in activity. These permissions may have been granted but never used -- remove them to reduce attack surface. Entra admin center > Enterprise applications > Sign-in logs."
     },
@@ -14614,10 +14618,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -16836,10 +16841,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 5,
+        "complexity": 4,
         "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DefaultSharingLinkType Direct. SharePoint admin center > Policies > Sharing > File and folder links > Default link type > Specific people."
     },
@@ -26413,9 +26419,9 @@
       "effort": {
         "complexity": 5,
         "isPhased": true,
-        "phaseCount": 3,
+        "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "admin-only"
       },
       "remediation": "Entra admin center > Identity Governance > PIM > Azure AD roles > Settings > Global Administrator > Require approval to activate > Yes."
     },
@@ -26605,9 +26611,9 @@
       "effort": {
         "complexity": 5,
         "isPhased": true,
-        "phaseCount": 3,
+        "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "admin-only"
       },
       "remediation": "Entra admin center > Identity Governance > PIM > Azure AD roles > Settings > Privileged Role Administrator > Require approval to activate > Yes."
     },
@@ -27745,10 +27751,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 5,
+        "complexity": 4,
         "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Entra admin center > App registrations > review internal apps with Tier 0 permissions. Each has a documented path to Global Administrator. Replace with narrower permissions or use managed identities where possible."
     },
@@ -27930,10 +27937,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 5,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only"
       },
       "remediation": "Remove owners from apps with Tier 0 permissions. An owner of a Tier 0 app can add credentials and impersonate it to escalate to Global Admin. Entra admin center > App registrations > Owners."
     },
@@ -28465,11 +28473,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 5,
+        "complexity": 4,
         "isPhased": true,
-        "phaseCount": 3,
+        "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "admin-only"
       },
       "remediation": "Create cloud-only admin accounts instead of using on-premises synced accounts. Entra admin center > Users > New user > Create user (cloud identity)."
     },
@@ -31330,10 +31338,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 5,
+        "complexity": 4,
         "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Migrate privileged service principals from client secrets to certificates or managed identities. A secret on a permanently privileged SP is a persistent backdoor risk."
     },
@@ -33934,7 +33943,7 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "admin-only"
       },
       "remediation": "Ensure Global Administrator and Privileged Role Administrator roles are assigned to separate accounts. Entra admin center > Identity > Roles & admins. Enable PIM approval workflows for role activation."
     },
@@ -34358,10 +34367,11 @@
         "scfWeighting": 2
       },
       "effort": {
-        "complexity": 3,
-        "isPhased": false,
-        "phaseCount": 1,
-        "disruptionRisk": false
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Compliance > Compliance policy settings > Mark devices with no compliance policy assigned as > Not compliant."
     },
@@ -35251,10 +35261,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Ensure SharePointTenantSettings.Read.All permission is consented. Review site sharing levels in SharePoint admin center > Active sites."
     },
@@ -35441,10 +35452,11 @@
         "scfWeighting": 8
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -35796,10 +35808,11 @@
         "scfWeighting": 8
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Review site sharing manually in SharePoint admin center > Active sites."
     },
@@ -57388,9 +57401,9 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
+        "complexity": 5,
         "isPhased": true,
-        "phaseCount": 3,
+        "phaseCount": 2,
         "disruptionRisk": true,
         "disruptionScope": "service"
       },
@@ -57612,10 +57625,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Run: Set-SPOTenant -LegacyAuthProtocolsEnabled $false. SharePoint admin center > Policies > Access control > Apps that do not use modern authentication > Block access."
     },
@@ -72778,11 +72792,10 @@
         "scfWeighting": 5
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false
       }
     },
     {
@@ -88364,9 +88377,9 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 5,
-        "isPhased": true,
-        "phaseCount": 3,
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": false
       },
       "remediation": "Run: New-SafeLinksPolicy -Name \"Safe Links\" -IsEnabled $true; New-SafeLinksRule -Name \"Safe Links\" -SafeLinksPolicy \"Safe Links\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Links > Create a policy covering all users."
@@ -88895,9 +88908,9 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 5,
-        "isPhased": true,
-        "phaseCount": 3,
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": false
       },
       "remediation": "Run: New-SafeAttachmentPolicy -Name \"Safe Attachments\" -Enable $true -Action Block; New-SafeAttachmentRule -Name \"Safe Attachments\" -SafeAttachmentPolicy \"Safe Attachments\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Attachments > Create a policy covering all users."
@@ -95871,10 +95884,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowAnonymousUsersToJoinMeeting $false. Teams admin center > Meetings > Meeting policies > Global > Anonymous users can join a meeting > Off."
     },
@@ -105097,9 +105111,9 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 5,
-        "isPhased": true,
-        "phaseCount": 3,
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": false
       }
     },
