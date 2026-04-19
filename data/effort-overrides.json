@@ -1,0 +1,69 @@
+{
+  "$comment": "Manual effort overrides for checks where derivation is known to be wrong. _rationale fields are build-time-only annotations stripped from registry output. Add entries here during sprint research validation.",
+  "version": "1.0.0",
+  "overrides": {
+    "DNS-DMARC-001": {
+      "complexity": 5,
+      "isPhased": true,
+      "phaseCount": 3,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "DMARC requires monitor→quarantine→reject with recommended 2-week minimum dwell time between phases. Jumping directly to enforcement (p=reject) causes legitimate mail rejection for misaligned senders. This is a well-known multi-month org-wide project."
+    },
+    "DNS-DKIM-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Enabling DKIM requires DNS record publication and Exchange Online activation per domain. Misconfiguration causes mail authentication failures. Two phases: configure signing → publish DNS records and validate."
+    },
+    "DNS-SPF-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "SPF is a single DNS record publish but overly restrictive records (hard fail) can cause mail delivery issues for legitimate senders using third-party services not yet in the SPF record. Risk is real but implementation is not inherently phased."
+    },
+    "CA-MFA-ALL-001": {
+      "complexity": 5,
+      "isPhased": true,
+      "phaseCount": 3,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "MFA enforcement for all users is an org-wide change affecting every sign-in. Phased approach: report-only CA policy → enforce for pilot group → enforce org-wide. Rushing causes immediate lockouts for users without MFA registered."
+    },
+    "CA-MFA-ADMIN-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Admin MFA is narrower scope than all-user MFA but still high-risk — admin lockout has outsized operational impact. Two phases: register admins for MFA method → enforce policy."
+    },
+    "CA-INTUNE-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 3,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Device compliance CA policy blocks non-compliant devices from accessing resources. Without phasing (report-only → pilot → enforce) users on unmanaged devices lose access immediately. Intune enrollment rollout must precede enforcement."
+    },
+    "CA-SIGNIN-FREQ-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Sign-in frequency forces re-authentication at the configured interval. Shorter intervals cause UX friction but not access loss. Not inherently phased but disruption scope is user-facing."
+    },
+    "EXO-DKIM-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "EXO-DKIM-001 is the Exchange Online DKIM signing configuration check (enabling signing in the portal), distinct from DNS-DKIM-001 which covers DNS record publication. The Exchange Online activation itself is low-risk; DNS propagation is the complex step covered separately."
+    }
+  }
+}

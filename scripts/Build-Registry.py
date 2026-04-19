@@ -40,7 +40,7 @@ if sys.stdout.encoding != "utf-8":
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent
 
-SCHEMA_VERSION = "2.0.0"
+SCHEMA_VERSION = "2.1.0"
 
 
 # ---------------------------------------------------------------------------
@@ -351,6 +351,106 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
     return checks
 
 
+# ---------------------------------------------------------------------------
+# Effort derivation
+# ---------------------------------------------------------------------------
+
+_SEVERITY_BASE = {"Critical": 4, "High": 3, "Medium": 2, "Low": 1, "Informational": 1}
+_PHASED_COLLECTORS = {"DNS"}
+_PHASED_NAME_KEYWORDS = {"enforcement", "quarantine", "reject", "block"}
+_AUTH_COLLECTORS = {"Entra", "CAEvaluator"}
+_EMAIL_COLLECTORS = {"ExchangeOnline", "DNS"}
+_AZURE_COLLECTORS = {"AzAssess"}
+_ADMIN_CATEGORIES = {"CLOUDADMIN", "ROLES", "AUDIT", "PRIVACCESS", "ADMIN", "LOGGING"}
+
+
+def load_effort_overrides(repo_root: Path) -> dict[str, dict]:
+    """Load effort-overrides.json, stripping _rationale build-time annotations."""
+    path = repo_root / "data" / "effort-overrides.json"
+    if not path.exists():
+        return {}
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    raw = data.get("overrides", {})
+    return {
+        cid: {k: v for k, v in entry.items() if not k.startswith("_")}
+        for cid, entry in raw.items()
+    }
+
+
+def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
+    """Derive effort fields for a check, then apply any manual override."""
+    check_id = check_obj.get("checkId", "")
+    severity = check_obj.get("impactRating", {}).get("severity", "Medium")
+    collector = check_obj.get("collector", "")
+    category = check_obj.get("category", "").upper()
+    name_lower = check_obj.get("name", "").lower()
+    licensing_min = check_obj.get("licensing", {}).get("minimum", "E3")
+    scf_weighting = (
+        check_obj.get("scf", {}).get("relativeWeighting")
+        or check_obj.get("impactRating", {}).get("scfWeighting")
+    )
+
+    # Complexity: severity base + adjustments, clamped to [1, 5]
+    base = _SEVERITY_BASE.get(severity, 2)
+    adj = 0
+    if not check_obj.get("hasAutomatedCheck", True):
+        adj += 1
+    if licensing_min == "E5":
+        adj += 1
+    if scf_weighting and scf_weighting >= 8:
+        adj += 1
+    if category == "CONFIG":
+        adj -= 1
+    complexity = max(1, min(5, base + adj))
+
+    # isPhased: conservative — only flag when high-confidence
+    is_phased = (
+        collector in _PHASED_COLLECTORS
+        or any(kw in name_lower for kw in _PHASED_NAME_KEYWORDS)
+        or complexity >= 4
+    )
+    phase_count = 3 if is_phased else 1
+
+    # disruptionRisk + disruptionScope
+    disruption_risk = False
+    disruption_scope = None
+    if severity in ("Critical", "High"):
+        if collector in _AUTH_COLLECTORS:
+            disruption_risk = True
+            disruption_scope = "user-facing"
+        elif collector in _EMAIL_COLLECTORS:
+            disruption_risk = True
+            disruption_scope = "service"
+        elif collector in _AZURE_COLLECTORS:
+            disruption_risk = True
+            disruption_scope = "service"
+        elif category in _ADMIN_CATEGORIES or any(
+            kw in category for kw in ("AUDIT", "LOG", "ROLE", "ADMIN")
+        ):
+            disruption_risk = True
+            disruption_scope = "admin-only"
+
+    # Apply manual override (only fields present in the override)
+    override = effort_overrides.get(check_id, {})
+    complexity = override.get("complexity", complexity)
+    is_phased = override.get("isPhased", is_phased)
+    phase_count = override.get("phaseCount", phase_count)
+    disruption_risk = override.get("disruptionRisk", disruption_risk)
+    disruption_scope = override.get("disruptionScope", disruption_scope)
+
+    effort = OrderedDict([
+        ("complexity", complexity),
+        ("isPhased", is_phased),
+        ("phaseCount", phase_count),
+        ("disruptionRisk", disruption_risk),
+    ])
+    if disruption_risk and disruption_scope:
+        effort["disruptionScope"] = disruption_scope
+
+    return effort
+
+
 def scf_sort_key(check: dict) -> tuple:
     """Sort key: SCF domain order → SCF ID (numeric sort)."""
     scf = check.get("scf", {})
@@ -549,6 +649,10 @@ def main():
         fw_overrides = overrides_data.get("overrides", {})
         print(f"Loaded {len(fw_overrides)} framework overrides")
 
+    effort_overrides = load_effort_overrides(REPO_ROOT)
+    if effort_overrides:
+        print(f"Loaded {len(effort_overrides)} effort overrides")
+
     # Load CIS M365 and SCuBA NIST sources
     cis_crosswalk = load_cis_m365_crosswalk(REPO_ROOT)
     if cis_crosswalk:
@@ -713,6 +817,8 @@ def main():
                 impact["scfWeighting"] = weighting
             check_obj["impactRating"] = impact
 
+        check_obj["effort"] = derive_effort(check_obj, effort_overrides)
+
         remediation = cm.get("remediation", "")
         if remediation:
             check_obj["remediation"] = remediation
@@ -733,6 +839,7 @@ def main():
                     all_fw_mappings, fwid_to_key, baseline_fwids, titles,
                 )
                 fw_derived += 1
+        az["effort"] = derive_effort(az, effort_overrides)
     checks.extend(az_checks)
     checks.sort(key=scf_sort_key)
     if az_checks:
@@ -772,6 +879,17 @@ def main():
     print(f"\nFramework coverage:")
     for k in sorted(fw_counts, key=lambda x: -fw_counts[x]):
         print(f"  {k:20s} {fw_counts[k]:4d} checks")
+
+    effort_complexity: dict[int, int] = defaultdict(int)
+    for c in checks:
+        effort_complexity[c.get("effort", {}).get("complexity", 0)] += 1
+    phased_count = sum(1 for c in checks if c.get("effort", {}).get("isPhased"))
+    disruptive_count = sum(1 for c in checks if c.get("effort", {}).get("disruptionRisk"))
+    print(f"\nEffort distribution (complexity 1-5):")
+    for score in sorted(effort_complexity):
+        print(f"  Complexity {score}: {effort_complexity[score]:4d} checks")
+    print(f"  Phased rollout:   {phased_count:4d} checks")
+    print(f"  Disruption risk:  {disruptive_count:4d} checks")
 
     if warnings:
         print(f"\nWarnings ({len(warnings)}):")

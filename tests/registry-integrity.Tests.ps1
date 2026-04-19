@@ -7,9 +7,9 @@ Describe 'Control Registry Integrity' {
 
     # --- Schema-level tests ---
 
-    It 'Has schemaVersion 2.0.0' {
-        $raw.schemaVersion | Should -Be '2.0.0' `
-            -Because "registry must be schema version 2.0.0 (SCF-based)"
+    It 'Has schemaVersion 2.1.0' {
+        $raw.schemaVersion | Should -Be '2.1.0' `
+            -Because "registry must be schema version 2.1.0 (SCF-based, includes effort field)"
     }
 
     It 'Has dataVersion field with valid date format' {

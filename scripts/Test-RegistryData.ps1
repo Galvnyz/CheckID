@@ -17,7 +17,7 @@
 .EXAMPLE
     ./scripts/Test-RegistryData.ps1
 .NOTES
-    Version: 2.0.0
+    Version: 2.1.0
 #>
 [CmdletBinding()]
 param(
@@ -94,9 +94,9 @@ Test-Check "registry.json is valid JSON" {
 
 if (-not $reg) { Write-Host "`nRegistry JSON invalid — cannot continue." -ForegroundColor Red; exit 1 }
 
-Test-Check "registry.json has schemaVersion 2.0.0" {
+Test-Check "registry.json has schemaVersion 2.1.0" {
     if (-not $reg.schemaVersion) { return "Missing schemaVersion field" }
-    if ($reg.schemaVersion -ne '2.0.0') { return "Expected schemaVersion 2.0.0, got '$($reg.schemaVersion)'" }
+    if ($reg.schemaVersion -ne '2.1.0') { return "Expected schemaVersion 2.1.0, got '$($reg.schemaVersion)'" }
 }
 
 Test-Check "registry.json has dataVersion" {
