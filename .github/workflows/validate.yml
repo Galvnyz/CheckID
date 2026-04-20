@@ -100,7 +100,7 @@ jobs:
           $reg = Get-Content data/registry.json -Raw | ConvertFrom-Json
           $errors = @()
 
-          if ($reg.schemaVersion -ne '2.1.0') { $errors += "Expected schemaVersion 2.1.0, got '$($reg.schemaVersion)'" }
+          if ($reg.schemaVersion -ne '2.2.0') { $errors += "Expected schemaVersion 2.2.0, got '$($reg.schemaVersion)'" }
           if (-not $reg.dataVersion) { $errors += "Missing 'dataVersion' field" }
           if (-not $reg.checks) { $errors += "Missing 'checks' array" }
           if ($reg.checks.Count -lt 160) { $errors += "Expected at least 160 checks, got $($reg.checks.Count)" }
@@ -128,7 +128,7 @@ jobs:
             $errors | ForEach-Object { Write-Host "::error::$_" }
             exit 1
           }
-          Write-Host "  registry.json: $($reg.checks.Count) checks, schema v2.1.0 valid"
+          Write-Host "  registry.json: $($reg.checks.Count) checks, schema v2.2.0 valid"
 
       - name: Validate registry against JSON Schema
         run: |
