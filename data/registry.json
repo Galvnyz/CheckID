@@ -1635,6 +1635,9 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.3.5v2"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AM01;EIDSCA.AM02;EIDSCA.AM07"
         }
       },
       "impactRating": {
@@ -4647,9 +4650,8 @@
             "E5-L1"
           ]
         },
-        "nist-csf": {
-          "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+        "eidsca": {
+          "controlId": "EIDSCA.AM10"
         }
       },
       "impactRating": {
@@ -6303,9 +6305,8 @@
             "E5-L1"
           ]
         },
-        "nist-csf": {
-          "controlId": "PR.AA-01",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+        "eidsca": {
+          "controlId": "EIDSCA.PR03"
         }
       },
       "impactRating": {
@@ -6525,9 +6526,8 @@
             "E5-L1"
           ]
         },
-        "nist-csf": {
-          "controlId": "PR.AA-01",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+        "eidsca": {
+          "controlId": "EIDSCA.PR05;EIDSCA.PR06"
         }
       },
       "impactRating": {
@@ -18659,6 +18659,9 @@
         },
         "stig": {
           "controlId": "V-260342"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AP14"
         }
       },
       "impactRating": {
@@ -35430,6 +35433,9 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.8.3v1"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.ST09"
         }
       },
       "impactRating": {
@@ -36445,9 +36451,8 @@
         "pci-dss": {
           "controlId": "8.3.4"
         },
-        "soc2": {
-          "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        "eidsca": {
+          "controlId": "EIDSCA.PR01;EIDSCA.PR02"
         }
       },
       "impactRating": {
@@ -63155,6 +63160,9 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.3.4v1"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AS04;EIDSCA.AV01"
         }
       },
       "impactRating": {
@@ -70351,6 +70359,9 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.5.3v1"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AP01;EIDSCA.AP08"
         }
       },
       "impactRating": {
@@ -72713,6 +72724,9 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.5.2v1"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.CR01;EIDSCA.CP03"
         }
       },
       "impactRating": {
@@ -84987,6 +85001,9 @@
         "soc2": {
           "controlId": "CC3.3;CC5.2-POF3;CC6.1;CC6.1-POF12;CC6.1-POF13;CC6.1-POF7;CC6.8-POF1",
           "title": "COSO Principle 8: Assesses Fraud Risk; Logical Access Security Software, Infrastructure, and Architectures"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AP09;EIDSCA.CP04"
         }
       },
       "impactRating": {
@@ -98963,6 +98980,9 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AP05"
         }
       },
       "impactRating": {
@@ -99164,6 +99184,9 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AP06"
         }
       },
       "impactRating": {
@@ -99368,6 +99391,9 @@
         },
         "cisa-scuba": {
           "controlId": "MS.AAD.5.1v1"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.CP01;EIDSCA.AP10"
         }
       },
       "impactRating": {
