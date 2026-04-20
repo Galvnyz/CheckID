@@ -713,6 +713,11 @@ def derive_frameworks(
         if cmmc_profiles:
             frameworks["cmmc"]["profiles"] = cmmc_profiles
 
+    # iso-27002 mirrors iso-27001 — same Annex A control IDs, different semantic label
+    # (ISO 27001 = ISMS certification requirements; ISO 27002 = implementation guidance)
+    if "iso-27001" in frameworks:
+        frameworks["iso-27002"] = OrderedDict(frameworks["iso-27001"])
+
     return frameworks
 
 
