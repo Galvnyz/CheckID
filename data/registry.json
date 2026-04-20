@@ -79934,7 +79934,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.EXO.8.1v1"
+          "controlId": "MS.DEFENDER.4.1v2;MS.DEFENDER.4.2v1"
         },
         "nist-csf": {
           "controlId": "PR.DS-01;PR.DS-02",
@@ -92093,7 +92093,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.EXO.9.1v2;MS.EXO.9.2v1"
+          "controlId": "MS.DEFENDER.1.2v1"
         }
       },
       "impactRating": {
@@ -98517,7 +98517,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.EXO.11.1v1"
+          "controlId": "MS.DEFENDER.2.1v1;MS.DEFENDER.2.2v1;MS.DEFENDER.2.3v1"
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
