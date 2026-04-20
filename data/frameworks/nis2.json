@@ -2,6 +2,8 @@
   "frameworkId": "nis2",
   "label": "EU NIS2",
   "version": "2022/2555",
+  "description": "Network and Information Security Directive 2 — EU directive requiring cybersecurity risk management measures and incident reporting obligations for essential and important entities across EU member states.",
+  "homepageUrl": "https://www.enisa.europa.eu/topics/cybersecurity-policy/nis-directive-new",
   "css": "fw-nis2",
   "totalControls": 30,
   "registryKey": "nis2",
