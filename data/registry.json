@@ -733,6 +733,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Investigate foreign apps using Microsoft product names -- they may be social engineering attempts. Verify the publisher and appId against known Microsoft first-party apps. Remove if suspicious.",
+      "impact": "Users who grant consent to impersonating apps give external parties persistent delegated access to their data. The Microsoft-branded name increases consent rates and reduces user suspicion.",
+      "rationale": "Applications that impersonate Microsoft product names in their display names are a social engineering vector. Users who see 'Microsoft Teams Meeting Add-in' or 'Office 365 Security' in a consent prompt are more likely to approve the consent without scrutiny.",
       "tags": [
         "app-registration",
         "identity",
@@ -944,6 +946,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgPolicyIdentitySecurityDefaultsEnforcementPolicy -IsEnabled $true. Entra admin center > Properties > Manage security defaults.",
+      "impact": "Tenants without Security Defaults and without equivalent CA policies have no enforced MFA, no legacy auth blocking, and no baseline protection. All users authenticate with passwords only unless individually configured.",
+      "rationale": "Security Defaults enforce a baseline of MFA for all users and block legacy authentication — but they are incompatible with Conditional Access and are typically disabled when CA policies are in place. A tenant with Security Defaults disabled and insufficient CA policies has no enforced authentication baseline.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -1155,6 +1159,8 @@
         "disruptionRisk": false
       },
       "remediation": "No action needed. Conditional Access policies provide equivalent coverage to Security Defaults.",
+      "impact": "Users or actions not covered by Conditional Access policies are subject to password-only authentication. A CA configuration that appears comprehensive but misses specific roles or legacy auth endpoints provides false assurance of MFA coverage.",
+      "rationale": "When Security Defaults are disabled, the assumption is that Conditional Access policies provide equivalent coverage. Gaps in CA policy coverage — roles not targeted, users excluded, legacy auth not blocked — create security regressions compared to the Security Defaults baseline.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -1380,6 +1386,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target admin roles > Grant > Require authentication strength > Phishing-resistant MFA. Entra admin center > Protection > Conditional Access.",
+      "impact": "Privileged accounts protected only by TOTP or push MFA are vulnerable to real-time AiTM session hijacking. Attackers capture the post-MFA session token and have full authenticated access without the MFA device.",
+      "rationale": "Standard MFA (TOTP, push notification, SMS) is bypassed by AiTM phishing toolkits (e.g., Evilginx, Modlishka) that relay authentication in real time and capture session cookies. Phishing-resistant MFA (FIDO2, Windows Hello, certificate-based) is cryptographically bound to the origin and cannot be relayed by an attacker-controlled proxy.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -1962,6 +1970,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -SharingCapability ExistingExternalUserSharingOnly. SharePoint admin center > Policies > Sharing.",
+      "impact": "Sensitive documents including financial data, PII, and IP can be shared externally without audit or approval. Anonymous sharing links persist indefinitely and are discoverable by search engines if not restricted.",
+      "rationale": "SharePoint is a primary repository for sensitive organizational documents. Unrestricted external sharing allows any user to share any document with any email address, bypassing data classification controls and creating permanent unauthenticated access links.",
       "tags": [
         "collaboration",
         "data",
@@ -2153,6 +2163,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "SharePoint admin center > Policies > Sharing > OneDrive > set to \"Existing guests\" or more restrictive.",
+      "impact": "Sensitive files stored in OneDrive can be shared externally via unauthenticated anonymous links. A user can exfiltrate any file they have access to — including synchronized SharePoint content — without DLP inspection.",
+      "rationale": "Unrestricted OneDrive sharing allows users to share any file with anyone externally via anonymous links. OneDrive is connected to SharePoint and subject to the same data exfiltration risks as corporate file servers.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -2350,6 +2362,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Ensure Policy.Read.All permission is consented. Create a CA policy targeting SharePoint Online (00000003-0000-0ff1-ce00-000000000000) or All Cloud Apps.",
+      "impact": "Unmanaged or compromised devices can access SharePoint and OneDrive content. Files downloaded to an unmanaged device bypass DLP, endpoint security, and data classification controls.",
+      "rationale": "SharePoint contains sensitive documents that require the same access controls as other sensitive resources. Without Conditional Access coverage for SharePoint, unmanaged devices or non-compliant endpoints can access SharePoint content even when other resources are protected by CA policies.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -3701,6 +3715,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Security Defaults enforces MFA for all admin roles. For granular control, disable Security Defaults and create Conditional Access policies.",
+      "impact": "A phished or sprayed admin password gives full administrative access. Attackers can create backdoor accounts, disable security policies, and exfiltrate data before the incident is detected.",
+      "rationale": "Administrator accounts have access to sensitive configuration, user management, and data across the tenant. Without MFA, a stolen password provides immediate, unrestricted administrative access.",
       "tags": [
         "authentication",
         "conditional-access",
@@ -3904,6 +3920,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Security Defaults enforces MFA for all users. For granular control, disable Security Defaults and create Conditional Access policies.",
+      "impact": "Compromised user credentials give full access to email, Teams, SharePoint, and any app the user accesses. Business email compromise (BEC) attacks exploit standard user accounts to intercept payments and exfiltrate data.",
+      "rationale": "MFA is the single most effective control against account takeover from phished or stolen credentials. Without MFA, any user with a compromised password is a lateral movement pivot point into the tenant.",
       "tags": [
         "authentication",
         "conditional-access",
@@ -4299,6 +4317,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaPolicyAuthenticationMethodPolicy with RegistrationEnforcement settings. Entra admin center > Protection > Authentication methods > Registration campaign.",
+      "impact": "Users without registered MFA methods bypass MFA enforcement in Conditional Access policies. Their accounts are vulnerable to password-only attacks despite MFA policies appearing to be in place.",
+      "rationale": "MFA capability means the user has registered at least one MFA method. Without a registered method, MFA policies cannot be enforced for the user even if Conditional Access requires it — they fall back to password-only authentication.",
       "tags": [
         "authentication",
         "entra-id",
@@ -4691,6 +4711,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Require MFA on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Require Azure MFA on activation.",
+      "impact": "An attacker with a stolen session token or password for an eligible user can activate Tier-0 roles without any additional authentication factor, converting account access to full administrative access silently.",
+      "rationale": "PIM role activation without MFA requirement means a compromised account can activate Tier-0 roles using only the account's existing session — no MFA challenge at activation. This defeats the purpose of JIT access as a security control.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -4877,6 +4899,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enable the registration campaign to prompt unregistered users. Entra admin center > Protection > Authentication methods > Registration campaign > Enable. Follow up with users shown in the authentication methods activity report.",
+      "impact": "Users without MFA method registration can authenticate with only a password in any CA policy that requires MFA, because there is no registered method to satisfy the MFA requirement. These accounts are the weakest link for credential-based attacks.",
+      "rationale": "Even a small percentage of users without MFA methods provides meaningful attack surface. Attackers performing credential spray attacks will find and prioritize accounts where MFA cannot be enforced.",
       "tags": [
         "authentication",
         "entra-id",
@@ -5067,6 +5091,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enroll all Global Administrators in phishing-resistant MFA (FIDO2, Windows Hello for Business, or certificate-based). Entra admin center > Protection > Authentication methods > Policies.",
+      "impact": "Global Administrators protected by standard MFA are still vulnerable to AiTM token theft. An attacker who intercepts the session token gains persistent Global Admin access without needing the user's password or MFA device.",
+      "rationale": "Global Administrators control every aspect of the tenant. Standard MFA can be bypassed via adversary-in-the-middle (AiTM) phishing attacks that relay the authentication session. Phishing-resistant MFA (FIDO2, Windows Hello, certificate) eliminates this attack class for the highest-privilege accounts.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -5657,6 +5683,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Replace unprotected groups in privileged role assignments with role-assignable groups. Entra admin center > Groups > New group > enable 'Azure AD roles can be assigned to the group'. Recreate the group and migrate the role assignment.",
+      "impact": "An attacker who compromises a group owner account can add any user to a group that holds a privileged role, effectively granting that role without a direct role assignment or PIM activation.",
+      "rationale": "Groups used in privileged role assignments that lack the role-assignable property can have their membership modified by group owners or administrators who do not hold the role themselves. This creates an indirect privilege escalation path through group ownership.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -8587,6 +8615,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Verify Password Hash Sync status in Azure AD Connect. Entra admin center > Identity > Hybrid management > Azure AD Connect.",
+      "impact": "On-premises credential compromises are invisible to Entra ID Identity Protection when password hashes are not synced. Stolen on-premises credentials used in cloud authentication generate no risk signal and are not blocked by risk-based CA policies.",
+      "rationale": "Password hash sync ensures that Entra ID has a copy of password hashes from on-premises AD. Without it, leaked on-premises credentials cannot be detected by Entra ID's Identity Protection and compromised on-premises accounts can authenticate to cloud services with no cloud-side risk signal.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -10158,6 +10188,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Connect to Exchange Online and verify accepted domains.",
+      "impact": "Attackers can send email appearing to come from your domain without SPF, DKIM, or DMARC to block them. Phishing campaigns impersonating your organization are more effective when the sending domain has no authentication.",
+      "rationale": "SPF (Sender Policy Framework) authorizes which mail servers may send email on behalf of your domain. Without an SPF record, receiving servers cannot verify that email from your domain is legitimate, enabling spoofing and reducing deliverability of legitimate email.",
       "tags": [
         "dns",
         "email",
@@ -10961,6 +10993,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Identity Governance > Privileged Identity Management > Azure AD roles > Global Administrator > Remove permanent active assignments. Use eligible assignments with time-bound activation.",
+      "impact": "Permanently active admin accounts are available for abuse at any time. Credential compromise provides persistent, immediately usable admin access with no activation step to trigger alerts.",
+      "rationale": "Permanently active privileged roles maintain standing admin access with no time limit or justification requirement. JIT access via PIM limits the window of exposure: even if admin credentials are compromised, the attacker can only act during the brief activation window.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -11355,6 +11389,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Disable or delete admin accounts inactive for 90+ days. Entra admin center > Users > sign-in activity column. Review active PIM eligible assignments (Identity Governance > PIM > Assignments) and remove stale principals.",
+      "impact": "Credentials for stale admin accounts — whether from phishing, password reuse, or data breaches — provide persistent privileged access. Inactive accounts are rarely monitored, so sign-in activity from a stale account may go undetected for extended periods.",
+      "rationale": "Admin accounts that are no longer in use are dormant attack surfaces with standing privileged access. Stale accounts are often overlooked in security reviews and may retain credentials that were never rotated.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -12907,6 +12943,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Entra admin center > Identity Governance > Access reviews > New access review > Review type: Members of a group or Users assigned to a privileged role.",
+      "impact": "Stale privileged role assignments accumulate over time. Former employees, moved employees, or compromised accounts that retain role assignments provide persistent attack vectors that are never automatically detected or removed.",
+      "rationale": "Access reviews for privileged roles detect and remove stale, unnecessary, or unauthorized role assignments. Without periodic reviews, accumulation of privileged role assignments creates lateral movement opportunities and violates least-privilege principles.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -13102,6 +13140,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Maintain at least two cloud-only emergency access accounts excluded from all Conditional Access policies.",
+      "impact": "A misconfigured Conditional Access policy or MFA outage can permanently lock all administrators out of the tenant, requiring a time-consuming Microsoft Support escalation to recover.",
+      "rationale": "Emergency access accounts provide a recovery path when primary admin access is unavailable — for example, if MFA is unavailable or a Conditional Access misconfiguration locks out all admins. Without them, a single configuration error can make the tenant unmanageable.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -13309,6 +13349,8 @@
         "disruptionRisk": false
       },
       "remediation": "Create two cloud-only emergency access accounts with permanent Global Administrator roles. Exclude from all Conditional Access policies. Store credentials offline. Entra admin center > Users > New user. Alert on any sign-in via Azure Monitor or Microsoft Sentinel.",
+      "impact": "Without break-glass accounts, a misconfigured Conditional Access policy that blocks all admin sign-ins makes the tenant unmanageable. Recovery requires a Microsoft Support escalation that can take hours or days.",
+      "rationale": "Break-glass accounts are the recovery mechanism when normal admin access paths fail — MFA outages, misconfigured CA policies, or locked-out credentials. Without them, a configuration error can result in complete loss of tenant management capability.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -13474,6 +13516,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Set a time-bound expiry on eligible assignments for Tier-0 roles. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Assignment tab > Expire eligible assignments after (e.g., 12 months). Remove existing permanent eligible assignments and reissue as time-bound.",
+      "impact": "A compromised account with a permanent eligible assignment can activate privileged roles indefinitely. Time-bound assignments would limit the attack window, but permanent assignments remove this defense.",
+      "rationale": "Permanent eligible assignments allow role activation at any time without expiry. Time-bound eligible assignments limit the window during which a compromised account can activate a privileged role — after expiry, the assignment must be renewed through a governed process.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -14007,6 +14051,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Review apps with Tier 0 permissions that show no sign-in activity. These permissions may have been granted but never used -- remove them to reduce attack surface. Entra admin center > Enterprise applications > Sign-in logs.",
+      "impact": "A compromised client secret for an inactive Tier 0 app allows an attacker to use the app's permissions without generating user-facing anomalies. Inactivity signals may mask the compromise in log reviews.",
+      "rationale": "Apps with Tier 0 permissions that have not signed in recently are unmonitored attack surfaces. Their credentials may still be valid but their activity is not tracked. Credential theft for an inactive app may go undetected for an extended period.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -15244,6 +15290,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Review tenant-wide admin consent grants. These grants apply to all users in the tenant. Remove overly broad grants that are no longer needed. Entra admin center > Enterprise applications > filter by Admin consent.",
+      "impact": "A malicious application that obtained tenant-wide admin consent can access all users' mail, files, and calendar data. These grants persist and are rarely reviewed, providing long-term silent data access.",
+      "rationale": "Tenant-wide admin consent grants an application permissions for every user in the tenant. An application with admin consent and broad permissions (e.g., Mail.ReadWrite, Files.ReadWrite.All) can read and modify all user data without individual user interaction.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -15683,6 +15731,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable or restrict guest access. Teams Admin Center > Org-wide settings > Guest access > Allow guest access in Teams: Off, or restrict calling, meeting, and messaging settings to the minimum required for external collaboration.",
+      "impact": "External guest users added to Teams channels can access all historical messages and files in those channels. Sensitive business discussions, shared documents, and strategic information are visible to unvetted external parties.",
+      "rationale": "Guest access to Teams allows external users to participate in channels, chats, and meetings, and by default access the files and conversations in those channels. Without restrictions, any external user invited as a guest can see sensitive internal conversations and documents.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -17410,6 +17460,8 @@
         "disruptionRisk": false
       },
       "remediation": "Remove privileged admin accounts from Conditional Access policy exclusions. Entra admin center > Security > Conditional Access > review each policy's exclusions. Use PIM just-in-time activation instead of permanent CA exclusions. Retain only break-glass accounts as exclusions.",
+      "impact": "Admins in CA exclusion lists authenticate with only a username and password. Credential phishing or spray attacks against these accounts bypass all Conditional Access controls and gain unmediated admin access.",
+      "rationale": "Conditional Access exclusions are necessary for break-glass scenarios but dangerous when applied to privileged admin accounts: an excluded admin bypasses every MFA and compliance requirement, making their credentials a high-value target with no authentication safeguards.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -18032,6 +18084,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DefaultSharingLinkType Direct. SharePoint admin center > Policies > Sharing > File and folder links > Default link type > Specific people.",
+      "impact": "Documents shared via Anyone links are accessible without authentication. Links shared in emails, chats, or indexed by search engines expose content permanently, with no audit trail of who accessed it.",
+      "rationale": "Shareable links that grant access to 'anyone with the link' bypass all identity and device controls. A single leaked link is sufficient to expose the target content to any person, device, or automated system worldwide.",
       "tags": [
         "collaboration",
         "data",
@@ -28721,6 +28775,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Entra admin center > Identity Governance > PIM > Azure AD roles > Settings > Global Administrator > Require approval to activate > Yes.",
+      "impact": "Without approval requirements, a compromised account with eligible Global Administrator assignment can self-activate the role immediately, granting full tenant control with no human verification required.",
+      "rationale": "The Global Administrator role provides complete control over the tenant. Requiring approval for activation means that even a compromised account cannot self-activate the role — an approver must confirm the activation request before access is granted.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -28922,6 +28978,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Entra admin center > Identity Governance > PIM > Azure AD roles > Settings > Privileged Role Administrator > Require approval to activate > Yes.",
+      "impact": "A compromised account with eligible Privileged Role Administrator assignment can activate the role, then assign Global Administrator to any account, bypassing all access controls in a single step.",
+      "rationale": "The Privileged Role Administrator role controls who has access to other privileged roles. Without approval requirements, a compromised account eligible for this role can assign itself or others to any directory role, including Global Administrator.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -29340,6 +29398,8 @@
         "disruptionRisk": false
       },
       "remediation": "Entra admin center > Enterprise applications > review foreign apps with Tier 0 permissions. These permissions have documented attack paths to Global Administrator. Remove or replace with least-privilege alternatives.",
+      "impact": "A compromised foreign app with application-level permissions can access all user data in the tenant without a user session, without triggering user-based risk signals, and from infrastructure controlled by the publisher.",
+      "rationale": "Applications with dangerous application permissions (not delegated) act as autonomous service accounts that can read, write, and delete data for all users without any user sign-in. Foreign (multi-tenant) apps with these permissions operate from outside the tenant's control plane.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -29562,6 +29622,8 @@
         "disruptionRisk": false
       },
       "remediation": "Entra admin center > Enterprise applications > review foreign apps with high-privilege delegated permissions. Revoke admin consent or remove the app.",
+      "impact": "A foreign app with delegated permissions for Mail.ReadWrite or Files.ReadWrite.All can read, send, or delete email and files on behalf of any user who granted consent, enabling persistent exfiltration or impersonation.",
+      "rationale": "Dangerous delegated permissions grant an app the ability to act as any user who consented to the app. For foreign (multi-tenant) apps, this means the app publisher can trigger API actions using the delegated grant without the user's direct involvement after initial consent.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -29950,6 +30012,8 @@
         "disruptionRisk": false
       },
       "remediation": "Review managed identity permissions. Use narrower permissions (e.g., Mail.Read instead of Mail.ReadWrite). Azure portal > Managed Identity > API permissions.",
+      "impact": "A compromised Azure resource whose managed identity holds application-level Graph API permissions can be used to exfiltrate all user mail, read all files, or manipulate directory objects without any credential artifact to detect or rotate.",
+      "rationale": "Managed identities are designed to eliminate secrets, but when assigned dangerous application permissions, they become powerful unmonitored agents: no credentials to steal, no MFA to bypass, and API access that scales across all tenant data.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -30144,6 +30208,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Entra admin center > App registrations > review internal apps with Tier 0 permissions. Each has a documented path to Global Administrator. Replace with narrower permissions or use managed identities where possible.",
+      "impact": "Credential theft for any app holding Tier 0 permissions grants the attacker full tenant control: ability to create admin accounts, disable CA policies, read all user data, and persist indefinitely without triggering user-facing alerts.",
+      "rationale": "Applications with Tier 0 permissions (e.g., Directory.ReadWrite.All, RoleManagement.ReadWrite.Directory) can read and modify the entire Entra ID directory, including assigning admin roles to other principals. A compromised app credential is equivalent to a compromised Global Administrator.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -30339,6 +30405,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Remove owners from apps with Tier 0 permissions. An owner of a Tier 0 app can add credentials and impersonate it to escalate to Global Admin. Entra admin center > App registrations > Owners.",
+      "impact": "Any user listed as an owner of a Tier 0 permission app can add client secrets and use the app's full permissions. This creates an indirect path to tenant compromise via accounts that may not themselves hold privileged roles.",
+      "rationale": "Application owners can modify app credentials and permissions without additional approval. An app with Tier 0 permissions and an owner who can add credentials creates a privilege escalation path: an attacker who compromises the owner account can immediately add a secret and gain Tier 0 access.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -30533,6 +30601,8 @@
         "disruptionRisk": false
       },
       "remediation": "Remove owners from apps holding Entra directory roles. Owners can add credentials and impersonate the SP to exercise those roles. Entra admin center > App registrations > Owners.",
+      "impact": "Any user listed as an owner of an app with directory roles can add a client secret, authenticate as the app, and exercise the app's role permissions — without holding the role themselves and without the action appearing in standard privileged role assignment reports.",
+      "rationale": "Application owners can add credentials to the app, allowing them to authenticate as the app and exercise its full permissions. When an app holds privileged directory roles, its owners have an indirect path to those privileges without being directly assigned the role.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -30702,6 +30772,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create dedicated cloud-only admin accounts separate from daily-use accounts. Admin accounts should hold no Exchange mailbox or E3/E5 licenses. Entra admin center > Users > New user (cloud identity). Assign admin roles only to the dedicated accounts.",
+      "impact": "A phished or malware-infected daily-use account that also holds admin roles gives the attacker immediate administrative access to the tenant with no additional steps required.",
+      "rationale": "Daily-use accounts are higher-risk targets — they access email, browse the web, and are more exposed to phishing. Using the same account for admin tasks means a successful phishing attack against a daily-use activity immediately compromises a privileged account.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -30903,6 +30975,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Create cloud-only admin accounts instead of using on-premises synced accounts. Entra admin center > Users > New user > Create user (cloud identity).",
+      "impact": "A compromised on-premises domain controller provides NTLM or Kerberos credentials for any synced admin account. The attacker converts on-premises domain dominance into cloud tenant administrator access without any additional steps.",
+      "rationale": "On-premises Active Directory is the primary target in hybrid identity compromise scenarios. Admin accounts synced from on-premises AD inherit the risk of the on-premises environment: an on-premises compromise (ransomware, domain controller breach) immediately provides cloud admin credentials.",
       "tags": [
         "admin",
         "entra-id",
@@ -31103,6 +31177,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Replace on-premises synced admin accounts with cloud-only accounts for all Tier-0/1 roles. Entra admin center > Users > identify synced accounts holding directory roles > create cloud-only replacements > migrate role assignments > remove roles from synced accounts.",
+      "impact": "An attacker who compromises on-premises AD and extracts NTLM hashes for synced admin accounts can pass-the-hash or use harvested credentials to authenticate to Entra ID, directly translating an on-premises breach into cloud administrative access.",
+      "rationale": "On-premises AD is a frequent initial compromise target. Admin accounts synced from on-premises AD carry the credential risk of the on-premises environment into the cloud: NTLM hash extraction from a domain controller provides working cloud credentials.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -32887,6 +32963,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable SSPR for administrator accounts. Entra admin center > Protection > Password reset > Properties > set scope to Selected and exclude accounts holding directory roles. Admin password resets should follow a governed helpdesk or PIM workflow.",
+      "impact": "A successful SSPR social engineering attack against an admin account provides a new password, effectively revoking any existing session and granting fresh access that does not trigger re-authentication requirements.",
+      "rationale": "Self-service password reset for administrator accounts is a social engineering risk. If an attacker can trick the SSPR verification process (security questions, registered phone), they can reset the admin password and bypass MFA entirely.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -33073,6 +33151,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Consider creating CA policies that specifically target privileged directory roles with stricter controls (phishing-resistant MFA, compliant devices).",
+      "impact": "A Tier-0 role (e.g., Exchange Administrator, Security Administrator) not covered by CA policies has no enforced MFA, device compliance, or risk signal evaluation. Credential theft for these roles grants unmediated administrative access.",
+      "rationale": "Conditional Access policies that target directory roles by name only protect role members at policy evaluation time. Active role assignments added after policy creation are not covered until the policy explicitly includes them. Tier-0 roles without CA coverage are high-privilege accounts with no authentication requirements enforced by CA.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -33272,6 +33352,8 @@
         "disruptionRisk": false
       },
       "remediation": "Entra admin center > Roles and administrators > review roles assigned to foreign service principals. Remove role assignments from untrusted external apps.",
+      "impact": "A foreign app with a directory role assignment (e.g., User Administrator, Exchange Administrator) can be used by the external publisher to manage your tenant. If the publisher is compromised, the attacker inherits your directory admin privileges.",
+      "rationale": "Entra ID directory roles assigned to foreign (multi-tenant) applications give the external publisher's service control-plane access to the tenant — the same access as a human administrator. These assignments persist across app updates and are not visible in standard role management views.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -33458,6 +33540,8 @@
         "disruptionRisk": false
       },
       "remediation": "Review managed identities with directory roles. Use Graph API permissions instead of directory roles where possible. Entra admin center > Roles and administrators.",
+      "impact": "A compromised Azure resource with a managed identity holding a privileged Entra directory role provides administrative access to the tenant from within the Azure compute environment, which may have weaker security controls than the corporate network.",
+      "rationale": "Managed identities assigned Entra directory roles operate as privileged administrative agents. Unlike service principals with secrets, managed identities cannot have their credentials rotated — the only remediation for a compromised managed identity is to remove its role assignments.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -33644,6 +33728,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Convert sensitive security groups to role-assignable to prevent unauthorized membership changes. Entra admin center > Groups > New group > enable 'Azure AD roles can be assigned to the group'. Recreate affected groups and update any app role or CA policy assignments.",
+      "impact": "An attacker who compromises a group owner account can add themselves or other accounts to a sensitive group, gaining the access rights associated with that group — potentially including app role permissions or CA policy exclusions.",
+      "rationale": "Security groups without the role-assignable property can have their membership modified by group owners and certain administrative roles without Global Administrator or Privileged Role Administrator approval. Groups used in Conditional Access policy or app role assignments are high-value targets for membership manipulation.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -33831,6 +33917,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Remove Tier-0/1 Entra directory roles from on-premises synced user accounts. Entra admin center > Users > filter synced accounts > review role assignments. Create cloud-only replacement accounts and migrate role assignments; on-premises compromise must not reach cloud privilege.",
+      "impact": "An attacker who compromises on-premises AD can extract credentials for synced admin accounts and use them immediately for cloud administrative access — no additional steps are needed to pivot from on-premises to cloud.",
+      "rationale": "On-premises synced accounts are controlled by on-premises Active Directory. When these accounts hold Tier-0 or Tier-1 Entra directory roles, an on-premises domain compromise (ransomware, DC compromise) directly translates to cloud admin access.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -33998,6 +34086,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Migrate privileged service principals from client secrets to certificates or managed identities. A secret on a permanently privileged SP is a persistent backdoor risk.",
+      "impact": "A leaked or brute-forced client secret grants the attacker persistent, silent access at Global Admin or equivalent privilege with no user interaction, no MFA challenge, and no sign-in behavior visible in user-based risk signals.",
+      "rationale": "Service principals with client secrets and permanent privileged role assignments combine the two highest risk factors in app identity: a long-lived credential that never expires and a standing privilege that never rotates. This combination is a primary target in cloud supply-chain attacks.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -34970,6 +35060,8 @@
         "disruptionRisk": false
       },
       "remediation": "Remove Intune write permissions from app registrations that do not require them. Entra admin center > App registrations > select app > API permissions. Remove DeviceManagementConfiguration.ReadWrite.All and equivalent permissions. Only approved, monitored service principals should hold Intune write access.",
+      "impact": "A compromised service principal with Intune write permissions can mass-wipe managed devices, remove compliance policies, or push malicious configuration profiles to all enrolled endpoints.",
+      "rationale": "App registrations with Intune write permissions (DeviceManagementManagedDevices.ReadWrite.All) can wipe, retire, or reconfigure managed devices at scale. If such an app's credentials are compromised, the attacker can destroy device data across the entire tenant in seconds.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -36158,6 +36250,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target All users > Conditions > User risk > High > Grant > Require password change + MFA. Entra admin center > Protection > Conditional Access.",
+      "impact": "Users whose credentials are detected in breach databases or flagged by threat intelligence can continue authenticating normally. Attackers with purchased or leaked credentials encounter no additional friction.",
+      "rationale": "User risk reflects cumulative signals of account compromise — leaked credentials, unusual behavior patterns, and threat intelligence. Without user-risk policies, compromised accounts identified by Identity Protection remain active and accessible until manually reviewed.",
       "tags": [
         "conditional-access",
         "human-resources-security",
@@ -36371,6 +36465,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target All users > Conditions > Sign-in risk > High, Medium > Grant > Require MFA. Entra admin center > Protection > Conditional Access.",
+      "impact": "High-risk sign-in events (indicating probable account compromise) proceed without any remediation challenge. Attackers operating from anomalous locations or with stolen tokens can authenticate successfully.",
+      "rationale": "Entra ID Identity Protection generates real-time risk scores for sign-in events based on behavioral signals such as impossible travel, atypical locations, and token anomalies. Without risk-based CA policies, these signals are generated but never acted upon — the sign-in succeeds regardless of risk level.",
       "tags": [
         "conditional-access",
         "human-resources-security",
@@ -36584,6 +36680,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Security Defaults blocks high-risk sign-ins but does not provide granular medium-risk controls. For full coverage, disable Security Defaults and create Conditional Access policies with Entra ID P2.",
+      "impact": "Sign-ins flagged at medium or high risk are allowed to complete MFA and gain access. An attacker performing AiTM phishing can relay the MFA challenge in real time and capture the authenticated session.",
+      "rationale": "Medium and high sign-in risk signals indicate a strong likelihood of account compromise. Blocking rather than challenging these sign-ins eliminates the possibility that an attacker could intercept the MFA challenge in a real-time relay attack.",
       "tags": [
         "conditional-access",
         "human-resources-security",
@@ -36755,6 +36853,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Ensure Global Administrator and Privileged Role Administrator roles are assigned to separate accounts. Entra admin center > Identity > Roles & admins. Enable PIM approval workflows for role activation.",
+      "impact": "An account with conflicting admin roles can self-authorize sensitive operations without a second approver. This eliminates the detection and prevention benefit of requiring multiple parties for sensitive actions.",
+      "rationale": "Separation of duties prevents a single account from holding roles that, in combination, allow self-authorization of sensitive actions — for example, both User Administrator and Billing Administrator. Without SoD, a compromised account with incompatible role combinations can self-escalate or approve its own privileged actions.",
       "tags": [
         "entra-id",
         "human-resources-security",
@@ -37202,6 +37302,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Compliance > Compliance policy settings > Mark devices with no compliance policy assigned as > Not compliant.",
+      "impact": "Unassigned devices bypass device compliance requirements in Conditional Access. An unmanaged or misconfigured device that reaches a 'compliant' CA policy without a compliance policy may be granted access based on an unchecked compliance state.",
+      "rationale": "Devices without a compliance policy assignment are never evaluated against compliance requirements. These devices report as 'unknown' compliance state, and Conditional Access policies that require 'compliant' devices will not block them if the CA policy also allows the unknown state.",
       "tags": [
         "asset-management",
         "endpoint",
@@ -38152,6 +38254,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Ensure SharePointTenantSettings.Read.All permission is consented. Review site sharing levels in SharePoint admin center > Active sites.",
+      "impact": "Sites created without explicit sharing restrictions default to the tenant maximum — potentially allowing anonymous link sharing for all new sites. Sensitive data in default-configured sites is exposed without intentional site-level controls.",
+      "rationale": "Site-level sharing settings cannot exceed the tenant-wide sharing policy. If the tenant policy allows sharing with anyone, individual sites must restrict sharing themselves. Without a restrictive tenant policy, every new site defaults to maximum sharing permissions.",
       "tags": [
         "collaboration",
         "data-classification-handling",
@@ -38352,6 +38456,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict SharePoint external sharing to prevent CUI exposure. SharePoint Admin Center > Policies > Sharing > set external sharing to 'Existing guests only' or 'Only people in your organization'. Apply sensitivity labels and CA policies to CUI-classified sites.",
+      "impact": "CUI stored in SharePoint can be shared with external parties who are not authorized to access it, creating regulatory compliance violations and potentially triggering mandatory breach reporting.",
+      "rationale": "CUI (Controlled Unclassified Information) has specific access and handling requirements under NIST 800-171 and CMMC. External sharing of SharePoint sites containing CUI without controls may expose regulated data to unauthorized parties.",
       "tags": [
         "collaboration",
         "data-classification-handling",
@@ -38501,6 +38607,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Information protection > Auto-labeling > Create a policy to automatically classify sensitive content. Requires Azure Information Protection P2 (E5 or E5 Compliance).",
+      "impact": "Sensitive documents that users fail to manually label are stored and shared without classification-based protections. DLP policies that rely on label conditions will not fire on unclassified content.",
+      "rationale": "Auto-labeling policies classify sensitive content without requiring user action, ensuring that documents containing PII, financial data, or health information are consistently classified and subject to appropriate access and retention controls.",
       "tags": [
         "compliance",
         "data-classification-handling",
@@ -38727,6 +38835,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Review site sharing manually in SharePoint admin center > Active sites.",
+      "impact": "Sensitive SharePoint sites with default or tenant-maximum sharing settings allow authorized users to share sensitive content with external parties. Data classification controls have no effect if sharing policies do not reflect data sensitivity.",
+      "rationale": "Sites containing sensitive data require tighter sharing controls than general-purpose collaboration sites. Without site-level sharing restrictions, sensitive data sites are subject to the same sharing rules as non-sensitive sites, potentially allowing external sharing of regulated content.",
       "tags": [
         "collaboration",
         "data-classification-handling",
@@ -38887,6 +38997,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Block removable storage on managed devices. Intune > Devices > Configuration profiles > New profile > Windows > Device restrictions > General > Removable storage: Block. Assign to all managed device groups.",
+      "impact": "Without removable media restrictions, an insider can copy any accessible data to a USB drive. Dropped USB attacks (maliciously placed drives) can also auto-execute or be manually opened by employees.",
+      "rationale": "Removable media is a common vector for both data theft and malware introduction. Blocking removable storage prevents exfiltration of data to personal devices and eliminates the attack surface for dropped-USB and supply-chain media attacks.",
       "tags": [
         "data-classification-handling",
         "endpoint",
@@ -39131,6 +39243,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target All users > All cloud apps > Grant > Require device to be marked as compliant (or Hybrid Azure AD joined). Entra admin center > Protection > Conditional Access.",
+      "impact": "Session tokens stolen from unmanaged or compromised devices provide full access to corporate resources. Malware running on the device can exfiltrate tokens and replay them from attacker-controlled infrastructure.",
+      "rationale": "Device compliance is a key pillar of Zero Trust: verify explicitly that the device is managed, patched, and meets security requirements before granting access. Without device trust as a signal, corporate credentials on a compromised personal device are sufficient for full access.",
       "tags": [
         "conditional-access",
         "data-classification-handling",
@@ -39544,6 +39658,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Configuration > Create profile > Windows 10 and later > Device restrictions > General > Removable storage: Block.",
+      "impact": "Sensitive data can be copied to uncontrolled removable media and exfiltrated. Conversely, malware dropped via USB (including BadUSB attacks) can execute on endpoints with unrestricted port access.",
+      "rationale": "Portable storage devices (USB drives) are a primary vector for data exfiltration and malware introduction. An employee can copy sensitive data to a USB drive undetected if portable storage is not restricted.",
       "tags": [
         "data-classification-handling",
         "endpoint",
@@ -57847,6 +57963,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable Defender for Endpoint device discovery. security.microsoft.com > Settings > Device discovery. Ensure devices are onboarded and configuration assessment is active.",
+      "impact": "Devices with exploitable misconfigurations — open firewall rules, disabled AV, missing patches — are not surfaced for remediation and remain available as attack targets.",
+      "rationale": "Automated detection of misconfigured or vulnerable devices identifies gaps in device security posture before attackers exploit them. Without this capability, misconfigured devices remain undetected until they are compromised.",
       "tags": [
         "configuration-management",
         "defender",
@@ -58677,6 +58795,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a device compliance policy requiring BitLocker, secure boot, and minimum OS version. Intune > Devices > Compliance policies > Create policy > Windows 10 and later. Combine with a Conditional Access policy blocking non-compliant devices from accessing corporate resources.",
+      "impact": "Devices with critical security gaps — disabled BitLocker, no secure boot, outdated OS — are treated as compliant by Conditional Access and receive full resource access, despite being at high risk of compromise.",
+      "rationale": "A device compliance policy baseline establishes the minimum security posture required for a managed device. Without it, devices with disabled AV, missing encryption, or outdated OS are evaluated as compliant and receive full access to corporate resources.",
       "tags": [
         "configuration-management",
         "endpoint",
@@ -60602,6 +60722,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a Conditional Access policy blocking legacy authentication protocols. Entra admin center > Security > Conditional Access > New policy > Condition: Client apps = Other clients + Exchange ActiveSync clients > Grant: Block access. Monitor legacy auth sign-ins in the sign-in log before enforcing.",
+      "impact": "Attackers who identify and spray legacy auth endpoints can authenticate with only a username and password, bypassing all Conditional Access MFA requirements and gaining full account access.",
+      "rationale": "Legacy authentication protocols (Basic Auth, NTLM via IMAP/POP3/SMTP) do not support MFA. Any enabled legacy auth endpoint is a password-spray target that bypasses every MFA policy.",
       "tags": [
         "conditional-access",
         "configuration-management",
@@ -60821,6 +60943,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Security Defaults blocks legacy authentication protocols. For granular control, disable Security Defaults and create Conditional Access policies.",
+      "impact": "Attackers can spray passwords against legacy protocol endpoints and authenticate successfully even when CA MFA policies are in place. A single compromised account via legacy auth gives full mailbox and Graph API access.",
+      "rationale": "Legacy authentication protocols (Basic Auth, NTLM over SMTP/IMAP/POP3) do not support MFA and cannot be evaluated by Conditional Access policies. Any user with legacy auth enabled is a viable target for password spray attacks that MFA cannot stop.",
       "tags": [
         "conditional-access",
         "configuration-management",
@@ -61033,6 +61157,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target All users > Conditions > Authentication flows > Device code flow > Grant > Block access. Entra admin center > Protection > Conditional Access.",
+      "impact": "A user who enters a device code presented by an attacker hands over a session token with full user permissions. The attack is invisible in sign-in logs because the authentication appears to originate from the user's location.",
+      "rationale": "The device code flow is designed for devices without browsers (e.g., TV apps). Attackers abuse it in device code phishing: they generate a code, convince a user to enter it, and receive a fully authenticated session token without any MFA interaction from the attacker's machine.",
       "tags": [
         "conditional-access",
         "configuration-management",
@@ -62341,6 +62467,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Run: Set-TransportConfig -SmtpClientAuthenticationDisabled $true. Disable SMTP AUTH org-wide and enable per-mailbox only where required.",
+      "impact": "Attackers can spray passwords against the SMTP AUTH endpoint to compromise mailboxes and use them as relay points for spam, phishing, or internal reconnaissance — all with only a valid username and password.",
+      "rationale": "SMTP AUTH is a legacy protocol that supports Basic Authentication and is used for sending email from devices and applications. If enabled globally, any client can attempt to authenticate to Exchange using only a username and password, bypassing all modern authentication controls.",
       "tags": [
         "configuration-management",
         "email",
@@ -62574,6 +62702,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Run: Set-SPOTenant -LegacyAuthProtocolsEnabled $false. SharePoint admin center > Policies > Access control > Apps that do not use modern authentication > Block access.",
+      "impact": "Applications or scripts using legacy SharePoint authentication authenticate with only a username and password, bypassing MFA and CA policies. Compromised credentials provide full SharePoint access without any additional control.",
+      "rationale": "Legacy SharePoint authentication (pre-modern) does not support MFA, Conditional Access, or token-based controls. Applications using legacy SharePoint auth bypass all modern authentication security controls enforced via CA.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -63021,6 +63151,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOSite -Identity <PersonalSiteUrl> -DenyAddAndCustomizePages 1. SharePoint admin center > Settings > Custom Script > prevent users from running custom script on personal sites.",
+      "impact": "An attacker or insider who adds a malicious custom script to a SharePoint personal site can steal session cookies, exfiltrate documents, or perform actions in the SharePoint context on behalf of any user who visits the site.",
+      "rationale": "Custom scripts on personal sites can execute arbitrary JavaScript in the SharePoint context, enabling attacks that capture user credentials, exfiltrate content, or manipulate SharePoint data using the victim user's session.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -63235,6 +63367,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DenyAddAndCustomizePagesForSitesCreatedByUser 1. SharePoint admin center > Settings > Custom Script > prevent users from running custom script on self-service created sites.",
+      "impact": "A compromised site collection administrator can inject persistent malicious JavaScript into a SharePoint site, affecting all users who access it — enabling credential theft, data exfiltration, and session hijacking at scale.",
+      "rationale": "Custom scripts on site collections allow arbitrary JavaScript execution in the SharePoint context. Without restriction, any site collection administrator can inject code that affects all users of that site.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -69240,6 +69374,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Configuration > Create profile > Endpoint protection > Windows Defender Application Control. Alternatively, deploy WDAC via custom OMA-URI.",
+      "impact": "Any downloaded or dropped executable, script, or living-off-the-land binary (LOLBin) can run unobstructed. Attackers can execute ransomware, remote access tools, or credential dumpers without application control restrictions.",
+      "rationale": "Application control (AppLocker / WDAC) prevents unauthorized software from executing on managed endpoints. Without it, attackers who gain initial access can run any executable, script, or payload without triggering application-based controls.",
       "tags": [
         "configuration-management",
         "endpoint",
@@ -69378,6 +69514,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable VPN split tunneling on managed devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > disable split tunneling (route all traffic through VPN). Assign to all devices used for remote access.",
+      "impact": "A device using split tunneling can have its non-corporate traffic intercepted or manipulated by a network-positioned attacker. Malware using direct internet connectivity bypasses corporate network security controls entirely.",
+      "rationale": "Split tunneling routes only corporate traffic through the VPN while allowing direct internet access for other traffic. This allows DNS and web traffic from the device to bypass corporate security controls (proxy, DNS filtering) and enables attackers who compromise web traffic to intercept sessions.",
       "tags": [
         "configuration",
         "configuration-management",
@@ -70004,6 +70142,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Edit each policy in simulation mode and switch it to Enforce once validated.",
+      "impact": "A retention policy in simulation mode has no effect on actual data retention. Content that should be preserved can still be deleted, and data that should be automatically disposed of is retained indefinitely — creating both compliance gaps and unintended data accumulation.",
+      "rationale": "Retention policies in simulation mode do not enforce retention — they only predict what would be retained. Policies must be in Enforce mode to actually preserve or delete content according to the configured rules.",
       "tags": [
         "change-management",
         "configuration",
@@ -71114,6 +71254,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Connect to Exchange Online and verify accepted domains.",
+      "impact": "External attackers can send phishing emails appearing to originate from your organization's domain. Employees, customers, and partners receive convincing impersonation emails with no visual indicator of spoofing.",
+      "rationale": "DMARC (Domain-based Message Authentication, Reporting, and Conformance) instructs receiving mail servers to reject or quarantine emails that fail SPF and DKIM alignment checks, preventing domain impersonation. Without DMARC, any server can send emails that appear to come from your domain.",
       "tags": [
         "continuous-monitoring",
         "dns",
@@ -79116,6 +79258,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable unified audit logging. Purview compliance portal > Audit > Search > Start recording user and admin activity. PowerShell: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true",
+      "impact": "Security incidents cannot be investigated, breaches cannot be scoped, and compliance audits cannot be satisfied. Attackers can operate for extended periods without any log trail to detect or reconstruct their activities.",
+      "rationale": "Unified audit logging is the foundation of incident response and forensic investigation in Microsoft 365. Without it, there is no record of who accessed what, when, or what configuration changes were made.",
       "tags": [
         "audit",
         "compliance",
@@ -79327,6 +79471,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Alert policies > Review and enable default alert policies. Ensure high-severity policies for suspicious activity, malware, and privilege escalation are active.",
+      "impact": "Anomalous activity such as a user downloading thousands of files or a new admin being created goes undetected until a manual audit or external report. Incident response is delayed by hours or days.",
+      "rationale": "Alert policies detect anomalous tenant activity — mass data downloads, unusual external sharing, admin permission changes — and notify security teams in near-real-time. Without them, security events are only discovered during periodic log reviews.",
       "tags": [
         "compliance",
         "continuous-monitoring",
@@ -79748,6 +79894,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Investigate: review Intune audit logs for the device wipe events immediately. Intune > Tenant administration > Audit logs > filter by DeviceAction: Wipe. Verify each wipe was authorized. Rotate credentials and initiate incident response if unauthorized activity is confirmed.",
+      "impact": "An attacker or malicious insider with Intune write access can wipe all managed devices simultaneously, destroying data and disrupting operations across the entire device fleet before any manual detection.",
+      "rationale": "Mass device wipe activity is an indicator of either an insider threat action or an attacker who has compromised administrative credentials. Detecting this in real time limits the number of devices affected and enables rapid credential revocation.",
       "tags": [
         "audit",
         "continuous-monitoring",
@@ -80062,6 +80210,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Run: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true. Microsoft Purview > Audit > Start recording user and admin activity.",
+      "impact": "Security incidents leave no forensic trail. Breach scope cannot be determined, compliance audit requirements cannot be met, and attackers can operate without leaving a detectable record.",
+      "rationale": "Audit log search is the investigative capability for Microsoft 365 — every admin action, user sign-in, file access, and configuration change is recorded here. Without it enabled, incidents cannot be investigated.",
       "tags": [
         "audit",
         "compliance",
@@ -81011,6 +81161,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create or edit a retention policy to include Teams channel messages and chats.",
+      "impact": "Teams conversations, channel messages, and meeting recordings that should be retained for compliance or legal hold purposes may be permanently deleted, creating the same exposure as email data without a retention policy.",
+      "rationale": "Teams messages and meeting recordings constitute business records subject to the same retention requirements as email. Without a retention policy, Teams data can be permanently deleted, destroying evidence of conversations, decisions, and security-relevant activity.",
       "tags": [
         "configuration",
         "continuous-monitoring",
@@ -81196,6 +81348,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create or edit a retention policy to include Exchange email and mailboxes.",
+      "impact": "Email evidence required for legal holds, regulatory audits, or security investigations may be permanently deleted if no retention policy exists. Data loss creates compliance failures and impedes incident response.",
+      "rationale": "Email is the primary record of business communications and the most common target in litigation holds and regulatory audits. Without a retention policy, email data may be deleted before the legally required retention period, creating compliance exposure and destroying forensic evidence.",
       "tags": [
         "configuration",
         "continuous-monitoring",
@@ -81381,6 +81535,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create or edit a retention policy to include SharePoint sites and OneDrive accounts.",
+      "impact": "Documents deleted from SharePoint or OneDrive without a retention policy are permanently purged after the recycle bin period. Records required for compliance attestation or incident investigation may be unrecoverable.",
+      "rationale": "SharePoint and OneDrive store documents, collaboration artifacts, and file-based records. Without a retention policy, files can be deleted before their required retention period expires, eliminating records needed for compliance, litigation, and forensic investigations.",
       "tags": [
         "configuration",
         "continuous-monitoring",
@@ -81940,6 +82096,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Allow consent only from verified publishers or block user consent entirely.",
+      "impact": "Malicious OAuth apps displayed in consent phishing campaigns acquire delegated access to user mailboxes, files, and contacts. Access persists until explicitly revoked, surviving password changes and MFA events.",
+      "rationale": "User consent to third-party apps grants those apps access to the user's data (email, files, contacts) on behalf of the user. Without restricting consent to verified publishers, any malicious app can acquire persistent delegated access via a single user consent click.",
       "tags": [
         "entra-id",
         "identity",
@@ -82156,6 +82314,8 @@
         "disruptionRisk": false
       },
       "remediation": "Entra admin center > Enterprise applications > review foreign apps with broad data access (Mail.ReadWrite, Files.ReadWrite.All, etc.). Scope to least-privilege or remove.",
+      "impact": "Foreign apps with Tier 1 data permissions can read all email, files, and calendar data for any user who grants consent. This data leaves your tenant boundary and may be stored, processed, or accessed by the app publisher.",
+      "rationale": "Tier 1 data permissions (Mail.ReadWrite, Files.ReadWrite.All, Calendars.ReadWrite) grant access to individual user communication and collaboration data. For foreign apps, this data flows to the publisher's infrastructure and is subject to their security and privacy controls, not yours.",
       "tags": [
         "app-registration",
         "identity",
@@ -83041,6 +83201,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "IP-based trusted locations can be spoofed via VPN or proxy. Consider Global Secure Access compliant network checks or country-based locations for stronger assurance. Entra admin center > Protection > Conditional Access > Named locations.",
+      "impact": "Attackers with access to a trusted IP range (shared hosting, compromised on-premises network, VPN exit node) authenticate without MFA challenges, bypassing the core CA control.",
+      "rationale": "IP-based named locations used in CA 'trusted location' exclusions can be spoofed via VPN or proxy. Relying on IP reputation as a trust signal without combining it with device compliance or MFA creates an authentication bypass for any attacker who can route through a trusted IP range.",
       "tags": [
         "conditional-access",
         "identity",
@@ -83755,6 +83917,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data loss prevention > Policies > Create a DLP policy covering sensitive information types relevant to your organization.",
+      "impact": "Sensitive data can be sent externally via email, Teams, or file sharing without any controls, inspection, or audit trail. A single misdirected email or shared link can expose thousands of records.",
+      "rationale": "Data loss prevention policies enforce data handling rules at the point of sharing, preventing users from accidentally or maliciously sending sensitive data (PII, financial, health) to unauthorized recipients.",
       "tags": [
         "compliance",
         "data-governance",
@@ -83910,6 +84074,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data loss prevention > Policies > Edit an existing policy or create new > Include Teams chat and channel messages location.",
+      "impact": "Sensitive data shared in Teams chats or channels — including PII, payment card data, and internal credentials — is not detected or blocked, creating uncontrolled data exposure paths.",
+      "rationale": "Teams is a primary communication channel where sensitive information is routinely shared in chat. Without DLP coverage for Teams, conversations containing PII, financial data, or credentials are not inspected or blocked.",
       "tags": [
         "compliance",
         "data-governance",
@@ -85208,6 +85374,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data loss prevention > Policies > Edit existing policies to include Exchange email and SharePoint/OneDrive locations for comprehensive data protection.",
+      "impact": "Gaps in DLP coverage between email and collaboration platforms create bypass paths: data blocked via email can be exfiltrated by first uploading to SharePoint and sharing a link externally.",
+      "rationale": "Exchange email and SharePoint/OneDrive are the highest-volume channels for sensitive data movement. DLP policies covering both ensure consistent enforcement regardless of whether data is emailed or shared via a link.",
       "tags": [
         "compliance",
         "data-governance",
@@ -85419,6 +85587,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Run: Set-HostedConnectionFilterPolicy -Identity <Policy> -IPAllowList @{}. Exchange admin center > Protection > Connection filter > Edit the policy and remove all IP allow list entries.",
+      "impact": "Malicious email originating from or relayed through an allowed IP is delivered without spam, malware, or phishing inspection. A single compromised host on an allowlisted range can be used to deliver unfiltered malware to all users.",
+      "rationale": "IP allow lists in the connection filter bypass all spam and malware filtering for connections from listed IPs. Shared hosting IPs, CDN exit nodes, and business partner ranges can be abused to relay malicious email that completely bypasses filtering.",
       "tags": [
         "email",
         "exchange-online",
@@ -85844,6 +86014,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Block automatic external forwarding via transport rule. Exchange Admin Center > Mail flow > Rules > New rule: apply to messages where recipient is outside the org and message type is Auto Forward > Block the message. Also disable auto-forwarding in the outbound anti-spam policy.",
+      "impact": "Compromised mailboxes with auto-forwarding rules silently exfiltrate all incoming email to attacker-controlled addresses. The exfiltration persists through password resets and MFA changes because the forwarding rule is not cleared by authentication remediation.",
+      "rationale": "Automatic external forwarding allows users (or compromised accounts) to silently redirect email to external addresses. Without a transport rule blocking this, a single compromised mailbox becomes a persistent data exfiltration channel that survives credential rotation.",
       "tags": [
         "email",
         "exchange-online",
@@ -86053,6 +86225,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Run: Set-RemoteDomain -Identity Default -AutoForwardEnabled $false. Also consider transport rules to block client-side forwarding.",
+      "impact": "All email to a mailbox with an external forwarding rule is exfiltrated silently. The rule survives password changes and MFA re-enrollment, providing persistent mail access long after an account compromise is detected and remediated.",
+      "rationale": "External mail forwarding creates persistent data exfiltration paths — every email received is silently copied to an external address. Attackers who compromise mailboxes routinely create forwarding rules as a persistence mechanism that survives password resets.",
       "tags": [
         "email",
         "exchange-online",
@@ -86493,6 +86667,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable or restrict 'Publish to web'. Power BI Admin portal > Tenant settings > Export and sharing settings > Publish to web: Disabled or Apply to specific security groups. Revoke existing public embed codes via Power BI Admin portal > Embed Codes.",
+      "impact": "Reports published to web are publicly accessible and may be indexed by search engines. Sensitive operational, financial, or customer data embedded in a published report is exposed to the internet indefinitely.",
+      "rationale": "'Publish to web' creates unauthenticated, publicly accessible embed codes for Power BI content. Any report published this way is accessible to anyone with the URL, with no authentication, no access control, and no audit trail.",
       "tags": [
         "data",
         "network-security",
@@ -93711,6 +93887,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Block legacy authentication via Conditional Access. Entra admin center > Security > Conditional Access > New policy > target all users > Condition: Client apps = Other clients + Exchange ActiveSync > Grant: Block access. Alternatively, enable the Microsoft-managed legacy auth block policy.",
+      "impact": "Attackers targeting legacy auth endpoints (IMAP, POP3, EAS, SMTP AUTH) can authenticate with only a username and password, bypassing MFA policies that apply to modern authentication flows.",
+      "rationale": "Legacy authentication protocols cannot be evaluated by Conditional Access policies. Enabling these protocols for any user creates a pathway around every MFA requirement in the tenant.",
       "tags": [
         "conditional-access",
         "identity",
@@ -93930,6 +94108,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Connect to Exchange Online PowerShell to check inbound connector configuration.",
+      "impact": "An attacker or compromised device on an allowed IP range can send spoofed email appearing to come from any address in your domain, bypassing DMARC (which does not apply to internal relay), enabling BEC and executive impersonation campaigns.",
+      "rationale": "Direct send allows unauthenticated email delivery from internal IP ranges without credentials. Without controls on which systems are authorized to send, any device that can reach Exchange Online can send email appearing to originate from your domain — a spoofing and BEC enabler.",
       "tags": [
         "email",
         "exchange-online",
@@ -94277,6 +94457,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Require device compliance for remote access. Entra admin center > Security > Conditional Access > New policy > target all users > Condition: Device platforms or named locations > Grant: Require device to be marked as compliant. Combine with Intune compliance policies.",
+      "impact": "Unmanaged remote devices can be compromised and used to relay authenticated sessions to attacker infrastructure. Without device compliance enforcement, there is no assurance that the device accessing sensitive data is trustworthy.",
+      "rationale": "Remote access from unmanaged devices bypasses endpoint detection, patch enforcement, and data loss controls. A corporate credential entered on a personal or public device may be stolen by keyloggers or malware running on that device.",
       "tags": [
         "conditional-access",
         "identity",
@@ -94591,6 +94773,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enable Entra ID PIM. Convert permanent role assignments to eligible. Configure activation to require justification and MFA. Entra admin center > Identity Governance > Privileged Identity Management > Entra ID roles.",
+      "impact": "Privileged commands executed remotely from unmanaged devices bypass endpoint security controls. An attacker who compromises a remote session inherits all standing privileged access of the connected user.",
+      "rationale": "Remote access sessions from personal or unmanaged devices have weaker security assurances. Requiring PIM activation for privileged commands during remote sessions adds a time-bound, audited step and ensures privileged actions are explicitly authorized even when performed remotely.",
       "tags": [
         "entra-id",
         "identity",
@@ -94764,6 +94948,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Deploy a Wi-Fi configuration profile requiring WPA2/WPA3-Enterprise authentication. Intune > Devices > Configuration profiles > New profile > Windows > Wi-Fi > set Security type: WPA2-Enterprise, Authentication method: Certificates. Assign to managed device groups.",
+      "impact": "Devices connecting to open or pre-shared-key Wi-Fi networks can have their traffic captured and decrypted. WPA2-Personal networks are vulnerable to handshake capture and offline brute force of the pre-shared key.",
+      "rationale": "Open or WPA2-Personal Wi-Fi networks are vulnerable to passive capture and WPA2 handshake attacks. WPA2/WPA3-Enterprise with certificate-based authentication prevents credential theft and ensures only enrolled devices connect to corporate networks.",
       "tags": [
         "endpoint",
         "intune",
@@ -94948,6 +95134,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enable BitLocker via Intune endpoint protection policy. Intune > Devices > Configuration profiles > Endpoint protection > BitLocker > require TPM startup, encrypt all drives, back up recovery keys to Entra ID. Assign to all managed Windows device groups.",
+      "impact": "A stolen device without disk encryption exposes all locally cached email, documents, credentials, and browser data to anyone with physical access. Data recovery requires no credentials — only attaching the drive to another system.",
+      "rationale": "Full-disk encryption (BitLocker) protects data at rest on managed devices. Without it, a lost or stolen device provides physical access to all locally stored corporate data without any password or authentication requirement.",
       "tags": [
         "endpoint",
         "endpoint-security",
@@ -96195,6 +96383,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: New-SafeLinksPolicy -Name \"Safe Links\" -IsEnabled $true; New-SafeLinksRule -Name \"Safe Links\" -SafeLinksPolicy \"Safe Links\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Links > Create a policy covering all users.",
+      "impact": "Users who click malicious URLs are taken directly to phishing pages, credential harvesters, or malware download sites. Time-of-click protection is the only defense against links weaponized after email delivery.",
+      "rationale": "Safe Links rewrites URLs in emails and Office documents and checks them at click time against Microsoft's threat intelligence. Without it, URLs pointing to malicious sites — including late-stage weaponized links that appear safe at delivery — are not blocked when the user clicks.",
       "tags": [
         "defender",
         "email",
@@ -96746,6 +96936,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: New-SafeAttachmentPolicy -Name \"Safe Attachments\" -Enable $true -Action Block; New-SafeAttachmentRule -Name \"Safe Attachments\" -SafeAttachmentPolicy \"Safe Attachments\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Attachments > Create a policy covering all users.",
+      "impact": "Zero-day malware and novel attack tools embedded in Office documents, PDFs, and archives are delivered to users. A single opened attachment can compromise an endpoint and provide an initial foothold in the organization.",
+      "rationale": "Safe Attachments detonates email attachments in a sandbox before delivery, detecting zero-day malware that signature-based AV would miss. Without it, malicious attachments are only scanned with known signatures and delivered before sandbox analysis completes.",
       "tags": [
         "defender",
         "email",
@@ -98907,6 +99099,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Harden the anti-phishing policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-phishing > edit default policy: enable mailbox intelligence, enable impersonation protection for key users and domains, set action to Quarantine for impersonation and spoof detections.",
+      "impact": "Phishing emails impersonating executives, vendors, or trusted contacts are delivered to users. Business email compromise (BEC) attacks that leverage impersonation cause direct financial loss and credential theft.",
+      "rationale": "The anti-phishing policy is the primary defense against impersonation attacks, including executive spoofing and lookalike domain phishing. Without hardened settings, impersonation attempts that bypass DMARC — using lookalike domains, display name spoofing, or compromised external accounts — land in user inboxes.",
       "tags": [
         "email",
         "endpoint-security",
@@ -99173,6 +99367,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable DKIM signing for each accepted domain. Defender portal > Email & Collaboration > Policies & rules > Threat policies > DKIM > select domain > Enable. Add the two provided CNAME records to your DNS zone before enabling.",
+      "impact": "Email from your domain can be spoofed or tampered with in transit without detection. Without DKIM signatures, DMARC enforcement is weakened and phishing emails may pass alignment checks.",
+      "rationale": "DKIM (DomainKeys Identified Mail) signs outbound emails with a private key, allowing receivers to verify that the email content was not modified in transit and genuinely originated from your domain. DKIM is required for effective DMARC enforcement.",
       "tags": [
         "email",
         "endpoint-security",
@@ -99438,6 +99634,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Harden the anti-malware policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-malware > edit default policy: enable common attachments filter, enable ZAP, configure admin notifications.",
+      "impact": "Malicious files (executables, script files, Office macros) are delivered to user inboxes. Infected emails delivered before signature updates are not retroactively quarantined without ZAP enabled.",
+      "rationale": "The malware filter policy is the baseline anti-malware control for Exchange Online. Without proper configuration — common attachment filtering, ZAP, admin notifications — known malware file types are delivered, zero-hour threats linger in inboxes, and infections go unnoticed.",
       "tags": [
         "email",
         "endpoint-security",
@@ -99707,6 +99905,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DisallowInfectedFileDownload $true. SharePoint admin center > Policies > Malware protection.",
+      "impact": "An infected document uploaded to SharePoint is synced to all users via OneDrive sync clients. A single malicious file can reach hundreds or thousands of endpoints before manual detection.",
+      "rationale": "SharePoint file storage can be used to host and distribute malware if infected file quarantine is disabled. A malware-infected document uploaded to SharePoint can be synced to all users who have access to the library, spreading the infection across the organization.",
       "tags": [
         "collaboration",
         "endpoint-security",
@@ -102833,6 +103033,8 @@
         "disruptionRisk": false
       },
       "remediation": "Intune admin center > Endpoint security > Antivirus > Create policy > Microsoft Defender Antivirus > Enable real-time protection.",
+      "impact": "Malware can execute, establish persistence, and exfiltrate data before any scheduled scan detects it. Endpoint compromise becomes undetected until symptoms appear or a scan runs.",
+      "rationale": "Real-time protection is the primary line of defense against malware executing on endpoints. Without it, malicious files are only caught at scheduled scan intervals, giving attackers a wide window to establish persistence.",
       "tags": [
         "conditional-access",
         "defender",
@@ -103305,6 +103507,8 @@
         "disruptionRisk": false
       },
       "remediation": "Remove all entries from the 'Allowed domains' list in inbound anti-spam policies. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-spam > edit each inbound policy > Allow & block lists > Allowed domains: remove all entries. Allowed domains bypass both spam and malware filtering.",
+      "impact": "Phishing and malware emails originating from allowed domains are delivered to inboxes without any filtering. Attackers who control or compromise an allowed domain have an unobstructed channel for malicious emails.",
+      "rationale": "Domains on the anti-spam allow list bypass all spam and malware filtering, including Safe Attachments and Safe Links. This is one of the highest-impact configuration errors in Exchange Online security — a single allowlisted domain eliminates all email-based protections for messages from that domain.",
       "tags": [
         "defender",
         "email",
@@ -103984,6 +104188,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict PowerShell execution policy on managed endpoints. Intune > Devices > Configuration profiles > Settings catalog > search 'Turn on Script Execution' > set to AllSigned or RemoteSigned. Assign to all managed Windows device groups.",
+      "impact": "Malicious PowerShell scripts execute without restriction: credential dumpers, reverse shells, ransomware droppers, and exfiltration tools all commonly use PowerShell and are blocked only when execution policy is enforced.",
+      "rationale": "Unrestricted PowerShell execution on managed endpoints allows any script — downloaded, embedded in documents, or dropped by malware — to run without signature verification. PowerShell is the most commonly abused living-off-the-land technique in modern attacks.",
       "tags": [
         "endpoint",
         "endpoint-security",
@@ -104197,6 +104403,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowAnonymousUsersToJoinMeeting $false. Teams admin center > Meetings > Meeting policies > Global > Anonymous users can join a meeting > Off.",
+      "impact": "Meeting links forwarded or accidentally shared publicly allow unauthorized parties to join internal meetings. Sensitive business discussions, strategy sessions, and confidential presentations can be observed by anonymous attendees.",
+      "rationale": "Anonymous meeting join allows any user with the meeting link — including those without an account — to join Teams meetings. Meeting links shared accidentally expose internal business discussions to uninvited external parties.",
       "tags": [
         "collaboration",
         "endpoint-security",
@@ -105108,6 +105316,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Compliance > Create/edit iOS and Android compliance policies > Require device encryption.",
+      "impact": "A lost or stolen unencrypted mobile device exposes all locally cached corporate data including email, contacts, Teams messages, and app credentials to anyone with physical access.",
+      "rationale": "Unencrypted mobile devices expose corporate email, contacts, documents, and app data if lost or stolen. Mobile devices are higher-risk endpoints due to portability and greater likelihood of physical loss.",
       "tags": [
         "endpoint",
         "intune",
@@ -105256,6 +105466,8 @@
         "disruptionRisk": false
       },
       "remediation": "Replace wildcard redirect URIs with explicit URIs. Wildcards enable open redirect attacks for token theft. Entra admin center > App registrations > Authentication.",
+      "impact": "An attacker can craft an authorization request using the legitimate app's client ID but pointing to an attacker-controlled path within the wildcard URI, capturing OAuth tokens without compromising the app itself.",
+      "rationale": "Wildcard redirect URIs (e.g., https://example.com/*) allow OAuth tokens to be delivered to any path under that domain. If any subdirectory of the registered domain is compromised or supports open redirects, an attacker can craft a URL that sends tokens to an attacker-controlled endpoint.",
       "tags": [
         "app-registration",
         "identity",
@@ -105487,6 +105699,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Configuration > Create profile > Custom OMA-URI > Add setting: ./Device/Vendor/MSFT/Policy/Config/Cryptography/AllowFipsAlgorithmPolicy = 1.",
+      "impact": "Data encrypted with non-FIPS-validated algorithms may be vulnerable to cryptanalytic attacks or algorithmic weaknesses. For FedRAMP and CMMC environments, non-FIPS devices fail compliance attestation.",
+      "rationale": "FIPS-validated cryptography ensures that encryption and cryptographic operations on managed devices meet federal security requirements. Non-FIPS algorithms may have known weaknesses or implementation flaws that weaken data protection.",
       "tags": [
         "cryptographic-protections",
         "endpoint",
@@ -105963,6 +106177,8 @@
         "disruptionRisk": false
       },
       "remediation": "Update HTTP redirect URIs to HTTPS. Non-HTTPS URIs allow token interception via MITM attacks. Entra admin center > App registrations > Authentication.",
+      "impact": "OAuth tokens or authorization codes sent to HTTP endpoints can be intercepted via man-in-the-middle attacks on the same network. An intercepted token grants the attacker the same access as the legitimate application.",
+      "rationale": "HTTP redirect URIs in app registrations allow OAuth tokens to be sent to non-HTTPS endpoints, exposing them to interception in transit. OAuth authorization codes delivered over HTTP can be captured by a network-positioned attacker.",
       "tags": [
         "app-registration",
         "cryptographic-protections",
@@ -114447,6 +114663,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable Microsoft 365 Backup in the admin center. Microsoft 365 Admin Center > Settings > Org settings > Microsoft 365 Backup > Enable. Requires Microsoft 365 Backup add-on license. Configure backup scope for Exchange, SharePoint, and OneDrive.",
+      "impact": "Ransomware that encrypts and deletes Exchange, SharePoint, and OneDrive data cannot be recovered if the retention period has expired. Without backup, recovery from destructive attacks requires rebuilding from scratch rather than restoring from a known-good point in time.",
+      "rationale": "Microsoft 365 data (Exchange, SharePoint, OneDrive) is recoverable from the recycle bin only within limited windows. A dedicated backup solution provides point-in-time recovery from ransomware, accidental deletion, and malicious destruction that exceeds the recycle bin retention period.",
       "tags": [
         "business-continuity-disaster-recovery",
         "compliance",
@@ -114689,6 +114907,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable Microsoft Defender for Endpoint. Navigate to security.microsoft.com > Vulnerability management to review coverage. Ensure devices are onboarded to MDE.",
+      "impact": "Known vulnerabilities on managed devices go undetected and unremediated. Attackers who identify these devices via active scanning or from breach intelligence have an unpatched entry point.",
+      "rationale": "Vulnerability scanning surfaces known exploitable vulnerabilities in managed device software and OS configuration. Unpatched vulnerabilities are the primary initial access vector for ransomware and targeted attacks.",
       "tags": [
         "conditional-access",
         "defender",

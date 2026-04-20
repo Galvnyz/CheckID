@@ -346,6 +346,14 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
         if remediation:
             check_obj["remediation"] = remediation
 
+        impact = entry.get("impact", "")
+        if impact:
+            check_obj["impact"] = impact
+
+        rationale = entry.get("rationale", "")
+        if rationale:
+            check_obj["rationale"] = rationale
+
         checks.append(check_obj)
 
     return checks
@@ -920,6 +928,14 @@ def main():
         remediation = cm.get("remediation", "")
         if remediation:
             check_obj["remediation"] = remediation
+
+        impact = cm.get("impact", "")
+        if impact:
+            check_obj["impact"] = impact
+
+        rationale = cm.get("rationale", "")
+        if rationale:
+            check_obj["rationale"] = rationale
 
         tags = derive_tags(check_obj)
         if tags:
