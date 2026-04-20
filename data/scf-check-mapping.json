@@ -256,7 +256,9 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.AAD.6.1v1",
-      "remediation": "Run: Update-MgDomain -DomainId {domain} -PasswordValidityPeriodInDays 2147483647. M365 admin center > Settings > Password expiration policy."
+      "remediation": "Run: Update-MgDomain -DomainId {domain} -PasswordValidityPeriodInDays 2147483647. M365 admin center > Settings > Password expiration policy.",
+      "rationale": "Password expiration policies coerce users into choosing weak incremental passwords ('Password1!' → 'Password2!') without improving security. Modern guidance (NIST 800-63B, Microsoft) recommends never-expiring passwords combined with breach-credential monitoring and MFA, which this check enforces.",
+      "impact": "If password expiration is enabled, users cycle through predictable password patterns, reducing credential strength without security gain. Audit reports flag this as non-conformant with current NIST and CIS guidance."
     },
     {
       "checkId": "SPO-SESSION-001",
@@ -301,7 +303,9 @@
         "E3-L2",
         "E5-L2"
       ],
-      "remediation": "Exchange admin center > Organization > Sharing > Default sharing policy. Remove wildcard (*) domains or restrict to CalendarSharingFreeBusySimple."
+      "remediation": "Exchange admin center > Organization > Sharing > Default sharing policy. Remove wildcard (*) domains or restrict to CalendarSharingFreeBusySimple.",
+      "rationale": "External calendar sharing exposes meeting subjects, attendee lists, and availability patterns to recipients outside the organization. While useful for scheduling with partners, unrestricted sharing violates data minimization principles and may expose sensitive meeting metadata.",
+      "impact": "External recipients can view calendar details (meeting titles, attendees, locations) for shared calendars, potentially revealing confidential business activities, personnel movements, or strategic scheduling patterns."
     },
     {
       "checkId": "ENTRA-ORGSETTING-001",
@@ -342,7 +346,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "M365 admin center > Settings > Org settings > Microsoft Forms > ensure internal phishing protection is enabled."
+      "remediation": "M365 admin center > Settings > Org settings > Microsoft Forms > ensure internal phishing protection is enabled.",
+      "rationale": "Microsoft Forms can be used to collect credentials and sensitive information via phishing. Enabling internal phishing protection causes Forms to detect suspicious patterns and warn users before submitting data, reducing the risk of internal phishing campaigns.",
+      "impact": "Without Forms phishing protection, internal phishing forms can successfully collect credentials or sensitive data from employees without automatic detection. Incidents typically surface only after post-incident investigation."
     },
     {
       "checkId": "EXO-LOCKBOX-001",
@@ -363,7 +369,9 @@
       "cisM365Profiles": [
         "E5-L2"
       ],
-      "remediation": "M365 admin center > Settings > Org settings > Security & privacy > Customer Lockbox > Require approval. Requires E5 or equivalent."
+      "remediation": "M365 admin center > Settings > Org settings > Security & privacy > Customer Lockbox > Require approval. Requires E5 or equivalent.",
+      "rationale": "Customer Lockbox requires explicit organizational approval before Microsoft support engineers can access tenant data during support incidents. Without it, Microsoft support can access mailboxes and data under Microsoft's internal approval process, which may not satisfy regulatory requirements for customer-controlled data access.",
+      "impact": "Without Customer Lockbox, Microsoft support personnel can access organizational data under Microsoft's internal approval workflow without tenant administrator notification or approval. This may not satisfy regulatory requirements for data access control in HIPAA, FedRAMP, or similar frameworks."
     },
     {
       "checkId": "ENTRA-ORGSETTING-003",
@@ -433,7 +441,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "M365 admin center > Settings > Org settings > Bookings > restrict shared booking pages to selected staff members."
+      "remediation": "M365 admin center > Settings > Org settings > Bookings > restrict shared booking pages to selected staff members.",
+      "rationale": "Shared Bookings pages expose available time slots and meeting links publicly. Restricting these to selected users prevents external actors from probing organizational calendars for social engineering opportunities or meeting hijacking attempts.",
+      "impact": "Unrestricted shared Bookings pages expose scheduling availability and meeting patterns externally, which can be used for reconnaissance to time social engineering attempts or identify high-value targets."
     },
     {
       "checkId": "DEFENDER-SAFELINKS-001",
@@ -686,7 +696,9 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.EXO.4.1v1",
-      "remediation": "Connect to Exchange Online and verify accepted domains."
+      "remediation": "Connect to Exchange Online and verify accepted domains.",
+      "rationale": "DKIM signs outbound messages with a domain-specific cryptographic key, allowing receiving servers to verify that mail was not tampered with in transit and genuinely originated from the domain. Without DKIM, spoofed messages claiming to be from the domain will pass unauthenticated and may deceive recipients.",
+      "impact": "Without DKIM, outbound mail from Exchange Online domains lacks cryptographic authentication. Receiving servers cannot distinguish legitimate mail from spoofed messages claiming the same domain, weakening DMARC enforcement and reducing deliverability scores. Phishing messages impersonating the domain are harder for recipients to detect."
     },
     {
       "checkId": "DNS-DMARC-001",
@@ -1397,7 +1409,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateTenants = $false}. Entra admin center > Users > User settings."
+      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateTenants = $false}. Entra admin center > Users > User settings.",
+      "rationale": "Allowing non-admin users to create new Entra tenants enables them to establish separate identity environments outside organizational governance. Rogue tenants can be used to exfiltrate data or establish shadow IT identity providers.",
+      "impact": "Users with tenant creation rights can create unmanaged Entra tenants, potentially using organizational accounts to establish environments outside IT governance and security policy enforcement."
     },
     {
       "checkId": "ENTRA-ADMIN-002",
@@ -1419,7 +1433,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Entra admin center > Identity > Users > User settings > Administration center > set \"Restrict access to Microsoft Entra admin center\" to Yes."
+      "remediation": "Entra admin center > Identity > Users > User settings > Administration center > set \"Restrict access to Microsoft Entra admin center\" to Yes.",
+      "rationale": "Exposing the Entra admin center to all users increases the attack surface for social engineering and information disclosure. Restricting access to administrators limits the blast radius of a compromised non-admin account attempting to enumerate directory configuration.",
+      "impact": "Non-admin users can view and explore Entra admin center settings, which may reveal organizational structure, policy configuration, and identity details useful for reconnaissance. No direct privilege escalation, but audit scope is broadened."
     },
     {
       "checkId": "ENTRA-SESSION-001",
@@ -1459,7 +1475,9 @@
         "E3-L2",
         "E5-L2"
       ],
-      "remediation": "Entra admin center > Users > User settings > LinkedIn account connections > No. Prevents data leakage between LinkedIn and organizational directory."
+      "remediation": "Entra admin center > Users > User settings > LinkedIn account connections > No. Prevents data leakage between LinkedIn and organizational directory.",
+      "rationale": "LinkedIn account connections share Entra profile data with LinkedIn, a third-party platform outside organizational control. Disabling this prevents accidental data residency violations and reduces the profile data available to social engineering actors.",
+      "impact": "User profile attributes (name, job title, photo) may be shared with LinkedIn without user awareness, representing a minor data governance exposure and potential violation of data residency policies in regulated environments."
     },
     {
       "checkId": "ENTRA-GROUP-002",
@@ -1483,7 +1501,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Entra admin center > Groups > New group > Membership type = Dynamic User > Rule: (user.userType -eq \"Guest\"). This enables targeted policies for guest users."
+      "remediation": "Entra admin center > Groups > New group > Membership type = Dynamic User > Rule: (user.userType -eq \"Guest\"). This enables targeted policies for guest users.",
+      "rationale": "A dynamic group for guest users enables automated lifecycle management — guests added to the tenant are automatically included in the group, enabling consistent policy application (Conditional Access, access reviews) without manual membership maintenance.",
+      "impact": "Without a guest dynamic group, guest users are not automatically included in access review cycles or guest-specific Conditional Access policies, creating governance gaps for external identities."
     },
     {
       "checkId": "ENTRA-GROUP-001",
@@ -1504,7 +1524,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateSecurityGroups = $false}. Entra admin center > Groups > General."
+      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateSecurityGroups = $false}. Entra admin center > Groups > General.",
+      "rationale": "Allowing users to create security groups without oversight creates unmanaged group sprawl that bypasses access governance processes. Centralizing group creation ensures that all groups are created with an owner, naming convention, and expiration policy.",
+      "impact": "Uncontrolled security group creation leads to ungoverned access grants, orphaned groups, and gaps in access reviews. Audit findings cite unmanaged groups as a control gap in identity governance."
     },
     {
       "checkId": "ENTRA-DEVICE-001",
@@ -1667,7 +1689,9 @@
         "E5-L2"
       ],
       "cisaScubaControlId": "MS.AAD.5.1v1",
-      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{PermissionGrantPoliciesAssigned = @()}. Entra admin center > Enterprise applications > Consent and permissions."
+      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{PermissionGrantPoliciesAssigned = @()}. Entra admin center > Enterprise applications > Consent and permissions.",
+      "rationale": "Allowing users to consent to third-party apps accessing company data bypasses the app registration and security review process. Malicious or over-permissioned apps can obtain OAuth tokens granting broad data access that persists even after the user session ends.",
+      "impact": "Users may inadvertently grant third-party apps access to mail, calendar, files, or contacts. While not an immediate credential compromise, this creates persistent data access grants that are difficult to audit and revoke at scale."
     },
     {
       "checkId": "ENTRA-CONSENT-002",
@@ -1688,7 +1712,9 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.AAD.5.2v1",
-      "remediation": "Run: Update-MgPolicyAdminConsentRequestPolicy -IsEnabled $true. Entra admin center > Enterprise applications > Admin consent requests."
+      "remediation": "Run: Update-MgPolicyAdminConsentRequestPolicy -IsEnabled $true. Entra admin center > Enterprise applications > Admin consent requests.",
+      "rationale": "The admin consent workflow gives administrators visibility and control over third-party app permission requests before they are granted. Without it, users either self-consent (if allowed) or are silently blocked from apps they legitimately need, creating shadow IT pressure.",
+      "impact": "When admin consent workflow is disabled, administrators have no structured review process for third-party app permission requests, reducing visibility into what data access is being requested across the tenant."
     },
     {
       "checkId": "ENTRA-GUEST-004",
@@ -1734,7 +1760,9 @@
       ],
       "cisaScubaControlId": "MS.AAD.8.1v1",
       "stigControlId": "V-260342",
-      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -GuestUserRoleId ''2af84b1e-32c8-42b7-82bc-daa82404023b''. Entra admin center > External Identities > External collaboration settings."
+      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -GuestUserRoleId ''2af84b1e-32c8-42b7-82bc-daa82404023b''. Entra admin center > External Identities > External collaboration settings.",
+      "rationale": "Restricting guest user access to their own objects prevents guests from enumerating directory users, groups, and other resources. Guests should be able to collaborate on shared resources but not act as directory readers for the entire tenant.",
+      "impact": "With unrestricted guest access, external users can enumerate the full directory, discovering internal user accounts, group memberships, and organizational structure — information valuable for spear-phishing and social engineering."
     },
     {
       "checkId": "ENTRA-GUEST-002",
@@ -1753,7 +1781,9 @@
         "E5-L2"
       ],
       "cisaScubaControlId": "MS.AAD.8.3v1",
-      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -AllowInvitesFrom ''adminsAndGuestInviters''. Entra admin center > External Identities > External collaboration settings."
+      "remediation": "Run: Update-MgPolicyAuthorizationPolicy -AllowInvitesFrom ''adminsAndGuestInviters''. Entra admin center > External Identities > External collaboration settings.",
+      "rationale": "Limiting who can invite guest users to the Guest Inviter role or above prevents non-admin users from independently adding external identities to the tenant. Uncontrolled guest invitations circumvent third-party vendor approval and onboarding processes.",
+      "impact": "Unrestricted guest invitations allow any user to add external identities to the tenant, bypassing identity governance controls and potentially introducing unapproved third-party access without IT awareness."
     },
     {
       "checkId": "ENTRA-HYBRID-001",
@@ -2239,7 +2269,9 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.AAD.3.5v2",
-      "remediation": "Entra admin center > Protection > Authentication methods > Microsoft Authenticator > Configure > Require number matching = Enabled, Show application name = Enabled."
+      "remediation": "Entra admin center > Protection > Authentication methods > Microsoft Authenticator > Configure > Require number matching = Enabled, Show application name = Enabled.",
+      "rationale": "Microsoft Authenticator number matching and additional context prevents MFA fatigue attacks, where attackers repeatedly send MFA push notifications hoping the user approves out of frustration. These controls require users to actively confirm the sign-in context before approving.",
+      "impact": "Without number matching and additional context, Authenticator push notifications can be approved by fatigued users without verifying the sign-in details, enabling MFA fatigue attacks to bypass phishing-resistant MFA controls."
     },
     {
       "checkId": "ENTRA-PASSWORD-002",
@@ -2677,7 +2709,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Run: Set-OrganizationConfig -AuditDisabled $false. Note: this is the Exchange org-level audit flag and is a pre-condition for UAL, but does not guarantee UAL ingestion is active. Verify UAL separately (COMPLIANCE-AUDIT-001)."
+      "remediation": "Run: Set-OrganizationConfig -AuditDisabled $false. Note: this is the Exchange org-level audit flag and is a pre-condition for UAL, but does not guarantee UAL ingestion is active. Verify UAL separately (COMPLIANCE-AUDIT-001).",
+      "rationale": "Mailbox audit logging is foundational for incident response in Exchange Online. Disabling audit at the organization level creates gaps in the forensic record that cannot be reconstructed after an incident, leaving investigations without evidence of data access or exfiltration.",
+      "impact": "When audit is disabled, mail access and forwarding activity is not logged. After a suspected breach or insider threat incident, forensic analysis cannot determine what mail was accessed, when, or by whom — significantly hampering incident response."
     },
     {
       "checkId": "EXO-AUDIT-003",
@@ -2717,7 +2751,9 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.EXO.13.1v1",
-      "remediation": "Run: Set-MailboxAuditBypassAssociation -Identity <user> -AuditBypassEnabled $false for each bypassed mailbox."
+      "remediation": "Run: Set-MailboxAuditBypassAssociation -Identity <user> -AuditBypassEnabled $false for each bypassed mailbox.",
+      "rationale": "Audit bypass allows specific mailboxes to take actions without generating audit log entries. This capability was designed for service accounts during high-volume mail processing but can be abused to hide malicious mail access, data exfiltration, or lateral movement activity.",
+      "impact": "Mailboxes with audit bypass enabled can read, move, delete, or forward mail without those actions appearing in audit logs. A compromised service account or admin using audit bypass can exfiltrate mail undetected by SIEM and insider threat monitoring."
     },
     {
       "checkId": "INTUNE-ENCRYPTION-001",
@@ -2831,7 +2867,9 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.EXO.7.1v1",
-      "remediation": "Run: Set-ExternalInOutlook -Enabled $true. Tags external emails with a visual indicator in Outlook."
+      "remediation": "Run: Set-ExternalInOutlook -Enabled $true. Tags external emails with a visual indicator in Outlook.",
+      "rationale": "External sender identification adds a visual tag to emails arriving from outside the organization, helping users recognize phishing and social engineering attempts that impersonate internal senders. It is a user awareness control that compensates for the inherent trustworthiness bias users place on familiar sender names.",
+      "impact": "Without external sender tags, users cannot immediately distinguish internal from external email by appearance alone, increasing susceptibility to display-name spoofing attacks and executive impersonation phishing."
     },
     {
       "checkId": "INTUNE-ENROLLMENT-001",
@@ -2932,7 +2970,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Run: Set-OrganizationConfig -MailTipsAllTipsEnabled $true"
+      "remediation": "Run: Set-OrganizationConfig -MailTipsAllTipsEnabled $true",
+      "rationale": "MailTips provide real-time contextual warnings when composing email — notifying users before sending to external recipients, large distribution lists, or restricted mailboxes. These prompts prevent accidental data disclosure that occurs when users misdirect sensitive information.",
+      "impact": "Without MailTips, users receive no warning before sending email to external addresses or large groups. Misdirected email containing sensitive information is a leading cause of data loss incidents that could be prevented by a simple pre-send prompt."
     },
     {
       "checkId": "EXO-OWA-001",
@@ -3497,7 +3537,9 @@
         "E3-L1",
         "E5-L1"
       ],
-      "remediation": "Run: Set-CsTeamsClientConfiguration -AllowEmailIntoChannel $false. Teams admin center > Teams settings > Email integration > Users can send emails to a channel email address > Off."
+      "remediation": "Run: Set-CsTeamsClientConfiguration -AllowEmailIntoChannel $false. Teams admin center > Teams settings > Email integration > Users can send emails to a channel email address > Off.",
+      "rationale": "Channel email addresses allow external parties to post messages to Teams channels by sending email to a generated address. This bypasses normal message review and creates an inbound channel that is difficult to monitor for malicious attachments or phishing content.",
+      "impact": "If users can send email to channel addresses, external senders (including attackers who discover or guess channel email addresses) can post arbitrary content — including malicious links and attachments — directly into Teams channels without authentication."
     },
     {
       "checkId": "PBI-TENANT-002",
@@ -4117,7 +4159,9 @@
         "E3-L2",
         "E5-L2"
       ],
-      "remediation": "Power BI Admin Portal > Tenant settings > R and Python visuals > Interact with and share R and Python visuals > Disabled"
+      "remediation": "Power BI Admin Portal > Tenant settings > R and Python visuals > Interact with and share R and Python visuals > Disabled",
+      "rationale": "R and Python visuals in Power BI execute scripts that run with the permissions of the user's browser session. Allowing interaction with these visuals in shared reports means that embedded scripts run in viewers' contexts, creating a script injection risk similar to cross-site scripting.",
+      "impact": "Interactive R and Python visuals can execute scripts in the context of the viewing user's session when clicked or interacted with. A malicious or compromised report embedding harmful scripts could be used to exfiltrate session tokens or manipulate data in Power BI."
     },
     {
       "checkId": "POWERBI-INFOPROT-001",
@@ -4531,7 +4575,9 @@
       "impactSeverity": "Low",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisaScubaControlId": "MS.INTUNE.1.2v1",
-      "remediation": "Assign scope tags to all Intune RBAC role assignments. Intune > Tenant administration > Roles > select role > Assignments > add scope tags to limit administrator visibility to assigned devices and users only."
+      "remediation": "Assign scope tags to all Intune RBAC role assignments. Intune > Tenant administration > Roles > select role > Assignments > add scope tags to limit administrator visibility to assigned devices and users only.",
+      "rationale": "RBAC roles without scope tags grant permissions across all managed devices and policies, violating the principle of least privilege. Scope tags constrain administrator access to specific device groups, geographic regions, or organizational units — limiting the blast radius of a compromised admin account.",
+      "impact": "Administrators with unscoped RBAC roles have access to all devices, policies, and configurations in the Intune tenant. A compromised or rogue administrator can modify compliance policies, push malicious configurations, or wipe devices across the entire fleet without boundary."
     },
     {
       "checkId": "FORMS-CONFIG-005",
@@ -4566,7 +4612,9 @@
       ],
       "impactSeverity": "Low",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
-      "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"Bing search and YouTube video\"."
+      "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"Bing search and YouTube video\".",
+      "rationale": "Bing image and video search in Forms queries external content via Bing during form creation. Disabling this prevents form creators from inadvertently embedding content from untrusted external sources and eliminates a minor external data dependency during form authoring.",
+      "impact": "With Bing image search enabled in Forms, form creators can embed external images that are hosted on Bing's CDN or third-party sites. These images may change or be replaced with inappropriate content after the form is published, or the external request may expose the organization's tenant ID to Bing's logging."
     },
     {
       "checkId": "INTUNE-MAA-001",
@@ -4937,7 +4985,9 @@
       ],
       "impactSeverity": "Low",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "remediation": "SharePoint admin center > Settings > Sync > disable Mac sync app if not required by organizational policy."
+      "remediation": "SharePoint admin center > Settings > Sync > disable Mac sync app if not required by organizational policy.",
+      "rationale": "The OneDrive sync client for Mac uses a different sync engine than the Windows client and may not enforce all conditional access and DLP policies applied to Windows sync. Restricting Mac sync reduces policy enforcement gaps until the Mac client reaches feature parity for the organization's required controls.",
+      "impact": "If Mac sync is unrestricted, Mac users may synchronize SharePoint data to local disk without the same DLP and conditional access enforcement applied to Windows clients. Data synchronized locally persists even after the user account is disabled or the device is lost."
     },
     {
       "checkId": "SPO-LOOP-001",
@@ -4953,7 +5003,9 @@
       ],
       "impactSeverity": "Low",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "remediation": "Review Loop components usage policy. Disable via SharePoint admin center > Settings if not required by organizational policy."
+      "remediation": "Review Loop components usage policy. Disable via SharePoint admin center > Settings if not required by organizational policy.",
+      "rationale": "Microsoft Loop components are collaborative, real-time objects that can be embedded in Teams, Outlook, and other surfaces. They are stored in SharePoint and share content across applications — their sharing and permission model may not align with existing SharePoint governance policies, requiring explicit organizational review before enablement.",
+      "impact": "Loop components shared across applications inherit the permissions of their storage location but can be linked and accessed from multiple surfaces. Misconfigured Loop components could expose collaborative content to broader audiences than intended by the original SharePoint permission settings."
     },
     {
       "checkId": "SPO-LOOP-002",
@@ -5001,7 +5053,9 @@
       ],
       "impactSeverity": "Informational",
       "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
-      "remediation": "Informational — confirms Teams service connectivity."
+      "remediation": "Informational — confirms Teams service connectivity.",
+      "rationale": "Verifying that the Teams workload is active confirms that Teams is provisioned and in use, which is a prerequisite for all Teams-specific security controls. An inactive workload means Teams checks are being evaluated against a non-deployed service, producing misleading compliance results.",
+      "impact": "If Teams is not active but Teams checks are evaluated, the results reflect default or unconfigured settings rather than a live deployment. Compliance scores may appear better than they are because controls cannot be misconfigured on a service that is not provisioned."
     },
     {
       "checkId": "CA-RISKPOLICY-001",
@@ -5777,7 +5831,9 @@
       "cisM365Profiles": [],
       "cisaScubaControlId": "",
       "stigControlId": "",
-      "remediation": "Remove expired credentials. Expired secrets/certs are attack surface -- they indicate poor credential lifecycle management. Entra admin center > App registrations > Certificates & secrets."
+      "remediation": "Remove expired credentials. Expired secrets/certs are attack surface -- they indicate poor credential lifecycle management. Entra admin center > App registrations > Certificates & secrets.",
+      "rationale": "Applications with expired credentials remain registered in the tenant but may still be trusted by services that have not rotated their token cache. Expired credential remnants also indicate that application lifecycle management processes are not operating correctly.",
+      "impact": "Applications with expired secrets or certificates remain in the directory as potential attack surface. If an attacker compromises the expired credential through other means, some services may still honor it. More commonly, this is an audit finding indicating poor application lifecycle hygiene."
     },
     {
       "checkId": "ENTRA-ENTAPP-014",
@@ -6039,7 +6095,9 @@
       "cisM365Profiles": [],
       "cisaScubaControlId": "",
       "stigControlId": "",
-      "remediation": "Investigate hidden user mailboxes. Mailboxes hidden from the Global Address List may indicate a compromised account. Review: Get-Mailbox -Filter \"HiddenFromAddressListsEnabled -eq $true -and RecipientTypeDetails -eq UserMailbox\""
+      "remediation": "Investigate hidden user mailboxes. Mailboxes hidden from the Global Address List may indicate a compromised account. Review: Get-Mailbox -Filter \"HiddenFromAddressListsEnabled -eq $true -and RecipientTypeDetails -eq UserMailbox\"",
+      "rationale": "Mailboxes hidden from the Global Address List (GAL) cannot be found through normal directory lookup, which may indicate misconfiguration, legacy service accounts with active mailboxes, or deliberate concealment. All active mailboxes should be visible and accounted for in the directory.",
+      "impact": "Hidden mailboxes are not visible in the GAL, potentially obscuring active mail-enabled accounts from directory audits and access reviews. Hidden service account mailboxes with active access represent an unreviewed identity that may hold permissions not visible in standard reports."
     },
     {
       "checkId": "SPO-SITE-001",
@@ -6114,7 +6172,9 @@
       "cisM365Profiles": [],
       "cisaScubaControlId": "",
       "stigControlId": "",
-      "remediation": "Run: Get-SPOSite | ForEach-Object { Get-SPOSiteAdministrator -Site $_.Url } to enumerate site administrators."
+      "remediation": "Run: Get-SPOSite | ForEach-Object { Get-SPOSiteAdministrator -Site $_.Url } to enumerate site administrators.",
+      "rationale": "Visibility into site collection administrators ensures that all SharePoint sites have accountable owners and that administrator access is not silently accumulating. Sites with hidden or unknown administrators cannot be included in access reviews, creating governance blind spots.",
+      "impact": "Without visibility into site collection administrators, access reviews cannot confirm that all administrator assignments are current and authorized. Orphaned administrator accounts on SharePoint sites represent ungoverned elevated access that may persist after personnel changes."
     },
     {
       "checkId": "SPO-ACCESS-001",
@@ -6764,6 +6824,24 @@
       "remediation": "Configure Always On VPN for remote devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > Always On: Enable, Auto-trigger: Enable. Select VPN connection type and deploy to remote worker device groups.",
       "rationale": "Always-On VPN ensures that all device traffic — including DNS and web traffic — routes through corporate security controls regardless of where the device is located. Without it, remote devices operate without corporate network security controls during off-VPN periods.",
       "impact": "Remote devices that are not connected to VPN bypass corporate DNS filtering, web proxies, and network security monitoring. Malware on off-VPN devices communicates over direct internet connections undetected."
+    },
+    {
+      "checkId": "ENTRA-DISABLED-001",
+      "name": "Disabled Member Account Count",
+      "category": "DIRECTORY",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-15.3",
+      "scfAdditional": [
+        "IAC-15",
+        "IAC-15.7"
+      ],
+      "impactSeverity": "Informational",
+      "impactRationale": "This check surfaces the count of disabled member accounts alongside total directory size. Disabled accounts that accumulate without removal represent unreviewed identities that complicate access certifications and directory hygiene audits.",
+      "rationale": "Disabled member accounts that remain in the directory without eventual removal create unnecessary noise in access reviews, identity governance reports, and license audits. Monitoring their count enables administrators to track account lifecycle hygiene and identify periods of abnormal growth that may indicate offboarding process failures.",
+      "impact": "Large numbers of disabled accounts that are never removed indicate a broken offboarding process. While disabled accounts cannot authenticate, they still appear in access reviews, consume directory quota in some configurations, and can be re-enabled by an administrator — making residual disabled accounts a latent identity risk.",
+      "remediation": "Review disabled accounts periodically and remove those not required for legal hold or audit purposes. In the Microsoft 365 admin center: Active users > Filter > Deleted users. For bulk removal, use: Get-MgUser -Filter 'accountEnabled eq false and userType eq Member' | Remove-MgUser"
     }
   ]
 }
