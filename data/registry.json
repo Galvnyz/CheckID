@@ -68000,7 +68000,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.EXO.2.1v2;MS.EXO.2.2v1"
+          "controlId": "MS.EXO.2.1v2;MS.EXO.2.2v3"
         }
       },
       "impactRating": {
@@ -76408,9 +76408,6 @@
             "E5-L1"
           ]
         },
-        "cisa-scuba": {
-          "controlId": "MS.EXO.16.1v1"
-        },
         "nist-csf": {
           "controlId": "DE.AE-03",
           "title": "Information is correlated from multiple sources"
@@ -76594,9 +76591,6 @@
             "E3-L1",
             "E5-L1"
           ]
-        },
-        "cisa-scuba": {
-          "controlId": "MS.EXO.16.1v1"
         },
         "nist-csf": {
           "controlId": "DE.AE-03",

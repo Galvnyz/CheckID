@@ -597,7 +597,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.2.1v2;MS.EXO.2.2v1",
+      "cisaScubaControlId": "MS.EXO.2.1v2;MS.EXO.2.2v3",
       "remediation": "Connect to Exchange Online and verify accepted domains."
     },
     {
@@ -802,7 +802,6 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.16.1v1",
       "remediation": "Run: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true. Microsoft Purview > Audit > Start recording user and admin activity."
     },
     {
@@ -1667,7 +1666,7 @@
         "MON-16"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to expedite the process of removing \"high risk\" individual\u2019s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
+      "impactRationale": "Failure to expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
       "cisM365ControlId": "5.2.2.6",
       "cisM365Profiles": [
         "E5-L1"
@@ -1689,7 +1688,7 @@
         "MON-16"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to expedite the process of removing \"high risk\" individual\u2019s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
+      "impactRationale": "Failure to expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
       "cisM365ControlId": "5.2.2.7",
       "cisM365Profiles": [
         "E5-L1"
@@ -1711,7 +1710,7 @@
         "MON-16"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to expedite the process of removing \"high risk\" individual\u2019s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
+      "impactRationale": "Failure to expedite the process of removing \"high risk\" individual’s access to Technology Assets, Applications, Services and/or Data (TAASD) upon termination, as determined by management exposes the tenant to: Improper assignment of privileged functions, Unauthorized access.",
       "cisM365ControlId": "5.2.2.8",
       "cisM365Profiles": [
         "E5-L2"
@@ -2176,7 +2175,6 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.16.1v1",
       "remediation": "Run: Set-OrganizationConfig -AuditDisabled $false. Note: this is the Exchange org-level audit flag and is a pre-condition for UAL, but does not guarantee UAL ingestion is active. Verify UAL separately (COMPLIANCE-AUDIT-001)."
     },
     {
@@ -3984,7 +3982,7 @@
       ],
       "impactSeverity": "",
       "impactRationale": "Failure to revoke user access rights in a timely manner, upon termination of employment or contract exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "remediation": "Informational \u2014 review and remove stale guest accounts periodically. Entra admin center > Users > Guest users."
+      "remediation": "Informational — review and remove stale guest accounts periodically. Entra admin center > Users > Guest users."
     },
     {
       "checkId": "ENTRA-CA-002",
@@ -4000,7 +3998,7 @@
       ],
       "impactSeverity": "",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "remediation": "Informational \u2014 review Conditional Access policy coverage for your organization."
+      "remediation": "Informational — review Conditional Access policy coverage for your organization."
     },
     {
       "checkId": "ENTRA-CA-003",
@@ -4120,7 +4118,7 @@
       ],
       "impactSeverity": "",
       "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
-      "remediation": "Informational \u2014 confirms Teams service connectivity."
+      "remediation": "Informational — confirms Teams service connectivity."
     },
     {
       "checkId": "CA-RISKPOLICY-001",
