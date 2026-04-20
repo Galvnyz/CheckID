@@ -305,6 +305,8 @@
         "disruptionRisk": false
       },
       "remediation": "Access Microsoft Secure Score at security.microsoft.com/securescore. Review and act on improvement recommendations regularly.",
+      "impact": "New misconfigurations and emerging threats go undetected between scheduled security reviews. The attack surface grows silently as the environment evolves.",
+      "rationale": "Continuous security monitoring surfaces new threats, misconfigurations, and policy gaps as they emerge. Without active monitoring, the security posture degrades gradually as the environment changes and new threats emerge that existing policies don't cover.",
       "tags": [
         "compliance",
         "defender",
@@ -538,6 +540,8 @@
         "disruptionRisk": false
       },
       "remediation": "Review and act on improvement actions. Microsoft Secure Score > security.microsoft.com/securescore > Improvement actions > sort by Score impact. Assign owners to high-impact actions and track progress.",
+      "impact": "Security gaps identified by Secure Score remain unremediated. The organization's exposure to preventable attacks increases as improvement actions are not actioned.",
+      "rationale": "Microsoft Secure Score measures the organization's security posture against a set of recommended controls. Without actively tracking and improving it, remediation of security gaps is not systematically prioritized.",
       "tags": [
         "compliance",
         "defender",
@@ -1781,6 +1785,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Enable B2B integration in SharePoint admin center > Policies > Sharing > More external sharing settings > Enable integration with Azure AD B2B.",
+      "impact": "External users accessing SharePoint content via email verification codes bypass Entra ID authentication, MFA requirements, and Conditional Access policies that would otherwise apply.",
+      "rationale": "SharePoint and OneDrive integration with Azure AD B2B ensures that external users are authenticated via Entra ID before accessing shared content. Without B2B integration, external sharing may rely on email-based verification links with weaker identity assurance.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -4122,6 +4128,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target Microsoft Intune enrollment app > Session > Sign-in frequency = Every time. Entra admin center > Protection > Conditional Access.",
+      "impact": "A compromised session token can be used to enroll an attacker-controlled device into Intune, giving it access to corporate resources as a 'managed' device.",
+      "rationale": "The Intune enrollment process registers a device and downloads management profiles. Without a sign-in frequency limit during enrollment, an attacker with a valid session can enroll an unmanaged device into the tenant's MDM without re-authenticating.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -4516,6 +4524,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Settings > System-preferred multifactor authentication > Enabled.",
+      "impact": "Users with both strong (FIDO2) and weak (SMS) MFA methods registered will default to their preferred method, which may be SMS. System-preferred MFA eliminates this choice and enforces the strongest available method.",
+      "rationale": "System-preferred MFA steers users toward the strongest registered MFA method automatically. Without it, users may default to weaker methods (SMS, voice) even when they have a stronger method registered, reducing the effective security of MFA enforcement.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -5466,6 +5476,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Informational — review and remove stale guest accounts periodically. Entra admin center > Users > Guest users.",
+      "impact": "Stale or excess guest accounts represent unmonitored access to tenant resources. A compromised partner account used as a guest retains access until explicitly removed.",
+      "rationale": "A high number of guest users expands the attack surface of the tenant. Guest accounts that are no longer needed retain their access indefinitely without regular review. Compromised guest accounts from partner organizations can be used to access tenant resources.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -6115,6 +6127,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings with CustomBannedPasswordsEnforced = true. Entra admin center > Protection > Password protection.",
+      "impact": "Targeted spray attacks against an organization typically try variations of the company name and products first. Without custom banned password lists, these predictable passwords are allowed and are efficiently discovered.",
+      "rationale": "Custom banned password lists prevent users from choosing passwords related to the organization (company name, product names, office locations) that are predictable targets in targeted spray attacks.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -6329,6 +6343,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Not applicable for cloud-only tenants. If you configure hybrid identity in the future, enable on-premises password protection.",
+      "impact": "Weak passwords set in on-premises AD sync to Entra ID and are used for cloud authentication. Password spray attacks against the on-premises environment yield credentials that work in the cloud.",
+      "rationale": "Password protection for on-premises Active Directory blocks weak and banned passwords at the on-premises level, preventing compromised passwords from syncing to Entra ID or being used in hybrid authentication flows.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -6542,6 +6558,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Registration campaign > Enable and target All Users.",
+      "impact": "Users locked out of accounts must contact the helpdesk, creating delays during time-sensitive situations and increasing helpdesk workload. This does not represent a direct security risk but affects operational resilience.",
+      "rationale": "Self-service password reset for all users reduces helpdesk load and ensures users can recover accounts quickly. Without SSPR, users locked out of accounts must wait for helpdesk assistance, which can disrupt productivity and delay emergency access scenarios.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -8450,6 +8468,8 @@
         "disruptionRisk": false
       },
       "remediation": "Migrate app credentials from client secrets to certificates or managed identities. Secrets are extractable from memory and logs. Entra admin center > App registrations > Certificates & secrets.",
+      "impact": "Client secrets stored in code repositories, configuration files, or environment variables are frequently leaked. A leaked secret provides persistent app-level API access until the secret is rotated.",
+      "rationale": "Client secrets are static strings that do not expire by default and can be copied and shared. Certificate credentials are cryptographically bound to a private key that cannot be extracted without the key material, providing stronger assurance against credential theft.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -8769,6 +8789,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings to add organization-specific terms. Entra admin center > Protection > Password protection.",
+      "impact": "Predictable organization-specific passwords are allowed because they are not on the banned list. Targeted spray attacks that use company-relevant terms succeed at higher rates.",
+      "rationale": "A custom banned password list with few entries provides minimal protection against targeted password attacks. Attackers who know the organization will try organization-specific terms not covered by the global list.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -9107,6 +9129,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -EmailAttestationRequired $true -EmailAttestationReAuthDays 30. SharePoint admin center > Policies > Sharing > Verification code reauthentication.",
+      "impact": "A sharing link with a one-time verification code provides indefinite access after the initial code entry. The link can be forwarded to unintended parties who use it without re-verification.",
+      "rationale": "Verification code reauthentication ensures that external users periodically re-verify their email address. Without periodic reauthentication, a verification code link captured or forwarded to a third party provides indefinite access.",
       "tags": [
         "collaboration",
         "data",
@@ -9267,6 +9291,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Persistent browser sessions on unmanaged devices increase the risk of session hijacking. Require device compliance or remove persistent browser grants. Entra admin center > Protection > Conditional Access.",
+      "impact": "An attacker who gains physical or remote access to a browser with a persistent session on an unmanaged device has indefinite access to all resources available in that session.",
+      "rationale": "Persistent browser sessions on unmanaged devices allow a stolen or unattended session to provide indefinite access without re-authentication. Without device compliance as a prerequisite, any device can maintain a persistent session.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -9789,6 +9815,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Block sign-in for shared mailbox accounts: Set-AzureADUser -ObjectId <UPN> -AccountEnabled $false. Entra admin center > Users > select shared mailbox user > Properties > Account enabled > No.",
+      "impact": "Shared mailboxes with active credentials can be accessed by anyone who knows the password, including former employees who had access before the mailbox was shared. These sign-ins may not appear in per-user audit logs.",
+      "rationale": "Shared mailboxes with enabled sign-in can be used with a username and password, bypassing the multi-user visibility of shared mailbox access. If credentials are set or remain from before the mailbox was converted, they may be used to authenticate without anyone noticing.",
       "tags": [
         "email",
         "exchange-online",
@@ -11783,6 +11811,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Audit and restrict dynamic group membership rules that evaluate user-writable attributes. Entra admin center > Groups > select dynamic group > Membership rules. Replace user-writable attributes (e.g., department, jobTitle) with HR-sourced attributes or convert to assigned groups for sensitive access.",
+      "impact": "A user who knows the dynamic rule can add themselves to a sensitive group by editing their own profile attributes, gaining access to resources without going through any approval workflow.",
+      "rationale": "Dynamic group membership rules based on user-writable attributes (department, jobTitle) allow users to modify their own group membership by updating their profile attributes. This bypasses the owner-approval process for sensitive groups.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -12158,6 +12188,8 @@
         "disruptionRisk": false
       },
       "remediation": "Assign owners to orphaned app registrations. Without owners, no one is accountable for credential rotation or permission review. Entra admin center > App registrations > Owners > Add owner.",
+      "impact": "Orphaned apps have no owner to rotate credentials, review permissions, or respond to security alerts. Long-lived credentials for orphaned apps are prime candidates for credential spray and exfiltration.",
+      "rationale": "Apps with no owners are not managed by any individual accountable for their permissions and credentials. Orphaned apps accumulate permissions and credentials that are never reviewed or rotated.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -12767,6 +12799,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Identity Governance > Access reviews > New access review > Review type: Guest users only. Schedule recurring reviews.",
+      "impact": "Stale guest accounts from former partners, contractors, or projects retain indefinite access to tenant resources. Compromised guest credentials from external organizations can be used to access shared data.",
+      "rationale": "Access reviews for guest users detect guests who no longer need tenant access. Without reviews, guest accounts accumulate over time and may retain access long after the collaboration project or relationship that required it has ended.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -13690,6 +13724,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Reduce Tier-0 role activation duration to 4 hours or less. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Maximum activation duration.",
+      "impact": "An attacker who captures a session during an active Tier-0 role activation has the full activation duration to perform administrative actions. A 4+ hour window allows extensive tenant manipulation.",
+      "rationale": "Long activation durations for Tier-0 roles increase the window during which a compromised admin session can be used. A 4-hour maximum limits the impact of a stolen session to within that window.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -13868,6 +13904,8 @@
         "disruptionRisk": false
       },
       "remediation": "Review the following inactive apps and remove their credentials or disable them: Entra admin center > Enterprise applications > filter by last sign-in > remove secrets/certificates.",
+      "impact": "Credentials for inactive apps are rarely monitored. A compromised secret for an inactive app may be used without generating anomaly alerts, since there is no baseline sign-in behavior to compare against.",
+      "rationale": "Applications with credentials that have not signed in for 90+ days are either unused or unmonitored. Their credentials may still be valid but are not actively rotated or reviewed, making them a low-visibility attack surface.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -14256,6 +14294,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Require justification on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > enable 'Require justification on activation'.",
+      "impact": "Privilege activations without justification leave no audit record of why the access was needed. Unauthorized or suspicious activations are harder to identify in post-incident investigation.",
+      "rationale": "Requiring justification at role activation creates an audit trail linking privileged actions to stated business purposes. Without justification, privilege use is recorded but not attributed to a reason, making anomaly detection and post-incident review harder.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -15515,6 +15555,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > External Identities > External collaboration settings > Collaboration restrictions > Allow invitations only to the specified domains.",
+      "impact": "Users can invite external parties from any domain — including personal email addresses or unknown organizations — granting them guest access to tenant resources without a vetting process.",
+      "rationale": "Allowing collaboration invitations to domains not on an approved list opens the tenant to collaboration with any external organization, including potentially hostile ones. Allow-list enforcement ensures only vetted partner domains can receive invitations.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -15953,6 +15995,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowFederatedUsers $false (or restrict with -AllowedDomains). Teams admin center > Users > External access > Choose which external domains your users have access to > Allow only specific external domains.",
+      "impact": "Internal users can be contacted by Teams users from any external organization, including unknown and unvetted ones. Social engineering and phishing conducted via Teams channels is harder to detect than email.",
+      "rationale": "Unrestricted external Teams access allows federation with any Teams-enabled organization. Domain-based restrictions ensure that only vetted partner organizations can communicate with internal users.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -16169,6 +16213,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict or disable Power BI guest access. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled or Apply to specific security groups.",
+      "impact": "Guest users invited for a specific collaboration purpose gain access to all Power BI content they are explicitly shared on, which may include dashboards with sensitive operational or financial data.",
+      "rationale": "Guest access to Power BI allows external users added as Entra ID guests to access Power BI content. Without restrictions, the scope of guest Power BI access is not bounded by the purpose of the guest invitation.",
       "tags": [
         "data",
         "identification-authentication",
@@ -16389,6 +16435,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AutoAdmittedUsers EveryoneInCompanyExcludingGuests. Teams admin center > Meetings > Meeting policies > Global > Who can bypass the lobby > People in my org.",
+      "impact": "External participants can join meetings immediately without waiting for organizer approval. Unauthorized parties who obtain meeting links join without any vetting step.",
+      "rationale": "The meeting lobby provides a gate where organizers control when external attendees can join. Allowing anyone to bypass the lobby gives external participants immediate access to the meeting without organizer approval.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -16597,6 +16645,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Informational — review Conditional Access policy coverage for your organization.",
+      "impact": "A tenant with very few CA policies likely has large gaps in MFA enforcement, device compliance requirements, and risk-based access controls — users and scenarios not covered by any policy authenticate with passwords only.",
+      "rationale": "The count of Conditional Access policies reflects whether a CA strategy has been implemented. Very few policies typically indicate that most users and scenarios are not covered by specific authentication requirements.",
       "tags": [
         "conditional-access",
         "entra-id",
@@ -16806,6 +16856,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Get-MgIdentityConditionalAccessPolicy | Where-Object {$_.State -eq ''enabled''}. Ensure policies are set to On, not Report-only.",
+      "impact": "Authentication scenarios covered only by disabled policies have no enforced requirements. Users in those scenarios authenticate with password only, or with whatever the tenant default allows.",
+      "rationale": "Disabled CA policies provide no protection. Policies that were created but never enabled — or were disabled without replacement — leave their intended coverage gaps unaddressed.",
       "tags": [
         "conditional-access",
         "entra-id",
@@ -17681,6 +17733,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Restrict users from recovering the BitLocker key(s) for their owned devices > Yes.",
+      "impact": "A user who can retrieve BitLocker recovery keys from Entra ID can unlock any device whose key is stored there, defeating the purpose of full-disk encryption for lost or stolen devices.",
+      "rationale": "BitLocker recovery keys accessible to regular users in Entra ID can be misused to unlock encrypted drives on lost or stolen devices, bypassing the protection that BitLocker is intended to provide.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -18286,6 +18340,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DefaultLinkPermission View. SharePoint admin center > Policies > Sharing > File and folder links > Default permission > View.",
+      "impact": "If the default link type grants Edit permissions, users who share content without paying attention to the default inadvertently grant external parties the ability to modify or delete organizational documents.",
+      "rationale": "The default sharing link type determines what permission is granted when a user creates a new sharing link without explicitly choosing permissions. A View-only default prevents inadvertent Edit access grants.",
       "tags": [
         "collaboration",
         "data",
@@ -29818,6 +29874,8 @@
         "disruptionRisk": false
       },
       "remediation": "Review apps with > 10 application permissions. Remove unnecessary permissions to follow least-privilege. Entra admin center > App registrations > [app] > API permissions.",
+      "impact": "A credential compromise for an app with excessive permissions grants the attacker access to a wide range of tenant resources. Least-privilege principle violations mean the damage is far greater than it should be.",
+      "rationale": "Applications with more than 10 application-level permissions have accumulated broad access rights that almost certainly exceed what they actually need. Over-permissioned apps increase the blast radius of a credential compromise.",
       "tags": [
         "app-registration",
         "identification-authentication",
@@ -31357,6 +31415,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "The Global Administrator directory role is not activated in this tenant. Activate the role by assigning at least one user, then re-run the assessment.",
+      "impact": "Too few Global Admins creates a single point of failure for tenant management. Too many expands the attack surface; each additional Global Admin account is a potential path to full tenant compromise.",
+      "rationale": "Having too few Global Administrators risks loss of access if credentials are unavailable. Having too many increases the attack surface — each GA account is a potential full-tenant compromise. Two to four is the recommended balance for coverage without excessive exposure.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -31533,6 +31593,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Assign admin accounts minimal licenses (Entra ID P2). Do not assign E3/E5 productivity suites. M365 admin center > Users > Active users > Licenses.",
+      "impact": "A compromised admin account with an E5 license gives the attacker access to admin capabilities plus a full mailbox, Teams, and SharePoint identity — increasing both the impact and the attack vectors.",
+      "rationale": "Admin accounts with full E3/E5 licenses have access to productivity services (Exchange, Teams, SharePoint) which increase their attack surface — more services to phish, more sessions to steal. A minimal license reduces the services accessible via a compromised admin credential.",
       "tags": [
         "admin",
         "entra-id",
@@ -31908,6 +31970,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Global administrator is added as local administrator on the device during Azure AD Join > No.",
+      "impact": "A compromised Global Administrator account has local admin rights on all Entra-joined Windows devices. This enables lateral movement to any managed endpoint and credential dumping via local admin access.",
+      "rationale": "The Global Administrator role added as a local admin on all Entra-joined devices means that a compromised GA account has local administrator rights across every managed Windows device — far exceeding the access needed for cloud administration.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -32088,6 +32152,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Manage Additional local administrators on all Azure AD joined devices. Minimize additional local admins.",
+      "impact": "Users with permission to retrieve LAPS passwords can access local administrator credentials for managed devices and use them to move laterally across the device fleet without requiring domain or cloud admin credentials.",
+      "rationale": "LAPS (Local Administrator Password Solution) randomizes and manages local admin passwords on Windows devices. Without restricting who can retrieve LAPS passwords, over-privileged users can access local admin credentials for any device and use them for lateral movement.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -32264,6 +32330,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict API access to approved service principals only. Power BI Admin portal > Tenant settings > Developer settings > Allow service principals to use Power BI APIs: Apply to specific security groups. Create a group containing only approved service principals.",
+      "impact": "A compromised service principal with Power BI API access can exfiltrate all reports and datasets in the tenant without user interaction or session tokens.",
+      "rationale": "Unrestricted service principal access to Power BI APIs enables any registered app to query and manipulate Power BI content programmatically. Compromised service principal credentials provide silent, authenticated API access.",
       "tags": [
         "data",
         "identification-authentication",
@@ -32440,6 +32508,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Allow service principals to use Power BI APIs > Disabled or restricted to specific security groups",
+      "impact": "A compromised service principal with Power BI API access can export all datasets and reports silently without triggering user-session-based anomaly detection.",
+      "rationale": "Service principal access to Power BI APIs without restriction means any registered service principal can query and manage Power BI content. Compromised service principals gain silent data access.",
       "tags": [
         "conditional-access",
         "data",
@@ -32618,6 +32688,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Allow service principals to create and use profiles > Disabled",
+      "impact": "Audit logs for service principal profile access are harder to attribute to specific data access events, reducing the effectiveness of forensic investigation after a breach.",
+      "rationale": "Service principal profiles impersonate multiple user identities, complicating audit attribution and allowing access to data belonging to multiple users under a single service principal.",
       "tags": [
         "conditional-access",
         "data",
@@ -32796,6 +32868,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable or restrict service principal profiles. Power BI Admin portal > Tenant settings > Allow service principals to create and use profiles: Disabled or Apply to specific security groups.",
+      "impact": "Service principals using profiles can access Power BI content on behalf of multiple users, making it difficult to distinguish legitimate automated access from exfiltration in audit logs.",
+      "rationale": "Service principal profiles can impersonate multiple user identities within a single service principal, making it difficult to audit which user's data was accessed. Without restrictions, any approved service principal can create and use profiles.",
       "tags": [
         "data",
         "identification-authentication",
@@ -34471,6 +34545,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -PreventExternalUsersFromResharing $true. SharePoint admin center > Policies > Sharing.",
+      "impact": "An external guest can share content they received access to with additional external parties, spreading access beyond the original intent without any notification to the content owner.",
+      "rationale": "Allowing guests to re-share content they have been shared on enables viral spread of access: a guest who receives access to a document can grant the same access to additional external parties without the owner's knowledge.",
       "tags": [
         "collaboration",
         "data",
@@ -34675,6 +34751,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -SharingDomainRestrictionMode AllowList -SharingAllowedDomainList \"partner.com\". SharePoint admin center > Policies > Sharing > Limit sharing by domain.",
+      "impact": "SharePoint content can be shared with any external email domain, including personal email services and unknown organizations. Sensitive data can be shared with unvetted external parties without any domain-level restriction.",
+      "rationale": "Managing SharePoint external sharing through domain-based restrictions (allow or block lists) ensures that sharing is limited to vetted partner organizations. Without domain restrictions, sharing with any external domain is permitted by default.",
       "tags": [
         "collaboration",
         "data",
@@ -34879,6 +34957,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Verify in SharePoint Admin Center or use Get-SPOTenant. SharePoint admin center > Policies > Sharing > More external sharing settings > \"Allow only users in specific security groups to share externally\".",
+      "impact": "Any user with edit access to a SharePoint site can share content externally up to the tenant-wide limit. Sensitive data can be shared externally by any user, not just those designated for external collaboration.",
+      "rationale": "Restricting external sharing to approved security groups ensures that only designated users can share content externally. Without this restriction, any SharePoint user can share externally up to the tenant sharing limit.",
       "tags": [
         "collaboration",
         "data",
@@ -35246,6 +35326,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings with LockoutThreshold. Entra admin center > Protection > Password protection.",
+      "impact": "A high or disabled Smart Lockout threshold allows attackers to attempt many password guesses per account. Password spray attacks that stay just below the lockout threshold can test many passwords before triggering a lock.",
+      "rationale": "Smart Lockout protects against password spray attacks by locking accounts after repeated failed attempts. A threshold that is too high allows many more attempts before lockout, increasing the probability that a spray attack finds a valid password.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -35470,6 +35552,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Combining sign-in risk and user risk in one CA policy creates an AND condition -- both must be true to trigger. Microsoft recommends separate policies for each risk type. Entra admin center > Protection > Conditional Access.",
+      "impact": "A high-risk user who signs in from a normal location may not trigger the combined policy, receiving access when they should be blocked pending credential investigation.",
+      "rationale": "Combining sign-in risk and user risk conditions in a single policy creates logical conflicts: a high user-risk account with a low-risk sign-in may not trigger the policy, leaving the high-risk user unblocked depending on evaluation order.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -35658,6 +35742,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOBrowserIdleSignOut -Enabled $true -SignOutAfter ''01:00:00''. M365 admin center > Settings > Org settings > Idle session timeout.",
+      "impact": "An unattended workstation with an active SharePoint session provides full SharePoint access to anyone who sits at the machine, with no re-authentication required.",
+      "rationale": "Idle session timeout for SharePoint disconnects sessions that have been inactive, reducing the risk of unauthorized access on shared or unattended workstations. Without timeout, an authenticated SharePoint session on an unlocked machine remains active indefinitely.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -35846,6 +35932,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Hide the 'Stay signed in' option on the sign-in page. Entra admin center > Company branding > edit branding > Sign-in page settings > Show option to remain signed in: No.",
+      "impact": "A persistent session created on a shared kiosk, hotel computer, or unmanaged device remains authenticated after the user leaves, providing unauthorized access to the next person who uses the browser.",
+      "rationale": "The 'Stay signed in' prompt allows users to create persistent sessions on any device they use. On shared or unmanaged devices, persistent sessions remain accessible to anyone who uses the same browser.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -36037,6 +36125,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: Target admin roles > Session > Sign-in frequency (e.g., 4 hours) + Persistent browser session = Never. Entra admin center > Protection > Conditional Access.",
+      "impact": "A stolen session token provides persistent access to all resources the user can access with no re-authentication required. The attacker can maintain access even after the user changes their password.",
+      "rationale": "Without sign-in frequency enforcement, session tokens issued after authentication never expire unless explicitly revoked. Stolen tokens provide indefinite access that survives password changes.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -37506,6 +37596,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Configure device enrollment restrictions. Intune > Devices > Enrollment > Enrollment restrictions > Device limit restriction: set maximum devices per user. Device type restrictions: allow only approved platforms and OS versions.",
+      "impact": "Users can enroll personal devices of any type, including outdated or insecure platforms. An unlimited enrollment ceiling allows compromised accounts to register many devices.",
+      "rationale": "Device enrollment restrictions control which device types and OS versions can be enrolled and how many devices a user can register. Without restrictions, users can enroll unlimited devices of any platform, diluting the device inventory.",
       "tags": [
         "asset-management",
         "endpoint",
@@ -37867,6 +37959,8 @@
         "disruptionRisk": false
       },
       "remediation": "Ensure devices are enrolled in Intune. Configure device categories: Intune admin center > Devices > Device categories > Create category.",
+      "impact": "Devices not in the Intune inventory are never evaluated for compliance and never receive configuration profiles, security policies, or patch enforcement.",
+      "rationale": "Intune as the authoritative device inventory ensures that security posture assessments, conditional access evaluations, and compliance reporting are based on a complete and accurate device list. Gaps in the inventory mean some devices are never evaluated.",
       "tags": [
         "asset-management",
         "endpoint",
@@ -38040,6 +38134,8 @@
         "disruptionRisk": false
       },
       "remediation": "Configure Intune automatic enrollment: Entra admin center > Mobility (MDM and WIP) > Microsoft Intune > MDM user scope: All or Some. Consider configuring Windows Autopilot for zero-touch provisioning.",
+      "impact": "New devices used with corporate credentials before enrollment bypass all endpoint compliance checks. Users on unmanaged devices access corporate resources without BitLocker, AV, or patch enforcement.",
+      "rationale": "Automated device discovery and enrollment ensures that new devices are brought under management as soon as they are connected to the corporate network or sign in with corporate credentials. Without automation, new devices operate without management controls until manually enrolled.",
       "tags": [
         "asset-management",
         "endpoint",
@@ -39489,6 +39585,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: User actions > Register security information > Grant > Require compliant device. Entra admin center > Protection > Conditional Access.",
+      "impact": "An attacker with a stolen password can register a new MFA method on an unmanaged device, effectively adding a backdoor authentication method and locking out the legitimate user.",
+      "rationale": "Requiring a managed device for MFA registration prevents attackers who have only stolen credentials from registering their own MFA methods on a new device and taking over the account.",
       "tags": [
         "conditional-access",
         "data-classification-handling",
@@ -39856,6 +39954,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -ExternalUserExpirationRequired $true -ExternalUserExpireInDays 30. SharePoint admin center > Policies > Sharing > Guest access expiration.",
+      "impact": "External users retain guest access indefinitely via non-expiring links, even after the collaboration project ends. Former external collaborators maintain silent access to shared content.",
+      "rationale": "Guest access links that never expire create permanent access for external users, regardless of whether the collaboration purpose is still active. An expiry ensures access is automatically revoked after a defined period.",
       "tags": [
         "collaboration",
         "data",
@@ -40054,6 +40154,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -DesignatedPresenterRoleMode OrganizerOnlyUserOverride. Teams admin center > Meetings > Meeting policies > Global > Who can present > Only organizers.",
+      "impact": "Any meeting attendee with presenter rights can share their screen, displaying malicious or disruptive content to all meeting participants.",
+      "rationale": "Restricting presentation rights to organizers and co-organizers prevents external or internal attendees from taking over the screen to display malicious content or disrupt the meeting.",
       "tags": [
         "collaboration",
         "data-classification-handling",
@@ -40282,6 +40384,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can share and collaborate on forms\".",
+      "impact": "External collaborators can access all form responses, including PII or sensitive operational data collected by the form.",
+      "rationale": "External collaboration on Forms allows guest users to co-author form questions and view responses. Response data — potentially including sensitive survey results or PII — is accessible to external collaborators.",
       "tags": [
         "collaboration",
         "configuration",
@@ -40511,6 +40615,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can respond\".",
+      "impact": "External parties can respond to internal Forms without authentication. Forms intended for internal data collection may receive responses from unintended external parties.",
+      "rationale": "Allowing external users to respond to Forms enables data collection from outside the organization without authentication. For forms that collect sensitive information, external response capability removes all identity verification.",
       "tags": [
         "collaboration",
         "configuration",
@@ -40729,6 +40835,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can see results summary and individual responses\".",
+      "impact": "External users who receive a results-sharing link can view all form responses, including personal information submitted by internal respondents.",
+      "rationale": "Allowing external users to view form results exposes response data — potentially including PII or sensitive survey results — to individuals outside the organization.",
       "tags": [
         "collaboration",
         "configuration",
@@ -58168,6 +58276,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: Set-HostedOutboundSpamFilterPolicy -Identity <PolicyName> -AutoForwardingMode Off. Security admin center > Anti-spam > Outbound policy > Auto-forwarding rules > Off.",
+      "impact": "A compromised mailbox with no outbound limits can be used to send phishing campaigns at scale. The organization's email domain reputation is damaged, legitimate email may be blocklisted, and the compromise may go undetected for longer.",
+      "rationale": "Outbound spam limits prevent a compromised mailbox from being used to send mass phishing or spam, which damages the organization's email reputation and may result in the domain being blocklisted. Without limits, a single compromised account can send tens of thousands of messages.",
       "tags": [
         "configuration-management",
         "defender",
@@ -58391,6 +58501,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Users > Per-user MFA > Ensure all users show Disabled. Use Conditional Access policies for MFA enforcement instead of per-user MFA.",
+      "impact": "Per-user MFA and Conditional Access policies can conflict, resulting in double-MFA prompts or unexpected bypass scenarios. Users not covered by either mechanism may authenticate with password only.",
+      "rationale": "Per-user MFA is a legacy enforcement method that applies MFA independently of Conditional Access. It does not support modern features like risk-based enforcement, device trust, or named location exceptions. Running both per-user MFA and CA simultaneously creates conflicts and gaps.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -58596,6 +58708,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Enable Microsoft Entra Local Administrator Password Solution (LAPS) > Yes.",
+      "impact": "A uniform local admin password across all managed devices means a single credential compromise provides lateral movement to every Entra-joined or Intune-managed device in the organization.",
+      "rationale": "LAPS randomizes the local administrator password on each managed device, preventing credential reuse attacks. Without LAPS, all managed devices share the same local admin password — if one device is compromised, that credential provides local admin access to every other device.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -58993,6 +59107,8 @@
         "disruptionRisk": false
       },
       "remediation": "Entra admin center > Enterprise applications > review each app with credentials. Remove secrets/certificates from apps that no longer need them.",
+      "impact": "A leaked client secret or compromised certificate for any app provides API access at the app's full permission level. This access is silent, persistent, and generates no user-facing security alerts.",
+      "rationale": "Apps with active client credentials (secrets or certificates) have a persistent authentication mechanism that does not require user interaction. A leaked or brute-forced credential provides persistent API access without any user sign-in event or MFA challenge.",
       "tags": [
         "app-registration",
         "configuration-management",
@@ -59188,6 +59304,8 @@
         "disruptionRisk": false
       },
       "remediation": "Entra admin center > Applications > App management policies > configure a default policy to lock sensitive properties on multi-tenant apps.",
+      "impact": "In multi-tenant apps, tenant admins in other tenants can modify app properties if instance property lock is not enabled. This creates a cross-tenant configuration tampering risk for apps with broad deployment.",
+      "rationale": "App instance property lock prevents non-owner users from modifying app properties across tenants in multi-tenant apps. Without it, tenant administrators in other tenants can modify the app's configuration.",
       "tags": [
         "app-registration",
         "configuration-management",
@@ -59383,6 +59501,8 @@
         "disruptionRisk": false
       },
       "remediation": "Remove the client secret if a certificate is also configured. Dual credential types widen the attack surface. Entra admin center > App registrations > Certificates & secrets.",
+      "impact": "An attacker who discovers the client secret of an app that also has a certificate credential can authenticate using the secret, bypassing any controls that depend on the certificate.",
+      "rationale": "Apps with both secret and certificate credentials have a fallback authentication path. If the certificate is the primary credential (more secure), a leaked secret provides an alternative authentication path that bypasses the certificate requirement.",
       "tags": [
         "app-registration",
         "configuration-management",
@@ -59602,6 +59722,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Do not allow user consent.",
+      "impact": "Organizational data entered into personal apps (personal OneDrive, third-party cloud services) leaves the tenant boundary and is not subject to organizational security or retention policies.",
+      "rationale": "Allowing users to access user-owned apps and services from the organization account enables data from productivity workloads to flow into personal or unmanaged cloud services, bypassing DLP and data governance controls.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -59824,6 +59946,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "M365 admin center > Settings > Org settings > Microsoft 365 on the web > uncheck all third-party storage services.",
+      "impact": "Users can open corporate documents, modify them in an M365 app, and save the result to a personal cloud service in one workflow — moving sensitive data outside the tenant's governance boundary.",
+      "rationale": "Allowing third-party storage services in Microsoft 365 apps enables users to save and open files from unmanaged cloud services within the same session as corporate data. Files saved to personal cloud storage bypass organizational DLP and retention policies.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -60057,6 +60181,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Enrollment > Device platform restrictions > Edit default policy > Block personally owned devices for each platform.",
+      "impact": "Personal devices with unknown security posture enroll in MDM and receive corporate app access. The organization cannot guarantee patch levels, AV status, or data protection on personally owned enrolled devices.",
+      "rationale": "Personally owned device enrollment without restrictions allows unmanaged personal devices to be enrolled in MDM, where they receive corporate app configurations and access to corporate data. Without restrictions, any device — including insecure personal devices — can become a corporate endpoint.",
       "tags": [
         "configuration-management",
         "endpoint",
@@ -60504,6 +60630,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Users may join devices to Microsoft Entra > Selected. Restrict to a specific group of authorized users.",
+      "impact": "An attacker who has compromised a user account can join a malicious device to Entra ID, registering it as a 'managed' endpoint and potentially satisfying device-based CA policies.",
+      "rationale": "Allowing any user to join devices to Entra ID can be abused to register attacker-controlled devices as tenant members, potentially granting them access to device-conditional resources.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -61381,6 +61509,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > SMS > Disable. SMS is vulnerable to SIM-swapping attacks.",
+      "impact": "Accounts protected only by SMS or voice MFA can be compromised by attackers who SIM-swap the registered phone number or intercept SS7 signaling, effectively bypassing MFA without the user's knowledge.",
+      "rationale": "Weak MFA methods such as SMS OTP and voice call are vulnerable to SIM swapping, SS7 attacks, and social engineering of mobile carriers. While better than no MFA, they can be bypassed by motivated attackers and should be replaced by stronger methods.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -61600,6 +61730,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Email OTP > Disable. Email OTP is a weaker authentication factor.",
+      "impact": "An attacker who has already compromised a user's email account can receive email OTP codes sent to that address, completing MFA using only the email account compromise.",
+      "rationale": "Email OTP authentication sends a one-time code to an email address, which may itself not be MFA-protected. If the email account is compromised, the email OTP provides no additional security — it's a second factor that is only as strong as the first.",
       "tags": [
         "configuration-management",
         "entra-id",
@@ -61819,6 +61951,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Exchange admin center > Roles > User roles > Default Role Assignment Policy. Remove MyMarketplaceApps, MyCustomApps, MyReadWriteMailboxApps roles.",
+      "impact": "A malicious Outlook add-in installed by a user can silently read all email, exfiltrate contacts, and send messages on behalf of the user — all using the user's delegated session.",
+      "rationale": "Outlook add-ins installed by users can read email content, send on behalf of the user, and access contacts without the same scrutiny as admin-approved apps. Malicious or compromised add-ins provide a persistent mailbox access mechanism.",
       "tags": [
         "configuration-management",
         "email",
@@ -62031,6 +62165,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Exchange admin center > Settings > Modern authentication > Enable. Run: Set-OrganizationConfig -OAuth2ClientProfileEnabled $true",
+      "impact": "Email clients using Basic Authentication bypass MFA and Conditional Access policies. Credential spray attacks against Exchange Online basic auth endpoints succeed with password only.",
+      "rationale": "Modern authentication (OAuth 2.0) for Exchange Online is required for Conditional Access policies and MFA to apply to email clients. Without it, Outlook and other mail clients fall back to Basic Authentication, which bypasses all CA controls.",
       "tags": [
         "configuration-management",
         "email",
@@ -62252,6 +62388,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: Set-OwaMailboxPolicy -Identity OwaMailboxPolicy-Default -AdditionalStorageProvidersAvailable $false",
+      "impact": "Users can copy email attachments directly to personal cloud storage services from within OWA, bypassing DLP policies that might otherwise detect and block the transfer.",
+      "rationale": "Allowing additional storage providers in Outlook on the Web enables users to attach and save files from personal cloud storage services within the corporate web mail session. This creates a pathway for sensitive email content to be saved to personal storage outside organizational controls.",
       "tags": [
         "configuration-management",
         "email",
@@ -62937,6 +63075,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenantSyncClientRestriction -Enable. SharePoint admin center > Settings > Sync > Allow syncing only on computers joined to specific domains.",
+      "impact": "Corporate files synced to personal devices are stored without organizational security controls. A compromised or lost personal device exposes all synced organizational data.",
+      "rationale": "Allowing OneDrive sync from unmanaged devices copies all synced files to devices without organizational security controls. Personal devices sync corporate files locally without BitLocker, AV, or endpoint security enforcement.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -63591,6 +63731,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsClientConfiguration -AllowDropBox $false -AllowBox $false -AllowGoogleDrive $false -AllowShareFile $false -AllowEgnyte $false. Teams admin center > Messaging policies > Manage third-party storage.",
+      "impact": "Files from personal cloud services shared in Teams bypass organizational DLP policies and may contain content from outside the tenant's governance scope.",
+      "rationale": "Allowing file sharing from any cloud storage service enables users to share files from personal cloud services in Teams, moving data outside the organizational boundary without DLP inspection.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -63812,6 +63954,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowTeamsConsumer $false. Teams admin center > Users > External access > Teams accounts not managed by an organization > Off.",
+      "impact": "External unmanaged Teams users can initiate conversations with any internal user, enabling unsolicited contact from individuals with no organizational accountability.",
+      "rationale": "Communication with unmanaged Teams users (accounts not backed by an organization) allows contact from individuals with no organizational accountability or identity verification.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -64027,6 +64171,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowTeamsConsumerInbound $false. Teams admin center > Users > External access > External users can initiate conversations > Off.",
+      "impact": "External Teams users from any organization can contact internal employees directly, enabling social engineering campaigns conducted via trusted Microsoft infrastructure.",
+      "rationale": "Allowing external Teams users from any organization to initiate conversations with internal users creates an unsolicited contact channel from any organization worldwide, including potential threat actors conducting reconnaissance or social engineering.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -64238,6 +64384,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowPublicUsers $false. Teams admin center > Users > External access > Skype users > Off.",
+      "impact": "Skype users can contact internal Teams users, providing a channel for unsolicited contact from unauthenticated external individuals without organizational accountability.",
+      "rationale": "Skype consumer federation allows Teams users to communicate with Skype personal accounts, which are not subject to organizational identity verification or security policies.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -64460,6 +64608,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowExternalNonTrustedMeetingChat $false. Teams admin center > Meetings > Meeting policies > Global > External meeting chat > Off.",
+      "impact": "External attendees can view all meeting chat messages, including files and links shared by internal participants. Sensitive information shared in meeting chat is exposed to external parties.",
+      "rationale": "External meeting chat allows attendees from different tenants to communicate in the meeting chat. Without restrictions, external parties can observe and participate in meeting chat that may include sensitive discussions or shared links.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -64672,6 +64822,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowCloudRecording $false. Teams admin center > Meetings > Meeting policies > Global > Cloud recording > Off.",
+      "impact": "All meetings are automatically recorded, including sensitive discussions, confidential presentations, and personal information discussed in the meeting. Participants may not be aware their conversation is recorded.",
+      "rationale": "Automatic meeting recording creates recordings of every meeting without explicit participant consent, capturing sensitive discussions, shared content, and participant identities. On-by-default recording may also create compliance issues under privacy regulations.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -64897,6 +65049,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow guest users to browse and access Power BI content > Disabled",
+      "impact": "Guest users with Power BI access can view sensitive financial, operational, or customer data included in reports they are shared on.",
+      "rationale": "Power BI guest access allows external users to view organizational analytics and business intelligence. Without restrictions, guest users can access sensitive data embedded in reports.",
       "tags": [
         "configuration-management",
         "data",
@@ -65122,6 +65276,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable Power BI guest user access. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled.",
+      "impact": "Guest users can access Power BI reports and dashboards containing sensitive business data. External parties with guest access to Teams or SharePoint may inadvertently gain visibility into Power BI content shared in those workspaces.",
+      "rationale": "Unrestricted guest access to Power BI allows any guest user in the tenant to view Power BI content they are shared with. Without restrictions, the sharing of sensitive BI content with guests is ungoverned.",
       "tags": [
         "configuration-management",
         "data",
@@ -65347,6 +65503,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Invite external users to your organization > Disabled",
+      "impact": "Internal users can invite external parties directly to Power BI workspaces without going through the organization's external collaboration governance process.",
+      "rationale": "Unrestricted external user invitations in Power BI allow internal users to bypass the B2B invitation process and directly invite external parties to Power BI workspaces.",
       "tags": [
         "configuration-management",
         "data",
@@ -65572,6 +65730,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict external user invitations in Power BI. Power BI Admin portal > Tenant settings > Export and sharing settings > Invite external users to your organization: Disabled or Apply to specific security groups.",
+      "impact": "Power BI users can grant external access to sensitive reports and dashboards without going through the organization's guest access approval workflow.",
+      "rationale": "Unrestricted external user invitations in Power BI allow any Power BI user to invite external parties directly to Power BI content, bypassing the broader Entra B2B guest invitation governance process.",
       "tags": [
         "configuration-management",
         "data",
@@ -65797,6 +65957,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable guest access to Power BI content. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled. Review and remove existing guest workspace members.",
+      "impact": "Guest users with access to Power BI can view sensitive operational and financial data embedded in reports and dashboards, including data not intended for external sharing.",
+      "rationale": "Guest user access to Power BI content allows external collaborators to view organizational reports and dashboards. Without restrictions, guest access to sensitive business intelligence data is ungoverned.",
       "tags": [
         "configuration-management",
         "data",
@@ -66022,6 +66184,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow Azure Active Directory guest users to access Power BI > Disabled",
+      "impact": "Guests may gain access to sensitive business intelligence data not intended for external parties if shared content includes reports with broad data coverage.",
+      "rationale": "Guest access to Power BI content allows external collaborators to view organizational dashboards and reports. The scope of content accessible to guests is governed by explicit sharing, but defaults may be too permissive.",
       "tags": [
         "configuration-management",
         "data",
@@ -66244,6 +66408,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Publish to web > Disabled",
+      "impact": "Published reports are accessible to any internet user. Sensitive data visible in the report is publicly exposed and may be indexed by search engines.",
+      "rationale": "Publish-to-web creates publicly accessible embed codes for Power BI reports, providing unauthenticated access to the embedded content for anyone with the URL.",
       "tags": [
         "configuration-management",
         "data",
@@ -66467,6 +66633,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable 'Publish to web'. Power BI Admin portal > Tenant settings > Export and sharing settings > Publish to web: Disabled. Revoke existing public embed codes via Power BI Admin portal > Embed Codes.",
+      "impact": "Power BI reports containing sensitive data published to web are accessible to any internet user with the URL. Published reports may be indexed by search engines and cached even if the embed code is later revoked.",
+      "rationale": "Publish-to-web creates public embed codes that make Power BI reports accessible without authentication. Even reports with restricted workspace access become publicly accessible via published embed codes.",
       "tags": [
         "configuration-management",
         "data",
@@ -66721,6 +66889,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable R and Python visuals. Power BI Admin portal > Tenant settings > R visuals settings > Interact with and share R and Python visuals: Disabled.",
+      "impact": "R or Python code embedded in Power BI visuals executes on the machine of any user who opens the report. A malicious script can exfiltrate local data or interact with local system resources.",
+      "rationale": "R and Python visuals execute code locally on the viewer's machine as part of rendering the report. Malicious or poorly written scripts can expose local data, consume excessive resources, or interact with local system APIs.",
       "tags": [
         "configuration-management",
         "data",
@@ -67197,6 +67367,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow external data sharing > Disabled",
+      "impact": "External tenants connected to shared datasets can query internal organizational data continuously, creating an ongoing data exposure that persists until the share is revoked.",
+      "rationale": "External data sharing allows Power BI datasets to be shared with external organizations, creating persistent cross-tenant data access channels.",
       "tags": [
         "configuration-management",
         "data",
@@ -67420,6 +67592,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict external data sharing. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow specific users to turn on external data sharing: Disabled or Apply to specific security groups.",
+      "impact": "External organizations connected to shared Power BI datasets can query internal data on an ongoing basis. Data governance controls in the originating tenant do not apply to how the external tenant uses the data.",
+      "rationale": "External data sharing in Power BI allows tenant users to share Power BI datasets with external organizations, enabling those organizations to connect to and query internal data directly. This creates a persistent data access channel outside tenant boundaries.",
       "tags": [
         "configuration-management",
         "data",
@@ -67640,6 +67814,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enable ResourceKey authentication block. Power BI Admin portal > Tenant settings > Developer settings > Block ResourceKey Authentication: Enabled.",
+      "impact": "Embedded ResourceKey URLs shared in email, Teams, or documents provide permanent unauthenticated access to the linked Power BI content to anyone who obtains the URL.",
+      "rationale": "ResourceKey authentication embeds an access key in the URL, enabling access to Power BI content without Entra ID authentication. URLs with embedded keys bypass all access controls if shared or intercepted.",
       "tags": [
         "configuration-management",
         "data",
@@ -67859,6 +68035,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Block ResourceKey Authentication > Enabled",
+      "impact": "A Power BI embed URL with a ResourceKey can be shared or discovered by unauthorized parties, providing unauthenticated access to the embedded content.",
+      "rationale": "ResourceKey authentication embeds credentials directly in URLs, enabling anyone with the link to access Power BI content without authenticating to Entra ID.",
       "tags": [
         "conditional-access",
         "configuration-management",
@@ -68068,6 +68246,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateApps = $false}. Entra admin center > Users > User settings.",
+      "impact": "A compromised user or malicious insider can register an application, request broad permissions, and use the app as a persistent backdoor that survives password resets and MFA changes.",
+      "rationale": "Allowing any user to register applications enables low-privilege users to create service principals with arbitrary permissions. Malicious insiders or compromised users can register apps as a persistence mechanism or to request elevated permissions via admin consent.",
       "tags": [
         "app-registration",
         "configuration-management",
@@ -68769,6 +68949,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "SharePoint admin center > Settings > restrict Loop sharing to internal users or existing guests only.",
+      "impact": "Sensitive Loop components shared via unrestricted OneDrive links can be accessed and edited by external parties who receive the link, with changes reflected in real time across all instances of the component.",
+      "rationale": "Loop components shared via OneDrive links can be accessed and edited by anyone with the link. Without sharing restrictions, Loop components containing sensitive collaborative content can be shared externally without controls.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -68972,6 +69154,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsAppPermissionPolicy -DefaultCatalogAppsType AllowedAppList. Teams admin center > Teams apps > Permission policies.",
+      "impact": "A malicious Teams app installed via chat RSC can read all messages in the targeted chat or channel, including sensitive communications, without needing tenant-wide admin consent.",
+      "rationale": "Chat resource-specific consent allows apps to access Teams chat content for specific chats or channels without requiring full organizational admin consent. Malicious apps distributed via this mechanism can access all messages in the chats they are granted consent for.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -69212,6 +69396,8 @@
         "disruptionRisk": false
       },
       "remediation": "Review multi-tenant apps and restrict to AzureADMyOrg if they do not need cross-tenant access. Multi-tenant apps can be accessed by users from any Entra ID tenant. Entra admin center > App registrations > Authentication > Supported account types.",
+      "impact": "A multi-tenant app registration can be instantiated in any other tenant, potentially allowing external users to authenticate to the app and access its resources without being members of the owning tenant.",
+      "rationale": "Multi-tenant app registrations are accessible from any Entra ID tenant. Without intent to be multi-tenant, this setting expands the authentication surface of the app to all tenants in the Microsoft ecosystem.",
       "tags": [
         "app-registration",
         "configuration-management",
@@ -69693,6 +69879,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Teams admin center > Teams apps > Permission policies > Org-wide app settings > Third-party apps > Off (or restrict to approved apps).",
+      "impact": "Users can install third-party apps that read chat content, access files, and act on behalf of the user in Teams — without security review or organizational approval.",
+      "rationale": "App permission policies control which Teams apps users can install. Without defined policies, users can install any app from the Teams store, including apps that access chat content and organizational data.",
       "tags": [
         "collaboration",
         "configuration-management",
@@ -69889,6 +70077,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Review report-only policies and either enable enforcement or remove if no longer needed. Entra admin center > Protection > Conditional Access.",
+      "impact": "Users who should be blocked or challenged by a CA policy in report-only mode are allowed through unobstructed. Security gaps hidden behind report-only policies may not be visible in dashboard views of 'enabled' policies.",
+      "rationale": "Policies in report-only mode do not enforce any controls — they only log what would have happened. Report-only is a staging state for testing; policies left permanently in this mode provide the appearance of coverage without any actual enforcement.",
       "tags": [
         "conditional-access",
         "configuration-management",
@@ -70509,6 +70699,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable Multi Admin Approval for sensitive Intune operations. Intune > Tenant administration > Multi admin approval > Create an access policy covering device wipes and sensitive configurations, and assign approvers.",
+      "impact": "A compromised admin account can mass-wipe all managed devices or push harmful configuration profiles without any approval gate. The action is irreversible and can destroy data across the entire device fleet.",
+      "rationale": "Multi-admin approval requires a second administrator to confirm sensitive Intune operations such as device wipes. Without it, a single compromised admin account can irreversibly wipe all managed devices or push malicious configurations without any second-party check.",
       "tags": [
         "change-management",
         "identity",
@@ -70836,6 +71028,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Microsoft Purview > Communication compliance > Create a policy to monitor communications for policy violations and insider risk. Requires E5 Compliance licensing.",
+      "impact": "Regulatory violations, insider threat indicators, and data exfiltration via communication channels are undetected. Compliance officers have no visibility into policy-violating activity.",
+      "rationale": "Communication compliance policies detect policy violations in email, Teams, and other channels — including data exfiltration attempts, insider threats, and regulatory violations. Without them, policy-violating communications are sent and stored without review.",
       "tags": [
         "compliance",
         "continuous-monitoring",
@@ -71060,6 +71254,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: Set-MalwareFilterPolicy -Identity <PolicyName> -EnableInternalSenderAdminNotifications $true -InternalSenderAdminAddress admin@domain.com. Security admin center > Anti-malware > Default policy > Admin notifications > Notify admin about undelivered messages from internal senders.",
+      "impact": "A compromised internal account used to distribute malware operates undetected. Recipients are more likely to open malicious files from known internal senders, increasing the blast radius.",
+      "rationale": "Notifications for internal users sending malware detect compromised accounts that are being used as relay points for malware distribution. Without notifications, infected accounts continue sending malware to contacts until discovered by other means.",
       "tags": [
         "continuous-monitoring",
         "defender",
@@ -71436,6 +71632,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable and configure Microsoft Defender for Cloud Apps. Defender portal > Settings > Cloud apps > verify connection. Enable app connectors for Microsoft 365 and configure session policies via Conditional Access app control for sensitive applications.",
+      "impact": "Risky OAuth apps, anomalous mass download activity, and shadow IT cloud services are invisible to security teams. Insider threats and compromised accounts operating within sanctioned cloud tools go undetected.",
+      "rationale": "Defender for Cloud Apps provides visibility into OAuth app risk, shadow IT discovery, and anomalous user behavior across cloud services. Without it, risky third-party apps and abnormal access patterns are not surfaced for review.",
       "tags": [
         "continuous-monitoring",
         "defender",
@@ -71622,6 +71820,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Teams admin center > Messaging policies > Global (Org-wide default) > Report a security concern > On.",
+      "impact": "Users who encounter phishing attempts or suspicious activity in Teams have no native reporting mechanism. Threat activity in Teams channels and chats goes unreported and cannot feed into security investigation workflows.",
+      "rationale": "Enabling users to report security concerns in Teams creates a feedback channel for phishing and suspicious messages reported directly from the Teams client. Without it, users have no Teams-native way to report threats, reducing threat intelligence signal.",
       "tags": [
         "collaboration",
         "continuous-monitoring",
@@ -71844,6 +72044,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Enable \"Record name by default when new forms are created\".",
+      "impact": "Without respondent identity recording, form submissions — including potentially fraudulent or unauthorized responses — cannot be attributed to a specific user.",
+      "rationale": "Recording respondent identity ensures there is an audit trail of who submitted each response. For forms collecting sensitive information or used in compliance processes, anonymous responses eliminate accountability.",
       "tags": [
         "collaboration",
         "configuration",
@@ -79676,6 +79878,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enable admin notifications on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Notification tab > configure role activation alerts to notify security team or role administrators.",
+      "impact": "Unauthorized Tier-0 role activations by a compromised account go undetected until routine log review. Without notifications, the security team has no real-time signal of high-privilege activity.",
+      "rationale": "Admin notifications on Tier-0 role activation alert the security team whenever a high-privilege role is activated, enabling detection of unexpected or unauthorized activations in near-real-time.",
       "tags": [
         "continuous-monitoring",
         "entra-id",
@@ -80595,6 +80799,8 @@
         "disruptionRisk": false
       },
       "remediation": "No user mailboxes found to sample.",
+      "impact": "An attacker who accesses a mailbox — reading messages, creating forwarding rules, sending on behalf of the user — may not generate audit events if the relevant action types are not configured.",
+      "rationale": "Mailbox audit actions define which events are logged when users, delegates, and admins access mailboxes. Without sufficient audit actions configured, mail access and forwarding rule creation by attackers leave no forensic trail.",
       "tags": [
         "audit",
         "continuous-monitoring",
@@ -80976,6 +81182,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create a retention policy to preserve or delete content per your requirements.",
+      "impact": "Data required for compliance attestation, legal holds, or regulatory audits may be deleted before its required retention period. Conversely, data that should be disposed of after its retention period accumulates indefinitely, increasing breach exposure.",
+      "rationale": "Data retention policies ensure that content is preserved for the required period and disposed of afterward. Without retention policies, data subject to legal holds or regulatory requirements can be prematurely deleted or retained indefinitely without governance.",
       "tags": [
         "compliance",
         "continuous-monitoring",
@@ -81711,6 +81919,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Identity Governance > Terms of use. Verify agreements have \"Require users to expand the terms of use\" enabled and are assigned via Conditional Access policies.",
+      "impact": "Without a terms of use agreement, users access organizational resources without formally acknowledging acceptable use policies. This creates legal and compliance gaps, particularly for regulated industries.",
+      "rationale": "Terms of use agreements ensure users have explicitly acknowledged acceptable use policies before accessing resources. They provide a legal record of acknowledgment and can be required as a CA grant condition.",
       "tags": [
         "entra-id",
         "identity",
@@ -81878,6 +82088,8 @@
         "disruptionRisk": false
       },
       "remediation": "Remove localhost redirect URIs from production app registrations. In shared environments, tokens redirected to localhost can be intercepted. Entra admin center > App registrations > Authentication.",
+      "impact": "Apps with localhost redirect URIs in production may expose OAuth tokens to processes running locally on the machine making the request, which could include malicious software.",
+      "rationale": "Localhost redirect URIs are acceptable in development environments but not in production. In production, localhost URIs indicate either residual test configuration or an app that was not properly secured before deployment — a signal of incomplete security review.",
       "tags": [
         "app-registration",
         "identity",
@@ -83760,6 +83972,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Disable external Sway sharing. Microsoft 365 Admin Center > Settings > Org settings > Sway > disable 'Let people in your organization share their sways with people outside your organization'.",
+      "impact": "A Sway that embeds organizational data or documents can be shared with external parties, effectively publishing sensitive content outside the tenant without explicit data sharing controls.",
+      "rationale": "Sway presentations can contain embedded content, documents, and data pulled from SharePoint. Without external sharing restrictions, Sways containing organizational data can be published publicly.",
       "tags": [
         "collaboration",
         "network-security",
@@ -84270,6 +84484,8 @@
         "disruptionRisk": false
       },
       "remediation": "Microsoft Purview > Information protection > Labels > Create and publish sensitivity labels. Then create a label policy to deploy them to users.",
+      "impact": "Sensitive documents are stored and shared without classification-based protection. DLP policies and Conditional Access policies that depend on label conditions have no effect on unclassified content.",
+      "rationale": "Sensitivity labels classify data and enforce protections (encryption, access restrictions, watermarks) based on content sensitivity. Without label policies, sensitive data is not classified and classification-dependent controls such as DLP and access policies cannot apply.",
       "tags": [
         "compliance",
         "network-security",
@@ -84642,6 +84858,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Information protection > Allow users to apply sensitivity labels for content > Enabled",
+      "impact": "Exported Power BI data loses sensitivity labels, making it invisible to DLP policies and removing any encryption protections the label would have applied.",
+      "rationale": "Sensitivity labels on Power BI content propagate classification metadata to exported files. Without label support, data exported from Power BI loses its sensitivity classification and associated DLP and encryption protections.",
       "tags": [
         "data",
         "network-security",
@@ -84835,6 +85053,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enable sensitivity label support in Power BI. Power BI Admin portal > Tenant settings > Information protection > Allow users to apply sensitivity labels for Power BI content: Enabled. Ensure labels are published to Power BI users in Microsoft Purview compliance portal.",
+      "impact": "Reports exported from Power BI without sensitivity labels lose their classification metadata. DLP policies and access controls that depend on labels do not apply to exported content.",
+      "rationale": "Sensitivity labels applied to Power BI content propagate protections (encryption, access restrictions) when content is exported. Without label support, exported Power BI data loses its classification and associated protections.",
       "tags": [
         "data",
         "network-security",
@@ -85027,6 +85247,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow shareable links to grant access to everyone in your organization > Disabled",
+      "impact": "Sensitive Power BI content shared via organization-wide links is accessible to all employees, including those without a business need for the data.",
+      "rationale": "Organization-wide shareable links in Power BI grant access to all tenant users, not just intended recipients. Content shared this way is effectively available to the entire tenant.",
       "tags": [
         "data",
         "network-security",
@@ -85220,6 +85442,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Restrict shareable links in Power BI. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow shareable links to grant access to everyone in your organization: Disabled or Apply to specific security groups.",
+      "impact": "Power BI content shared via organization-wide links is accessible to all tenant users. Sensitive reports can be accessed by employees without business need for the data.",
+      "rationale": "Shareable links that grant access to everyone in the organization allow Power BI content to be accessed by any tenant user who receives the link — regardless of whether they should have access.",
       "tags": [
         "data",
         "network-security",
@@ -85797,6 +86021,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: Set-HostedConnectionFilterPolicy -Identity <Policy> -EnableSafeList $false. Exchange admin center > Protection > Connection filter > Edit the policy and uncheck \"Turn on safe list\".",
+      "impact": "Phishing and spam sent from IP addresses on the Microsoft safe sender list are delivered without filtering. The safe list is not specific to your organization's needs and may include shared hosting ranges.",
+      "rationale": "The connection filter safe list automatically allows email from IP addresses on Microsoft's safe sender lists. These lists are maintained globally and may include IP ranges shared with malicious actors, effectively allowlisting senders that are not actually safe for your organization.",
       "tags": [
         "email",
         "exchange-online",
@@ -86447,6 +86673,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Review and restrict Power BI external sharing settings. Power BI Admin portal > Tenant settings > Export and sharing settings: disable or restrict Publish to web, export options, and external sharing settings to approved security groups aligned to data classification requirements.",
+      "impact": "Multiple permissive sharing settings allow organizational data to flow to external parties through multiple channels simultaneously, with no single control providing complete governance.",
+      "rationale": "Power BI external sharing settings collectively control how broadly organizational data can be shared outside the tenant. Permissive defaults across multiple settings accumulate to create a significant data exposure surface.",
       "tags": [
         "data",
         "network-security",
@@ -86886,6 +87114,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Convert public M365 groups to private. Entra admin center > Groups > filter Privacy: Public. Select each group > Properties > Privacy: Private. Implement a group creation policy defaulting new groups to Private.",
+      "impact": "Sensitive business content in public M365 group SharePoint sites, mailboxes, and Teams channels is accessible to any tenant user who discovers and joins the group.",
+      "rationale": "Public M365 groups are visible and joinable by any user in the tenant. A high count of public groups indicates that the default group creation settings do not enforce privacy, and sensitive collaboration is likely occurring in publicly accessible groups.",
       "tags": [
         "entra-id",
         "identity",
@@ -93691,6 +93921,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Enforce sign-in frequency via Conditional Access. Entra admin center > Security > Conditional Access > New policy > Grant: require periodic re-authentication > Session: Sign-in frequency (e.g., 8 hours for standard users, 1 hour for privileged sessions). Disable persistent browser sessions for unmanaged devices.",
+      "impact": "Session tokens without expiry allow persistent access after credential compromise. An attacker with a captured token has full user access until the token is explicitly revoked.",
+      "rationale": "Session lifetime limits ensure that stolen or leaked tokens have a bounded validity window. Without sign-in frequency limits, post-authentication tokens can be replayed indefinitely.",
       "tags": [
         "conditional-access",
         "identity",
@@ -94318,6 +94550,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowExternalParticipantGiveRequestControl $false. Teams admin center > Meetings > Meeting policies > Global > External participants can give or request control > Off.",
+      "impact": "An external participant granted presentation control can display malicious content to all attendees or conduct social engineering from within the trusted meeting context.",
+      "rationale": "Screen sharing and presentation control handed to external participants can be used to display malicious content, perform social engineering, or take control of the meeting flow. Restricting this capability prevents external parties from controlling the meeting presentation.",
       "tags": [
         "collaboration",
         "network-security",
@@ -94614,6 +94848,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Configure Always On VPN for remote devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > Always On: Enable, Auto-trigger: Enable. Select VPN connection type and deploy to remote worker device groups.",
+      "impact": "Remote devices that are not connected to VPN bypass corporate DNS filtering, web proxies, and network security monitoring. Malware on off-VPN devices communicates over direct internet connections undetected.",
+      "rationale": "Always-On VPN ensures that all device traffic — including DNS and web traffic — routes through corporate security controls regardless of where the device is located. Without it, remote devices operate without corporate network security controls during off-VPN periods.",
       "tags": [
         "endpoint",
         "intune",
@@ -95330,6 +95566,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Assign owners to ownerless public M365 groups. Entra admin center > Groups > All groups > select group > Owners > Add owners.",
+      "impact": "Ownerless public groups can accumulate inappropriate members with no review or approval step. Sensitive content in public group SharePoint sites or Teams channels is accessible to any tenant user who joins.",
+      "rationale": "Public M365 groups without owners have no accountable administrator to manage membership, review access, or respond to security issues. Any user in the tenant can join a public group without owner approval.",
       "tags": [
         "endpoint-security",
         "entra-id",
@@ -95527,6 +95765,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Users > User settings > Users can register applications > No. Also review Enterprise applications > User settings > Users can consent to apps.",
+      "impact": "Users can grant untrusted third-party apps persistent access to their mailbox, files, and contacts. These apps operate outside the organization's security controls and may store or process data insecurely.",
+      "rationale": "Third-party integrated applications that users can install connect to tenant data using delegated permissions. Without restrictions, any user can grant a third-party app access to their mail, contacts, and files — and that data leaves the tenant boundary.",
       "tags": [
         "endpoint-security",
         "entra-id",
@@ -96660,6 +96900,8 @@
         "disruptionRisk": false
       },
       "remediation": "Run: Set-MalwareFilterPolicy -Identity <PolicyName> -EnableFileFilter $true. Security admin center > Anti-malware > Default policy > Common attachments filter > Enable.",
+      "impact": "Malicious executables, scripts, and archive files delivered via email reach user inboxes. Users who open these files execute malware that may not have a current AV signature.",
+      "rationale": "The common attachment types filter blocks delivery of file extensions routinely used to deliver malware (.exe, .js, .vbs, .bat) without requiring signature-based detection. It is a low-cost, high-signal control that eliminates a broad category of email-delivered threats.",
       "tags": [
         "defender",
         "email",
@@ -97207,6 +97449,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Run: Set-AtpPolicyForO365 -EnableATPForSPOTeamsODB $true. Security admin center > Safe Attachments > Global settings > Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams.",
+      "impact": "Malware uploaded directly to SharePoint or OneDrive, or shared as a Teams file attachment, is not sandboxed and is available for download by any user with access to the library or channel.",
+      "rationale": "Safe Attachments for SharePoint, OneDrive, and Teams detects malware in files shared through these platforms, not just email. Without it, malware uploaded to SharePoint or shared in Teams bypasses the email-based Safe Attachments scan.",
       "tags": [
         "defender",
         "email",
@@ -97479,6 +97723,8 @@
         "disruptionRisk": false
       },
       "remediation": "No action needed -- settings enforced by preset security policy.",
+      "impact": "Active phishing and malware campaigns targeting the organization go undetected until users report symptoms. The security team has no real-time visibility into email threat volume or targeting.",
+      "rationale": "Admin notifications for high-confidence spam and malware detections ensure the security team is aware of active email-based attack campaigns targeting the organization. Without notifications, these events are only visible in logs that are rarely reviewed proactively.",
       "tags": [
         "defender",
         "email",
@@ -97751,6 +97997,8 @@
         "disruptionRisk": false
       },
       "remediation": "Enable comprehensive attachment filtering. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-malware > edit default policy > Common attachments filter: On. Add high-risk extensions (.exe, .js, .vbs, .bat, .cmd, .ps1, .msi). Enable ZAP.",
+      "impact": "Malicious files with extension types not covered by the default filter are delivered to inboxes. Targeted attacks frequently use unusual file types precisely because they bypass narrow-scope filters.",
+      "rationale": "A comprehensive attachment filter blocks a broad range of file types commonly used to deliver malware, including script files and double-extension tricks. A narrow common-attachments filter misses newer or less common delivery formats used in targeted attacks.",
       "tags": [
         "defender",
         "email",
@@ -98023,6 +98271,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Configure preset security policies in Security admin center > Preset security policies > Strict or Standard protection > Assign users/groups.",
+      "impact": "Executives and other high-value targets receive targeted phishing with the same detection thresholds as standard users. BEC campaigns targeting these accounts are more likely to succeed without enhanced protection.",
+      "rationale": "Priority account protection applies enhanced threat detection and tighter filtering to accounts that are high-value targets — executives, IT administrators, and finance personnel. These accounts receive more sophisticated and targeted phishing attempts than standard users.",
       "tags": [
         "defender",
         "email",
@@ -98295,6 +98545,8 @@
         "disruptionScope": "admin-only"
       },
       "remediation": "Assign priority account users to the Strict preset policy. Security admin center > Preset security policies > Strict protection > Manage protection settings > Add users or groups.",
+      "impact": "Priority accounts — the most targeted by sophisticated threat actors — are protected by lower-confidence detection thresholds. Well-crafted phishing emails designed to bypass standard filtering reach executive inboxes at higher rates.",
+      "rationale": "The Strict protection preset for priority accounts applies the most aggressive filtering settings to the most targeted users. Standard or Default presets applied to priority accounts use less aggressive thresholds that are more easily bypassed by sophisticated attacks.",
       "tags": [
         "defender",
         "email",
@@ -98564,6 +98816,8 @@
         "disruptionScope": "service"
       },
       "remediation": "Enable ZAP for Teams in Security admin center > Settings > Zero-hour auto purge > Teams.",
+      "impact": "Links or files shared in Teams that are later identified as malicious remain in chat history and are accessible to all channel members, even after threat intelligence flags the content.",
+      "rationale": "Zero-hour auto purge for Teams retroactively removes messages containing links or attachments that are later identified as malicious. Without it, malicious content that was safe at delivery remains accessible in Teams chats after it is identified as a threat.",
       "tags": [
         "defender",
         "email",
@@ -98832,6 +99086,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Enable \"Internal phishing protection\".",
+      "impact": "Attackers can create Forms that impersonate IT teams or helpdesks to collect credentials or sensitive information. The Microsoft branding adds credibility that increases the success rate of these phishing forms.",
+      "rationale": "Microsoft Forms phishing protection detects and blocks forms designed to collect credentials or sensitive information under false pretenses. Without it, attackers can use Forms as a trusted Microsoft platform for credential harvesting.",
       "tags": [
         "collaboration",
         "configuration",
@@ -100153,6 +100409,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenantSyncClientRestriction -Enable. Also consider Conditional Access policies with device compliance conditions for defense in depth. SharePoint admin center > Settings > Sync.",
+      "impact": "Synced SharePoint content on unmanaged personal devices is stored without BitLocker, endpoint protection, or DLP controls. A lost or stolen personal device exposes all synced organizational data.",
+      "rationale": "Unmanaged devices that sync SharePoint and OneDrive content download all synced files locally. Without sync restrictions for unmanaged devices, corporate data is copied to personal devices without endpoint security controls.",
       "tags": [
         "collaboration",
         "endpoint-security",
@@ -102864,6 +103122,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Configure a Windows Update ring policy. Intune > Devices > Windows > Update rings for Windows 10 and later > Create: quality update deferral 0–7 days, feature update deferral 30–60 days, automatic restart notifications enabled. Assign to all managed Windows device groups.",
+      "impact": "Managed devices without an update ring policy may not receive security patches for weeks or months. Unpatched vulnerabilities are the primary initial access vector for ransomware and targeted attacks.",
+      "rationale": "Windows Update rings enforce timely patch deployment on managed devices. Without a defined update ring policy, devices may defer updates indefinitely, running with known exploitable vulnerabilities for extended periods.",
       "tags": [
         "endpoint",
         "endpoint-security",
@@ -103351,6 +103611,8 @@
         "disruptionRisk": false
       },
       "remediation": "No action needed -- settings enforced by preset security policy.",
+      "impact": "Impersonation-based phishing emails — appearing to come from executives, vendors, or trusted contacts via lookalike domains — are delivered to users without warning, increasing BEC and credential theft success rates.",
+      "rationale": "A dedicated anti-phishing policy with impersonation protection detects executive spoofing, lookalike domain attacks, and mailbox intelligence-based impersonation that bypass DMARC. Without this policy, these phishing techniques are not specifically detected or blocked.",
       "tags": [
         "defender",
         "email",
@@ -103655,6 +103917,8 @@
         "disruptionRisk": false
       },
       "remediation": "Harden the default inbound anti-spam policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-spam > edit default inbound policy: spam action = Junk folder, high-confidence spam = Quarantine, phishing = Quarantine, BCL threshold = 6 or lower.",
+      "impact": "A misconfigured anti-spam policy allows high volumes of spam, phishing, and bulk email to reach users. Users exposed to more phishing attempts have higher rates of credential compromise.",
+      "rationale": "The default anti-spam policy determines how the bulk of inbound email is handled. Weak default settings allow more spam and phishing through, increasing user exposure to social engineering and credential theft attempts.",
       "tags": [
         "email",
         "endpoint-security",
@@ -103811,6 +104075,8 @@
         "disruptionRisk": false
       },
       "remediation": "Exchange admin center > Mail flow > Rules. Remove or disable any transport rules that set SCL to -1 for specific sender domains, as this bypasses spam filtering.",
+      "impact": "Phishing and malware emails from domains on the transport rule bypass list are delivered to inboxes without any filtering. This is particularly dangerous for trusted partner domains that may be compromised.",
+      "rationale": "Mail transport rules that bypass spam filtering for specific domains create exactly the same risk as the anti-spam allow list: email from those domains is delivered unfiltered, including phishing and malware.",
       "tags": [
         "email",
         "endpoint-security",
@@ -104584,6 +104850,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowAnonymousUsersToStartMeeting $false. Teams admin center > Meetings > Meeting policies > Global > Anonymous users can start a meeting > Off.",
+      "impact": "An anonymous attendee who receives a meeting link can start the meeting before the organizer, potentially recording audio and content before any authentication occurs.",
+      "rationale": "Allowing anonymous users or dial-in callers to start meetings before the organizer joins enables unauthorized parties to establish a meeting session and record conversation before any authenticated participant is present.",
       "tags": [
         "collaboration",
         "endpoint-security",
@@ -104763,6 +105031,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowPSTNUsersToBypassLobby $false. Teams admin center > Meetings > Meeting policies > Global > Dial-in users can bypass the lobby > Off.",
+      "impact": "Dial-in users with a meeting code join meetings as unverified participants without organizational identity. Sensitive meeting content is exposed to callers whose identity cannot be confirmed.",
+      "rationale": "Dial-in users authenticate only with a phone number and meeting code, with no organizational identity verification. Allowing them to bypass the lobby grants unverified attendees direct meeting access.",
       "tags": [
         "collaboration",
         "endpoint-security",
@@ -104976,6 +105246,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -MeetingChatEnabledType EnabledExceptAnonymous. Teams admin center > Meetings > Meeting policies > Global > Meeting chat > On for everyone except anonymous users.",
+      "impact": "Anonymous meeting attendees can view and participate in meeting chat, including content shared in chat by authenticated internal participants.",
+      "rationale": "Allowing anonymous users to participate in meeting chat exposes chat content — including shared files and links — to participants who have not authenticated with any organizational identity.",
       "tags": [
         "collaboration",
         "endpoint-security",
@@ -105188,6 +105460,8 @@
         "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Maximum number of devices per user. Set to 15 or lower.",
+      "impact": "A compromised account can register many devices, each of which may satisfy device-trust CA policies. Excessive registrations also complicate device inventory and compliance reporting.",
+      "rationale": "An unlimited device registration ceiling allows compromised accounts to register unlimited devices, or enables users to accumulate unmanaged personal devices that dilute endpoint security posture.",
       "tags": [
         "entra-id",
         "identity",
@@ -113485,6 +113759,8 @@
         "disruptionRisk": false
       },
       "remediation": "Set version history limits at the library level in SharePoint admin center. Ensure at least 100 major versions are retained for ransomware recovery.",
+      "impact": "Without version history, files overwritten or encrypted by ransomware cannot be restored to a known-good state. SharePoint becomes a ransomware target with no recovery path within the platform.",
+      "rationale": "Version history in SharePoint allows recovery from accidental deletion, ransomware encryption, and malicious file modification. Without sufficient version history, recent changes cannot be undone and ransomware-encrypted files may be unrecoverable.",
       "tags": [
         "business-continuity-disaster-recovery",
         "collaboration",
