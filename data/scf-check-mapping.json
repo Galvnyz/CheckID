@@ -6824,6 +6824,24 @@
       "remediation": "Configure Always On VPN for remote devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > Always On: Enable, Auto-trigger: Enable. Select VPN connection type and deploy to remote worker device groups.",
       "rationale": "Always-On VPN ensures that all device traffic — including DNS and web traffic — routes through corporate security controls regardless of where the device is located. Without it, remote devices operate without corporate network security controls during off-VPN periods.",
       "impact": "Remote devices that are not connected to VPN bypass corporate DNS filtering, web proxies, and network security monitoring. Malware on off-VPN devices communicates over direct internet connections undetected."
+    },
+    {
+      "checkId": "ENTRA-DISABLED-001",
+      "name": "Disabled Member Account Count",
+      "category": "DIRECTORY",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-15.3",
+      "scfAdditional": [
+        "IAC-15",
+        "IAC-15.7"
+      ],
+      "impactSeverity": "Informational",
+      "impactRationale": "This check surfaces the count of disabled member accounts alongside total directory size. Disabled accounts that accumulate without removal represent unreviewed identities that complicate access certifications and directory hygiene audits.",
+      "rationale": "Disabled member accounts that remain in the directory without eventual removal create unnecessary noise in access reviews, identity governance reports, and license audits. Monitoring their count enables administrators to track account lifecycle hygiene and identify periods of abnormal growth that may indicate offboarding process failures.",
+      "impact": "Large numbers of disabled accounts that are never removed indicate a broken offboarding process. While disabled accounts cannot authenticate, they still appear in access reviews, consume directory quota in some configurations, and can be re-enabled by an administrator — making residual disabled accounts a latent identity risk.",
+      "remediation": "Review disabled accounts periodically and remove those not required for legal hold or audit purposes. In the Microsoft 365 admin center: Active users > Filter > Deleted users. For bulk removal, use: Get-MgUser -Filter 'accountEnabled eq false and userType eq Member' | Remove-MgUser"
     }
   ]
 }
