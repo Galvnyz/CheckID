@@ -352,6 +352,32 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# CMMC profile derivation
+# ---------------------------------------------------------------------------
+
+_CMMC_L1 = re.compile(r"\.L1-")
+_CMMC_L2 = re.compile(r"\.L2-|L2\.-")
+_CMMC_L3 = re.compile(r"\.L3-|L3\.-")
+
+
+def derive_cmmc_profiles(control_id: str) -> list[str]:
+    """Derive CMMC level profiles from a semicolon-delimited practice ID string.
+
+    CMMC is cumulative (L3 ⊇ L2 ⊇ L1): if the highest level found is L3,
+    returns ['L1','L2','L3']; if L2, returns ['L1','L2']; if L1, ['L1'].
+    """
+    if not control_id:
+        return []
+    if _CMMC_L3.search(control_id):
+        return ["L1", "L2", "L3"]
+    if _CMMC_L2.search(control_id):
+        return ["L1", "L2"]
+    if _CMMC_L1.search(control_id):
+        return ["L1"]
+    return []
+
+
+# ---------------------------------------------------------------------------
 # Effort derivation
 # ---------------------------------------------------------------------------
 
@@ -610,6 +636,12 @@ def derive_frameworks(
             profiles = [p for p in order if p in profiles]
             frameworks[fw_key]["profiles"] = profiles
 
+    # Derive CMMC L1/L2/L3 profiles from practice ID patterns in controlId
+    if "cmmc" in frameworks:
+        cmmc_profiles = derive_cmmc_profiles(frameworks["cmmc"].get("controlId", ""))
+        if cmmc_profiles:
+            frameworks["cmmc"]["profiles"] = cmmc_profiles
+
     return frameworks
 
 
@@ -845,6 +877,14 @@ def main():
         az["effort"] = derive_effort(az, effort_overrides)
     checks.extend(az_checks)
     checks.sort(key=scf_sort_key)
+
+    # Ensure CMMC profiles are set on all checks (AZ checks bypass derive_frameworks)
+    for check in checks:
+        fw = check.get("frameworks", {})
+        if "cmmc" in fw and "profiles" not in fw["cmmc"]:
+            p = derive_cmmc_profiles(fw["cmmc"].get("controlId", ""))
+            if p:
+                fw["cmmc"]["profiles"] = p
     if az_checks:
         print(f"Merged {len(az_checks)} AZ-* checks from az-assess-source-checks.json")
     if fw_derived:
