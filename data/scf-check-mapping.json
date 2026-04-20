@@ -6648,6 +6648,93 @@
       ]
     },
     {
+      "checkId": "CA-NAMEDLOC-002",
+      "name": "CA policies reference stale or deleted named locations",
+      "category": "NAMEDLOC",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "NET-01.1",
+      "scfAdditional": [
+        "CFG-03"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to treat all users and devices as potential threats by maintaining accurate network location definitions in Conditional Access policies can allow or block access unintentionally, undermining the intended security posture.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Conditional Access > Named locations. Identify and remove named location objects that are no longer in use. Review each CA policy that references named locations and remove or replace stale location references.",
+      "rationale": "CA policies that reference named locations no longer present in Entra will silently drop that condition — the 'selected locations' include becomes empty, causing the policy to behave unexpectedly. This is a configuration hygiene issue that can silently widen or break policy scope.",
+      "impact": "A CA policy targeting a now-deleted named location applies to no locations at all, potentially allowing access from locations that should be blocked or applying MFA requirements in unintended ways.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/location-condition",
+          "title": "Microsoft Learn — Location condition in Conditional Access"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — MT.1066 CA policy references valid named locations"
+        }
+      ]
+    },
+    {
+      "checkId": "CA-STALEREF-001",
+      "name": "CA policies reference deleted or invalid groups",
+      "category": "STALEREF",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.3",
+      "scfAdditional": [
+        "CFG-03"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Conditional Access policies that reference deleted groups silently lose coverage for those conditions, creating unenforced access control gaps that can go undetected in routine audits.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Conditional Access > Policies. For each policy, review the Users > Include and Exclude conditions and remove any group objects that have been deleted from Entra ID. Ensure every group reference resolves to an active group.",
+      "rationale": "When a group referenced in a CA policy condition is deleted, Entra silently removes it from the condition set. A policy scoped to 'selected groups' with all referenced groups deleted becomes effectively unscoped, applying to all users or nobody — depending on whether it was in Include or Exclude.",
+      "impact": "A CA policy with all include groups deleted applies to nobody (MFA requirement silently removed for all users), or a policy with exclude groups deleted begins enforcing on users who were previously exempted.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/troubleshoot-conditional-access",
+          "title": "Microsoft Learn — Troubleshoot Conditional Access policies"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — MT.1038 CA policy references no deleted groups"
+        }
+      ]
+    },
+    {
+      "checkId": "CA-FALLBACK-001",
+      "name": "CA policies have no valid include target (applies to nobody)",
+      "category": "FALLBACK",
+      "collector": "CAEvaluator",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21",
+      "scfAdditional": [
+        "CFG-03"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "A Conditional Access policy with no valid include target is silently disabled — it evaluates to no users and provides no protection, creating a false sense of security in the policy inventory.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Conditional Access > Policies. For each enabled policy, verify the Users > Include section contains at least one valid, resolvable user, group, or role. Policies with empty include targets should be disabled or remediated with a valid fallback include (e.g., 'All users').",
+      "rationale": "A CA policy needs at least one valid subject to evaluate against. If all included users or groups have been deleted, the policy applies to an empty set and is effectively disabled. This means controls like MFA, compliant device, or session frequency that the policy was meant to enforce are silently absent.",
+      "impact": "Security controls defined in the policy (MFA, device compliance, session limits) are not enforced for any user — the policy is a no-op. Since the policy still appears in the inventory as 'Enabled', it creates audit evidence that does not reflect actual protection.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-users-groups",
+          "title": "Microsoft Learn — Users and groups in Conditional Access policy"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — MT.1036 CA policy has at least one valid include user"
+        }
+      ]
+    },
+    {
       "checkId": "CA-REPORTONLY-001",
       "name": "Conditional Access policies in report-only mode",
       "category": "REPORTONLY",
