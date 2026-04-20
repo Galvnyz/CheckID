@@ -385,6 +385,12 @@
         "controlId": "MP.L2-3.8.9"
       }
     },
+    "INTUNE-REMOVABLEMEDIA-001": {
+      "cmmc": {
+        "mode": "append",
+        "controlId": "MP.L2-3.8.8"
+      }
+    },
     "ENTRA-APPREG-001": {
       "eidsca": {
         "controlId": "EIDSCA.AP01;EIDSCA.AP08"

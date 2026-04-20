@@ -1,16 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "generated": "2026-04-19",
+  "generated": "2026-04-20",
   "description": "CMMC 2.0 practices not covered by CheckID, derived from SCF database gap analysis. Classification: 'out-of-scope' = no M365 equivalent (EZ-CMMC handles these); 'partial' = M365 partially addresses, gap remains; 'coverable' = future CheckID checks could address this practice.",
   "coverage": {
     "totalL1Practices": 15,
     "totalL2Practices": 110,
     "totalL3Practices": 24,
     "coveredL1": 12,
-    "coveredL2": 86,
+    "coveredL2": 87,
     "coveredL3": 9,
     "gapL1": 3,
-    "gapL2": 24,
+    "gapL2": 23,
     "gapL3": 15
   },
   "practices": [
@@ -70,9 +70,9 @@
       "domain": "Continuous Monitoring",
       "controlName": "Does the organization synchronize internal system clocks with an authoritative time source?",
       "description": "",
-      "classification": "out-of-scope",
-      "reason": "Practice in the Continuous Monitoring domain requires controls outside the M365 configuration surface.",
-      "ezCmmc": true
+      "classification": "inherent",
+      "reason": "Azure cloud infrastructure automatically synchronizes all workload clocks via the hypervisor time source (UTC, Stratum 1). M365/Azure tenants inherit this with no tenant-level configuration required or possible.",
+      "ezCmmc": false
     },
     {
       "practiceId": "CA.L2-3.12.2",
@@ -100,8 +100,8 @@
       "domain": "Identification & Authentication",
       "controlName": "Does the organization obscure the feedback of authentication information during the authentication process to protect the information from possible exploitation/use by unauthorized individuals?",
       "description": "",
-      "classification": "partial",
-      "reason": "Multi-factor authentication for network access is partially covered by Entra ID Conditional Access, but network-level authentication for non-web protocols (SSH, RDP, VPN) requires infrastructure controls.",
+      "classification": "inherent",
+      "reason": "Entra ID and all M365 web/native clients obscure password input by default (masking characters). This is a platform default not exposed as a configurable tenant setting — no CheckID check is needed.",
       "ezCmmc": false
     },
     {
@@ -170,9 +170,10 @@
       "domain": "Data Classification & Handling",
       "controlName": "Does the organization prohibit the use of portable storage devices in organizational systems when such devices have no identifiable owner?",
       "description": "",
-      "classification": "out-of-scope",
-      "reason": "Physical media sanitization, transport, and disposal requirements cannot be addressed by M365 cloud configuration alone.",
-      "ezCmmc": true
+      "classification": "partial",
+      "reason": "INTUNE-REMOVABLEMEDIA-001 blocks all removable storage on managed devices, which inherently prohibits unidentified portable storage as a superset control. MP.L2-3.8.8 is now mapped to INTUNE-REMOVABLEMEDIA-001 in the CheckID registry.",
+      "checkIdMapping": "INTUNE-REMOVABLEMEDIA-001",
+      "ezCmmc": false
     },
     {
       "practiceId": "PE.L2-3.10.1",
@@ -251,7 +252,7 @@
       "controlName": "Does the organization protect the confidentiality, integrity and availability of electronic messaging communications?",
       "description": "",
       "classification": "partial",
-      "reason": "Prohibiting remote activation of collaborative computing devices is partially addressed by Teams/M365 meeting policies, but physical-layer controls (camera/microphone hardware) are outside M365's scope.",
+      "reason": "Microsoft Teams uses VoIP for calling and meetings. Teams Calling Policies control which users can make/receive calls, and Purview audit logs capture call activity. However, comprehensive VoIP monitoring (call recording, traffic analysis) requires Defender for Cloud Apps or third-party integrations beyond M365 tenant configuration.",
       "ezCmmc": false
     },
     {
