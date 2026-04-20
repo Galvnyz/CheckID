@@ -937,6 +937,10 @@ def main():
         if rationale:
             check_obj["rationale"] = rationale
 
+        references = cm.get("references", [])
+        if references:
+            check_obj["references"] = references
+
         tags = derive_tags(check_obj)
         if tags:
             check_obj["tags"] = tags
