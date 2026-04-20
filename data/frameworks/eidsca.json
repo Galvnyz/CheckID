@@ -1,0 +1,72 @@
+{
+  "frameworkId": "eidsca",
+  "label": "EIDSCA",
+  "version": "2025",
+  "description": "Entra ID Security Config Analyzer (EIDSCA) — 45 granular security configuration checks for Microsoft Entra ID authentication methods, authorization policies, consent settings, and password protection. Maintained by Christian Philipov and integrated into the Maester compliance testing framework.",
+  "homepageUrl": "https://maester.dev/docs/tests/eidsca",
+  "css": "fw-eidsca",
+  "totalControls": 45,
+  "registryKey": "eidsca",
+  "csvColumn": "EIDSCA",
+  "displayOrder": 19,
+  "controlIdFormat": "EIDSCA.{XX}{NN} — XX is a category code, NN is a sequence number",
+  "scoring": {
+    "method": "criteria-coverage",
+    "criteria": {
+      "AF": {
+        "label": "FIDO2 Security Key",
+        "description": "Configuration settings for FIDO2 hardware security key authentication (AF01–AF06)"
+      },
+      "AG": {
+        "label": "Authentication General",
+        "description": "Authentication methods policy migration state and suspicious activity reporting (AG01–AG03)"
+      },
+      "AM": {
+        "label": "Microsoft Authenticator",
+        "description": "Granular configuration for the Microsoft Authenticator app including number matching, additional context, and passwordless (AM01–AM10)"
+      },
+      "AP": {
+        "label": "Authorization Policy",
+        "description": "Default authorization policy sub-settings controlling what default users can create, consent to, and access (AP01–AP14)"
+      },
+      "AS": {
+        "label": "SMS Sign-in",
+        "description": "SMS-based authentication method state (AS04)"
+      },
+      "AT": {
+        "label": "Temporary Access Pass",
+        "description": "Temporary Access Pass (TAP) configuration and single-use enforcement (AT01–AT02)"
+      },
+      "AV": {
+        "label": "Voice Call",
+        "description": "Voice call authentication method state (AV01)"
+      },
+      "CP": {
+        "label": "Consent Policy",
+        "description": "User and admin consent to application data access policies (CP01–CP04)"
+      },
+      "CR": {
+        "label": "Admin Consent Request",
+        "description": "Admin consent request workflow configuration — reviewers, expiration, and email notifications (CR01–CR04)"
+      },
+      "PR": {
+        "label": "Password Protection",
+        "description": "Smart lockout thresholds, custom banned passwords, and on-premises AD password protection (PR01–PR06)"
+      },
+      "ST": {
+        "label": "Tenant Settings",
+        "description": "Tenant-wide settings including group classification and guest access policy (ST08–ST09)"
+      }
+    }
+  },
+  "colors": {
+    "light": {
+      "background": "#eff6ff",
+      "color": "#1d4ed8"
+    },
+    "dark": {
+      "background": "#1e3a8a",
+      "color": "#93c5fd"
+    }
+  }
+}

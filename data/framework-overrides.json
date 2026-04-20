@@ -384,6 +384,76 @@
       "cmmc": {
         "controlId": "MP.L2-3.8.9"
       }
+    },
+    "ENTRA-APPREG-001": {
+      "eidsca": {
+        "controlId": "EIDSCA.AP01;EIDSCA.AP08"
+      }
+    },
+    "ENTRA-AUTHMETHOD-001": {
+      "eidsca": {
+        "controlId": "EIDSCA.AS04;EIDSCA.AV01"
+      }
+    },
+    "ENTRA-AUTHMETHOD-003": {
+      "eidsca": {
+        "controlId": "EIDSCA.AM01;EIDSCA.AM02;EIDSCA.AM07"
+      }
+    },
+    "ENTRA-AUTHMETHOD-004": {
+      "eidsca": {
+        "controlId": "EIDSCA.AM10"
+      }
+    },
+    "ENTRA-CONSENT-001": {
+      "eidsca": {
+        "controlId": "EIDSCA.CP01;EIDSCA.AP10"
+      }
+    },
+    "ENTRA-CONSENT-002": {
+      "eidsca": {
+        "controlId": "EIDSCA.CR01;EIDSCA.CP03"
+      }
+    },
+    "ENTRA-CONSENT-003": {
+      "eidsca": {
+        "controlId": "EIDSCA.AP09;EIDSCA.CP04"
+      }
+    },
+    "ENTRA-GROUP-001": {
+      "eidsca": {
+        "controlId": "EIDSCA.AP06"
+      }
+    },
+    "ENTRA-GUEST-001": {
+      "eidsca": {
+        "controlId": "EIDSCA.AP14"
+      }
+    },
+    "ENTRA-GUEST-002": {
+      "eidsca": {
+        "controlId": "EIDSCA.ST09"
+      }
+    },
+    "ENTRA-PASSWORD-002": {
+      "eidsca": {
+        "controlId": "EIDSCA.PR03"
+      }
+    },
+    "ENTRA-PASSWORD-003": {
+      "eidsca": {
+        "controlId": "EIDSCA.PR01;EIDSCA.PR02"
+      }
+    },
+    "ENTRA-PASSWORD-005": {
+      "eidsca": {
+        "controlId": "EIDSCA.PR05;EIDSCA.PR06"
+      }
+    },
+    "ENTRA-TENANT-001": {
+      "eidsca": {
+        "controlId": "EIDSCA.AP05"
+      }
     }
   }
 }

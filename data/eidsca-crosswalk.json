@@ -1,0 +1,319 @@
+{
+  "$comment": "EIDSCA ↔ CheckID crosswalk. Status: 'match' = direct 1:1 overlap; 'partial' = EIDSCA is a sub-setting of the CheckID check; 'gap' = no CheckID equivalent (Sprint C candidates).",
+  "generated": "2026-04-20",
+  "source": "Maester EIDSCA test inventory — https://maester.dev/docs/tests/eidsca",
+  "totalEidscaTests": 45,
+  "matched": 16,
+  "partial": 10,
+  "gaps": 19,
+  "crosswalk": [
+    {
+      "eidscaId": "EIDSCA.AF01",
+      "description": "FIDO2 security key method is enabled",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/fido2/state",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AF02",
+      "description": "FIDO2 security key — self-service registration allowed",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/fido2/isRegistrationRequired",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AF03",
+      "description": "FIDO2 security key — attestation enforcement required",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/fido2/attestationEnforcementRequired",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AF04",
+      "description": "FIDO2 security key — key restriction policy enforced",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/fido2/keyRestrictions.isEnforced",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AF05",
+      "description": "FIDO2 security key — allowed AAGUIDs list enforcement",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/fido2/keyRestrictions.aaGuids",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AF06",
+      "description": "FIDO2 security key — enforced restriction type (allow/block)",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/fido2/keyRestrictions.enforcementType",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AG01",
+      "description": "Authentication methods policy migration state is managed (converged policy enabled)",
+      "apiPath": "authenticationMethodsPolicy/policyMigrationState",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AG02",
+      "description": "Suspicious activity reporting is enabled",
+      "apiPath": "authenticationMethodsPolicy/reportSuspiciousActivitySettings.state",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AG03",
+      "description": "Suspicious activity reporting mode — voice call victims included",
+      "apiPath": "authenticationMethodsPolicy/reportSuspiciousActivitySettings.includeTarget",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AM01",
+      "description": "Microsoft Authenticator — number matching required state",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/featureSettings.numberMatchingRequiredState",
+      "checkId": "ENTRA-AUTHMETHOD-003",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AM02",
+      "description": "Microsoft Authenticator — additional context (app information) required",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/featureSettings.displayAppInformationRequiredState",
+      "checkId": "ENTRA-AUTHMETHOD-003",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AM03",
+      "description": "Microsoft Authenticator — GPS location required",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/featureSettings.displayLocationInformationRequiredState",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AM04",
+      "description": "Microsoft Authenticator — software OATH token enabled",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/isSoftwareOathEnabled",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AM06",
+      "description": "Microsoft Authenticator — companion app allowed state",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/featureSettings.companionAppAllowedState",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AM07",
+      "description": "Microsoft Authenticator — method is enabled (state)",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/state",
+      "checkId": "ENTRA-AUTHMETHOD-003",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AM09",
+      "description": "Microsoft Authenticator — passwordless sign-in allowed",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/microsoftAuthenticator/isPasswordlessSignInAllowed",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AM10",
+      "description": "System-preferred MFA enabled (system credential preferences)",
+      "apiPath": "authenticationMethodsPolicy/systemCredentialPreferences.state",
+      "checkId": "ENTRA-AUTHMETHOD-004",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.AP01",
+      "description": "Default authorization policy — users can register applications",
+      "apiPath": "policies/authorizationPolicy/defaultUserRolePermissions.allowedToCreateApps",
+      "checkId": "ENTRA-APPREG-001",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.AP04",
+      "description": "Default authorization policy — block legacy MSOL/AAD PowerShell",
+      "apiPath": "policies/authorizationPolicy/blockMsolPowerShell",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AP05",
+      "description": "Default authorization policy — users can create tenants",
+      "apiPath": "policies/authorizationPolicy/defaultUserRolePermissions.allowedToCreateTenants",
+      "checkId": "ENTRA-TENANT-001",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AP06",
+      "description": "Default authorization policy — users can create security groups",
+      "apiPath": "policies/authorizationPolicy/defaultUserRolePermissions.allowedToCreateSecurityGroups",
+      "checkId": "ENTRA-GROUP-001",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.AP07",
+      "description": "Default authorization policy — blocked service app access for external tenants",
+      "apiPath": "policies/authorizationPolicy/allowedToUseSSOWithExternalApps",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AP08",
+      "description": "Default authorization policy — allowed to create apps (top-level)",
+      "apiPath": "policies/authorizationPolicy/allowedToCreateApps",
+      "checkId": "ENTRA-APPREG-001",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.AP09",
+      "description": "Permission grant policy — users can consent to verified-publisher apps only",
+      "apiPath": "policies/authorizationPolicy/permissionGrantPoliciesAssigned (ManagePermissionGrantsForSelf.microsoft-user-default-low)",
+      "checkId": "ENTRA-CONSENT-003",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.AP10",
+      "description": "Permission grant policy — users cannot consent to any app",
+      "apiPath": "policies/authorizationPolicy/permissionGrantPoliciesAssigned (ManagePermissionGrantsForSelf.microsoft-user-default-legacy)",
+      "checkId": "ENTRA-CONSENT-001",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AP14",
+      "description": "Guest user role ID (guest access level)",
+      "apiPath": "policies/authorizationPolicy/guestUserRoleId",
+      "checkId": "ENTRA-GUEST-001",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AS04",
+      "description": "SMS sign-in authentication method state",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/sms/state",
+      "checkId": "ENTRA-AUTHMETHOD-001",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.AT01",
+      "description": "Temporary Access Pass — is enabled",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/temporaryAccessPass/state",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AT02",
+      "description": "Temporary Access Pass — limited to single use only",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/temporaryAccessPass/isUsableOnce",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.AV01",
+      "description": "Voice call authentication method state",
+      "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/voice/state",
+      "checkId": "ENTRA-AUTHMETHOD-001",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.CP01",
+      "description": "User consent to apps accessing company data on their behalf",
+      "apiPath": "policies/authorizationPolicy/permissionGrantPoliciesAssigned",
+      "checkId": "ENTRA-CONSENT-001",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.CP03",
+      "description": "Users can request admin consent for apps they cannot consent to",
+      "apiPath": "policies/adminConsentRequestPolicy/isEnabled",
+      "checkId": "ENTRA-CONSENT-002",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.CP04",
+      "description": "Selected users can consent to apps with low-impact permissions",
+      "apiPath": "policies/permissionGrantPolicies (microsoft-user-default-low)",
+      "checkId": "ENTRA-CONSENT-003",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.CR01",
+      "description": "Admin consent request workflow is enabled",
+      "apiPath": "policies/adminConsentRequestPolicy/isEnabled",
+      "checkId": "ENTRA-CONSENT-002",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.CR02",
+      "description": "Admin consent request — designated reviewers configured",
+      "apiPath": "policies/adminConsentRequestPolicy/notifyReviewers",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.CR03",
+      "description": "Admin consent request — request expiration configured",
+      "apiPath": "policies/adminConsentRequestPolicy/remindersEnabled",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.CR04",
+      "description": "Admin consent request — email notifications to admins enabled",
+      "apiPath": "policies/adminConsentRequestPolicy/notifyReviewers",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.PR01",
+      "description": "Smart lockout threshold (maximum failed sign-in attempts)",
+      "apiPath": "domains/{domain}/passwordValidityPeriodInDays / authenticationStrengthPolicy lockoutThreshold",
+      "checkId": "ENTRA-PASSWORD-003",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.PR02",
+      "description": "Smart lockout duration in seconds",
+      "apiPath": "passwordCredentialPolicy/lockoutDurationInSeconds",
+      "checkId": "ENTRA-PASSWORD-003",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.PR03",
+      "description": "Custom banned passwords list is enabled",
+      "apiPath": "passwordProtection.enableBannedPasswordCheck",
+      "checkId": "ENTRA-PASSWORD-002",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.PR05",
+      "description": "Password protection enabled for on-premises Active Directory",
+      "apiPath": "passwordProtection.enablePasswordProtectionOnPremises",
+      "checkId": "ENTRA-PASSWORD-005",
+      "status": "match"
+    },
+    {
+      "eidscaId": "EIDSCA.PR06",
+      "description": "On-premises AD protection mode set to Enforced (not Audit)",
+      "apiPath": "passwordProtection.onPremisesMode",
+      "checkId": "ENTRA-PASSWORD-005",
+      "status": "partial"
+    },
+    {
+      "eidscaId": "EIDSCA.ST08",
+      "description": "Group classification labels are enabled for M365 groups",
+      "apiPath": "groupSettings/classificationEnabled",
+      "checkId": null,
+      "status": "gap"
+    },
+    {
+      "eidscaId": "EIDSCA.ST09",
+      "description": "Guest access policy — who can invite external users",
+      "apiPath": "policies/authorizationPolicy/allowInvitesFrom",
+      "checkId": "ENTRA-GUEST-002",
+      "status": "match"
+    }
+  ]
+}
