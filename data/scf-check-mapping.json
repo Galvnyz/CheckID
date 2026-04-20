@@ -418,7 +418,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.9.1v2;MS.EXO.9.2v1",
+      "cisaScubaControlId": "MS.DEFENDER.1.2v1",
       "remediation": "Run: Set-MalwareFilterPolicy -Identity <PolicyName> -EnableFileFilter $true. Security admin center > Anti-malware > Default policy > Common attachments filter > Enable."
     },
     {
@@ -531,7 +531,7 @@
       "cisM365Profiles": [
         "E5-L2"
       ],
-      "cisaScubaControlId": "MS.EXO.11.1v1",
+      "cisaScubaControlId": "MS.DEFENDER.2.1v1;MS.DEFENDER.2.2v1;MS.DEFENDER.2.3v1",
       "remediation": "No action needed -- settings enforced by preset security policy."
     },
     {
@@ -822,7 +822,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.8.1v1",
+      "cisaScubaControlId": "MS.DEFENDER.4.1v2;MS.DEFENDER.4.2v1",
       "remediation": "Microsoft Purview > Data loss prevention > Policies > Create a DLP policy covering sensitive information types relevant to your organization."
     },
     {
