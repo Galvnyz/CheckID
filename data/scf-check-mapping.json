@@ -166,6 +166,38 @@
       ]
     },
     {
+      "checkId": "ENTRA-BREAKGLASS-002",
+      "name": "Ensure emergency access account activity is monitored",
+      "category": "BREAKGLASS",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E5",
+      "scfPrimary": "MON-06",
+      "scfAdditional": [
+        "IAC-15.2",
+        "BCD-06"
+      ],
+      "impactSeverity": "High",
+      "impactRationale": "Failure to define and maintain audit event definitions and review audit logs for emergency access accounts exposes the tenant to undetected misuse of break-glass credentials, including unauthorized administrative actions that bypass normal accountability controls.",
+      "cisM365ControlId": "2.2.1",
+      "cisM365Profiles": [
+        "E5-L1"
+      ],
+      "remediation": "Entra admin center > Monitoring > Diagnostic settings > Add diagnostic setting. Select 'SignInLogs' and route to a Log Analytics workspace. Then create a Microsoft Sentinel or Azure Monitor alert rule: filter for UPN of both break-glass accounts, trigger on any successful or failed sign-in.",
+      "rationale": "Break-glass accounts have permanent Global Administrator access and are excluded from Conditional Access policies. Any sign-in to these accounts should be treated as a high-priority security event. Without monitoring, unauthorized use of break-glass credentials is invisible until damage is discovered.",
+      "impact": "An attacker who obtains break-glass credentials can perform any administrative action in the tenant. Without sign-in alerting, this access goes undetected. The absence of monitoring also means compliance frameworks cannot verify that break-glass accounts are used only in authorized emergencies.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access#monitor-sign-in-and-audit-logs",
+          "title": "Microsoft Learn — Monitor sign-in and audit logs for emergency access accounts"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule",
+          "title": "Microsoft Learn — Create a log alert rule in Azure Monitor"
+        }
+      ]
+    },
+    {
       "checkId": "ENTRA-CLOUDADMIN-002",
       "name": "Ensure administrative accounts use licenses with a reduced application footprint",
       "category": "CLOUDADMIN",
@@ -4418,6 +4450,39 @@
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Allow service principals to create and use profiles > Disabled",
       "rationale": "Service principal profiles impersonate multiple user identities, complicating audit attribution and allowing access to data belonging to multiple users under a single service principal.",
       "impact": "Audit logs for service principal profile access are harder to attribute to specific data access events, reducing the effectiveness of forensic investigation after a breach."
+    },
+    {
+      "checkId": "POWERBI-SERVICEPRINCIPAL-001",
+      "name": "Ensure service principals are restricted from creating Power BI workspaces, connections and deployment pipelines",
+      "category": "CONFIG",
+      "collector": "PowerBI",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03",
+      "scfAdditional": [
+        "IAC-07",
+        "CFG-02"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to restrict service principal capabilities to those functions essential for operation exposes the tenant to: Unauthorized creation of data workspaces that may evade governance controls, Pipeline deployments that bypass change management and data governance processes.",
+      "cisM365ControlId": "9.1.12",
+      "cisM365Profiles": [
+        "E3-L1",
+        "E5-L1"
+      ],
+      "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Allow service principals to use Power BI APIs > Disabled (or restrict to specific security groups). Also set 'Allow service principals to create and use profiles' and 'Allow service principals to use read-only admin APIs' to Disabled unless operationally required.",
+      "rationale": "Service principals with unrestricted Power BI API access can create workspaces, build connections to sensitive data sources, and deploy pipelines without human oversight. This bypasses governance controls designed to track data flows and protect sensitive analytics environments.",
+      "impact": "Automation accounts or compromised service principals can create unauthorized Power BI workspaces and pipeline deployments, extracting or exposing business intelligence data without appearing in any user activity log.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-premium-service-principal",
+          "title": "Microsoft Learn — Automate Premium workspace and dataset tasks with service principals"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/admin/service-admin-portal-developer",
+          "title": "Microsoft Learn — Developer settings in the Power BI admin portal"
+        }
+      ]
     },
     {
       "checkId": "PBI-PROFILE-001",
