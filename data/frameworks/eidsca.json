@@ -61,12 +61,12 @@
   },
   "colors": {
     "light": {
-      "background": "#eff6ff",
-      "color": "#1d4ed8"
+      "background": "#e0e7ff",
+      "color": "#3730a3"
     },
     "dark": {
-      "background": "#1e3a8a",
-      "color": "#93c5fd"
+      "background": "#312e81",
+      "color": "#a5b4fc"
     }
   }
 }
