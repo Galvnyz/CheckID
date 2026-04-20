@@ -454,6 +454,41 @@
       "eidsca": {
         "controlId": "EIDSCA.AP05"
       }
+    },
+    "ENTRA-AUTHMETHOD-005": {
+      "eidsca": {
+        "controlId": "EIDSCA.AG01"
+      }
+    },
+    "ENTRA-AUTHMETHOD-006": {
+      "eidsca": {
+        "controlId": "EIDSCA.AG02"
+      }
+    },
+    "ENTRA-AUTHMETHOD-007": {
+      "eidsca": {
+        "controlId": "EIDSCA.AT01"
+      }
+    },
+    "ENTRA-AUTHMETHOD-008": {
+      "eidsca": {
+        "controlId": "EIDSCA.AT02"
+      }
+    },
+    "ENTRA-APPS-003": {
+      "eidsca": {
+        "controlId": "EIDSCA.AP04"
+      }
+    },
+    "ENTRA-CONSENT-005": {
+      "eidsca": {
+        "controlId": "EIDSCA.CR02"
+      }
+    },
+    "ENTRA-CONSENT-006": {
+      "eidsca": {
+        "controlId": "EIDSCA.CR04"
+      }
     }
   }
 }
