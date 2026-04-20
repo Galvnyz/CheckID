@@ -1096,7 +1096,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.AAD.3.1v1;MS.AAD.3.2v1"
+      "cisaScubaControlId": "MS.AAD.3.1v1;MS.AAD.3.2v2"
     },
     {
       "checkId": "ENTRA-APPS-001",
@@ -1564,7 +1564,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.AAD.3.2v1;MS.AAD.3.3v1",
+      "cisaScubaControlId": "MS.AAD.3.2v2;MS.AAD.3.3v2",
       "stigControlId": "V-260337",
       "remediation": "Security Defaults enforces MFA for all users. For granular control, disable Security Defaults and create Conditional Access policies."
     },
@@ -1827,7 +1827,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.AAD.3.5v1",
+      "cisaScubaControlId": "MS.AAD.3.5v2",
       "remediation": "Entra admin center > Protection > Authentication methods > Microsoft Authenticator > Configure > Require number matching = Enabled, Show application name = Enabled."
     },
     {

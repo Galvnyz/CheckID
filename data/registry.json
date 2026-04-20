@@ -1534,7 +1534,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.AAD.3.5v1"
+          "controlId": "MS.AAD.3.5v2"
         }
       },
       "impactRating": {
@@ -3741,7 +3741,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.AAD.3.2v1;MS.AAD.3.3v1"
+          "controlId": "MS.AAD.3.2v2;MS.AAD.3.3v2"
         },
         "stig": {
           "controlId": "V-260337"
@@ -16741,7 +16741,7 @@
           ]
         },
         "cisa-scuba": {
-          "controlId": "MS.AAD.3.1v1;MS.AAD.3.2v1"
+          "controlId": "MS.AAD.3.1v1;MS.AAD.3.2v2"
         }
       },
       "effort": {
