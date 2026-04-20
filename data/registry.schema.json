@@ -178,6 +178,41 @@
         "remediation": {
           "type": "string",
           "description": "Actionable guidance for resolving a failing check \u2014 UI navigation path or PowerShell command."
+        },
+        "impact": {
+          "type": "string",
+          "description": "What an attacker or auditor observes when this check fails. Distinct from remediation (fix) and rationale (why it matters)."
+        },
+        "rationale": {
+          "type": "string",
+          "description": "The security principle behind this control \u2014 why it exists, written for a practitioner audience."
+        },
+        "references": {
+          "type": "array",
+          "description": "Links to official documentation supporting this check.",
+          "items": {
+            "type": "object",
+            "required": ["url", "title"],
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Functional/topical tags for search and filtering.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       },
       "if": {

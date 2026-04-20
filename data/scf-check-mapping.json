@@ -43,7 +43,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "1.1.1",
       "cisM365Profiles": [
@@ -108,7 +108,7 @@
         "BCD-06",
         "BCD-01"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "1.1.4",
       "cisM365Profiles": [
@@ -880,7 +880,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
       "cisM365ControlId": "3.6.1",
       "cisM365Profiles": [
@@ -902,7 +902,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
       "cisM365ControlId": "3.6.1",
       "cisM365Profiles": [
@@ -926,7 +926,7 @@
         "VPM-01",
         "VPM-05"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "3.6.2",
       "cisM365Profiles": [
@@ -1088,7 +1088,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to utilize the concept of least privilege, allowing only authorized access to processes necessary to accomplish assigned tasks in accordance with organizational business functions exposes the tenant to: Inability to maintain individual accountability, Improper assignment.",
       "cisM365ControlId": "5.1.2.1",
       "cisM365Profiles": [
@@ -1595,7 +1595,7 @@
       "licensing": "E3",
       "scfPrimary": "CFG-03",
       "scfAdditional": [],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "5.2.2.3",
       "cisM365Profiles": [
@@ -3201,7 +3201,7 @@
         "IAC-21",
         "IAC-20"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.1",
       "cisM365Profiles": [
@@ -3242,7 +3242,7 @@
         "IAC-21",
         "IAC-20"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.2",
       "cisM365Profiles": [
@@ -3303,7 +3303,7 @@
         "IAC-21",
         "IAC-20"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.3",
       "cisM365Profiles": [
@@ -3324,7 +3324,7 @@
         "NET-03.5",
         "NET-17"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.4",
       "cisM365Profiles": [
@@ -3391,7 +3391,7 @@
         "VPM-01",
         "VPM-05"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Low",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.5",
       "cisM365Profiles": [
@@ -3414,7 +3414,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
       "cisM365ControlId": "9.1.6",
       "cisM365Profiles": [
@@ -3458,7 +3458,7 @@
         "PRI-07",
         "NET-17"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to use automated mechanisms to prevent the unauthorized exfiltration of sensitive/regulated data across managed interfaces exposes the tenant to: Emergent properties and/or unintended consequences, Data loss / corruption, Information loss / corruption or system.",
       "cisM365ControlId": "9.1.7",
       "cisM365Profiles": [
@@ -3500,7 +3500,7 @@
         "NET-03.5",
         "NET-17"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.8",
       "cisM365Profiles": [
@@ -3561,7 +3561,7 @@
         "IAC-10.8",
         "IAC-10"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "9.1.9",
       "cisM365Profiles": [
@@ -3600,7 +3600,7 @@
       "scfAdditional": [
         "NET-04"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "9.1.10",
       "cisM365Profiles": [
@@ -3620,7 +3620,7 @@
       "scfAdditional": [
         "NET-04"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "9.1.11",
       "cisM365Profiles": [
@@ -3660,7 +3660,7 @@
         "IAC-10.8",
         "IAC-10"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
     },
     {
@@ -3674,7 +3674,7 @@
       "scfAdditional": [
         "IAC-17"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to enforce Role-Based Access Control (RBAC) for Technology Assets, Applications, Services and/or Data (TAASD) to restrict access to individuals assigned specific roles with legitimate business needs exposes the tenant to: Inability to maintain individual accountability.",
       "cisaScubaControlId": "MS.AAD.7.2v1"
     },
@@ -3690,7 +3690,7 @@
         "IRO-09",
         "MON-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
       "cisM365ControlId": "5.3.9",
       "cisM365Profiles": [
@@ -3711,7 +3711,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisaScubaControlId": "MS.AAD.7.4v1"
     },
@@ -3728,7 +3728,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can see results summary and individual responses\"."
     },
@@ -3743,7 +3743,7 @@
       "scfAdditional": [
         "IAC-21.2"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Low",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisaScubaControlId": "MS.INTUNE.1.2v1"
     },
@@ -3761,7 +3761,7 @@
         "MON-02",
         "CFG-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to review event logs on an ongoing basis and escalate incidents in accordance with established timelines and procedures exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s), Loss of integrity through unauthorized changes.",
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Enable \"Record name by default when new forms are created\"."
     },
@@ -3776,7 +3776,7 @@
       "scfAdditional": [
         "NET-03"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Low",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"Bing search and YouTube video\"."
     },
@@ -3792,7 +3792,7 @@
         "IAC-20.5",
         "HRS-12.1"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to perform after-the-fact reviews of configuration change logs to discover any unauthorized changes exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
       "cisaScubaControlId": "MS.INTUNE.1.1v1"
     },
@@ -3811,7 +3811,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
       "cisaScubaControlId": "MS.INTUNE.1.3v1"
     },
@@ -3827,7 +3827,7 @@
         "DCH-18",
         "PRI-05"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements exposes the tenant to: Emergent.",
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create or edit a retention policy to include Teams channel messages and chats."
     },
@@ -3843,7 +3843,7 @@
         "DCH-18",
         "PRI-05"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements exposes the tenant to: Emergent.",
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create or edit a retention policy to include Exchange email and mailboxes."
     },
@@ -3858,7 +3858,7 @@
       "scfAdditional": [
         "IAC-15.3"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": ""
     },
@@ -3874,7 +3874,7 @@
         "DCH-18",
         "PRI-05"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements exposes the tenant to: Emergent.",
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Create or edit a retention policy to include SharePoint sites and OneDrive accounts."
     },
@@ -3893,7 +3893,7 @@
         "IAC-06",
         "IAC-06.1"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "5.3.7",
       "cisM365Profiles": [
@@ -3912,7 +3912,7 @@
         "IAC-10.8",
         "IAC-10"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to use automated mechanisms to disable inactive accounts after an organization-defined time period exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Review the following inactive apps and remove their credentials or disable them: Entra admin center > Enterprise applications > filter by last sign-in > remove secrets/certificates."
     },
@@ -3927,7 +3927,7 @@
       "scfAdditional": [
         "IAC-21.1"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "5.3.8",
       "cisM365Profiles": [
@@ -3948,7 +3948,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to uniquely identify and centrally Authenticate, Authorize and Audit (AAA) organizational users and processes acting on behalf of organizational users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisaScubaControlId": "MS.AAD.1.1v1",
       "remediation": "Run: Update-MgPolicyIdentitySecurityDefaultsEnforcementPolicy -IsEnabled $true. Entra admin center > Properties > Manage security defaults."
@@ -3962,7 +3962,7 @@
       "licensing": "E3",
       "scfPrimary": "CFG-03",
       "scfAdditional": [],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisaScubaControlId": "MS.AAD.5.3v1",
       "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateApps = $false}. Entra admin center > Users > User settings."
@@ -3980,7 +3980,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to revoke user access rights in a timely manner, upon termination of employment or contract exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Informational — review and remove stale guest accounts periodically. Entra admin center > Users > Guest users."
     },
@@ -3996,7 +3996,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Informational — review Conditional Access policy coverage for your organization."
     },
@@ -4012,7 +4012,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Run: Get-MgIdentityConditionalAccessPolicy | Where-Object {$_.State -eq ''enabled''}. Ensure policies are set to On, not Report-only."
     },
@@ -4025,7 +4025,7 @@
       "licensing": "E3",
       "scfPrimary": "IAC-22",
       "scfAdditional": [],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to enforce a limit for consecutive invalid login attempts by a user during an organization-defined time period and automatically locks the account when the maximum number of unsuccessful attempts is exceeded exposes the tenant to: Inability to maintain individual.",
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings with LockoutThreshold. Entra admin center > Protection > Password protection."
     },
@@ -4040,7 +4040,7 @@
       "scfAdditional": [
         "IAC-10"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to ensure default authenticators are changed as part of account creation or system installation exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings to add organization-specific terms. Entra admin center > Protection > Password protection."
     },
@@ -4056,7 +4056,7 @@
         "AST-02.3",
         "AST-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Low",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "remediation": "SharePoint admin center > Settings > Sync > disable Mac sync app if not required by organizational policy."
     },
@@ -4072,7 +4072,7 @@
         "AST-02.3",
         "AST-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Low",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "remediation": "Review Loop components usage policy. Disable via SharePoint admin center > Settings if not required by organizational policy."
     },
@@ -4088,7 +4088,7 @@
         "AST-02.3",
         "AST-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "remediation": "SharePoint admin center > Settings > restrict Loop sharing to internal users or existing guests only."
     },
@@ -4101,7 +4101,7 @@
       "licensing": "E3",
       "scfPrimary": "CFG-03",
       "scfAdditional": [],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "remediation": "Run: Set-CsTeamsAppPermissionPolicy -DefaultCatalogAppsType AllowedAppList. Teams admin center > Teams apps > Permission policies."
     },
@@ -4116,7 +4116,7 @@
       "scfAdditional": [
         "AST-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Informational",
       "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
       "remediation": "Informational — confirms Teams service connectivity."
     },
@@ -4134,7 +4134,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to enforce a limit for consecutive invalid login attempts by a user during an organization-defined time period and automatically locks the account when the maximum number of unsuccessful attempts is exceeded exposes the tenant to: Inability to maintain individual.",
       "remediation": "Combining sign-in risk and user risk in one CA policy creates an AND condition -- both must be true to trigger. Microsoft recommends separate policies for each risk type. Entra admin center > Protection > Conditional Access."
     },
@@ -4153,7 +4153,7 @@
         "MON-02",
         "CFG-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to use automated mechanisms to audit account creation, modification, enabling, disabling and removal actions and notify organization-defined personnel or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged."
     },
     {
@@ -4169,7 +4169,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Consider creating CA policies that specifically target privileged directory roles with stricter controls (phishing-resistant MFA, compliant devices)."
     },
@@ -4186,7 +4186,7 @@
         "IAC-10",
         "CFG-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Entra admin center > Enterprise applications > review each app with credentials. Remove secrets/certificates from apps that no longer need them."
     },
@@ -4202,7 +4202,7 @@
         "IAC-21.3",
         "TPM-04"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Entra admin center > Enterprise applications > review foreign apps with Tier 0 permissions. These permissions have documented attack paths to Global Administrator. Remove or replace with least-privilege alternatives."
     },
@@ -4217,7 +4217,7 @@
       "scfAdditional": [
         "TPM-04"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Entra admin center > Enterprise applications > review foreign apps with high-privilege delegated permissions. Revoke admin consent or remove the app."
     },
@@ -4236,7 +4236,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Entra admin center > Roles and administrators > review roles assigned to foreign service principals. Remove role assignments from untrusted external apps."
     },
@@ -4252,7 +4252,7 @@
         "IAC-21",
         "IAC-20"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Review apps with > 10 application permissions. Remove unnecessary permissions to follow least-privilege. Entra admin center > App registrations > [app] > API permissions."
     },
@@ -4268,7 +4268,7 @@
         "CFG-03",
         "CFG-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Entra admin center > Applications > App management policies > configure a default policy to lock sensitive properties on multi-tenant apps."
     },
@@ -4284,7 +4284,7 @@
         "IAC-21",
         "IAC-20"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Review managed identity permissions. Use narrower permissions (e.g., Mail.Read instead of Mail.ReadWrite). Azure portal > Managed Identity > API permissions."
     },
@@ -4302,7 +4302,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Review managed identities with directory roles. Use Graph API permissions instead of directory roles where possible. Entra admin center > Roles and administrators."
     },
@@ -4321,7 +4321,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
     },
     {
@@ -4337,7 +4337,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
     },
     {
@@ -4353,7 +4353,7 @@
         "TDA-18",
         "NET-12"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "Medium",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
     },
     {
@@ -4370,7 +4370,7 @@
         "NET-12",
         "TDA-18"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
     },
     {
@@ -4388,7 +4388,7 @@
         "IAC-06.1",
         "IAC-06.4"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
     },
     {
@@ -4402,7 +4402,7 @@
       "scfAdditional": [
         "CFG-03.3"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
       "cisaScubaControlId": "MS.AAD.6.1v1"
     },
@@ -4418,7 +4418,7 @@
         "MON-10",
         "CHG-02"
       ],
-      "impactSeverity": "",
+      "impactSeverity": "High",
       "impactRationale": "Failure to facilitate the implementation of a change management program exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": "Microsoft Purview > Data lifecycle management > Retention policies > Edit each policy in simulation mode and switch it to Enforce once validated."
     },
