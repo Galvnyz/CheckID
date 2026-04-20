@@ -118242,8 +118242,8 @@
       "checkId": "BACKUP-ENABLED-001",
       "name": "Ensure Microsoft 365 Backup is Enabled to Protect Backup CUI Confidentiality",
       "category": "BACKUP",
-      "collector": "Compliance",
-      "hasAutomatedCheck": false,
+      "collector": "Backup",
+      "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
       },
@@ -118415,9 +118415,7 @@
         }
       ],
       "tags": [
-        "business-continuity-disaster-recovery",
-        "compliance",
-        "purview"
+        "business-continuity-disaster-recovery"
       ]
     },
     {

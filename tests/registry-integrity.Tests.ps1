@@ -174,7 +174,7 @@ Describe 'Control Registry Integrity' {
     }
 
     It 'Collector values are from the known set' {
-        $knownCollectors = @('Entra', 'CAEvaluator', 'ExchangeOnline', 'DNS', 'Defender', 'Compliance', 'Intune', 'SharePoint', 'Teams', 'PowerBI', 'StrykerReadiness', 'Forms', 'PurviewRetention', 'EntApp', 'AzAssess')
+        $knownCollectors = @('Entra', 'CAEvaluator', 'ExchangeOnline', 'DNS', 'Defender', 'Compliance', 'Intune', 'SharePoint', 'Teams', 'PowerBI', 'StrykerReadiness', 'Forms', 'PurviewRetention', 'EntApp', 'AzAssess', 'Backup')
         $automated = $checks | Where-Object { $_.hasAutomatedCheck -eq $true }
         foreach ($check in $automated) {
             $check.collector | Should -BeIn $knownCollectors `
