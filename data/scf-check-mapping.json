@@ -2892,6 +2892,123 @@
       ]
     },
     {
+      "checkId": "ENTRA-AUTHMETHOD-005",
+      "name": "Ensure authentication methods policy is fully migrated to the converged policy",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03",
+      "scfAdditional": [
+        "IAC-06"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to configure systems to provide only essential capabilities exposes the tenant to configuration drift where authentication method controls set in the unified policy are not applied to users still governed by legacy per-method policies.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Authentication methods > Settings > Enable combined registration and set Migration to 'Migration complete'. This ensures all authentication method configurations are managed from a single policy.",
+      "rationale": "The legacy AzureMFA and ADFS per-user MFA systems are separate from the Authentication Methods Policy. Until migration is complete, settings configured in the unified policy (number matching, system-preferred MFA, suspicious activity reporting) do not apply to users authenticated via the legacy stack.",
+      "impact": "Authentication method security settings — including number matching, additional context, and suspicious activity reporting — are silently unenforced for users still governed by the legacy per-method authentication policies.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-methods-manage",
+          "title": "Microsoft Learn — Manage authentication methods policy"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AG01 Authentication methods policy migration state"
+        }
+      ]
+    },
+    {
+      "checkId": "ENTRA-AUTHMETHOD-006",
+      "name": "Ensure suspicious activity reporting is enabled for MFA prompts",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "MON-06",
+      "scfAdditional": [
+        "IAC-06",
+        "IRO-02"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to monitor information systems to detect attacks and indicators of potential attacks exposes the tenant to MFA fatigue attacks proceeding undetected — users who deny a fraudulent MFA prompt have no mechanism to flag it for SOC investigation.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Authentication methods > Settings > Report suspicious activity > State: Enabled. This allows users who receive unexpected MFA prompts to flag them, generating a risk event in Identity Protection.",
+      "rationale": "Suspicious activity reporting lets users mark unsolicited MFA prompts as fraud. Each report creates an Entra ID Protection risk event that SOC teams can investigate. Without this, MFA fatigue attacks — where an attacker spams MFA prompts until the user approves — are invisible in the audit log.",
+      "impact": "MFA fatigue attacks targeting users go unreported. The attacker's authentication attempts appear in sign-in logs as normal failed MFA challenges with no escalation path to the SOC.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-mfasettings#report-suspicious-activity",
+          "title": "Microsoft Learn — Configure Microsoft Entra multifactor authentication settings"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AG02 Suspicious activity reporting state"
+        }
+      ]
+    },
+    {
+      "checkId": "ENTRA-AUTHMETHOD-007",
+      "name": "Ensure Temporary Access Pass authentication method is enabled",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-06",
+      "scfAdditional": [
+        "IAC-15"
+      ],
+      "impactSeverity": "Low",
+      "impactRationale": "Failure to provide resilient multi-factor authentication methods limits the organization's ability to securely onboard users, recover accounts, or register phishing-resistant credentials without resorting to weaker fallback mechanisms.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Authentication methods > Temporary Access Pass > State: Enabled. Scope to specific groups or all users as appropriate. Configure a short lifetime (1–8 hours) and set as single-use only.",
+      "rationale": "Temporary Access Pass (TAP) is a time-limited, phishing-resistant passcode that enables secure passwordless onboarding, credential recovery, and FIDO2 key registration without requiring an existing credential. Without TAP, organizations resort to weaker recovery paths (phone call, email link) that are susceptible to social engineering.",
+      "impact": "Account recovery and new device enrollment fall back to weaker methods (SMS OTP, email magic link) that can be intercepted or socially engineered. TAP is the recommended path for bootstrapping passwordless credentials.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-temporary-access-pass",
+          "title": "Microsoft Learn — Configure Temporary Access Pass"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AT01 Temporary Access Pass state"
+        }
+      ]
+    },
+    {
+      "checkId": "ENTRA-AUTHMETHOD-008",
+      "name": "Ensure Temporary Access Pass is configured as single-use only",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "IAC-14",
+      "scfAdditional": [
+        "IAC-06"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to terminate sessions after a defined period exposes the tenant to credential replay attacks — a reusable TAP intercepted during transit can be used by an attacker before it expires.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Protection > Authentication methods > Temporary Access Pass > Is usable once: Enabled. This ensures each TAP is consumed on first use and cannot be replayed.",
+      "rationale": "A multi-use TAP is valid until its expiry window regardless of how many times it is used. If a TAP is intercepted in transit (phishing, shoulder-surfing, insecure delivery channel) the attacker can use it repeatedly until expiry. Single-use TAPs limit the replay window to the first authentication.",
+      "impact": "An intercepted TAP can be used by the attacker for any authentication within the TAP's lifetime. The legitimate user's use of the TAP does not invalidate it, allowing concurrent attacker access.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-temporary-access-pass",
+          "title": "Microsoft Learn — Configure Temporary Access Pass"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AT02 Temporary Access Pass single-use enforcement"
+        }
+      ]
+    },
+    {
       "checkId": "ENTRA-AUTHMETHOD-002",
       "name": "Ensure the email OTP authentication method is disabled",
       "category": "AUTHMETHOD",
@@ -6592,6 +6709,40 @@
       ]
     },
     {
+      "checkId": "ENTRA-APPS-003",
+      "name": "Ensure legacy MSOL and Azure AD PowerShell module access is blocked",
+      "category": "APPS",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03",
+      "scfAdditional": [
+        "IAC-07",
+        "IAC-21"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to configure systems to provide only essential capabilities by restricting use of deprecated administrative interfaces exposes the tenant to credential theft via legacy authentication protocols that bypass modern MFA controls.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Set 'blockMsolPowerShell' to true via Microsoft Graph API: PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy { \"blockMsolPowerShell\": true }. Migrate scripts to the Microsoft Graph PowerShell SDK (Microsoft.Graph module) which uses modern authentication.",
+      "rationale": "The MSOnline (MSOL) and old AzureAD PowerShell modules use legacy authentication that does not support Conditional Access policy evaluation. Scripts using these modules can bypass MFA requirements and CA policies. Both modules are deprecated and Microsoft has announced end-of-support.",
+      "impact": "Automation scripts and administrators using MSOL or AzureAD PowerShell bypass Conditional Access policies — including MFA requirements and device compliance checks. Compromised service account credentials used with these modules authenticate silently without triggering modern authentication controls.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/azure/active-directory/overview",
+          "title": "Microsoft Learn — Azure AD and MSOnline PowerShell modules deprecation"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/authorizationpolicy",
+          "title": "Microsoft Learn — authorizationPolicy resource type"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AP04 Block legacy MSOL PowerShell"
+        }
+      ]
+    },
+    {
       "checkId": "PURVIEW-RETENTION-005",
       "name": "Ensure all retention policies are in Enforce mode",
       "category": "CONFIG",
@@ -6968,6 +7119,66 @@
         {
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-consent-requests",
           "title": "Microsoft Learn — Manage consent requests"
+        }
+      ]
+    },
+    {
+      "checkId": "ENTRA-CONSENT-005",
+      "name": "Ensure admin consent request has designated reviewers configured",
+      "category": "CONSENT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03",
+      "scfAdditional": [
+        "IAC-17",
+        "TPM-04"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to manage access to organizational assets by configuring appropriate reviewers for consent requests means application access decisions default to Global Administrators, violating the principle of least privilege for administrative review.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Admin consent requests > Reviewers: Add designated reviewers (Application Administrators or Cloud Application Administrators). Avoid using Global Administrators as default reviewers.",
+      "rationale": "When no reviewers are designated, admin consent requests default to Global Administrators. Routing application permission requests to the most privileged admins violates least-privilege review principles and increases the attack surface — a compromised GA account approving a consent request grants the app full access to all users.",
+      "impact": "Consent requests are reviewed by Global Administrators instead of least-privilege Application Administrators, increasing the security impact of a compromised reviewer account and reducing accountability for consent decisions.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow",
+          "title": "Microsoft Learn — Configure the admin consent workflow"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.CR02 Admin consent request designated reviewers"
+        }
+      ]
+    },
+    {
+      "checkId": "ENTRA-CONSENT-006",
+      "name": "Ensure admin consent request sends email notifications to reviewers",
+      "category": "CONSENT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": "E3",
+      "scfPrimary": "CFG-03",
+      "scfAdditional": [
+        "MON-06",
+        "IAC-17"
+      ],
+      "impactSeverity": "Low",
+      "impactRationale": "Failure to notify designated reviewers of pending consent requests means applications awaiting approval go unreviewed indefinitely, effectively blocking the admin consent workflow and pushing users toward workarounds.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
+      "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Admin consent requests > Notify reviewers: Enabled. This ensures reviewers receive email notifications when new consent requests are submitted.",
+      "rationale": "The admin consent workflow is only effective if reviewers know requests are pending. Without email notifications, requests sit in the queue until a reviewer manually checks the portal. In practice, unreviewd queues lead to users abandoning the formal request process and seeking workarounds.",
+      "impact": "Consent requests go unreviewed, causing application access delays. Users and developers may work around the consent workflow by asking Global Admins to approve directly — bypassing the designated reviewer process entirely.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow",
+          "title": "Microsoft Learn — Configure the admin consent workflow"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.CR04 Admin consent request email notifications"
         }
       ]
     },

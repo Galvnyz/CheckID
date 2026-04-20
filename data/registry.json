@@ -2293,6 +2293,220 @@
       ]
     },
     {
+      "checkId": "ENTRA-AUTHMETHOD-007",
+      "name": "Ensure Temporary Access Pass authentication method is enabled",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "IAC-06",
+        "additionalControlIds": [
+          "IAC-15"
+        ],
+        "domain": "Identification & Authentication",
+        "controlName": "Does the organization use automated mechanisms to enforce Multi-Factor Authentication (MFA) for:\n (1) Remote network access; \n (2) Third-party Technology Assets, Applications and/or Services (TAAS); and/ or\n (3) Non-console access to critical TAAS that store, transmit and/or process sensitive/regulated data?",
+        "controlDescription": "Does the organization use automated mechanisms to enforce Multi-Factor Authentication (MFA) for:\n (1) Remote network access; \n (2) Third-party Technology Assets, Applications and/or Services (TAAS); and/ or\n (3) Non-console access to critical TAAS that store, transmit and/or process sensitive/regulated data?",
+        "relativeWeighting": 9,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "IAC-06_A01",
+            "text": "multi-factor authentication for access to privileged accounts is implemented."
+          },
+          {
+            "aoId": "IAC-06_A02",
+            "text": "multi-factor authentication for access to non-privileged accounts is implemented."
+          },
+          {
+            "aoId": "IAC-06_A03",
+            "text": "system components that are known, authenticated, in a properly configured state or in a trust profile are identified."
+          },
+          {
+            "aoId": "IAC-06_A04",
+            "text": "automated or manual/procedural mechanisms to prohibit system components from connecting to organizational systems are identified."
+          },
+          {
+            "aoId": "IAC-06_A05",
+            "text": "automated or manual/procedural mechanisms are employed to prohibit system components from connecting to organizational systems unless the components are known, authenticated, in a properly configured state or in a trust profile."
+          },
+          {
+            "aoId": "IAC-06_A06",
+            "text": "multi-factor authentication is implemented in the establishment of nonlocal maintenance and diagnostic sessions."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "6.3;6.4"
+        },
+        "cmmc": {
+          "controlId": "AC.L1-B.1.II;AC.L1-B.1.II[a];AC.L1-B.1.II[b];ACL2.-3.1.2;IAL2.-3.5.3;MAL2.-3.7.5",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML2-P3;ML3-P3"
+        },
+        "fedramp": {
+          "controlId": "AC-02;IA-02(01);IA-02(02)"
+        },
+        "hipaa": {
+          "controlId": "164.312(a)(2)(ii)"
+        },
+        "iso-27001": {
+          "controlId": "5.15;5.16;5.18"
+        },
+        "iso-27017": {
+          "controlId": "9.1.1;9.2.5;9.2.6"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1021.007;T1021.008;T1025;T1036;T1036.003;T1036.005;T1036.010;T1041;T1047;T1048;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.003;T1053.005;T1053.006;T1053.007;T1055;T1055.008;T1056.003;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.009;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1087;T1087.004;T1098;T1098.001;T1098.002;T1098.003;T1098.005;T1098.006;T1098.007;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1134;T1134.001;T1134.002;T1134.003;T1136;T1136.001;T1136.002;T1136.003;T1185;T1190;T1195;T1197;T1210;T1212;T1213;T1213.001;T1213.002;T1213.003;T1213.004;T1213.005;T1218;T1218.007;T1218.015;T1222;T1222.001;T1222.002;T1484;T1485.001;T1489;T1490;T1495;T1496.002;T1505;T1505.002;T1505.003;T1505.005;T1525;T1528;T1530;T1537;T1538;T1542;T1542.001;T1542.003;T1542.005;T1543;T1543.001;T1543.002;T1543.003;T1543.004;T1543.005;T1546;T1546.003;T1547.004;T1547.006;T1547.009;T1547.012;T1547.013;T1548;T1548.002;T1548.003;T1548.005;T1548.006;T1550;T1550.002;T1550.003;T1552;T1552.001;T1552.002;T1552.004;T1552.006;T1552.007;T1553;T1555.005;T1555.006;T1556;T1556.001;T1556.003;T1556.004;T1556.005;T1556.006;T1556.007;T1556.009;T1558;T1558.001;T1558.002;T1558.003;T1558.004;T1558.005;T1559;T1559.001;T1562;T1562.001;T1562.002;T1562.004;T1562.006;T1562.007;T1562.008;T1562.009;T1562.012;T1563;T1563.001;T1563.002;T1566.003;T1567;T1569;T1569.001;T1569.002;T1574;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.012;T1578;T1578.001;T1578.002;T1578.003;T1578.005;T1580;T1585;T1585.001;T1585.002;T1585.003;T1586;T1586.001;T1586.002;T1586.003;T1599;T1599.001;T1601;T1601.001;T1601.002;T1606;T1606.001;T1606.002;T1609;T1610;T1611;T1612;T1613;T1619;T1621;T1648;T1651;T1654"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(j)"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.2;3.5.3;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "AC-02;IA-02(01);IA-02(02)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.3;8.2.4;8.3.10;8.4;8.4.2;8.4.3;8.5.1;8.6;8.6.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.6-POF3",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        },
+        "iso-27002": {
+          "controlId": "5.15;5.16;5.18"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AT01"
+        }
+      },
+      "impactRating": {
+        "severity": "Low",
+        "rationale": "Failure to provide resilient multi-factor authentication methods limits the organization's ability to securely onboard users, recover accounts, or register phishing-resistant credentials without resorting to weaker fallback mechanisms.",
+        "scfWeighting": 9
+      },
+      "effort": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false
+      },
+      "remediation": "Entra admin center > Protection > Authentication methods > Temporary Access Pass > State: Enabled. Scope to specific groups or all users as appropriate. Configure a short lifetime (1–8 hours) and set as single-use only.",
+      "impact": "Account recovery and new device enrollment fall back to weaker methods (SMS OTP, email magic link) that can be intercepted or socially engineered. TAP is the recommended path for bootstrapping passwordless credentials.",
+      "rationale": "Temporary Access Pass (TAP) is a time-limited, phishing-resistant passcode that enables secure passwordless onboarding, credential recovery, and FIDO2 key registration without requiring an existing credential. Without TAP, organizations resort to weaker recovery paths (phone call, email link) that are susceptible to social engineering.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-temporary-access-pass",
+          "title": "Microsoft Learn — Configure Temporary Access Pass"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AT01 Temporary Access Pass state"
+        }
+      ],
+      "tags": [
+        "entra-id",
+        "identification-authentication",
+        "identity"
+      ]
+    },
+    {
       "checkId": "SPO-ACCESS-001",
       "name": "Conditional Access policy coverage for SharePoint",
       "category": "ACCESS",
@@ -9414,6 +9628,197 @@
       ],
       "tags": [
         "app-registration",
+        "identification-authentication",
+        "identity"
+      ]
+    },
+    {
+      "checkId": "ENTRA-AUTHMETHOD-008",
+      "name": "Ensure Temporary Access Pass is configured as single-use only",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "IAC-14",
+        "additionalControlIds": [
+          "IAC-06"
+        ],
+        "domain": "Identification & Authentication",
+        "controlName": "Does the organization force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication?",
+        "controlDescription": "Does the organization force users and devices to re-authenticate according to organization-defined circumstances that necessitate re-authentication?",
+        "relativeWeighting": 8,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "IAC-14_A01",
+            "text": "circumstances or situations that require re-authentication are defined."
+          },
+          {
+            "aoId": "IAC-14_A02",
+            "text": "users are reauthenticated per organization-defined circumstances or situations."
+          },
+          {
+            "aoId": "IAC-14_A03",
+            "text": "users are reauthenticated when <A.03.05.01.ODP[01]: circumstances or situations>."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "6.3;6.4"
+        },
+        "cmmc": {
+          "controlId": "IAL2.-3.5.3;MAL2.-3.7.5",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML2-P3;ML3-P3"
+        },
+        "fedramp": {
+          "controlId": "IA-02(01);IA-02(02);IA-11"
+        },
+        "mitre-attack": {
+          "controlId": "T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1556.006;T1556.007"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(j)"
+        },
+        "nist-800-171": {
+          "controlId": "3.5.3;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "IA-02(01);IA-02(02);IA-11",
+          "title": "Re-authentication",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.3;8.2.8;8.4;8.4.2;8.4.3;8.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.6-POF3"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AT02"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to terminate sessions after a defined period exposes the tenant to credential replay attacks — a reusable TAP intercepted during transit can be used by an attacker before it expires.",
+        "scfWeighting": 8
+      },
+      "effort": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
+      },
+      "remediation": "Entra admin center > Protection > Authentication methods > Temporary Access Pass > Is usable once: Enabled. This ensures each TAP is consumed on first use and cannot be replayed.",
+      "impact": "An intercepted TAP can be used by the attacker for any authentication within the TAP's lifetime. The legitimate user's use of the TAP does not invalidate it, allowing concurrent attacker access.",
+      "rationale": "A multi-use TAP is valid until its expiry window regardless of how many times it is used. If a TAP is intercepted in transit (phishing, shoulder-surfing, insecure delivery channel) the attacker can use it repeatedly until expiry. Single-use TAPs limit the replay window to the first authentication.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-temporary-access-pass",
+          "title": "Microsoft Learn — Configure Temporary Access Pass"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AT02 Temporary Access Pass single-use enforcement"
+        }
+      ],
+      "tags": [
+        "entra-id",
         "identification-authentication",
         "identity"
       ]
@@ -65028,6 +65433,254 @@
       ]
     },
     {
+      "checkId": "ENTRA-AUTHMETHOD-005",
+      "name": "Ensure authentication methods policy is fully migrated to the converged policy",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "IAC-06"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "4.0;4.6;4.8;6.3;6.4"
+        },
+        "cmmc": {
+          "controlId": "CML2.-3.4.6;IAL2.-3.5.3;MAL2.-3.7.5",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML2-P3;ML3-P3"
+        },
+        "fedramp": {
+          "controlId": "CM-07;IA-02(01);IA-02(02)"
+        },
+        "iso-27001": {
+          "controlId": "8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1021.008;T1027;T1036;T1036.005;T1036.007;T1036.008;T1037;T1037.001;T1040;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.005;T1059.007;T1059.009;T1059.010;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1078;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1092;T1095;T1098;T1098.001;T1098.004;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1127;T1127.002;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1176;T1187;T1190;T1195;T1195.001;T1195.002;T1197;T1199;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1216.002;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1525;T1530;T1537;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1547.004;T1547.006;T1547.007;T1547.009;T1548;T1548.001;T1548.003;T1548.004;T1548.006;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1555.006;T1556;T1556.002;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1559;T1559.002;T1559.003;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1562.010;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.008;T1564.009;T1565;T1565.003;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1574.014;T1590.002;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1653"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(j)"
+        },
+        "nist-800-171": {
+          "controlId": "3.4.6;3.5.3;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "CM-07;IA-02(01);IA-02(02)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.PS-05",
+          "title": "Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;2.2.4;8.2.3;8.4;8.4.2;8.4.3;8.5.1"
+        },
+        "soc2": {
+          "controlId": "CC5.2-POF3;CC6.1-POF7;CC6.6-POF3;CC6.7-POF1"
+        },
+        "iso-27002": {
+          "controlId": "8.12;8.3;8.9"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AG01"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities exposes the tenant to configuration drift where authentication method controls set in the unified policy are not applied to users still governed by legacy per-method policies.",
+        "scfWeighting": 10
+      },
+      "effort": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
+      },
+      "remediation": "Entra admin center > Protection > Authentication methods > Settings > Enable combined registration and set Migration to 'Migration complete'. This ensures all authentication method configurations are managed from a single policy.",
+      "impact": "Authentication method security settings — including number matching, additional context, and suspicious activity reporting — are silently unenforced for users still governed by the legacy per-method authentication policies.",
+      "rationale": "The legacy AzureMFA and ADFS per-user MFA systems are separate from the Authentication Methods Policy. Until migration is complete, settings configured in the unified policy (number matching, system-preferred MFA, suspicious activity reporting) do not apply to users authenticated via the legacy stack.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-methods-manage",
+          "title": "Microsoft Learn — Manage authentication methods policy"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AG01 Authentication methods policy migration state"
+        }
+      ],
+      "tags": [
+        "configuration-management",
+        "entra-id",
+        "identity"
+      ]
+    },
+    {
       "checkId": "ENTRA-AUTHMETHOD-002",
       "name": "Ensure the email OTP authentication method is disabled",
       "category": "AUTHMETHOD",
@@ -73269,6 +73922,749 @@
         "collaboration",
         "configuration-management",
         "teams"
+      ]
+    },
+    {
+      "checkId": "ENTRA-APPS-003",
+      "name": "Ensure legacy MSOL and Azure AD PowerShell module access is blocked",
+      "category": "APPS",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "IAC-07",
+          "IAC-21"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "4.0;4.6;4.8;5.4;6.1;6.2"
+        },
+        "cmmc": {
+          "controlId": "ACL2.-3.1.5;CML2.-3.4.6",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P4;ML2-P4;ML3-P4"
+        },
+        "fedramp": {
+          "controlId": "AC-06;CM-07;IA-12(04)"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(3)(i);164.308(a)(3)(ii)(C);164.312(a)(1)"
+        },
+        "iso-27001": {
+          "controlId": "5.15;5.16;5.18;8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "9.1.1;9.1.2;9.2.1;9.2.2;9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1021.007;T1021.008;T1025;T1027;T1036;T1036.003;T1036.005;T1036.007;T1036.008;T1037;T1037.001;T1040;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.003;T1053.005;T1053.006;T1053.007;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.003;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.009;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1080;T1087;T1087.001;T1087.002;T1087.004;T1090;T1090.001;T1090.002;T1090.003;T1091;T1092;T1095;T1098;T1098.001;T1098.002;T1098.003;T1098.004;T1098.005;T1098.006;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1112;T1127;T1127.002;T1129;T1133;T1134;T1134.001;T1134.002;T1134.003;T1134.005;T1135;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1176;T1185;T1187;T1189;T1190;T1195;T1195.001;T1195.002;T1197;T1199;T1200;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.003;T1213.004;T1213.005;T1216;T1216.001;T1216.002;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1222;T1222.001;T1222.002;T1482;T1484;T1485;T1485.001;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1495;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.002;T1505.003;T1505.004;T1505.005;T1525;T1528;T1530;T1537;T1538;T1539;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1543.001;T1543.002;T1543.003;T1543.004;T1543.005;T1546;T1546.002;T1546.003;T1546.004;T1546.006;T1546.008;T1546.009;T1546.010;T1546.011;T1546.013;T1546.016;T1547.003;T1547.004;T1547.006;T1547.007;T1547.009;T1547.012;T1547.013;T1548;T1548.001;T1548.002;T1548.003;T1548.004;T1548.005;T1548.006;T1550;T1550.002;T1550.003;T1552;T1552.001;T1552.002;T1552.003;T1552.005;T1552.006;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555;T1555.002;T1555.004;T1555.006;T1556;T1556.001;T1556.002;T1556.003;T1556.004;T1556.005;T1556.006;T1556.007;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1558;T1558.001;T1558.002;T1558.003;T1558.005;T1559;T1559.001;T1559.002;T1559.003;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.007;T1562.008;T1562.009;T1562.010;T1562.012;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.008;T1564.009;T1565;T1565.003;T1566.003;T1567;T1569;T1569.001;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.005;T1574.006;T1574.007;T1574.008;T1574.009;T1574.010;T1574.011;T1574.012;T1574.014;T1578;T1578.001;T1578.002;T1578.003;T1578.005;T1580;T1590.002;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1606;T1606.001;T1606.002;T1609;T1610;T1611;T1612;T1613;T1619;T1621;T1622;T1647;T1648;T1651;T1653;T1654;T1657"
+        },
+        "nist-800-171": {
+          "controlId": "3.1.5;3.4.6"
+        },
+        "nist-800-53": {
+          "controlId": "AC-06;CM-07;IA-12(04);SA-08(14)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-10;PR.PS-05",
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-in-use are protected; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.3;1.4;1.4.1;1.4.2;2.2.4;3.4;3.4.2;7.1;7.2;7.2.1;7.2.2;7.2.3;7.2.6;7.3;7.3.1;7.3.2;7.3.3;8.2.4;8.3.5;8.6;8.6.1"
+        },
+        "soc2": {
+          "controlId": "CC5.2-POF3;CC6.1;CC6.1-POF12;CC6.1-POF13;CC6.1-POF7;CC6.2;CC6.2-POF1;CC6.2-POF3;CC6.3-POF1;CC6.3-POF2;CC6.7-POF1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Prior to Issuing System Credentials and Granting System Access"
+        },
+        "iso-27002": {
+          "controlId": "5.15;5.16;5.18;8.12;8.3;8.9"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AP04"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to configure systems to provide only essential capabilities by restricting use of deprecated administrative interfaces exposes the tenant to credential theft via legacy authentication protocols that bypass modern MFA controls.",
+        "scfWeighting": 10
+      },
+      "effort": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
+      },
+      "remediation": "Set 'blockMsolPowerShell' to true via Microsoft Graph API: PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy { \"blockMsolPowerShell\": true }. Migrate scripts to the Microsoft Graph PowerShell SDK (Microsoft.Graph module) which uses modern authentication.",
+      "impact": "Automation scripts and administrators using MSOL or AzureAD PowerShell bypass Conditional Access policies — including MFA requirements and device compliance checks. Compromised service account credentials used with these modules authenticate silently without triggering modern authentication controls.",
+      "rationale": "The MSOnline (MSOL) and old AzureAD PowerShell modules use legacy authentication that does not support Conditional Access policy evaluation. Scripts using these modules can bypass MFA requirements and CA policies. Both modules are deprecated and Microsoft has announced end-of-support.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/azure/active-directory/overview",
+          "title": "Microsoft Learn — Azure AD and MSOnline PowerShell modules deprecation"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/authorizationpolicy",
+          "title": "Microsoft Learn — authorizationPolicy resource type"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AP04 Block legacy MSOL PowerShell"
+        }
+      ],
+      "tags": [
+        "configuration-management",
+        "entra-id",
+        "identity"
+      ]
+    },
+    {
+      "checkId": "ENTRA-CONSENT-005",
+      "name": "Ensure admin consent request has designated reviewers configured",
+      "category": "CONSENT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "IAC-17",
+          "TPM-04"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-16",
+          "MT-17",
+          "MT-18",
+          "MT-19",
+          "MT-2",
+          "MT-20",
+          "MT-21",
+          "MT-22",
+          "MT-23",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-1",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "15.4;15.5;4.0;4.6;4.8"
+        },
+        "cmmc": {
+          "controlId": "CML2.-3.4.6",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "fedramp": {
+          "controlId": "AC-06(07);CM-07;SA-09"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(3)(ii)(B);164.308(b)(1)"
+        },
+        "iso-27001": {
+          "controlId": "5.15;5.18;5.19;8.12;8.2;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "14.2.7;15.1.1;9.1.1;9.2.3;9.2.5;9.2.6;9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1021.008;T1027;T1036;T1036.005;T1036.007;T1036.008;T1037;T1037.001;T1040;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.005;T1059.007;T1059.009;T1059.010;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1078;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1092;T1095;T1098;T1098.001;T1098.004;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1127;T1127.002;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1176;T1187;T1190;T1195;T1195.001;T1195.002;T1197;T1199;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1216.002;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1525;T1530;T1537;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1547.004;T1547.006;T1547.007;T1547.009;T1548;T1548.001;T1548.003;T1548.004;T1548.006;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1555.006;T1556;T1556.002;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1559;T1559.002;T1559.003;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1562.010;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.008;T1564.009;T1565;T1565.003;T1567;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1574.014;T1590.002;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1653"
+        },
+        "nis2": {
+          "controlId": "Article 21.3"
+        },
+        "nist-800-171": {
+          "controlId": "3.4.6;NFO - SA-9"
+        },
+        "nist-800-53": {
+          "controlId": "AC-06(07);CM-07;SA-09",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "GV.SC-06;GV.SC-07;PR.PS-05",
+          "title": "Planning and due diligence are performed to reduce risks before entering into formal supplier or other third-party relationships; The risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;12.8.2;12.9;12.9.1;12.9.2;2.2.4;7.2.4;7.2.5.1;8.2.3;A3.4.1"
+        },
+        "soc2": {
+          "controlId": "CC3.3;CC5.2-POF3;CC6.1-POF7;CC6.2;CC6.2-POF2;CC6.2-POF3;CC6.3-POF4;CC6.7-POF1",
+          "title": "COSO Principle 8: Assesses Fraud Risk; Prior to Issuing System Credentials and Granting System Access"
+        },
+        "iso-27002": {
+          "controlId": "5.15;5.18;5.19;8.12;8.2;8.3;8.9"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.CR02"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to manage access to organizational assets by configuring appropriate reviewers for consent requests means application access decisions default to Global Administrators, violating the principle of least privilege for administrative review.",
+        "scfWeighting": 10
+      },
+      "effort": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
+      },
+      "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Admin consent requests > Reviewers: Add designated reviewers (Application Administrators or Cloud Application Administrators). Avoid using Global Administrators as default reviewers.",
+      "impact": "Consent requests are reviewed by Global Administrators instead of least-privilege Application Administrators, increasing the security impact of a compromised reviewer account and reducing accountability for consent decisions.",
+      "rationale": "When no reviewers are designated, admin consent requests default to Global Administrators. Routing application permission requests to the most privileged admins violates least-privilege review principles and increases the attack surface — a compromised GA account approving a consent request grants the app full access to all users.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow",
+          "title": "Microsoft Learn — Configure the admin consent workflow"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.CR02 Admin consent request designated reviewers"
+        }
+      ],
+      "tags": [
+        "configuration-management",
+        "entra-id",
+        "identity"
+      ]
+    },
+    {
+      "checkId": "ENTRA-CONSENT-006",
+      "name": "Ensure admin consent request sends email notifications to reviewers",
+      "category": "CONSENT",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "CFG-03",
+        "additionalControlIds": [
+          "MON-06",
+          "IAC-17"
+        ],
+        "domain": "Configuration Management",
+        "controlName": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "controlDescription": "Does the organization configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services?",
+        "relativeWeighting": 10,
+        "csfFunction": "Protect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "CFG-03_A01",
+            "text": "configuration settings for the system that reflect the most restrictive mode consistent with operational requirements are defined (e.g., principle of least functionality)."
+          },
+          {
+            "aoId": "CFG-03_A02",
+            "text": "systems are configured to provide only the defined essential capabilities, where unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          },
+          {
+            "aoId": "CFG-03_A03",
+            "text": "functions to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A04",
+            "text": "ports to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A05",
+            "text": "protocols to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A06",
+            "text": "software to be prohibited or restricted is defined."
+          },
+          {
+            "aoId": "CFG-03_A07",
+            "text": "services to be prohibited or restricted are defined."
+          },
+          {
+            "aoId": "CFG-03_A08",
+            "text": "the use of organization-defined functions is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A09",
+            "text": "the use of organization-defined ports is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A10",
+            "text": "the use of organization-defined protocols is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A11",
+            "text": "the use of organization-defined software is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A12",
+            "text": "the use of organization-defined services is prohibited or restricted."
+          },
+          {
+            "aoId": "CFG-03_A13",
+            "text": "configuration settings for the system reflect the most restrictive mode consistent with operational requirements are defined."
+          },
+          {
+            "aoId": "CFG-03_A14",
+            "text": "unnecessary or nonsecure functions, ports, protocols, connections, and services are disabled or removed."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-7"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "4.0;4.6;4.8"
+        },
+        "cmmc": {
+          "controlId": "AUL2.-3.3.6;CML2.-3.4.6",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "fedramp": {
+          "controlId": "AC-06(07);AU-07;AU-07(01);AU-12;CM-07"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(3)(ii)(B)"
+        },
+        "iso-27001": {
+          "controlId": "5.15;5.18;6.8;8.12;8.15;8.2;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1;9.1.1;9.2.3;9.2.5;9.2.6;9.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1003;T1003.001;T1003.002;T1003.005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1021.008;T1027;T1036;T1036.005;T1036.007;T1036.008;T1037;T1037.001;T1040;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.005;T1059;T1059.005;T1059.007;T1059.009;T1059.010;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1078;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1092;T1095;T1098;T1098.001;T1098.004;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1112;T1127;T1127.002;T1129;T1133;T1135;T1136;T1136.002;T1136.003;T1176;T1187;T1190;T1195;T1195.001;T1195.002;T1197;T1199;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1216.002;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1482;T1484;T1489;T1490;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1525;T1530;T1537;T1542.004;T1542.005;T1543;T1546.002;T1546.006;T1546.008;T1546.009;T1546.010;T1547.004;T1547.006;T1547.007;T1547.009;T1548;T1548.001;T1548.003;T1548.004;T1548.006;T1552;T1552.003;T1552.005;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1555.004;T1555.006;T1556;T1556.002;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1559;T1559.002;T1559.003;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1562.010;T1563;T1563.001;T1563.002;T1564.002;T1564.003;T1564.006;T1564.008;T1564.009;T1565;T1565.003;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.006;T1574.007;T1574.008;T1574.009;T1574.012;T1574.014;T1590.002;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1653"
+        },
+        "nist-800-171": {
+          "controlId": "3.3.6;3.4.6"
+        },
+        "nist-800-53": {
+          "controlId": "AC-06(07);AU-07;AU-07(01);AU-12;CM-07",
+          "title": "Audit Record Generation",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.PS-05",
+          "title": "Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.2.5;1.2.6;1.4;1.4.1;1.4.2;2.2.4;7.2.4;7.2.5.1;A3.4.1"
+        },
+        "soc2": {
+          "controlId": "CC5.2-POF3;CC6.1-POF7;CC6.2;CC6.2-POF2;CC6.2-POF3;CC6.3-POF4;CC6.7-POF1;CC7.2;CC7.3",
+          "title": "Prior to Issuing System Credentials and Granting System Access; Monitoring System Components for Anomalies; Evaluation of Identified Security Events"
+        },
+        "iso-27002": {
+          "controlId": "5.15;5.18;6.8;8.12;8.15;8.2;8.3;8.9"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.CR04"
+        }
+      },
+      "impactRating": {
+        "severity": "Low",
+        "rationale": "Failure to notify designated reviewers of pending consent requests means applications awaiting approval go unreviewed indefinitely, effectively blocking the admin consent workflow and pushing users toward workarounds.",
+        "scfWeighting": 10
+      },
+      "effort": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false
+      },
+      "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Admin consent requests > Notify reviewers: Enabled. This ensures reviewers receive email notifications when new consent requests are submitted.",
+      "impact": "Consent requests go unreviewed, causing application access delays. Users and developers may work around the consent workflow by asking Global Admins to approve directly — bypassing the designated reviewer process entirely.",
+      "rationale": "The admin consent workflow is only effective if reviewers know requests are pending. Without email notifications, requests sit in the queue until a reviewer manually checks the portal. In practice, unreviewd queues lead to users abandoning the formal request process and seeking workarounds.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow",
+          "title": "Microsoft Learn — Configure the admin consent workflow"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.CR04 Admin consent request email notifications"
+        }
+      ],
+      "tags": [
+        "configuration-management",
+        "entra-id",
+        "identity"
       ]
     },
     {
@@ -85328,6 +86724,242 @@
         "continuous-monitoring",
         "logging",
         "purview"
+      ]
+    },
+    {
+      "checkId": "ENTRA-AUTHMETHOD-006",
+      "name": "Ensure suspicious activity reporting is enabled for MFA prompts",
+      "category": "AUTHMETHOD",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": {
+        "minimum": "E3"
+      },
+      "scf": {
+        "primaryControlId": "MON-06",
+        "additionalControlIds": [
+          "IAC-06",
+          "IRO-02"
+        ],
+        "domain": "Continuous Monitoring",
+        "controlName": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
+        "controlDescription": "Does the organization provide an event log report generation capability to aid in detecting and assessing anomalous activities?",
+        "relativeWeighting": 7,
+        "csfFunction": "Detect",
+        "maturityLevels": {
+          "cmm0_notPerformed": false,
+          "cmm1_informal": false,
+          "cmm2_planned": false,
+          "cmm3_defined": false,
+          "cmm4_controlled": false,
+          "cmm5_improving": false
+        },
+        "assessmentObjectives": [
+          {
+            "aoId": "MON-06_A01",
+            "text": "system components that provide an audit record generation capability for the events types are defined."
+          },
+          {
+            "aoId": "MON-06_A02",
+            "text": "audit records include organization-defined audit record content requirements."
+          },
+          {
+            "aoId": "MON-06_A03",
+            "text": "personnel or roles allowed to select the event types that are to be logged by specific components of the system is/are defined."
+          },
+          {
+            "aoId": "MON-06_A04",
+            "text": "an audit record reduction and report generation capability is implemented that supports on-demand audit record review, analysis and reporting requirements and after-the-fact investigations of incidents that does not alter the original content or time ordering of audit records."
+          },
+          {
+            "aoId": "MON-06_A05",
+            "text": "fields within audit records that can be processed, sorted or searched are defined."
+          },
+          {
+            "aoId": "MON-06_A06",
+            "text": "findings are reported to organizational personnel or roles."
+          },
+          {
+            "aoId": "MON-06_A07",
+            "text": "an audit record reduction and report generation capability that supports audit record review is implemented."
+          },
+          {
+            "aoId": "MON-06_A08",
+            "text": "an audit record reduction and report generation capability that supports audit record analysis is implemented."
+          },
+          {
+            "aoId": "MON-06_A09",
+            "text": "an audit record reduction and report generation capability that supports audit record reporting requirements is implemented."
+          },
+          {
+            "aoId": "MON-06_A10",
+            "text": "an audit record reduction and report generation capability that supports after-the-fact investigations of incidents is implemented."
+          }
+        ],
+        "risks": [
+          "R-AC-1",
+          "R-AC-2",
+          "R-AC-3",
+          "R-AC-4",
+          "R-AM-1",
+          "R-AM-2",
+          "R-AM-3",
+          "R-BC-1",
+          "R-BC-2",
+          "R-BC-3",
+          "R-BC-4",
+          "R-BC-5",
+          "R-EX-1",
+          "R-EX-2",
+          "R-EX-3",
+          "R-EX-4",
+          "R-EX-5",
+          "R-EX-6",
+          "R-EX-7",
+          "R-GV-1",
+          "R-GV-2",
+          "R-GV-3",
+          "R-GV-4",
+          "R-GV-5",
+          "R-GV-6",
+          "R-GV-7",
+          "R-GV-8",
+          "R-IR-1",
+          "R-IR-2",
+          "R-IR-3",
+          "R-IR-4",
+          "R-SA-1",
+          "R-SA-2",
+          "R-SC-1",
+          "R-SC-2",
+          "R-SC-3",
+          "R-SC-4",
+          "R-SC-5",
+          "R-SC-6"
+        ],
+        "threats": [
+          "MT-1",
+          "MT-10",
+          "MT-11",
+          "MT-12",
+          "MT-13",
+          "MT-14",
+          "MT-15",
+          "MT-2",
+          "MT-24",
+          "MT-25",
+          "MT-27",
+          "MT-3",
+          "MT-4",
+          "MT-5",
+          "MT-6",
+          "MT-7",
+          "MT-8",
+          "MT-9",
+          "NT-10",
+          "NT-11",
+          "NT-12",
+          "NT-13",
+          "NT-14",
+          "NT-2",
+          "NT-3",
+          "NT-4",
+          "NT-5",
+          "NT-6",
+          "NT-7",
+          "NT-8",
+          "NT-9"
+        ]
+      },
+      "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "17.0;17.1;17.3;17.4;17.5;17.6;17.9;2.3;6.3;6.4"
+        },
+        "cmmc": {
+          "controlId": "AUL2.-3.3.6;IAL2.-3.5.3;IRL2.-3.6.1;IRL2.-3.6.2;MAL2.-3.7.5",
+          "profiles": [
+            "L1",
+            "L2"
+          ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML2-P3;ML2-P4;ML2-P5;ML2-P7;ML3-P3;ML3-P4;ML3-P5;ML3-P7"
+        },
+        "fedramp": {
+          "controlId": "AU-07;AU-07(01);AU-12;IA-02(01);IA-02(02);IR-04"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(6)(ii);164.412;164.412(a);164.412(b);164.530(f)"
+        },
+        "iso-27001": {
+          "controlId": "5.24;5.25;5.26;6.8;8.15"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1;16.1.3;16.1.4;16.1.5"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(b);Article 21.2(j);Article 23.1"
+        },
+        "nist-800-171": {
+          "controlId": "3.3.6;3.5.3;3.6.1;3.6.2;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "AU-07;AU-07(01);AU-12;IA-02(01);IA-02(02);IR-04",
+          "title": "Audit Record Generation",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "DE.AE;DE.AE-02;DE.AE-03;DE.AE-04;DE.AE-06;DE.AE-08;GV.SC-08;RC.RP-06;RS;RS.AN;RS.AN-06;RS.CO;RS.CO-02;RS.CO-03;RS.MA;RS.MA-01;RS.MA-02;RS.MA-04;RS.MI;RS.MI-01;RS.MI-02",
+          "title": "Adverse Event Analysis; Potentially adverse events are analyzed to better understand associated activities; Information is correlated from multiple sources; The estimated impact and scope of adverse events are understood; Information on adverse events is provided to authorized staff and tools; Incidents are declared when adverse events meet the defined incident criteria; Relevant suppliers and other third parties are included in incident planning, response, and recovery activities; The end of incident recovery is declared based on criteria, and incident-related documentation is completed; Incident Analysis; Actions performed during an investigation are recorded, and the records' integrity and provenance are preserved; Incident Response Reporting and Communication; Internal and external stakeholders are notified of incidents; Information is shared with designated internal and external stakeholders; Incident Management; The incident response plan is executed in coordination with relevant third parties once an incident is declared; Incident reports are triaged and validated; Incidents are escalated or elevated as needed; Incident Mitigation; Incidents are contained; Incidents are eradicated"
+        },
+        "pci-dss": {
+          "controlId": "12.10;12.10.5;8.2.3;8.4;8.4.2;8.4.3;8.5.1;A3.3.1.2"
+        },
+        "soc2": {
+          "controlId": "A1.2-POF5;CC2.2-POF10;CC2.2-POF3;CC2.2-POF6;CC2.3-POF8;CC6.6-POF3;CC7.2;CC7.3;CC7.3-POF1;CC7.3-POF3;CC7.3-POF4;CC7.3-POF5;CC7.3-POF6;CC7.3-POF7;CC7.4;CC7.4-POF1;CC7.4-POF10;CC7.4-POF11;CC7.4-POF12;CC7.4-POF13;CC7.4-POF2;CC7.4-POF3;CC7.4-POF4;CC7.4-POF5;CC7.4-POF6;CC7.4-POF7;CC7.4-POF8;CC7.4-POF9",
+          "title": "Monitoring System Components for Anomalies; Evaluation of Identified Security Events; Response to Identified Security Incidents"
+        },
+        "iso-27002": {
+          "controlId": "5.24;5.25;5.26;6.8;8.15"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AG02"
+        }
+      },
+      "impactRating": {
+        "severity": "Medium",
+        "rationale": "Failure to monitor information systems to detect attacks and indicators of potential attacks exposes the tenant to MFA fatigue attacks proceeding undetected — users who deny a fraudulent MFA prompt have no mechanism to flag it for SOC investigation.",
+        "scfWeighting": 7
+      },
+      "effort": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
+      },
+      "remediation": "Entra admin center > Protection > Authentication methods > Settings > Report suspicious activity > State: Enabled. This allows users who receive unexpected MFA prompts to flag them, generating a risk event in Identity Protection.",
+      "impact": "MFA fatigue attacks targeting users go unreported. The attacker's authentication attempts appear in sign-in logs as normal failed MFA challenges with no escalation path to the SOC.",
+      "rationale": "Suspicious activity reporting lets users mark unsolicited MFA prompts as fraud. Each report creates an Entra ID Protection risk event that SOC teams can investigate. Without this, MFA fatigue attacks — where an attacker spams MFA prompts until the user approves — are invisible in the audit log.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-mfasettings#report-suspicious-activity",
+          "title": "Microsoft Learn — Configure Microsoft Entra multifactor authentication settings"
+        },
+        {
+          "url": "https://maester.dev/docs/tests/EIDSCA",
+          "title": "Maester — EIDSCA.AG02 Suspicious activity reporting state"
+        }
+      ],
+      "tags": [
+        "continuous-monitoring",
+        "entra-id",
+        "identity"
       ]
     },
     {
