@@ -1,11 +1,11 @@
 {
-  "$comment": "EIDSCA ↔ CheckID crosswalk. Status: 'match' = direct 1:1 overlap; 'partial' = EIDSCA is a sub-setting of the CheckID check; 'gap' = no CheckID equivalent (Sprint C candidates).",
+  "$comment": "EIDSCA ↔ CheckID crosswalk. Status: 'match' = direct 1:1 overlap; 'partial' = EIDSCA is a sub-setting of the CheckID check; 'gap' = no CheckID equivalent.",
   "generated": "2026-04-20",
   "source": "Maester EIDSCA test inventory — https://maester.dev/docs/tests/eidsca",
   "totalEidscaTests": 45,
-  "matched": 16,
-  "partial": 10,
-  "gaps": 19,
+  "matched": 17,
+  "partial": 13,
+  "gaps": 14,
   "crosswalk": [
     {
       "eidscaId": "EIDSCA.AF01",
@@ -53,15 +53,15 @@
       "eidscaId": "EIDSCA.AG01",
       "description": "Authentication methods policy migration state is managed (converged policy enabled)",
       "apiPath": "authenticationMethodsPolicy/policyMigrationState",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-AUTHMETHOD-005",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.AG02",
       "description": "Suspicious activity reporting is enabled",
       "apiPath": "authenticationMethodsPolicy/reportSuspiciousActivitySettings.state",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-AUTHMETHOD-006",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.AG03",
@@ -137,8 +137,8 @@
       "eidscaId": "EIDSCA.AP04",
       "description": "Default authorization policy — block legacy MSOL/AAD PowerShell",
       "apiPath": "policies/authorizationPolicy/blockMsolPowerShell",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-APPS-003",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.AP05",
@@ -200,15 +200,15 @@
       "eidscaId": "EIDSCA.AT01",
       "description": "Temporary Access Pass — is enabled",
       "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/temporaryAccessPass/state",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-AUTHMETHOD-007",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.AT02",
       "description": "Temporary Access Pass — limited to single use only",
       "apiPath": "authenticationMethodsPolicy/authenticationMethodConfigurations/temporaryAccessPass/isUsableOnce",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-AUTHMETHOD-008",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.AV01",
@@ -249,8 +249,8 @@
       "eidscaId": "EIDSCA.CR02",
       "description": "Admin consent request — designated reviewers configured",
       "apiPath": "policies/adminConsentRequestPolicy/notifyReviewers",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-CONSENT-005",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.CR03",
@@ -263,8 +263,8 @@
       "eidscaId": "EIDSCA.CR04",
       "description": "Admin consent request — email notifications to admins enabled",
       "apiPath": "policies/adminConsentRequestPolicy/notifyReviewers",
-      "checkId": null,
-      "status": "gap"
+      "checkId": "ENTRA-CONSENT-006",
+      "status": "match"
     },
     {
       "eidscaId": "EIDSCA.PR01",
