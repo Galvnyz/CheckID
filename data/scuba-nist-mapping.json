@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "source": "scuba-to-nist-sp-800-53-r5-fedramp-high.csv",
+  "source": "scuba-to-nist-sp-800-53-r5-fedramp-high.csv (EXO/AAD/SharePoint/Teams); ScubaGear defender.md (MS.DEFENDER.*)",
   "baseline": "FedRAMP High",
   "derivation": "CISA ScubaGear authoritative SCuBA policy -> NIST 800-53 R5 mapping",
   "controls": {
@@ -111,142 +111,79 @@
     "MS.AAD.8.3": [
       "AC-3"
     ],
-    "MS.TEAMS.1.1": [
-      "AC-17"
-    ],
-    "MS.TEAMS.1.2": [
-      "SC-15"
-    ],
-    "MS.TEAMS.1.3": [
-      "SC-15"
-    ],
-    "MS.TEAMS.1.4": [
-      "AC-3"
-    ],
-    "MS.TEAMS.1.5": [
-      "SC-15"
-    ],
-    "MS.TEAMS.1.6": [
-      "CM-7"
-    ],
-    "MS.TEAMS.1.7": [
-      "AC-21"
-    ],
-    "MS.TEAMS.2.1": [
-      "AC-3"
-    ],
-    "MS.TEAMS.2.2": [
-      "CM-7",
+    "MS.DEFENDER.1.1": [
+      "CM-6a",
+      "SI-3a",
       "SI-8"
     ],
-    "MS.TEAMS.2.3": [
-      "CM-7",
+    "MS.DEFENDER.1.2": [
+      "CM-6a",
+      "SI-3a",
+      "SI-8"
+    ],
+    "MS.DEFENDER.1.3": [
+      "CM-6a",
+      "SI-3a",
+      "SI-8"
+    ],
+    "MS.DEFENDER.1.4": [
+      "CM-6a",
+      "SI-3a",
+      "SI-8"
+    ],
+    "MS.DEFENDER.1.5": [
+      "CM-6a",
+      "SI-3a",
+      "SI-8"
+    ],
+    "MS.DEFENDER.2.1": [
+      "SI-8"
+    ],
+    "MS.DEFENDER.2.2": [
+      "SI-8"
+    ],
+    "MS.DEFENDER.2.3": [
+      "SI-8"
+    ],
+    "MS.DEFENDER.3.1": [
+      "SI-3a"
+    ],
+    "MS.DEFENDER.4.1": [
       "SC-7(10)"
     ],
-    "MS.TEAMS.4.1": [
-      "SI-8",
-      "SC-7(10)",
-      "AC-4"
-    ],
-    "MS.TEAMS.5.1": [
-      "CM-11"
-    ],
-    "MS.TEAMS.5.2": [
-      "CM-11"
-    ],
-    "MS.TEAMS.5.3": [
-      "CM-11"
-    ],
-    "MS.SHAREPOINT.1.1": [
-      "AC-2",
-      "AC-3",
-      "IA-8"
-    ],
-    "MS.SHAREPOINT.1.2": [
-      "AC-2",
-      "AC-3",
-      "IA-8"
-    ],
-    "MS.SHAREPOINT.1.3": [
-      "AC-3",
-      "AC-6(10)"
-    ],
-    "MS.SHAREPOINT.2.1": [
-      "AC-6"
-    ],
-    "MS.SHAREPOINT.2.2": [
-      "AC-6"
-    ],
-    "MS.SHAREPOINT.3.1": [
-      "AC-3",
-      "AC-21"
-    ],
-    "MS.SHAREPOINT.3.2": [
-      "AC-6"
-    ],
-    "MS.SHAREPOINT.3.3": [
-      "IA-11"
-    ],
-    "MS.POWERPLATFORM.1.1": [
-      "AC-6(10)"
-    ],
-    "MS.POWERPLATFORM.1.2": [
-      "AC-6(10)"
-    ],
-    "MS.POWERPLATFORM.2.1": [
+    "MS.DEFENDER.4.2": [
       "SC-7(10)"
     ],
-    "MS.POWERPLATFORM.2.2": [
-      "SC-7(10)"
-    ],
-    "MS.POWERPLATFORM.3.1": [
+    "MS.DEFENDER.4.3": [
       "AC-3",
-      "SC-7(5)"
-    ],
-    "MS.POWERPLATFORM.3.2": [
-      "AC-3",
-      "SC-7(5)"
-    ],
-    "MS.POWERPLATFORM.4.1": [
-      "SI-10"
-    ],
-    "MS.POWERPLATFORM.5.1": [
-      "AC-6(10)"
-    ],
-    "MS.POWERBI.1.1": [
-      "CM-7",
       "SC-7(10)"
     ],
-    "MS.POWERBI.2.1": [
-      "CM-7",
-      "AC-6"
+    "MS.DEFENDER.4.4": [
+      "AT-2b"
     ],
-    "MS.POWERBI.3.1": [
-      "CM-7",
-      "AC-6"
-    ],
-    "MS.POWERBI.4.1": [
-      "AC-4",
-      "AC-6(5)"
-    ],
-    "MS.POWERBI.4.2": [
-      "AC-4",
-      "AC-6(5)"
-    ],
-    "MS.POWERBI.5.1": [
-      "CM-7",
-      "IA-5"
-    ],
-    "MS.POWERBI.6.1": [
-      "CM-7",
-      "SI-3"
-    ],
-    "MS.POWERBI.7.1": [
-      "AC-21",
+    "MS.DEFENDER.4.5": [
       "SC-7(10)"
+    ],
+    "MS.DEFENDER.4.6": [
+      "AC-19a"
+    ],
+    "MS.DEFENDER.5.1": [
+      "SI-4(5)"
+    ],
+    "MS.DEFENDER.5.2": [
+      "SI-4(5)"
+    ],
+    "MS.DEFENDER.6.1": [
+      "AU-12"
+    ],
+    "MS.DEFENDER.6.3": [
+      "AU-11"
     ],
     "MS.EXO.1.1": [
       "AC-4"
+    ],
+    "MS.EXO.13.1": [
+      "AU-12"
     ],
     "MS.EXO.2.2": [
       "AC-2"
@@ -280,8 +217,63 @@
     "MS.EXO.7.1": [
       "SI-8"
     ],
-    "MS.EXO.13.1": [
-      "AU-12"
+    "MS.POWERBI.1.1": [
+      "CM-7",
+      "SC-7(10)"
+    ],
+    "MS.POWERBI.2.1": [
+      "CM-7",
+      "AC-6"
+    ],
+    "MS.POWERBI.3.1": [
+      "CM-7",
+      "AC-6"
+    ],
+    "MS.POWERBI.4.1": [
+      "AC-4",
+      "AC-6(5)"
+    ],
+    "MS.POWERBI.4.2": [
+      "AC-4",
+      "AC-6(5)"
+    ],
+    "MS.POWERBI.5.1": [
+      "CM-7",
+      "IA-5"
+    ],
+    "MS.POWERBI.6.1": [
+      "CM-7",
+      "SI-3"
+    ],
+    "MS.POWERBI.7.1": [
+      "AC-21",
+      "SC-7(10)"
+    ],
+    "MS.POWERPLATFORM.1.1": [
+      "AC-6(10)"
+    ],
+    "MS.POWERPLATFORM.1.2": [
+      "AC-6(10)"
+    ],
+    "MS.POWERPLATFORM.2.1": [
+      "SC-7(10)"
+    ],
+    "MS.POWERPLATFORM.2.2": [
+      "SC-7(10)"
+    ],
+    "MS.POWERPLATFORM.3.1": [
+      "AC-3",
+      "SC-7(5)"
+    ],
+    "MS.POWERPLATFORM.3.2": [
+      "AC-3",
+      "SC-7(5)"
+    ],
+    "MS.POWERPLATFORM.4.1": [
+      "SI-10"
+    ],
+    "MS.POWERPLATFORM.5.1": [
+      "AC-6(10)"
     ],
     "MS.SECURITYSUITE.1.1": [
       "SI-3"
@@ -352,6 +344,82 @@
     ],
     "MS.SECURITYSUITE.8.2": [
       "AC-4"
+    ],
+    "MS.SHAREPOINT.1.1": [
+      "AC-2",
+      "AC-3",
+      "IA-8"
+    ],
+    "MS.SHAREPOINT.1.2": [
+      "AC-2",
+      "AC-3",
+      "IA-8"
+    ],
+    "MS.SHAREPOINT.1.3": [
+      "AC-3",
+      "AC-6(10)"
+    ],
+    "MS.SHAREPOINT.2.1": [
+      "AC-6"
+    ],
+    "MS.SHAREPOINT.2.2": [
+      "AC-6"
+    ],
+    "MS.SHAREPOINT.3.1": [
+      "AC-3",
+      "AC-21"
+    ],
+    "MS.SHAREPOINT.3.2": [
+      "AC-6"
+    ],
+    "MS.SHAREPOINT.3.3": [
+      "IA-11"
+    ],
+    "MS.TEAMS.1.1": [
+      "AC-17"
+    ],
+    "MS.TEAMS.1.2": [
+      "SC-15"
+    ],
+    "MS.TEAMS.1.3": [
+      "SC-15"
+    ],
+    "MS.TEAMS.1.4": [
+      "AC-3"
+    ],
+    "MS.TEAMS.1.5": [
+      "SC-15"
+    ],
+    "MS.TEAMS.1.6": [
+      "CM-7"
+    ],
+    "MS.TEAMS.1.7": [
+      "AC-21"
+    ],
+    "MS.TEAMS.2.1": [
+      "AC-3"
+    ],
+    "MS.TEAMS.2.2": [
+      "CM-7",
+      "SI-8"
+    ],
+    "MS.TEAMS.2.3": [
+      "CM-7",
+      "SC-7(10)"
+    ],
+    "MS.TEAMS.4.1": [
+      "SI-8",
+      "SC-7(10)",
+      "AC-4"
+    ],
+    "MS.TEAMS.5.1": [
+      "CM-11"
+    ],
+    "MS.TEAMS.5.2": [
+      "CM-11"
+    ],
+    "MS.TEAMS.5.3": [
+      "CM-11"
     ]
   }
 }
