@@ -1,6 +1,6 @@
 {
   "frameworkId": "cis-m365-v6",
-  "label": "CIS Microsoft 365 v6.0.1",
+  "label": "CIS Microsoft 365 Foundations Benchmark v6.0.1",
   "version": "6.0.1",
   "description": "Prescriptive configuration recommendations for Microsoft 365 services, organized into L1/L2 profiles and E3/E5 licensing tiers. Maintained by the Center for Internet Security.",
   "homepageUrl": "https://www.cisecurity.org/benchmark/microsoft_365",

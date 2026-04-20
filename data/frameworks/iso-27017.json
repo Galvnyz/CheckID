@@ -1,6 +1,6 @@
 {
   "frameworkId": "iso-27017",
-  "label": "ISO 27017:2015",
+  "label": "ISO/IEC 27017:2015",
   "version": "2015",
   "description": "International standard providing cloud-specific information security control guidelines, supplementing ISO/IEC 27001 with control objectives and implementation guidance for cloud service providers and customers.",
   "homepageUrl": "https://www.iso.org/standard/43757.html",
