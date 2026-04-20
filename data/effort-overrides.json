@@ -434,6 +434,39 @@
       "disruptionRisk": true,
       "disruptionScope": "user-facing",
       "_rationale": "Requiring a managed device to register security information prevents users on personal/unmanaged devices from registering new MFA methods. Directly affects users trying to register authenticators from non-managed devices — a deliberate security restriction with user-facing impact."
+    },
+
+    "CA-LEGACYAUTH-001": {
+      "complexity": 3,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Enabling a CA policy to block legacy authentication protocols (IMAP, POP3, basic auth SMTP) breaks mail clients and apps that have not migrated to modern auth. Two phases: report-only CA policy (identify legacy auth traffic via sign-in logs) → enforce blocking after legacy client remediation. Sprint 4: explicit override added after 'block' keyword removed from _PHASED_NAME_KEYWORDS — this is one of the few legitimate block-keyword phased cases."
+    },
+    "EXO-LOCKBOX-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Customer Lockbox is a single toggle in the M365 admin center (Settings > Org Settings > Customer Lockbox). Enabling it does not change any data access or security posture immediately — it only requires admin approval before Microsoft support can access tenant data during support cases. No user impact, no disruption. Derivation overcounted via E5 + manual check adjustments."
+    },
+    "SPO-SITE-003": {
+      "complexity": 1,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Site collection administrator visibility is an Informational (observe-only) check. The remediation is to review the list of site collection admins — no configuration change is made. Complexity 1 (read-only admin review). Derivation overcounted because impactRating.severity=Informational defaults to base=1 but E5 and weighting bumped it to 3."
+    },
+    "ENTRA-PIM-006": {
+      "isPhased": false,
+      "phaseCount": 1,
+      "_rationale": "Tier-0 role activation duration setting (e.g., max 4 hours) is a single slider in PIM settings. Changing the maximum duration does not require a phased rollout — the new limit applies to future activations only; existing activations are not affected. Complexity=4 is retained (E5 + weighting, appropriate for Tier-0 governance), but isPhased is not warranted for a single-field config change."
+    },
+    "ENTRA-PIM-009": {
+      "isPhased": false,
+      "phaseCount": 1,
+      "_rationale": "Remediating permanent eligible Tier-0 role assignments requires converting each assignment to time-bound in PIM settings. While this requires coordination with each role holder, it is not a sequential phased technical deployment — it is a bulk admin task that can be completed in one change window. Complexity=4 is appropriate; isPhased is not warranted since there is no staged rollout with dwell time between phases."
     }
   }
 }
