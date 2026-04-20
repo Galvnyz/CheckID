@@ -289,6 +289,151 @@
       "disruptionRisk": true,
       "disruptionScope": "user-facing",
       "_rationale": "Marking devices without a compliance policy as 'Not Compliant' is a policy change that, combined with CA policy enforcement, can block non-compliant devices from accessing M365 resources. If CA enforcement is active, this immediately affects users on non-compliant devices. Two phases: audit compliance policy coverage gaps → enable marking with CA enforcement review."
+    },
+
+    "SPO-VERSIONING-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Version history configuration is a passive admin policy (setting retention limits for document versions). Does not remove access or break active user workflows. Rule fix over-flagged because SharePoint collector now triggers user-facing for Medium; version history is an exception — admin-only governance."
+    },
+    "SPO-B2B-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "SharePoint B2B integration with Entra ID is a service-level configuration enabling guest access for external collaborators. Enabling/configuring it affects service behavior for B2B scenarios rather than disrupting existing user workflows. Service scope is more accurate than user-facing."
+    },
+    "INTUNE-INVENTORY-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Ensuring Intune is authoritative for device inventory is an admin/configuration check — it verifies MDM authority settings, not a change that disrupts end users. Rule fix over-flagged Intune collector as user-facing for Medium; inventory configuration is an admin-only concern."
+    },
+    "INTUNE-AUTODISC-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": false,
+      "_rationale": "Automated device discovery and enrollment configuration is a backend MDM policy setup. Configuring auto-discovery does not disrupt existing enrolled devices or active user sessions. Admin-only backend configuration."
+    },
+
+    "EXO-SHAREDMBX-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Blocking direct sign-in to shared mailboxes breaks automation scripts, monitoring tools, and legacy service accounts that authenticate directly to shared mailboxes (rather than using delegate access). Service-scope disruption — end users accessing via delegation are unaffected, but integrations using direct auth break immediately."
+    },
+    "EXO-AUTH-001": {
+      "complexity": 3,
+      "isPhased": true,
+      "phaseCount": 2,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Enabling modern authentication for Exchange Online forces OAuth2 token-based auth, breaking legacy mail clients (Outlook 2013 without updates, some mobile apps) that only support basic auth. Two phases: identify legacy auth clients via sign-in logs → enforce modern auth after client remediation."
+    },
+    "EXO-ADDINS-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Restricting user-installed Outlook add-ins removes add-ins users have already installed and rely on for productivity workflows. Immediate user-facing disruption when enforced — users lose add-ins without warning unless communicated in advance."
+    },
+
+    "DEFENDER-PRIORITY-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Enabling Microsoft Defender priority account protection requires defining which accounts are 'priority' and enabling enhanced protections. Admin configuration task — end users are not disrupted, but admin effort is needed to tag accounts and validate coverage."
+    },
+    "DEFENDER-PRIORITY-002": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Applying Strict protection preset to priority accounts is an admin policy configuration. May tighten filtering for flagged accounts (reducing false negatives for spear-phishing), but does not block mail flow. Admin-only configuration and validation effort."
+    },
+    "DEFENDER-SAFEATTACH-002": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Safe Attachments for SharePoint/OneDrive/Teams scans files uploaded to these services and blocks malicious files from being opened. May cause brief delays on first access to flagged files — service-level behavior change rather than user-visible disruption in most cases."
+    },
+    "DEFENDER-ZAP-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "service",
+      "_rationale": "Zero-hour Auto Purge (ZAP) for Teams retroactively removes malicious messages from Teams chats after delivery. Service-level behavior — messages silently removed from chat history, which could surprise users but is transparent by design."
+    },
+    "COMPLIANCE-COMMS-001": {
+      "complexity": 4,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "admin-only",
+      "_rationale": "Communication Compliance policies enable monitoring of communications for policy violations (regulatory, HR). Setting up the policies is an admin task requiring legal/HR coordination for scope and reviewers. Does not disrupt user communications — monitoring is passive. Admin-only effort."
+    },
+
+    "ENTRA-PERUSER-001": {
+      "complexity": 4,
+      "isPhased": true,
+      "phaseCount": 3,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Disabling per-user MFA (legacy MFA) while migrating to CA-based MFA is a high-risk operation if not sequenced carefully. If per-user MFA is disabled before CA-based MFA policies cover all users, affected users lose MFA protection entirely. Three phases: (1) ensure CA-based MFA policies cover all users in report-only, (2) validate CA coverage, (3) disable per-user MFA and switch CA to enforce. Complexity derivation underestimated because Medium severity doesn't trigger phased detection."
+    },
+    "ENTRA-AUTHMETHOD-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Disabling weak authentication methods (SMS OTP, voice call) removes sign-in options for users who currently rely on them as their only registered MFA method. Without a migration path to stronger methods first, affected users face authentication failures. Communication and migration campaign required before disabling."
+    },
+    "ENTRA-AUTHMETHOD-002": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Disabling the email OTP authentication method affects users who use email as their MFA factor. Removing it without ensuring alternative methods are registered causes authentication failures at next sign-in. User-facing disruption for any user without an alternative method registered."
+    },
+    "ENTRA-TOU-001": {
+      "complexity": 2,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Configuring a Terms of Use (ToU) CA policy requires all targeted users to accept the ToU on their next sign-in before accessing resources. This is an intentional user-facing interruption to the sign-in flow — acceptable by design but affects all users in scope on first enforcement."
+    },
+    "CA-SESSION-001": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Persistent browser sessions allowed without device compliance is a CA policy gap — fixing it means non-compliant device users lose persistent sessions and must re-authenticate more frequently. User-facing change in authentication behavior. Derivation missed because CAEvaluator was previously not in _USER_FACING_COLLECTORS for Medium severity."
+    },
+    "CA-DEVICE-002": {
+      "complexity": 3,
+      "isPhased": false,
+      "phaseCount": 1,
+      "disruptionRisk": true,
+      "disruptionScope": "user-facing",
+      "_rationale": "Requiring a managed device to register security information prevents users on personal/unmanaged devices from registering new MFA methods. Directly affects users trying to register authenticators from non-managed devices — a deliberate security restriction with user-facing impact."
     }
   }
 }

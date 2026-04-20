@@ -358,7 +358,7 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
 _SEVERITY_BASE = {"Critical": 4, "High": 3, "Medium": 2, "Low": 1, "Informational": 1}
 _PHASED_COLLECTORS = {"DNS"}
 _PHASED_NAME_KEYWORDS = {"enforcement", "quarantine", "reject", "block"}
-_AUTH_COLLECTORS = {"Entra", "CAEvaluator"}
+_USER_FACING_COLLECTORS = {"Entra", "CAEvaluator", "SharePoint", "Teams", "Forms", "PowerBI", "Intune"}
 _EMAIL_COLLECTORS = {"ExchangeOnline", "DNS"}
 _AZURE_COLLECTORS = {"AzAssess"}
 _ADMIN_CATEGORIES = {"CLOUDADMIN", "ROLES", "AUDIT", "PRIVACCESS", "ADMIN", "LOGGING"}
@@ -416,7 +416,7 @@ def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
     disruption_risk = False
     disruption_scope = None
     if severity in ("Critical", "High"):
-        if collector in _AUTH_COLLECTORS:
+        if collector in _USER_FACING_COLLECTORS:
             disruption_risk = True
             disruption_scope = "user-facing"
         elif collector in _EMAIL_COLLECTORS:
@@ -430,6 +430,9 @@ def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
         ):
             disruption_risk = True
             disruption_scope = "admin-only"
+    elif severity == "Medium" and collector in _USER_FACING_COLLECTORS:
+        disruption_risk = True
+        disruption_scope = "user-facing"
 
     # Apply manual override (only fields present in the override)
     override = effort_overrides.get(check_id, {})
