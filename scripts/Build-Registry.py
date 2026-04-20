@@ -40,7 +40,7 @@ if sys.stdout.encoding != "utf-8":
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent
 
-SCHEMA_VERSION = "2.1.0"
+SCHEMA_VERSION = "2.2.0"
 
 
 # ---------------------------------------------------------------------------
@@ -480,6 +480,69 @@ def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
     return effort
 
 
+_COLLECTOR_TAGS: dict[str, list[str]] = {
+    "Entra": ["entra-id", "identity"],
+    "CAEvaluator": ["conditional-access", "identity"],
+    "ExchangeOnline": ["exchange-online", "email"],
+    "DNS": ["dns", "email"],
+    "Defender": ["defender", "email"],
+    "Compliance": ["compliance", "purview"],
+    "Intune": ["intune", "endpoint"],
+    "SharePoint": ["sharepoint", "collaboration"],
+    "Teams": ["teams", "collaboration"],
+    "PowerBI": ["power-bi", "data"],
+    "Purview": ["purview", "data-governance"],
+    "StrykerReadiness": ["identity", "privileged-access"],
+    "Forms": ["forms", "collaboration"],
+    "PurviewRetention": ["purview", "data-governance", "retention"],
+    "EntApp": ["app-registration", "identity"],
+    "AzAssess": ["azure"],
+}
+
+_CATEGORY_TAGS: dict[str, list[str]] = {
+    "MFA": ["mfa", "authentication"],
+    "ENCRYPTION_AT_REST": ["encryption"],
+    "ENCRYPTION_IN_TRANSIT": ["encryption", "tls"],
+    "AUDIT": ["logging", "audit"],
+    "LOGGING": ["logging", "audit"],
+    "CLOUDADMIN": ["privileged-access", "admin"],
+    "PRIVACCESS": ["privileged-access"],
+    "ROLES": ["rbac", "privileged-access"],
+    "GUESTACCESS": ["guest-access", "identity"],
+    "SHARING": ["sharing", "data"],
+    "RETENTION": ["retention", "data-governance"],
+    "DLP": ["dlp", "data-governance"],
+    "ANTIPHISHING": ["phishing", "email-security"],
+    "ANTIMALWARE": ["malware", "endpoint"],
+    "CA": ["conditional-access", "identity"],
+    "APPREG": ["app-registration"],
+    "NETWORK": ["network"],
+    "CONFIG": ["configuration"],
+}
+
+
+def derive_tags(check_obj: dict) -> list[str]:
+    """Derive functional tags from collector, category, and SCF domain."""
+    collector = check_obj.get("collector", "")
+    category = check_obj.get("category", "")
+    domain = check_obj.get("scf", {}).get("domain", "")
+
+    tags: list[str] = []
+    tags.extend(_COLLECTOR_TAGS.get(collector, []))
+
+    for cat_key, cat_tags in _CATEGORY_TAGS.items():
+        if cat_key in category.upper():
+            for t in cat_tags:
+                if t not in tags:
+                    tags.append(t)
+
+    domain_lower = domain.lower().replace(" & ", "-").replace(" ", "-")
+    if domain_lower and domain_lower not in tags:
+        tags.append(domain_lower)
+
+    return sorted(set(tags))
+
+
 def scf_sort_key(check: dict) -> tuple:
     """Sort key: SCF domain order → SCF ID (numeric sort)."""
     scf = check.get("scf", {})
@@ -858,6 +921,10 @@ def main():
         if remediation:
             check_obj["remediation"] = remediation
 
+        tags = derive_tags(check_obj)
+        if tags:
+            check_obj["tags"] = tags
+
         checks.append(check_obj)
 
     # Merge AZ-Assess checks (Azure ARM surface — not SCF-database-derived)
@@ -875,6 +942,9 @@ def main():
                 )
                 fw_derived += 1
         az["effort"] = derive_effort(az, effort_overrides)
+        az_tags = derive_tags(az)
+        if az_tags:
+            az["tags"] = az_tags
     checks.extend(az_checks)
     checks.sort(key=scf_sort_key)
 
