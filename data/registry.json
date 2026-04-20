@@ -537,6 +537,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Review and act on improvement actions. Microsoft Secure Score > security.microsoft.com/securescore > Improvement actions > sort by Score impact. Assign owners to high-impact actions and track progress.",
       "tags": [
         "compliance",
         "defender",
@@ -4689,6 +4690,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Require MFA on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Require Azure MFA on activation.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -4874,6 +4876,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Enable the registration campaign to prompt unregistered users. Entra admin center > Protection > Authentication methods > Registration campaign > Enable. Follow up with users shown in the authentication methods activity report.",
       "tags": [
         "authentication",
         "entra-id",
@@ -5653,6 +5656,7 @@
         "disruptionRisk": true,
         "disruptionScope": "admin-only"
       },
+      "remediation": "Replace unprotected groups in privileged role assignments with role-assignable groups. Entra admin center > Groups > New group > enable 'Azure AD roles can be assigned to the group'. Recreate the group and migrate the role assignment.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -11350,6 +11354,7 @@
         "disruptionRisk": true,
         "disruptionScope": "admin-only"
       },
+      "remediation": "Disable or delete admin accounts inactive for 90+ days. Entra admin center > Users > sign-in activity column. Review active PIM eligible assignments (Identity Governance > PIM > Assignments) and remove stale principals.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -11741,6 +11746,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Audit and restrict dynamic group membership rules that evaluate user-writable attributes. Entra admin center > Groups > select dynamic group > Membership rules. Replace user-writable attributes (e.g., department, jobTitle) with HR-sourced attributes or convert to assigned groups for sensitive access.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -13302,6 +13308,7 @@
         "phaseCount": 3,
         "disruptionRisk": false
       },
+      "remediation": "Create two cloud-only emergency access accounts with permanent Global Administrator roles. Exclude from all Conditional Access policies. Store credentials offline. Entra admin center > Users > New user. Alert on any sign-in via Azure Monitor or Microsoft Sentinel.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -13466,6 +13473,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Set a time-bound expiry on eligible assignments for Tier-0 roles. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Assignment tab > Expire eligible assignments after (e.g., 12 months). Remove existing permanent eligible assignments and reissue as time-bound.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -13637,6 +13645,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Reduce Tier-0 role activation duration to 4 hours or less. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Maximum activation duration.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -14200,6 +14209,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Require justification on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > enable 'Require justification on activation'.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -15672,6 +15682,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable or restrict guest access. Teams Admin Center > Org-wide settings > Guest access > Allow guest access in Teams: Off, or restrict calling, meeting, and messaging settings to the minimum required for external collaboration.",
       "tags": [
         "collaboration",
         "identification-authentication",
@@ -16107,6 +16118,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict or disable Power BI guest access. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled or Apply to specific security groups.",
       "tags": [
         "data",
         "identification-authentication",
@@ -17397,6 +17409,7 @@
         "phaseCount": 3,
         "disruptionRisk": false
       },
+      "remediation": "Remove privileged admin accounts from Conditional Access policy exclusions. Entra admin center > Security > Conditional Access > review each policy's exclusions. Use PIM just-in-time activation instead of permanent CA exclusions. Retain only break-glass accounts as exclusions.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -29103,6 +29116,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Assign scope tags to all Intune RBAC role assignments. Intune > Tenant administration > Roles > select role > Assignments > add scope tags to limit administrator visibility to assigned devices and users only.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -30687,6 +30701,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Create dedicated cloud-only admin accounts separate from daily-use accounts. Admin accounts should hold no Exchange mailbox or E3/E5 licenses. Entra admin center > Users > New user (cloud identity). Assign admin roles only to the dedicated accounts.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -31087,6 +31102,7 @@
         "disruptionRisk": true,
         "disruptionScope": "admin-only"
       },
+      "remediation": "Replace on-premises synced admin accounts with cloud-only accounts for all Tier-0/1 roles. Entra admin center > Users > identify synced accounts holding directory roles > create cloud-only replacements > migrate role assignments > remove roles from synced accounts.",
       "tags": [
         "conditional-access",
         "identification-authentication",
@@ -32171,6 +32187,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict API access to approved service principals only. Power BI Admin portal > Tenant settings > Developer settings > Allow service principals to use Power BI APIs: Apply to specific security groups. Create a group containing only approved service principals.",
       "tags": [
         "data",
         "identification-authentication",
@@ -32702,6 +32719,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable or restrict service principal profiles. Power BI Admin portal > Tenant settings > Allow service principals to create and use profiles: Disabled or Apply to specific security groups.",
       "tags": [
         "data",
         "identification-authentication",
@@ -32868,6 +32886,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable SSPR for administrator accounts. Entra admin center > Protection > Password reset > Properties > set scope to Selected and exclude accounts holding directory roles. Admin password resets should follow a governed helpdesk or PIM workflow.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -33624,6 +33643,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Convert sensitive security groups to role-assignable to prevent unauthorized membership changes. Entra admin center > Groups > New group > enable 'Azure AD roles can be assigned to the group'. Recreate affected groups and update any app role or CA policy assignments.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -33810,6 +33830,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Remove Tier-0/1 Entra directory roles from on-premises synced user accounts. Entra admin center > Users > filter synced accounts > review role assignments. Create cloud-only replacement accounts and migrate role assignments; on-premises compromise must not reach cloud privilege.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -34948,6 +34969,7 @@
         "phaseCount": 3,
         "disruptionRisk": false
       },
+      "remediation": "Remove Intune write permissions from app registrations that do not require them. Entra admin center > App registrations > select app > API permissions. Remove DeviceManagementConfiguration.ReadWrite.All and equivalent permissions. Only approved, monitored service principals should hold Intune write access.",
       "tags": [
         "identification-authentication",
         "identity",
@@ -35731,6 +35753,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Hide the 'Stay signed in' option on the sign-in page. Entra admin center > Company branding > edit branding > Sign-in page settings > Show option to remain signed in: No.",
       "tags": [
         "entra-id",
         "identification-authentication",
@@ -37380,6 +37403,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Configure device enrollment restrictions. Intune > Devices > Enrollment > Enrollment restrictions > Device limit restriction: set maximum devices per user. Device type restrictions: allow only approved platforms and OS versions.",
       "tags": [
         "asset-management",
         "endpoint",
@@ -38327,6 +38351,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict SharePoint external sharing to prevent CUI exposure. SharePoint Admin Center > Policies > Sharing > set external sharing to 'Existing guests only' or 'Only people in your organization'. Apply sensitivity labels and CA policies to CUI-classified sites.",
       "tags": [
         "collaboration",
         "data-classification-handling",
@@ -38861,6 +38886,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Block removable storage on managed devices. Intune > Devices > Configuration profiles > New profile > Windows > Device restrictions > General > Removable storage: Block. Assign to all managed device groups.",
       "tags": [
         "data-classification-handling",
         "endpoint",
@@ -58650,6 +58676,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Create a device compliance policy requiring BitLocker, secure boot, and minimum OS version. Intune > Devices > Compliance policies > Create policy > Windows 10 and later. Combine with a Conditional Access policy blocking non-compliant devices from accessing corporate resources.",
       "tags": [
         "configuration-management",
         "endpoint",
@@ -60574,6 +60601,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Create a Conditional Access policy blocking legacy authentication protocols. Entra admin center > Security > Conditional Access > New policy > Condition: Client apps = Other clients + Exchange ActiveSync clients > Grant: Block access. Monitor legacy auth sign-ins in the sign-in log before enforcing.",
       "tags": [
         "conditional-access",
         "configuration-management",
@@ -64959,6 +64987,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable Power BI guest user access. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled.",
       "tags": [
         "configuration-management",
         "data",
@@ -65408,6 +65437,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict external user invitations in Power BI. Power BI Admin portal > Tenant settings > Export and sharing settings > Invite external users to your organization: Disabled or Apply to specific security groups.",
       "tags": [
         "configuration-management",
         "data",
@@ -65632,6 +65662,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable guest access to Power BI content. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled. Review and remove existing guest workspace members.",
       "tags": [
         "configuration-management",
         "data",
@@ -66301,6 +66332,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable 'Publish to web'. Power BI Admin portal > Tenant settings > Export and sharing settings > Publish to web: Disabled. Revoke existing public embed codes via Power BI Admin portal > Embed Codes.",
       "tags": [
         "configuration-management",
         "data",
@@ -66554,6 +66586,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable R and Python visuals. Power BI Admin portal > Tenant settings > R visuals settings > Interact with and share R and Python visuals: Disabled.",
       "tags": [
         "configuration-management",
         "data",
@@ -67252,6 +67285,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict external data sharing. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow specific users to turn on external data sharing: Disabled or Apply to specific security groups.",
       "tags": [
         "configuration-management",
         "data",
@@ -67471,6 +67505,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Enable ResourceKey authentication block. Power BI Admin portal > Tenant settings > Developer settings > Block ResourceKey Authentication: Enabled.",
       "tags": [
         "configuration-management",
         "data",
@@ -69342,6 +69377,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable VPN split tunneling on managed devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > disable split tunneling (route all traffic through VPN). Assign to all devices used for remote access.",
       "tags": [
         "configuration",
         "configuration-management",
@@ -70332,6 +70368,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Enable Multi Admin Approval for sensitive Intune operations. Intune > Tenant administration > Multi admin approval > Create an access policy covering device wipes and sensitive configurations, and assign approvers.",
       "tags": [
         "change-management",
         "identity",
@@ -71256,6 +71293,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Enable and configure Microsoft Defender for Cloud Apps. Defender portal > Settings > Cloud apps > verify connection. Enable app connectors for Microsoft 365 and configure session policies via Conditional Access app control for sensitive applications.",
       "tags": [
         "continuous-monitoring",
         "defender",
@@ -79077,6 +79115,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Enable unified audit logging. Purview compliance portal > Audit > Search > Start recording user and admin activity. PowerShell: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true",
       "tags": [
         "audit",
         "compliance",
@@ -79490,6 +79529,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Enable admin notifications on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Notification tab > configure role activation alerts to notify security team or role administrators.",
       "tags": [
         "continuous-monitoring",
         "entra-id",
@@ -79707,6 +79747,7 @@
         "disruptionRisk": true,
         "disruptionScope": "admin-only"
       },
+      "remediation": "Investigate: review Intune audit logs for the device wipe events immediately. Intune > Tenant administration > Audit logs > filter by DeviceAction: Wipe. Verify each wipe was authorized. Rotate credentials and initiate incident response if unauthorized activity is confirmed.",
       "tags": [
         "audit",
         "continuous-monitoring",
@@ -83556,6 +83597,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable external Sway sharing. Microsoft 365 Admin Center > Settings > Org settings > Sway > disable 'Let people in your organization share their sways with people outside your organization'.",
       "tags": [
         "collaboration",
         "network-security",
@@ -84626,6 +84668,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Enable sensitivity label support in Power BI. Power BI Admin portal > Tenant settings > Information protection > Allow users to apply sensitivity labels for Power BI content: Enabled. Ensure labels are published to Power BI users in Microsoft Purview compliance portal.",
       "tags": [
         "data",
         "network-security",
@@ -85010,6 +85053,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict shareable links in Power BI. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow shareable links to grant access to everyone in your organization: Disabled or Apply to specific security groups.",
       "tags": [
         "data",
         "network-security",
@@ -85799,6 +85843,7 @@
         "disruptionRisk": true,
         "disruptionScope": "service"
       },
+      "remediation": "Block automatic external forwarding via transport rule. Exchange Admin Center > Mail flow > Rules > New rule: apply to messages where recipient is outside the org and message type is Auto Forward > Block the message. Also disable auto-forwarding in the outbound anti-spam policy.",
       "tags": [
         "email",
         "exchange-online",
@@ -86227,6 +86272,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Review and restrict Power BI external sharing settings. Power BI Admin portal > Tenant settings > Export and sharing settings: disable or restrict Publish to web, export options, and external sharing settings to approved security groups aligned to data classification requirements.",
       "tags": [
         "data",
         "network-security",
@@ -86446,6 +86492,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Disable or restrict 'Publish to web'. Power BI Admin portal > Tenant settings > Export and sharing settings > Publish to web: Disabled or Apply to specific security groups. Revoke existing public embed codes via Power BI Admin portal > Embed Codes.",
       "tags": [
         "data",
         "network-security",
@@ -86662,6 +86709,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Convert public M365 groups to private. Entra admin center > Groups > filter Privacy: Public. Select each group > Properties > Privacy: Private. Implement a group creation policy defaulting new groups to Private.",
       "tags": [
         "entra-id",
         "identity",
@@ -93466,6 +93514,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Enforce sign-in frequency via Conditional Access. Entra admin center > Security > Conditional Access > New policy > Grant: require periodic re-authentication > Session: Sign-in frequency (e.g., 8 hours for standard users, 1 hour for privileged sessions). Disable persistent browser sessions for unmanaged devices.",
       "tags": [
         "conditional-access",
         "identity",
@@ -93661,6 +93710,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Block legacy authentication via Conditional Access. Entra admin center > Security > Conditional Access > New policy > target all users > Condition: Client apps = Other clients + Exchange ActiveSync > Grant: Block access. Alternatively, enable the Microsoft-managed legacy auth block policy.",
       "tags": [
         "conditional-access",
         "identity",
@@ -94226,6 +94276,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Require device compliance for remote access. Entra admin center > Security > Conditional Access > New policy > target all users > Condition: Device platforms or named locations > Grant: Require device to be marked as compliant. Combine with Intune compliance policies.",
       "tags": [
         "conditional-access",
         "identity",
@@ -94380,6 +94431,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Configure Always On VPN for remote devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > Always On: Enable, Auto-trigger: Enable. Select VPN connection type and deploy to remote worker device groups.",
       "tags": [
         "endpoint",
         "intune",
@@ -94711,6 +94763,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Deploy a Wi-Fi configuration profile requiring WPA2/WPA3-Enterprise authentication. Intune > Devices > Configuration profiles > New profile > Windows > Wi-Fi > set Security type: WPA2-Enterprise, Authentication method: Certificates. Assign to managed device groups.",
       "tags": [
         "endpoint",
         "intune",
@@ -94894,6 +94947,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Enable BitLocker via Intune endpoint protection policy. Intune > Devices > Configuration profiles > Endpoint protection > BitLocker > require TPM startup, encrypt all drives, back up recovery keys to Entra ID. Assign to all managed Windows device groups.",
       "tags": [
         "endpoint",
         "endpoint-security",
@@ -97504,6 +97558,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Enable comprehensive attachment filtering. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-malware > edit default policy > Common attachments filter: On. Add high-risk extensions (.exe, .js, .vbs, .bat, .cmd, .ps1, .msi). Enable ZAP.",
       "tags": [
         "defender",
         "email",
@@ -98851,6 +98906,7 @@
         "disruptionRisk": true,
         "disruptionScope": "service"
       },
+      "remediation": "Harden the anti-phishing policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-phishing > edit default policy: enable mailbox intelligence, enable impersonation protection for key users and domains, set action to Quarantine for impersonation and spoof detections.",
       "tags": [
         "email",
         "endpoint-security",
@@ -99116,6 +99172,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Enable DKIM signing for each accepted domain. Defender portal > Email & Collaboration > Policies & rules > Threat policies > DKIM > select domain > Enable. Add the two provided CNAME records to your DNS zone before enabling.",
       "tags": [
         "email",
         "endpoint-security",
@@ -99380,6 +99437,7 @@
         "disruptionRisk": true,
         "disruptionScope": "service"
       },
+      "remediation": "Harden the anti-malware policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-malware > edit default policy: enable common attachments filter, enable ZAP, configure admin notifications.",
       "tags": [
         "email",
         "endpoint-security",
@@ -102605,6 +102663,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Configure a Windows Update ring policy. Intune > Devices > Windows > Update rings for Windows 10 and later > Create: quality update deferral 0–7 days, feature update deferral 30–60 days, automatic restart notifications enabled. Assign to all managed Windows device groups.",
       "tags": [
         "endpoint",
         "endpoint-security",
@@ -103245,6 +103304,7 @@
         "phaseCount": 3,
         "disruptionRisk": false
       },
+      "remediation": "Remove all entries from the 'Allowed domains' list in inbound anti-spam policies. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-spam > edit each inbound policy > Allow & block lists > Allowed domains: remove all entries. Allowed domains bypass both spam and malware filtering.",
       "tags": [
         "defender",
         "email",
@@ -103390,6 +103450,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Harden the default inbound anti-spam policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-spam > edit default inbound policy: spam action = Junk folder, high-confidence spam = Quarantine, phishing = Quarantine, BCL threshold = 6 or lower.",
       "tags": [
         "email",
         "endpoint-security",
@@ -103922,6 +103983,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
+      "remediation": "Restrict PowerShell execution policy on managed endpoints. Intune > Devices > Configuration profiles > Settings catalog > search 'Turn on Script Execution' > set to AllSigned or RemoteSigned. Assign to all managed Windows device groups.",
       "tags": [
         "endpoint",
         "endpoint-security",
@@ -114384,6 +114446,7 @@
         "phaseCount": 1,
         "disruptionRisk": false
       },
+      "remediation": "Enable Microsoft 365 Backup in the admin center. Microsoft 365 Admin Center > Settings > Org settings > Microsoft 365 Backup > Enable. Requires Microsoft 365 Backup add-on license. Configure backup scope for Exchange, SharePoint, and OneDrive.",
       "tags": [
         "business-continuity-disaster-recovery",
         "compliance",

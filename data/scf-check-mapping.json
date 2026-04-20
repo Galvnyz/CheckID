@@ -50,7 +50,8 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.AAD.7.4v1"
+      "cisaScubaControlId": "MS.AAD.7.4v1",
+      "remediation": "Replace on-premises synced admin accounts with cloud-only accounts for all Tier-0/1 roles. Entra admin center > Users > identify synced accounts holding directory roles > create cloud-only replacements > migrate role assignments > remove roles from synced accounts."
     },
     {
       "checkId": "ENTRA-ADMIN-003",
@@ -115,7 +116,8 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.AAD.1.1v1"
+      "cisaScubaControlId": "MS.AAD.1.1v1",
+      "remediation": "Create two cloud-only emergency access accounts with permanent Global Administrator roles. Exclude from all Conditional Access policies. Store credentials offline. Entra admin center > Users > New user. Alert on any sign-in via Azure Monitor or Microsoft Sentinel."
     },
     {
       "checkId": "ENTRA-CLOUDADMIN-002",
@@ -348,7 +350,8 @@
       "cisM365Profiles": [
         "E3-L2",
         "E5-L2"
-      ]
+      ],
+      "remediation": "Disable external Sway sharing. Microsoft 365 Admin Center > Settings > Org settings > Sway > disable 'Let people in your organization share their sways with people outside your organization'."
     },
     {
       "checkId": "ENTRA-ORGSETTING-004",
@@ -621,7 +624,8 @@
       "cisM365Profiles": [
         "E3-L2",
         "E5-L2"
-      ]
+      ],
+      "remediation": "Enable comprehensive attachment filtering. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-malware > edit default policy > Common attachments filter: On. Add high-risk extensions (.exe, .js, .vbs, .bat, .cmd, .ps1, .msi). Enable ZAP."
     },
     {
       "checkId": "EXO-CONNFILTER-001",
@@ -678,7 +682,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Remove all entries from the 'Allowed domains' list in inbound anti-spam policies. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-spam > edit each inbound policy > Allow & block lists > Allowed domains: remove all entries. Allowed domains bypass both spam and malware filtering."
     },
     {
       "checkId": "DEFENDER-OUTBOUND-001",
@@ -761,7 +766,8 @@
       "cisM365ControlId": "2.4.3",
       "cisM365Profiles": [
         "E5-L2"
-      ]
+      ],
+      "remediation": "Enable and configure Microsoft Defender for Cloud Apps. Defender portal > Settings > Cloud apps > verify connection. Enable app connectors for Microsoft 365 and configure session policies via Conditional Access app control for sensitive applications."
     },
     {
       "checkId": "DEFENDER-ZAP-001",
@@ -975,7 +981,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "4.2",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Harden the anti-phishing policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-phishing > edit default policy: enable mailbox intelligence, enable impersonation protection for key users and domains, set action to Quarantine for impersonation and spoof detections."
     },
     {
       "checkId": "INTUNE-ENROLL-001",
@@ -1009,7 +1016,8 @@
       "impactSeverity": "Medium",
       "impactRationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
       "cisM365ControlId": "4.3",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Harden the default inbound anti-spam policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-spam > edit default inbound policy: spam action = Junk folder, high-confidence spam = Quarantine, phishing = Quarantine, BCL threshold = 6 or lower."
     },
     {
       "checkId": "EXO-DKIM-001",
@@ -1029,7 +1037,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "4.4",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Enable DKIM signing for each accepted domain. Defender portal > Email & Collaboration > Policies & rules > Threat policies > DKIM > select domain > Enable. Add the two provided CNAME records to your DNS zone before enabling."
     },
     {
       "checkId": "EXO-MALWARE-001",
@@ -1049,7 +1058,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "4.5",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Harden the anti-malware policy. Defender portal > Email & Collaboration > Policies & rules > Threat policies > Anti-malware > edit default policy: enable common attachments filter, enable ZAP, configure admin notifications."
     },
     {
       "checkId": "ENTRA-PERUSER-001",
@@ -1095,7 +1105,8 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.AAD.3.1v1;MS.AAD.3.2v2"
+      "cisaScubaControlId": "MS.AAD.3.1v1;MS.AAD.3.2v2",
+      "remediation": "Remove privileged admin accounts from Conditional Access policy exclusions. Entra admin center > Security > Conditional Access > review each policy's exclusions. Use PIM just-in-time activation instead of permanent CA exclusions. Retain only break-glass accounts as exclusions."
     },
     {
       "checkId": "ENTRA-APPS-001",
@@ -1179,7 +1190,8 @@
       "cisM365Profiles": [
         "E3-L2",
         "E5-L2"
-      ]
+      ],
+      "remediation": "Hide the 'Stay signed in' option on the sign-in page. Entra admin center > Company branding > edit branding > Sign-in page settings > Show option to remain signed in: No."
     },
     {
       "checkId": "ENTRA-LINKEDIN-001",
@@ -1513,7 +1525,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "5.2",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Block automatic external forwarding via transport rule. Exchange Admin Center > Mail flow > Rules > New rule: apply to messages where recipient is outside the org and message type is Auto Forward > Block the message. Also disable auto-forwarding in the outbound anti-spam policy."
     },
     {
       "checkId": "CA-MFA-ADMIN-001",
@@ -1584,7 +1597,8 @@
         "E5-L1"
       ],
       "cisaScubaControlId": "MS.AAD.1.1v1",
-      "stigControlId": "V-260338"
+      "stigControlId": "V-260338",
+      "remediation": "Create a Conditional Access policy blocking legacy authentication protocols. Entra admin center > Security > Conditional Access > New policy > Condition: Client apps = Other clients + Exchange ActiveSync clients > Grant: Block access. Monitor legacy auth sign-ins in the sign-in log before enforcing."
     },
     {
       "checkId": "CA-LEGACYAUTH-001",
@@ -2001,7 +2015,8 @@
       "impactSeverity": "Critical",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
       "cisM365ControlId": "5.3",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Enable unified audit logging. Purview compliance portal > Audit > Search > Start recording user and admin activity. PowerShell: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true"
     },
     {
       "checkId": "ENTRA-PIM-001",
@@ -2136,7 +2151,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "6.1",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Create a device compliance policy requiring BitLocker, secure boot, and minimum OS version. Intune > Devices > Compliance policies > Create policy > Windows 10 and later. Combine with a Conditional Access policy blocking non-compliant devices from accessing corporate resources."
     },
     {
       "checkId": "COMPLIANCE-ALERTPOLICY-001",
@@ -2229,7 +2245,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to protect the confidentiality, integrity, availability and safety of endpoint devices exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "6.2",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Enable BitLocker via Intune endpoint protection policy. Intune > Devices > Configuration profiles > Endpoint protection > BitLocker > require TPM startup, encrypt all drives, back up recovery keys to Entra ID. Assign to all managed Windows device groups."
     },
     {
       "checkId": "DEFENDER-SECURESCORE-001",
@@ -2249,7 +2266,8 @@
       "impactSeverity": "Medium",
       "impactRationale": "Failure to regularly review processes and documented procedures to ensure conformity with the organization's cybersecurity and data protection policies, standards and other applicable requirements exposes the tenant to: Inability to maintain individual accountability, Improper.",
       "cisM365ControlId": "6.2",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Review and act on improvement actions. Microsoft Secure Score > security.microsoft.com/securescore > Improvement actions > sort by Score impact. Assign owners to high-impact actions and track progress."
     },
     {
       "checkId": "EXO-FORWARD-001",
@@ -2322,7 +2340,8 @@
       "impactSeverity": "Medium",
       "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
       "cisM365ControlId": "6.3",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Configure device enrollment restrictions. Intune > Devices > Enrollment > Enrollment restrictions > Device limit restriction: set maximum devices per user. Device type restrictions: allow only approved platforms and OS versions."
     },
     {
       "checkId": "EXO-ADDINS-001",
@@ -2360,7 +2379,8 @@
       "impactSeverity": "Medium",
       "impactRationale": "Failure to automatically update antimalware technologies, including signature definitions exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "6.4",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Configure a Windows Update ring policy. Intune > Devices > Windows > Update rings for Windows 10 and later > Create: quality update deferral 0–7 days, feature update deferral 30–60 days, automatic restart notifications enabled. Assign to all managed Windows device groups."
     },
     {
       "checkId": "EXO-AUTH-001",
@@ -2788,7 +2808,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "7.4",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Disable or restrict guest access. Teams Admin Center > Org-wide settings > Guest access > Allow guest access in Teams: Off, or restrict calling, meeting, and messaging settings to the minimum required for external collaboration."
     },
     {
       "checkId": "PBI-TENANT-001",
@@ -2806,7 +2827,8 @@
       "impactSeverity": "Medium",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "8.1",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Review and restrict Power BI external sharing settings. Power BI Admin portal > Tenant settings > Export and sharing settings: disable or restrict Publish to web, export options, and external sharing settings to approved security groups aligned to data classification requirements."
     },
     {
       "checkId": "TEAMS-CLIENT-001",
@@ -2867,7 +2889,8 @@
       "impactSeverity": "High",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
       "cisM365ControlId": "8.2",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Disable or restrict 'Publish to web'. Power BI Admin portal > Tenant settings > Export and sharing settings > Publish to web: Disabled or Apply to specific security groups. Revoke existing public embed codes via Power BI Admin portal > Embed Codes."
     },
     {
       "checkId": "TEAMS-EXTACCESS-003",
@@ -2965,7 +2988,8 @@
       "impactSeverity": "Medium",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "cisM365ControlId": "8.3",
-      "cisM365Profiles": []
+      "cisM365Profiles": [],
+      "remediation": "Restrict or disable Power BI guest access. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled or Apply to specific security groups."
     },
     {
       "checkId": "TEAMS-APPS-002",
@@ -3228,7 +3252,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Disable Power BI guest user access. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled."
     },
     {
       "checkId": "POWERBI-GUEST-002",
@@ -3269,7 +3294,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Restrict external user invitations in Power BI. Power BI Admin portal > Tenant settings > Export and sharing settings > Invite external users to your organization: Disabled or Apply to specific security groups."
     },
     {
       "checkId": "PBI-CONTENT-001",
@@ -3289,7 +3315,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Disable guest access to Power BI content. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow Azure Active Directory guest users to access Power BI: Disabled. Review and remove existing guest workspace members."
     },
     {
       "checkId": "POWERBI-GUEST-003",
@@ -3351,7 +3378,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Disable 'Publish to web'. Power BI Admin portal > Tenant settings > Export and sharing settings > Publish to web: Disabled. Revoke existing public embed codes via Power BI Admin portal > Embed Codes."
     },
     {
       "checkId": "PBI-SCRIPT-001",
@@ -3374,7 +3402,8 @@
       "cisM365Profiles": [
         "E3-L2",
         "E5-L2"
-      ]
+      ],
+      "remediation": "Disable R and Python visuals. Power BI Admin portal > Tenant settings > R visuals settings > Interact with and share R and Python visuals: Disabled."
     },
     {
       "checkId": "POWERBI-SHARING-002",
@@ -3443,7 +3472,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Enable sensitivity label support in Power BI. Power BI Admin portal > Tenant settings > Information protection > Allow users to apply sensitivity labels for Power BI content: Enabled. Ensure labels are published to Power BI users in Microsoft Purview compliance portal."
     },
     {
       "checkId": "POWERBI-SHARING-003",
@@ -3486,7 +3516,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Restrict shareable links in Power BI. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow shareable links to grant access to everyone in your organization: Disabled or Apply to specific security groups."
     },
     {
       "checkId": "POWERBI-SHARING-004",
@@ -3527,7 +3558,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Restrict external data sharing. Power BI Admin portal > Tenant settings > Export and sharing settings > Allow specific users to turn on external data sharing: Disabled or Apply to specific security groups."
     },
     {
       "checkId": "PBI-AUTH-001",
@@ -3547,7 +3579,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Enable ResourceKey authentication block. Power BI Admin portal > Tenant settings > Developer settings > Block ResourceKey Authentication: Enabled."
     },
     {
       "checkId": "POWERBI-AUTH-001",
@@ -3587,7 +3620,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Restrict API access to approved service principals only. Power BI Admin portal > Tenant settings > Developer settings > Allow service principals to use Power BI APIs: Apply to specific security groups. Create a group containing only approved service principals."
     },
     {
       "checkId": "POWERBI-AUTH-002",
@@ -3646,7 +3680,8 @@
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
-      ]
+      ],
+      "remediation": "Disable or restrict service principal profiles. Power BI Admin portal > Tenant settings > Allow service principals to create and use profiles: Disabled or Apply to specific security groups."
     },
     {
       "checkId": "ENTRA-SSPR-002",
@@ -3661,7 +3696,8 @@
         "IAC-10"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "remediation": "Disable SSPR for administrator accounts. Entra admin center > Protection > Password reset > Properties > set scope to Selected and exclude accounts holding directory roles. Admin password resets should follow a governed helpdesk or PIM workflow."
     },
     {
       "checkId": "ENTRA-ROLEGROUP-001",
@@ -3676,7 +3712,8 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to enforce Role-Based Access Control (RBAC) for Technology Assets, Applications, Services and/or Data (TAASD) to restrict access to individuals assigned specific roles with legitimate business needs exposes the tenant to: Inability to maintain individual accountability.",
-      "cisaScubaControlId": "MS.AAD.7.2v1"
+      "cisaScubaControlId": "MS.AAD.7.2v1",
+      "remediation": "Replace unprotected groups in privileged role assignments with role-assignable groups. Entra admin center > Groups > New group > enable 'Azure AD roles can be assigned to the group'. Recreate the group and migrate the role assignment."
     },
     {
       "checkId": "ENTRA-PIM-010",
@@ -3695,7 +3732,8 @@
       "cisM365ControlId": "5.3.9",
       "cisM365Profiles": [
         "E5-L1"
-      ]
+      ],
+      "remediation": "Enable admin notifications on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Notification tab > configure role activation alerts to notify security team or role administrators."
     },
     {
       "checkId": "ENTRA-STALEADMIN-001",
@@ -3713,7 +3751,8 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisaScubaControlId": "MS.AAD.7.4v1"
+      "cisaScubaControlId": "MS.AAD.7.4v1",
+      "remediation": "Disable or delete admin accounts inactive for 90+ days. Entra admin center > Users > sign-in activity column. Review active PIM eligible assignments (Identity Governance > PIM > Assignments) and remove stale principals."
     },
     {
       "checkId": "FORMS-CONFIG-003",
@@ -3745,7 +3784,8 @@
       ],
       "impactSeverity": "Low",
       "impactRationale": "Failure to limit access to security functions to explicitly-authorized privileged users exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisaScubaControlId": "MS.INTUNE.1.2v1"
+      "cisaScubaControlId": "MS.INTUNE.1.2v1",
+      "remediation": "Assign scope tags to all Intune RBAC role assignments. Intune > Tenant administration > Roles > select role > Assignments > add scope tags to limit administrator visibility to assigned devices and users only."
     },
     {
       "checkId": "FORMS-CONFIG-005",
@@ -3794,7 +3834,8 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to perform after-the-fact reviews of configuration change logs to discover any unauthorized changes exposes the tenant to: Unauthorized access, Loss of integrity through unauthorized changes, Emergent properties and/or unintended consequences.",
-      "cisaScubaControlId": "MS.INTUNE.1.1v1"
+      "cisaScubaControlId": "MS.INTUNE.1.1v1",
+      "remediation": "Enable Multi Admin Approval for sensitive Intune operations. Intune > Tenant administration > Multi admin approval > Create an access policy covering device wipes and sensitive configurations, and assign approvers."
     },
     {
       "checkId": "INTUNE-WIPEAUDIT-001",
@@ -3813,7 +3854,8 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
-      "cisaScubaControlId": "MS.INTUNE.1.3v1"
+      "cisaScubaControlId": "MS.INTUNE.1.3v1",
+      "remediation": "Investigate: review Intune audit logs for the device wipe events immediately. Intune > Tenant administration > Audit logs > filter by DeviceAction: Wipe. Verify each wipe was authorized. Rotate credentials and initiate incident response if unauthorized activity is confirmed."
     },
     {
       "checkId": "PURVIEW-RETENTION-003",
@@ -3860,7 +3902,8 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": ""
+      "cisM365ControlId": "",
+      "remediation": "Set a time-bound expiry on eligible assignments for Tier-0 roles. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Assignment tab > Expire eligible assignments after (e.g., 12 months). Remove existing permanent eligible assignments and reissue as time-bound."
     },
     {
       "checkId": "PURVIEW-RETENTION-004",
@@ -3898,7 +3941,8 @@
       "cisM365ControlId": "5.3.7",
       "cisM365Profiles": [
         "E5-L1"
-      ]
+      ],
+      "remediation": "Require MFA on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Require Azure MFA on activation."
     },
     {
       "checkId": "ENTRA-ENTAPP-002",
@@ -3932,7 +3976,8 @@
       "cisM365ControlId": "5.3.8",
       "cisM365Profiles": [
         "E5-L1"
-      ]
+      ],
+      "remediation": "Reduce Tier-0 role activation duration to 4 hours or less. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Maximum activation duration."
     },
     {
       "checkId": "ENTRA-SECDEFAULT-001",
@@ -4154,7 +4199,8 @@
         "CFG-02"
       ],
       "impactSeverity": "Medium",
-      "impactRationale": "Failure to use automated mechanisms to audit account creation, modification, enabling, disabling and removal actions and notify organization-defined personnel or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged."
+      "impactRationale": "Failure to use automated mechanisms to audit account creation, modification, enabling, disabling and removal actions and notify organization-defined personnel or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
+      "remediation": "Require justification on Tier-0 role activation. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > enable 'Require justification on activation'."
     },
     {
       "checkId": "CA-ROLECOVERAGE-001",
@@ -4322,7 +4368,8 @@
         "TDA-18"
       ],
       "impactSeverity": "Medium",
-      "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+      "impactRationale": "Failure to proactively govern account management of individual, group, system, service, application, guest and temporary accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "remediation": "Audit and restrict dynamic group membership rules that evaluate user-writable attributes. Entra admin center > Groups > select dynamic group > Membership rules. Replace user-writable attributes (e.g., department, jobTitle) with HR-sourced attributes or convert to assigned groups for sensitive access."
     },
     {
       "checkId": "ENTRA-GROUP-005",
@@ -4338,7 +4385,8 @@
         "NET-12"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "remediation": "Convert sensitive security groups to role-assignable to prevent unauthorized membership changes. Entra admin center > Groups > New group > enable 'Azure AD roles can be assigned to the group'. Recreate affected groups and update any app role or CA policy assignments."
     },
     {
       "checkId": "ENTRA-GROUP-006",
@@ -4354,7 +4402,8 @@
         "NET-12"
       ],
       "impactSeverity": "Medium",
-      "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions."
+      "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
+      "remediation": "Convert public M365 groups to private. Entra admin center > Groups > filter Privacy: Public. Select each group > Properties > Privacy: Private. Implement a group creation policy defaulting new groups to Private."
     },
     {
       "checkId": "ENTRA-HYBRID-002",
@@ -4371,7 +4420,8 @@
         "TDA-18"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+      "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "remediation": "Remove Tier-0/1 Entra directory roles from on-premises synced user accounts. Entra admin center > Users > filter synced accounts > review role assignments. Create cloud-only replacement accounts and migrate role assignments; on-premises compromise must not reach cloud privilege."
     },
     {
       "checkId": "ENTRA-MFA-002",
@@ -4389,7 +4439,8 @@
         "IAC-06.4"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation."
+      "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
+      "remediation": "Enable the registration campaign to prompt unregistered users. Entra admin center > Protection > Authentication methods > Registration campaign > Enable. Follow up with users shown in the authentication methods activity report."
     },
     {
       "checkId": "ENTRA-APPS-002",
@@ -4404,7 +4455,8 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to prevent non-privileged users from executing privileged functions to include disabling, circumventing or altering implemented security safeguards / countermeasures exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged.",
-      "cisaScubaControlId": "MS.AAD.6.1v1"
+      "cisaScubaControlId": "MS.AAD.6.1v1",
+      "remediation": "Remove Intune write permissions from app registrations that do not require them. Entra admin center > App registrations > select app > API permissions. Remove DeviceManagementConfiguration.ReadWrite.All and equivalent permissions. Only approved, monitored service principals should hold Intune write access."
     },
     {
       "checkId": "PURVIEW-RETENTION-005",
@@ -5243,7 +5295,8 @@
       "scfPrimary": "DCH-10",
       "scfAdditional": [],
       "impactSeverity": "High",
-      "impactRationale": "Failure to block removable media on managed endpoints enables data exfiltration of CUI via USB drives and SD cards, and introduces malware vectors that bypass network-based controls."
+      "impactRationale": "Failure to block removable media on managed endpoints enables data exfiltration of CUI via USB drives and SD cards, and introduces malware vectors that bypass network-based controls.",
+      "remediation": "Block removable storage on managed devices. Intune > Devices > Configuration profiles > New profile > Windows > Device restrictions > General > Removable storage: Block. Assign to all managed device groups."
     },
     {
       "checkId": "ENTRA-ADMINROLE-SEPARATION-001",
@@ -5257,7 +5310,8 @@
         "IAC-21.3"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to separate privileged admin accounts from daily-use accounts violates user/system management separation, increasing the blast radius of account compromise and enabling privilege escalation through shared identity."
+      "impactRationale": "Failure to separate privileged admin accounts from daily-use accounts violates user/system management separation, increasing the blast radius of account compromise and enabling privilege escalation through shared identity.",
+      "remediation": "Create dedicated cloud-only admin accounts separate from daily-use accounts. Admin accounts should hold no Exchange mailbox or E3/E5 licenses. Entra admin center > Users > New user (cloud identity). Assign admin roles only to the dedicated accounts."
     },
     {
       "checkId": "ENTRA-CA-SESSIONFREQ-001",
@@ -5269,7 +5323,8 @@
       "scfPrimary": "NET-07",
       "scfAdditional": [],
       "impactSeverity": "Medium",
-      "impactRationale": "Failure to enforce session sign-in frequency via Conditional Access allows cloud application sessions to persist indefinitely, leaving inactive connections open and exposing CUI to unauthorized access if a session is hijacked."
+      "impactRationale": "Failure to enforce session sign-in frequency via Conditional Access allows cloud application sessions to persist indefinitely, leaving inactive connections open and exposing CUI to unauthorized access if a session is hijacked.",
+      "remediation": "Enforce sign-in frequency via Conditional Access. Entra admin center > Security > Conditional Access > New policy > Grant: require periodic re-authentication > Session: Sign-in frequency (e.g., 8 hours for standard users, 1 hour for privileged sessions). Disable persistent browser sessions for unmanaged devices."
     },
     {
       "checkId": "INTUNE-MOBILECODE-001",
@@ -5281,7 +5336,8 @@
       "scfPrimary": "END-10",
       "scfAdditional": [],
       "impactSeverity": "High",
-      "impactRationale": "Failure to restrict PowerShell execution on managed endpoints allows arbitrary script execution, enabling malware deployment, credential theft, and lateral movement that bypasses traditional AV-based controls."
+      "impactRationale": "Failure to restrict PowerShell execution on managed endpoints allows arbitrary script execution, enabling malware deployment, credential theft, and lateral movement that bypasses traditional AV-based controls.",
+      "remediation": "Restrict PowerShell execution policy on managed endpoints. Intune > Devices > Configuration profiles > Settings catalog > search 'Turn on Script Execution' > set to AllSigned or RemoteSigned. Assign to all managed Windows device groups."
     },
     {
       "checkId": "ENTRA-SESSIONAUTH-001",
@@ -5293,7 +5349,8 @@
       "scfPrimary": "NET-09",
       "scfAdditional": [],
       "impactSeverity": "High",
-      "impactRationale": "Failure to block legacy authentication protocols allows sessions to be established without modern authentication mechanisms, undermining communications session authenticity and enabling credential-spraying and man-in-the-middle attacks."
+      "impactRationale": "Failure to block legacy authentication protocols allows sessions to be established without modern authentication mechanisms, undermining communications session authenticity and enabling credential-spraying and man-in-the-middle attacks.",
+      "remediation": "Block legacy authentication via Conditional Access. Entra admin center > Security > Conditional Access > New policy > target all users > Condition: Client apps = Other clients + Exchange ActiveSync > Grant: Block access. Alternatively, enable the Microsoft-managed legacy auth block policy."
     },
     {
       "checkId": "SPO-CUIACCESS-001",
@@ -5307,7 +5364,8 @@
         "NET-03.5"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to restrict SharePoint external sharing allows CUI stored in cloud digital media to be accessed by unauthorized external parties, violating media access controls and data governance requirements."
+      "impactRationale": "Failure to restrict SharePoint external sharing allows CUI stored in cloud digital media to be accessed by unauthorized external parties, violating media access controls and data governance requirements.",
+      "remediation": "Restrict SharePoint external sharing to prevent CUI exposure. SharePoint Admin Center > Policies > Sharing > set external sharing to 'Existing guests only' or 'Only people in your organization'. Apply sensitivity labels and CA policies to CUI-classified sites."
     },
     {
       "checkId": "BACKUP-ENABLED-001",
@@ -5321,7 +5379,8 @@
         "BCD-11"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to enable Microsoft 365 Backup for SharePoint, OneDrive, and Exchange leaves backup CUI without verified confidentiality protection, increasing risk of data loss or unauthorized disclosure from backup storage."
+      "impactRationale": "Failure to enable Microsoft 365 Backup for SharePoint, OneDrive, and Exchange leaves backup CUI without verified confidentiality protection, increasing risk of data loss or unauthorized disclosure from backup storage.",
+      "remediation": "Enable Microsoft 365 Backup in the admin center. Microsoft 365 Admin Center > Settings > Org settings > Microsoft 365 Backup > Enable. Requires Microsoft 365 Backup add-on license. Configure backup scope for Exchange, SharePoint, and OneDrive."
     },
     {
       "checkId": "INTUNE-VPNCONFIG-001",
@@ -5332,7 +5391,8 @@
       "licensing": "E3",
       "scfPrimary": "CFG-03.4",
       "impactSeverity": "High",
-      "impactRationale": "Allowing split tunneling on VPN-connected devices permits simultaneous access to organizational systems and untrusted networks, creating a data exfiltration pathway and bypassing organizational security controls."
+      "impactRationale": "Allowing split tunneling on VPN-connected devices permits simultaneous access to organizational systems and untrusted networks, creating a data exfiltration pathway and bypassing organizational security controls.",
+      "remediation": "Disable VPN split tunneling on managed devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > disable split tunneling (route all traffic through VPN). Assign to all devices used for remote access."
     },
     {
       "checkId": "INTUNE-WIFI-001",
@@ -5346,7 +5406,8 @@
         "NET-15"
       ],
       "impactSeverity": "High",
-      "impactRationale": "Failure to enforce enterprise-grade WiFi authentication (WPA2-Enterprise/EAP-TLS) allows unauthorized devices to connect to corporate wireless networks and exposes CUI transmitted over unencrypted or weakly-encrypted channels."
+      "impactRationale": "Failure to enforce enterprise-grade WiFi authentication (WPA2-Enterprise/EAP-TLS) allows unauthorized devices to connect to corporate wireless networks and exposes CUI transmitted over unencrypted or weakly-encrypted channels.",
+      "remediation": "Deploy a Wi-Fi configuration profile requiring WPA2/WPA3-Enterprise authentication. Intune > Devices > Configuration profiles > New profile > Windows > Wi-Fi > set Security type: WPA2-Enterprise, Authentication method: Certificates. Assign to managed device groups."
     },
     {
       "checkId": "CA-REMOTEDEVICE-001",
@@ -5357,7 +5418,8 @@
       "licensing": "E3",
       "scfPrimary": "NET-14.2",
       "impactSeverity": "High",
-      "impactRationale": "Without device compliance requirements scoped to remote (non-corporate-network) access, unmanaged or compromised endpoints can authenticate to organizational systems from external networks, violating least privilege for remote access."
+      "impactRationale": "Without device compliance requirements scoped to remote (non-corporate-network) access, unmanaged or compromised endpoints can authenticate to organizational systems from external networks, violating least privilege for remote access.",
+      "remediation": "Require device compliance for remote access. Entra admin center > Security > Conditional Access > New policy > target all users > Condition: Device platforms or named locations > Grant: Require device to be marked as compliant. Combine with Intune compliance policies."
     },
     {
       "checkId": "INTUNE-REMOTEVPN-001",
@@ -5368,7 +5430,8 @@
       "licensing": "E3",
       "scfPrimary": "NET-14.3",
       "impactSeverity": "Medium",
-      "impactRationale": "Without an Always-On VPN profile routing all remote device traffic through a managed access control point, remote endpoints may connect directly to the internet, bypassing organizational security controls and logging."
+      "impactRationale": "Without an Always-On VPN profile routing all remote device traffic through a managed access control point, remote endpoints may connect directly to the internet, bypassing organizational security controls and logging.",
+      "remediation": "Configure Always On VPN for remote devices. Intune > Devices > Configuration profiles > New profile > Windows > VPN > Always On: Enable, Auto-trigger: Enable. Select VPN connection type and deploy to remote worker device groups."
     }
   ]
 }
