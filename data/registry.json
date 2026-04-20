@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.2.0",
-  "dataVersion": "2026-04-19",
+  "dataVersion": "2026-04-20",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
     {
@@ -2458,6 +2458,7 @@
         "severity": "High",
         "rationale": "Guest accounts are often over-privileged and rarely reviewed, creating persistent unauthorized access paths."
       },
+      "remediation": "Microsoft Entra admin center > Users > All users > Filter by 'Guest'. Review and remove guest accounts that are no longer needed. Or use Microsoft Entra access reviews: Identity Governance > Access reviews > New access review > Guests.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -2500,6 +2501,7 @@
         "severity": "Medium",
         "rationale": "Without Azure AD integration, AKS authentication relies on local credentials that bypass organizational MFA and conditional access policies."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > AKS-managed Azure Active Directory: Enable. Or: az aks update --resource-group <RG> --name <CLUSTER> --enable-aad --aad-admin-group-object-ids <GROUP-ID>",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -2572,6 +2574,7 @@
         "severity": "Critical",
         "rationale": "Privileged VM access without MFA allows a single compromised credential to grant full control of a virtual machine, enabling persistent access, lateral movement, and data exfiltration."
       },
+      "remediation": "Azure Portal > Defender for Cloud > Workload protections > Just-in-time VM access. Enable JIT on VMs and configure MFA via Conditional Access for Entra ID accounts that have VM administrator access.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -2643,6 +2646,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that 'Require Multifactor Authentication to register or jo' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Devices > Device settings > Require Multifactor Authentication to register or join devices with Microsoft Entra: Yes. Save.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -2714,6 +2718,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that 'multifactor authentication' is 'enabled' for all use' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies > New policy. Require MFA for all users and all cloud apps. Or use the 'Require MFA for all users' template under Security defaults.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -2785,6 +2790,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that 'Allow users to remember multifactor authentication o' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Multifactor authentication > Service settings. Uncheck 'Allow users to remember multi-factor authentication on devices they trust'. Save.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -2856,6 +2862,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that a multifactor authentication policy exists for all us' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies. Verify a policy exists requiring MFA for All users accessing all cloud apps. Use the 'Require multifactor authentication for all users' template if not present.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -2927,6 +2934,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that multifactor authentication is required for risky sign' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies. Create a policy requiring MFA when sign-in risk is Medium or above: Conditions = Sign-in risk: Medium, High. Grant = Require MFA.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -2998,6 +3006,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that multifactor authentication is required for Windows Az' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies > New policy. Require MFA for Windows Azure Service Management API: Cloud apps = Windows Azure Service Management API. Grant = Require MFA.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -3069,6 +3078,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that multifactor authentication is required to access Micr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies > New policy. Require MFA for Microsoft Admin Portals: Cloud apps = Microsoft Admin Portals. Grant = Require MFA.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -3140,6 +3150,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure only MFA enabled identities can access privileged Virtual ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Defender for Cloud > Workload protections > Just-in-time VM access. Enable JIT on the VM and configure Conditional Access policies requiring MFA for accounts with VM administrator rights.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -3211,6 +3222,7 @@
         "severity": "Critical",
         "rationale": "Failure to configure 'Ensure that 'disableLocalAuth' is set to 'true'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Settings > Keys > Disable local authentication: Enabled. Or: az cosmosdb update --resource-group <RG> --name <ACCOUNT> --disable-local-auth true",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -3282,6 +3294,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'security defaults' is enabled in Microsoft Entra ID' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Overview > Properties > Manage security defaults: Enable security defaults. Note: incompatible with Conditional Access policies. If CA policies are in use, disable security defaults and configure equivalent CA policies.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -3353,6 +3366,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'trusted locations' are defined' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Named locations. Define trusted IP ranges for the organization. Reference them in CA policies to restrict or allow access from known locations.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -3424,6 +3438,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that an exclusionary geographic Conditional Access policy ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies > New policy. Configure a policy that blocks sign-ins from countries the organization does not operate in. Use Named Locations (country-based) as the condition.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -3495,6 +3510,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that an exclusionary device code flow policy is considered' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies > New policy. Block device code flow: grant = Block. Conditions = Authentication flows > Device code flow. Scope to all users or privileged accounts at minimum.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -3566,6 +3582,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure a Token Protection Conditional Access policy is considered' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Conditional Access > Policies > New policy. Enable Token Protection (requires Entra ID P2). Conditions = All apps. Session = Token Protection: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -5239,6 +5256,7 @@
         "severity": "High",
         "rationale": "Expired credentials on active service principals indicate unmanaged automation that may have been compromised or abandoned."
       },
+      "remediation": "Microsoft Entra admin center > App registrations > All applications > filter for apps with expired credentials. Remove expired certificates and secrets: [app] > Certificates & secrets. Delete expired entries and rotate active credentials.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -6737,6 +6755,7 @@
         "severity": "High",
         "rationale": "Requiring only one reset method reduces the assurance that the requester is the legitimate account owner, enabling account takeover via a single compromised factor."
       },
+      "remediation": "Microsoft Entra admin center > Users > Password reset > Authentication methods. Set 'Number of methods required to reset' to 2.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -6812,6 +6831,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that a 'Custom banned password list' is set to 'Enforce'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Authentication methods > Password protection > Custom banned password list: Enforce. Add organizational terms to the banned list. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -6887,6 +6907,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that 'Number of days before users are asked to re-confirm ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Users > Password reset > Registration > Number of days before users are asked to re-confirm their authentication information. Set to a value greater than 0 (recommended: 180 days).",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -6961,6 +6982,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that 'Notify users on password resets?' is set to 'Yes'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Users > Password reset > Notifications > Notify users on password resets: Yes. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -8168,6 +8190,7 @@
         "severity": "High",
         "rationale": "A high lockout threshold permits extensive password guessing before triggering account lockout, substantially increasing the success probability of brute force attacks."
       },
+      "remediation": "Microsoft Entra admin center > Security > Authentication methods > Password protection > Lockout threshold. Set to 10 or lower. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -8243,6 +8266,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that account 'Lockout duration in seconds' is greater than' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Authentication methods > Password protection > Lockout duration in seconds. Set to 60 or higher. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -9449,6 +9473,7 @@
         "severity": "High",
         "rationale": "Excessive Owner assignments violate least privilege and expand the attack surface for subscription takeover."
       },
+      "remediation": "Azure Portal > Subscriptions > [subscription] > Access control (IAM) > Role assignments. Review Owner role assignments. Remove accounts that do not require Owner. Reduce to 2-3 maximum. Use Privileged Identity Management (PIM) for eligible assignments instead.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -9491,6 +9516,7 @@
         "severity": "High",
         "rationale": "Service principals with stored secrets are a common attack vector; managed identities eliminate secret management overhead."
       },
+      "remediation": "Microsoft Entra admin center > Enterprise applications > All applications. Review service principals using service principal credentials vs. managed identities. Where feasible, migrate app authentication to managed identities to eliminate credential management.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -9533,6 +9559,7 @@
         "severity": "High",
         "rationale": "Without RBAC, all authenticated users have unrestricted access to Kubernetes API operations including cluster-admin capabilities."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > Enable Kubernetes RBAC. Or: az aks update --resource-group <RG> --name <CLUSTER> --enable-aad --enable-azure-rbac",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -12764,6 +12791,7 @@
         "severity": "Medium",
         "rationale": "Local Databricks accounts not synced from Entra ID bypass centralised lifecycle management, creating orphaned access after offboarding."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Settings > Microsoft Entra ID. Enable Entra ID sync or configure SCIM provisioning to synchronize users and groups from Entra ID to Databricks.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -14717,6 +14745,7 @@
         "severity": "High",
         "rationale": "Long-lived or unrestricted PATs provide persistent API access; a leaked token without expiry can be used indefinitely to exfiltrate data or execute jobs."
       },
+      "remediation": "In the Databricks workspace: Settings > Admin Console > Workspace settings > Personal access tokens. Set the maximum token lifetime (e.g., 90 days) and disable the ability to create tokens without expiration.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -14780,6 +14809,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Allow storage account key access' for Azure Storage Accou' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Allow storage account key access: Disabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --allow-shared-key-access false",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -18828,6 +18858,7 @@
         "severity": "High",
         "rationale": "Unrestricted tenant creation allows any user to establish a shadow tenant, bypassing organizational security policies and creating unmonitored administrative domains."
       },
+      "remediation": "Microsoft Entra admin center > Users > User settings > Restrict non-admin users from creating tenants: Yes. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -18912,6 +18943,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Notify all admins when other admins reset their pass' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Users > Password reset > Notifications > Notify all admins when other admins reset their password: Yes. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -18996,6 +19028,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'User consent for applications' is set to 'Do not all' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Enterprise applications > Consent and permissions > User consent settings > User consent for applications: Do not allow user consent. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19080,6 +19113,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'User consent for applications' is set to 'Allow user' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Enterprise applications > Consent and permissions > User consent settings > User consent for applications: Allow user consent for apps from verified publishers, for selected permissions. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19164,6 +19198,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Users can register applications' is set to 'No'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Users > User settings > App registrations > Users can register applications: No. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19248,6 +19283,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Guest users access restrictions' is set to 'Guest us' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > External identities > External collaboration settings > Guest user access: Guest user access is restricted to properties and memberships of their own directory objects. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19332,6 +19368,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Restrict access to Microsoft Entra admin center' is ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Users > User settings > Restrict access to Microsoft Entra admin center: Yes. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19416,6 +19453,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Restrict user ability to access groups features in M' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Groups > General settings > Restrict user ability to access groups features in the My Groups portal: Yes. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19500,6 +19538,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Users can create security groups in Azure portals, A' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Groups > General settings > Users can create security groups in Azure portals, API or PowerShell: No. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19584,6 +19623,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Owners can manage group membership requests in My Gr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Groups > General settings > Owners can manage group membership requests in My Groups: No. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19668,6 +19708,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Users can create Microsoft 365 groups in Azure porta' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Groups > General settings > Users can create Microsoft 365 groups in Azure portals, API or PowerShell: No. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19752,6 +19793,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that no custom subscription administrator roles exist' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Subscriptions > [subscription] > Access control (IAM) > Roles. Review custom roles with subscription-level administrator permissions. Remove or redesign roles granting more than necessary. Prefer built-in roles.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19836,6 +19878,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure fewer than 5 users have global administrator assignment' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Roles and administrators > Global administrator. Review assignments. Ensure fewer than 5 users have this role. Use Privileged Identity Management (PIM) for eligible assignments.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -19920,6 +19963,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that guest users are reviewed on a regular basis' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Identity Governance > Access reviews > New access review. Configure a recurring access review for Guest users in all groups and applications. Set reviewer to group owners or specific users.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20004,6 +20048,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that use of the 'User Access Administrator' role is restri' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Roles and administrators > User Access Administrator. Review all assignments. Remove assignments that are not time-limited via PIM. Use PIM eligible assignments for this role.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20088,6 +20133,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that all 'privileged' role assignments are periodically re' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Identity Governance > Privileged Identity Management > Azure AD roles. Configure access reviews for all privileged role assignments. Set review frequency to quarterly or monthly.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20172,6 +20218,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure disabled user accounts do not have read, write, or owner p' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Subscriptions > Access control (IAM) > Role assignments. Filter by disabled accounts. Remove all role assignments (read, write, owner) from disabled user accounts.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20256,6 +20303,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Tenant Creator' role assignments are periodically reviewe' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Identity Governance > Privileged Identity Management > Azure AD roles > Tenant Creator. Review active and eligible assignments. Remove unnecessary assignments and configure PIM access review.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20340,6 +20388,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure all non-privileged role assignments are periodically revie' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Identity Governance > Privileged Identity Management > Azure resources. Configure access reviews for non-privileged role assignments (Contributor, Reader) across subscriptions and resource groups. Set review frequency to quarterly.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20424,6 +20473,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Resource Locks are set for Mission-Critical Azure Res' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > [Resource] > Settings > Locks > Add lock. Apply CanNotDelete or ReadOnly locks to mission-critical resources (e.g., VNets, Key Vaults, Storage Accounts). Or: az lock create --name <LOCK> --resource-group <RG> --resource-type <TYPE> --resource <NAME> --lock-type CanNotDelete",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20508,6 +20558,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the Expiration Date is set for all Keys in RBAC Key V' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Objects > Keys > [key]. Set expiration date. Or: az keyvault key set-attributes --vault-name <VAULT> --name <KEY> --expires <YYYY-MM-DDTHH:MM:SSZ>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20592,6 +20643,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the Expiration Date is set for all Keys in Non-RBAC K' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Objects > Keys > [key]. Set expiration date. Or: az keyvault key set-attributes --vault-name <VAULT> --name <KEY> --expires <YYYY-MM-DDTHH:MM:SSZ>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20676,6 +20728,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the Expiration Date is set for all Secrets in RBAC Ke' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Objects > Secrets > [secret]. Set expiration date. Or: az keyvault secret set-attributes --vault-name <VAULT> --name <SECRET> --expires <YYYY-MM-DDTHH:MM:SSZ>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20760,6 +20813,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the Expiration Date is set for all Secrets in Non-RBA' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Objects > Secrets > [secret]. Set expiration date. Or: az keyvault secret set-attributes --vault-name <VAULT> --name <SECRET> --expires <YYYY-MM-DDTHH:MM:SSZ>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20844,6 +20898,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Purge protection' is set to 'Enabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Purge protection: Enable. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-purge-protection true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -20928,6 +20983,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Role Based Access Control for Azure Key Vault is enab' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Access policies > Permission model: Azure role-based access control. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-rbac-authorization true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21012,6 +21068,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Enable key rotation reminders' is enabled for each S' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Security + networking > Access keys > Key rotation reminder: Enabled. Set the reminder period. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --key-expiration-period-in-days 90",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21096,6 +21153,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Default to Microsoft Entra authorization in the Azur' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Default to Microsoft Entra authorization in the Azure portal: Enabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --default-to-oauth-authentication true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21180,6 +21238,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure managed identities are configured' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Identity > System assigned: On. Or: az webapp identity assign --resource-group <RG> --name <APP>. Grant the managed identity access to required resources via IAM.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21264,6 +21323,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure managed identities are configured' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Identity > System assigned: On.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21348,6 +21408,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure managed identities are configured' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Identity > System assigned: On. Or: az functionapp identity assign --resource-group <RG> --name <APP>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21432,6 +21493,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure managed identities are configured' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Identity > System assigned: On.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21516,6 +21578,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure a Managed Identity is used for interactions with other Azu' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Assign a managed identity to the container group: az container create --resource-group <RG> --name <CONTAINER> --assign-identity [system or user-assigned]. Grant the identity only the required permissions via IAM role assignments.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21600,6 +21663,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure the principle of least privilege is used when assigning ro' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Container instances > [instance] > Access control (IAM). Review role assignments on the container instance's managed identity and remove any roles broader than needed. Follow least-privilege principles.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21684,6 +21748,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the kubeconfig file permissions are set to 644 or mor' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "AKS-managed nodes: upgrade node pool to the latest node image. Azure Portal > Kubernetes services > [cluster] > Node pools > [pool] > Upgrade node image. File permissions on kubeconfig are managed by the node OS image.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21768,6 +21833,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the kubelet kubeconfig file ownership is set to root:' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "AKS-managed nodes: upgrade node pool to the latest node image. Ownership of kubelet kubeconfig is managed by the AKS node OS image. Azure Portal > Kubernetes services > [cluster] > Node pools > Upgrade node image.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21852,6 +21918,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --authorization-mode argument is not set to Alway' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration setting authorization mode to Webhook. Create a kubelet config file with authorizationMode: Webhook and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -21936,6 +22003,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the cluster-admin role is only used where required' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review ClusterRoleBindings for cluster-admin: kubectl get clusterrolebindings -o wide | grep cluster-admin. Remove unnecessary bindings: kubectl delete clusterrolebinding <NAME>. Grant scoped roles instead.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22020,6 +22088,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize wildcard use in Roles and ClusterRoles' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review RBAC roles using wildcard (*) verbs or resources: kubectl get roles,clusterroles -A -o yaml | grep '\\*'. Replace wildcards with explicit resource and verb lists in role definitions.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22104,6 +22173,7 @@
         "severity": "High",
         "rationale": "Unrestricted pod creation rights allow workloads to deploy privileged containers, enabling host escape and cluster-wide compromise."
       },
+      "remediation": "Review RBAC roles granting 'create' on 'pods': kubectl get roles,clusterroles -A -o yaml | grep -B5 'pods'. Restrict pod creation to deployment controllers rather than direct user access.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22188,6 +22258,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that default service accounts are not actively used' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Disable automounting of service account tokens for default service accounts in each namespace: kubectl patch serviceaccount default -n <NAMESPACE> -p '{\"automountServiceAccountToken\": false}'",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22272,6 +22343,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Service Account Tokens are only mounted where necessa' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Set automountServiceAccountToken: false in pod specs that do not require API server access: spec: automountServiceAccountToken: false. Apply to all workloads that do not call the Kubernetes API.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22356,6 +22428,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Limit use of the Bind, Impersonate and Escalate permissions in th' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review ClusterRoles granting bind, impersonate, or escalate verbs: kubectl get clusterroles -o yaml | grep -E 'bind|impersonate|escalate'. Remove these permissions and reassign to cluster-admin or dedicated service accounts only.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22440,6 +22513,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize access to create persistent volumes' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review ClusterRoles granting 'create' on 'persistentvolumes': kubectl get clusterroles -o yaml | grep -B5 'persistentvolumes'. Restrict persistent volume creation to storage administrators only.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22524,6 +22598,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize access to the approval sub-resource of certificatesignin' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review ClusterRoles granting access to 'certificatesigningrequests/approval': kubectl get clusterroles -o yaml | grep approval. Restrict this permission to the controller manager service account only.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22608,6 +22683,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize access to webhook configuration objects' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review ClusterRoles granting access to 'mutatingwebhookconfigurations' or 'validatingwebhookconfigurations'. Restrict webhook configuration access to cluster-admin and designated operators.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22692,6 +22768,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize access to the service account token creation' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review ClusterRoles granting 'create' on 'serviceaccounts/token': kubectl get clusterroles -o yaml | grep token. Restrict token creation to specific controllers or service accounts that require it.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22776,6 +22853,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize the admission of privileged containers' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply an Azure Policy to deny privileged containers: Azure Portal > Policy > Definitions > search 'Kubernetes cluster should not allow privileged containers'. Assign to the cluster's resource group or subscription.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22860,6 +22938,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize the admission of containers wishing to share the host pr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply an Azure Policy to deny hostPID containers: Azure Portal > Policy > Definitions > search 'Kubernetes clusters should not use the host process ID or host IPC namespace'. Assign to the subscription.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -22944,6 +23023,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize the admission of containers wishing to share the host IP' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply an Azure Policy to deny hostIPC containers: Azure Portal > Policy > Definitions > search 'Kubernetes clusters should not use the host process ID or host IPC namespace'. Assign to the subscription.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23028,6 +23108,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize the admission of containers with allowPrivilegeEscalatio' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply an Azure Policy to deny allowPrivilegeEscalation: Azure Portal > Policy > Definitions > search 'Kubernetes clusters should not allow container privilege escalation'. Assign to the subscription.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23112,6 +23193,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Apply Security Context to Your Pods and Containers' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Add a securityContext block to each pod and container spec defining: runAsNonRoot: true, readOnlyRootFilesystem: true, allowPrivilegeEscalation: false, and appropriate capabilities (drop: [ALL]).",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23196,6 +23278,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'The default namespace should not be used' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Move all workloads out of the default namespace. Create application-specific namespaces: kubectl create namespace <APP>. Update deployment manifests with namespace: <APP>.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23280,6 +23363,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize user access to Azure Container Registry (ACR)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Container registries > [registry] > Access control (IAM). Remove broad roles (Contributor, Owner) from non-administrative users. Grant AcrPull to service principals that only need to pull images.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23364,6 +23448,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize cluster access to read-only for Azure Container Registry' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Grant only AcrPull to the AKS cluster's managed identity on the container registry: az role assignment create --assignee <CLUSTER-IDENTITY> --role AcrPull --scope /subscriptions/<SUB>/resourceGroups/<RG>/providers/Microsoft.ContainerRegistry/registries/<REGISTRY>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23448,6 +23533,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Prefer using dedicated AKS Service Accounts' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Create dedicated Kubernetes service accounts for each workload instead of using the default service account: kubectl create serviceaccount <NAME> -n <NAMESPACE>. Reference in pod spec: serviceAccountName: <NAME>.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23532,6 +23618,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Network Policy is Enabled and set as appropriate' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > Network policy. Select Azure or Calico and apply appropriate NetworkPolicy objects for namespace traffic control.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23616,6 +23703,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Manage Kubernetes RBAC users with Azure AD' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > Enable AKS-managed Microsoft Entra ID. Or: az aks update --resource-group <RG> --name <CLUSTER> --enable-aad --aad-admin-group-object-ids <GROUP-ID>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -23700,6 +23788,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Use Azure RBAC for Kubernetes Authorization' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Enable Azure RBAC for Kubernetes authorization: az aks update --resource-group <RG> --name <CLUSTER> --enable-azure-rbac. Assign Azure RBAC roles (e.g., Azure Kubernetes Service RBAC Cluster Admin) to Entra users and groups.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -41756,6 +41845,7 @@
         "severity": "Medium",
         "rationale": "Unreviewed policy non-compliance indicates configuration drift from the security baseline."
       },
+      "remediation": "Azure Portal > Policy > Compliance. Review non-compliant resources and remediate using the provided remediation tasks. Set up automated remediation tasks for supported policies.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -42103,6 +42193,7 @@
         "severity": "Medium",
         "rationale": "Absence of locks allows accidental or malicious deletion of production resources with no rollback protection."
       },
+      "remediation": "Azure Portal > Subscriptions > [subscription] > Resource locks > Add. Create a Delete or ReadOnly lock on the subscription. Or: az lock create --name <LOCK> --resource-group <RG> --lock-type CanNotDelete",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -42192,6 +42283,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that a custom role is assigned permissions for administeri' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Subscriptions > [subscription] > Access control (IAM) > Roles > Add custom role. Create a custom role with Microsoft.Authorization/locks/* permissions and assign only to designated lock administrators.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -42280,6 +42372,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Subscription leaving Microsoft Entra tenant' and 'Su' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Billing > Properties > Subscription entering/leaving tenant policies. Set both to 'Permit no one'. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -42369,6 +42462,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that SKU Basic/Consumption is not used on artifacts that n' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > [Service]. Review the pricing tier of critical services. Upgrade from Free/Basic/Consumption to Standard or Premium tiers that support diagnostic logging and monitoring integration.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -42457,6 +42551,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Public IP addresses are Evaluated on a Periodic Basis' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Public IP addresses. Review all public IP resources. Remove IPs not associated with active resources. Document and periodically review remaining IPs and their purpose.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -42546,6 +42641,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Microsoft Cloud Security Benchmark policies are not s' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Security policies. Find Microsoft Cloud Security Benchmark initiative and set any 'Disabled' effects to 'Audit' or 'Deny'.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -42634,6 +42730,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure Microsoft Defender CSPM is set to 'On'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender CSPM: On. Save. CSPM provides advanced posture management capabilities beyond the free tier.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -42722,6 +42819,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Cross Tenant Replication' is not enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data management > Object replication. Disable cross-tenant replication: in Object replication rules, ensure no rules allow replication to accounts in different tenants. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --allow-cross-tenant-replication false",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -42811,6 +42909,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure App Service Environment is provisioned with v3 or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Migrate from ASE v1/v2 to ASE v3: create a new ASE v3 and redeploy applications. Azure Portal > App Service Environments > Create. ASE v1 and v2 cannot be in-place upgraded to v3.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -42900,6 +42999,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Java version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > Java version. Select the current supported LTS version. Or: az webapp config set --resource-group <RG> --name <APP> --java-version <VERSION>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -42989,6 +43089,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Python version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > Python version. Select the current supported version. Or: az webapp config set --resource-group <RG> --name <APP> --python-version <VERSION>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43078,6 +43179,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'PHP version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > PHP version. Select the current supported version. Or: az webapp config set --resource-group <RG> --name <APP> --php-version <VERSION>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43167,6 +43269,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Remote debugging' is set to 'Off'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > Remote debugging: Off. Or: az webapp config set --resource-group <RG> --name <APP> --remote-debugging-enabled false",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43256,6 +43359,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Java version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Java version. Select the current supported LTS version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43345,6 +43449,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Python version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Python version. Select the current supported version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43434,6 +43539,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'PHP version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > PHP version. Select the current supported version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43523,6 +43629,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Remote debugging' is set to 'Off'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Remote debugging: Off.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43612,6 +43719,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Java version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > Java version. Select the current supported LTS version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43701,6 +43809,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Python version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > Python version. Select the current supported version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43790,6 +43899,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Remote debugging' is set to 'Off'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > Remote debugging: Off.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43879,6 +43989,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Java version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Java version. Select the current supported version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -43968,6 +44079,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Python version' is currently supported (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Python version. Select the current supported version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -44057,6 +44169,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Remote debugging' is set to 'Off'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Remote debugging: Off.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -44146,6 +44259,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Only Approved Extensions Are Installed' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Extensions + applications. Review installed extensions. Remove any extensions not on the approved list. Allowed extensions must be documented and reviewed periodically.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -44235,6 +44349,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Trusted Launch is enabled on Virtual Machines' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Configuration > Trusted launch: Enabled. Note: Trusted Launch must be enabled at VM creation time (Generation 2 VMs only). Existing VMs without Trusted Launch must be redeployed.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -44324,6 +44439,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize Container Registries to only those approved' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply an Azure Policy to restrict registries: Azure Portal > Policy > Definitions > search 'Kubernetes cluster containers should only use allowed images'. Specify the allowed registry list (e.g., <REGISTRY>.azurecr.io/*) in the policy parameters.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -71501,6 +71617,7 @@
         "severity": "High",
         "rationale": "VMs without monitoring agents are invisible to Defender for Cloud threat detection."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Auto provisioning. Enable auto provisioning for Log Analytics agent and other monitoring extensions.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -71543,6 +71660,7 @@
         "severity": "High",
         "rationale": "Without a Log Analytics workspace, audit log collection cannot be centralized, making incident investigation impossible."
       },
+      "remediation": "Azure Portal > Log Analytics workspaces > Create. Create a workspace in the appropriate region. Connect resources by configuring Diagnostic Settings on each resource to send logs to this workspace.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -71587,6 +71705,7 @@
         "severity": "Medium",
         "rationale": "Without auditing, SQL Server access and schema changes are untracked and cannot be investigated after a breach."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Auditing > Enable Azure SQL Auditing: On. Set log destination to Log Analytics or Storage Account. Or: az sql server audit-policy update --resource-group <RG> --name <SERVER> --state Enabled",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -72894,6 +73013,7 @@
         "severity": "Medium",
         "rationale": "Without diagnostic logs, user actions and cluster events are unauditable, delaying detection and forensic investigation of suspicious activity."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Diagnostic settings > Add diagnostic setting. Enable dbfs and cluster event log categories and send to Log Analytics Workspace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -72972,6 +73092,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that a 'Diagnostic Setting' exists for Subscription Activi' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Activity log > Export Activity Logs > Add diagnostic setting. Enable all Administrative and Security log categories and send to Log Analytics Workspace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73050,6 +73171,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that logging for Azure AppService 'HTTP logs' is enabled' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > App Services > [app] > Monitoring > Diagnostic settings > Add diagnostic setting. Enable 'AppServiceHTTPLogs' category and send to Log Analytics Workspace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73128,6 +73250,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that a Microsoft Entra diagnostic setting exists to send M' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Entra ID > Monitoring > Diagnostic settings > Add diagnostic setting. Enable MicrosoftGraphActivityLogs and route to Log Analytics Workspace or Storage Account.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73206,6 +73329,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that a Microsoft Entra diagnostic setting exists to send M' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Entra ID > Monitoring > Diagnostic settings > Add diagnostic setting. Enable AuditLogs, SignInLogs, and NonInteractiveUserSignInLogs categories and route to Log Analytics Workspace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73284,6 +73408,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Create Policy Assignmen' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log signal 'Create policy assignment'. Action group: notify security team. Or: az monitor activity-log alert create --resource-group <RG> --name <ALERT> --condition category=Policy and operationName=Microsoft.Authorization/policyAssignments/write",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73362,6 +73487,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Delete Policy Assignmen' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log signal 'Delete policy assignment'. Action group: notify security team.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73440,6 +73566,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Create or Update Securi' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Create or update security solutions'. Action group: notify security team.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73518,6 +73645,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Delete Security Solutio' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Delete security solutions'. Action group: notify security team.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73596,6 +73724,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Create or Update Public' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Create or update public IP address'. Action group: notify security team.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73674,6 +73803,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Delete Public IP Addres' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Delete public IP address'. Action group: notify security team.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73752,6 +73882,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that an Activity Log Alert exists for Service Health' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log signal 'Service Health'. Configure for all event types (Service Issues, Planned Maintenance, Health Advisories). Action group: notify operations team.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73830,6 +73961,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure bot protection is enabled in Azure Web Application Firewal' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Web Application Firewall policies > [policy] > Policy settings. Enable 'Bot protection'. Set 'Bot protection ruleset version' to current. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -73909,6 +74041,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for Storage Is Set To 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Storage: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -73988,6 +74121,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for App Services Is Set To 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > App Service: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -74067,6 +74201,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for Open-Source Relational Databas' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Open-source relational databases: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -74146,6 +74281,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for (Managed Instance) Azure SQL D' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Azure SQL Databases (Managed Instances): On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -74225,6 +74361,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for SQL Servers on Machines Is Set' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > SQL servers on machines: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -74304,6 +74441,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'App Service authentication' is set to 'Enabled'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Authentication > Add identity provider. Configure Entra ID (or another provider). Ensure 'Unauthenticated requests: 401 Unauthorized' is selected.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74382,6 +74520,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'App Service authentication' is set to 'Enabled'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Authentication > Add identity provider. Configure Entra ID. Set 'Unauthenticated requests: 401 Unauthorized'.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74460,6 +74599,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Cosmos DB Logging is Enabled' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Monitoring > Diagnostic settings > Add diagnostic setting. Enable 'DataPlaneRequests' and 'QueryRuntimeStatistics' logs. Send to Log Analytics Workspace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74538,6 +74678,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure server parameter 'audit_log_enabled' is set to 'ON' for My' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Server parameters > Filter 'audit_log_enabled'. Set value to ON. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74616,6 +74757,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure server parameter 'audit_log_events' has 'CONNECTION' set f' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Server parameters > Filter 'audit_log_events'. Set value to include 'CONNECTION'. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -74695,6 +74837,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure server parameter 'error_server_log_file' is Enabled for My' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Server parameters > Filter 'error_server_log_file'. Set to enabled. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74773,6 +74916,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure server parameter 'log_checkpoints' is set to 'ON' for Post' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'log_checkpoints'. Set to ON. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74851,6 +74995,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure server parameter 'log_disconnections' is set to 'ON' for P' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'log_disconnections'. Set to ON. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -74929,6 +75074,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure server parameter 'log_connections' is set to 'ON' for Post' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'log_connections'. Set to ON. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -75007,6 +75153,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Auditing' Retention is 'greater than 90 days'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Auditing > Retention. Set log retention to 90 days or greater. Or: az sql server audit-policy update --resource-group <RG> --name <SERVER> --retention-days 90",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -75086,6 +75233,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Enable audit Logs' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Monitoring > Diagnostic settings > Add diagnostic setting. Enable kube-audit and kube-audit-admin logs. Or: az aks enable-addons --addons monitoring --resource-group <RG> --name <CLUSTER>",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -75164,6 +75312,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Minimize access to the proxy sub-resource of nodes' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Review ClusterRoles granting access to the 'nodes/proxy' sub-resource. Remove this permission from all roles unless required for specific monitoring or debugging tooling.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -80938,6 +81087,7 @@
         "severity": "Medium",
         "rationale": "Silent policy deletion can remove compliance guardrails without anyone noticing until the next audit."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Delete policy assignment'. Action group: notify security team. Or: az monitor activity-log alert create with operationName=Microsoft.Authorization/policyAssignments/delete",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -81019,6 +81169,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Advanced Threat Protection Alerts for Storage Accounts Are' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Microsoft Defender for Cloud > Advanced threat protection: On. Or enable at subscription level via Defender for Storage plan.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -83408,6 +83559,7 @@
         "severity": "High",
         "rationale": "Public IPs without NSGs expose the VM attack surface directly to the internet."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Networking. Review if a public IP is assigned. Remove or dissociate public IPs from VMs that do not require direct internet exposure. Use Azure Bastion or load balancers instead.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -83491,6 +83643,7 @@
         "severity": "Medium",
         "rationale": "Deploying Databricks outside a customer-managed VNet limits network isolation and increases exposure of cluster traffic to shared infrastructure."
       },
+      "remediation": "Create or migrate the Databricks workspace to a customer-managed VNet: Azure Portal > Azure Databricks > [workspace] > Networking. VNet injection must be configured at workspace creation time.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -83572,6 +83725,7 @@
         "severity": "High",
         "rationale": "Public IPs on cluster nodes expose worker traffic directly to the internet, enabling port scanning, exploitation, and data exfiltration without VNet traversal."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Networking. Enable 'No Public IP' (Secure cluster connectivity). This setting must be configured at workspace creation time. Existing workspaces require migration.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -83654,6 +83808,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the azure.json file has permissions set to 644 or mor' leaves the environment exposed, weakening the security governance posture of the environment."
       },
+      "remediation": "AKS-managed nodes: upgrade node pool to the latest node image. Permissions on azure.json are managed by the AKS node OS image. Azure Portal > Kubernetes services > [cluster] > Node pools > Upgrade node image.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -83736,6 +83891,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the azure.json file ownership is set to root:root' leaves the environment exposed, weakening the security governance posture of the environment."
       },
+      "remediation": "AKS-managed nodes: upgrade node pool to the latest node image. Ownership of azure.json is managed by the AKS node OS image. Azure Portal > Kubernetes services > [cluster] > Node pools > Upgrade node image.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -83818,6 +83974,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize the admission of containers wishing to share the host ne' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply an Azure Policy to deny hostNetwork containers: Azure Portal > Policy > Definitions > search 'Kubernetes cluster pods should only use approved host network and port range'. Assign to the subscription.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -83900,6 +84057,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure latest CNI version is used' leaves the environment exposed, weakening the security governance posture of the environment."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Node pools > [pool] > Upgrade node image. Ensure the node pool is running the latest AKS node image, which bundles the current CNI version.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -83982,6 +84140,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that all Namespaces have Network Policies defined' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a NetworkPolicy to each namespace that restricts pod-to-pod traffic: kubectl apply -f network-policy.yaml. At minimum, a default-deny-ingress policy should exist in each namespace with explicit allow rules for required traffic.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -84064,6 +84223,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Create administrative boundaries between resources using namespac' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Use Kubernetes namespaces to isolate workloads: kubectl create namespace <NAME>. Apply ResourceQuota and LimitRange to each namespace. Do not deploy unrelated workloads into the default namespace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -84301,6 +84461,7 @@
         "severity": "Critical",
         "rationale": "Internet-exposed RDP is consistently exploited for ransomware deployment and lateral movement."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Inbound security rules. Find and modify or delete any rule allowing RDP (TCP 3389) from source 'Any' or 'Internet'. Use Azure Bastion for RDP access instead.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -84344,6 +84505,7 @@
         "severity": "Critical",
         "rationale": "Internet-exposed SSH is a top attack vector for Linux VM compromise and cryptomining deployments."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Inbound security rules. Find and modify or delete any rule allowing SSH (TCP 22) from source 'Any' or 'Internet'. Use Azure Bastion for SSH access instead.",
       "effort": {
         "complexity": 4,
         "isPhased": true,
@@ -84387,6 +84549,7 @@
         "severity": "Medium",
         "rationale": "Overly broad SQL firewall rules expose the database server to unauthorized connection attempts from anywhere in Azure or the internet."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Firewalls and virtual networks. Review firewall rules. Remove rules with start IP 0.0.0.0 and end IP 255.255.255.255. Replace with specific IP ranges or VNet rules.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -84429,6 +84592,7 @@
         "severity": "Medium",
         "rationale": "Without network policies, a compromised pod can communicate freely with all other pods, enabling lateral movement."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > Network policy. Select Azure or Calico. Or: az aks update --resource-group <RG> --name <CLUSTER> --network-policy azure",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -88089,6 +88253,7 @@
         "severity": "High",
         "rationale": "Missing NSG rules on Databricks subnets allow unrestricted lateral movement between subnets, enabling exfiltration or pivot from a compromised cluster node."
       },
+      "remediation": "Associate NSGs with the Databricks public and private subnets: Azure Portal > Virtual networks > [VNet] > Subnets > [subnet] > Network security group. Attach NSGs restricting inbound and outbound access per Databricks network requirements.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88164,6 +88329,7 @@
         "severity": "High",
         "rationale": "Public network access to the workspace control plane exposes authentication endpoints to brute force and credential stuffing attacks from the internet."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Networking > Public network access: Disabled. This restricts the Databricks control plane endpoint to private network access only.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88239,6 +88405,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Azure Monitor Resource Logging is Enabled for All Ser' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > [Resource] > Diagnostic settings > Add diagnostic setting. Enable all appropriate log categories and route to Log Analytics Workspace, Storage Account, or Event Hub. Repeat for each Azure resource type in use.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88314,6 +88481,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Network Security Group Flow logs are captured and sen' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Monitoring > NSG flow logs > Create. Select the NSG, a storage account, and a Log Analytics Workspace. Enable Flow Logs v2 and set retention to 90 days.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88389,6 +88557,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Create or Update Networ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Create or update network security group'. Action group: notify security team.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88464,6 +88633,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Delete Network Security' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Delete network security group'. Action group: notify security team.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88539,6 +88709,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Create or Update SQL Se' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Create or update SQL server firewall rule'. Action group: notify security team.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88614,6 +88785,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Activity Log Alert exists for Delete SQL Server Firew' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Monitor > Alerts > Create > Alert rule. Scope: [subscription]. Condition: Activity log 'Delete SQL server firewall rule'. Action group: notify security team.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88689,6 +88861,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that RDP access from the Internet is evaluated and restric' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Inbound security rules. Remove or restrict RDP (TCP 3389) access from Internet. Restrict source to specific IP ranges or use Azure Bastion.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88765,6 +88938,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that SSH access from the Internet is evaluated and restric' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Inbound security rules. Remove or restrict SSH (TCP 22) access from Internet. Restrict source to specific IP ranges or use Azure Bastion.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88841,6 +89015,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that UDP access from the Internet is evaluated and restric' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Inbound security rules. Remove or restrict UDP access from Internet. Limit any UDP rules to specific source IPs and required ports.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88917,6 +89092,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that HTTP(S) access from the Internet is evaluated and res' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Inbound security rules. Review HTTP (80) and HTTPS (443) rules. Route internet-facing traffic through Azure Application Gateway or Azure Front Door with WAF instead of direct NSG allow rules.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -88993,6 +89169,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that network security group flow log retention days is set' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Network security groups > [NSG] > Monitoring > NSG flow logs > [flow log]. Set retention period to 90 days or greater. Or: az network watcher flow-log update --resource-group <RG> --name <LOG> --retention 90",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89069,6 +89246,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Web Application Firewall (WAF) is enabled on Azure A' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Application gateways > [gateway] > Web application firewall. Set WAF mode to Prevention. Or create a WAF policy: Azure Portal > Web Application Firewall policies > Create, then associate with the Application Gateway.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89145,6 +89323,7 @@
         "severity": "High",
         "rationale": "Missing network access controls leave Azure resources exposed to unrestricted lateral traffic, enabling pivoting and data exfiltration."
       },
+      "remediation": "Azure Portal > Virtual networks > [VNet] > Subnets > [subnet] > Network security group. Assign an NSG to each subnet that does not have one. Ensure all subnets except AzureBastionSubnet and GatewaySubnet are NSG-protected.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89221,6 +89400,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure request body inspection is enabled in Azure Web Applicatio' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Web Application Firewall policies > [policy] > Policy settings. Enable 'Inspect request body' and set 'Max request body size' to an appropriate limit. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89297,6 +89477,7 @@
         "severity": "High",
         "rationale": "Missing network access controls leave Azure resources exposed to unrestricted lateral traffic, enabling pivoting and data exfiltration."
       },
+      "remediation": "Azure Portal > Network security perimeters > Create. Configure the perimeter to protect target PaaS resources (Key Vault, Storage, etc.). This feature requires registration: az feature register --namespace Microsoft.Network --name AllowNetworkSecurityPerimeter",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89373,6 +89554,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Allow Azure services on the trusted services list to acce' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Security + networking > Networking > Exceptions > Allow Azure services on the trusted services list to access this storage account: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89448,6 +89630,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Allow Blob Anonymous Access' is set to 'Disabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Allow Blob anonymous access: Disabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --allow-blob-public-access false",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89523,6 +89706,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure default network access rule for storage accounts is set to' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Security + networking > Networking > Firewalls and virtual networks > Default network access rule: Deny. Add required VNet service endpoints or IP rules.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89598,6 +89782,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure cross-origin resource sharing does not allow all origins' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > CORS. Remove '*' from allowed origins. Add only specific allowed origins. Or: az webapp cors remove --resource-group <RG> --name <APP> --allowed-origins '*'",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89673,6 +89858,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure cross-origin resource sharing does not allow all origins' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > CORS. Remove '*' from allowed origins and specify only required origins.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89748,6 +89934,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure cross-origin resource sharing does not allow all origins' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > CORS. Remove '*' from allowed origins and add only required origins.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89823,6 +90010,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure cross-origin resource sharing does not allow all origins' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > CORS. Remove '*' and add only required origins.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89898,6 +90086,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Private Virtual Networks are used for Container Instances' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "At creation time, configure the Container Instance with a VNet: az container create --resource-group <RG> --name <CONTAINER> --vnet <VNET-ID> --subnet <SUBNET>. Existing container instances without VNet integration must be recreated.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -89973,6 +90162,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Disk Network Access' is NOT set to 'Enable public ac' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Disks > [disk] > Settings > Networking. Set 'Disk network access' to 'Disable public access and enable private access' or 'Disable public access'. Or: az disk update --resource-group <RG> --name <DISK> --network-access-policy DenyAll",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90048,6 +90238,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That 'Firewalls & Networks' Is Limited to Use Selected Net' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Networking > Firewalls and virtual networks > Selected networks. Add allowed VNet/subnet rules and IP ranges. Remove 'Allow access from all networks'.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90123,6 +90314,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure `Public Network Access` is `Disabled`' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Networking > Public network access: Disabled. Or: az cosmosdb update --resource-group <RG> --name <ACCOUNT> --public-network-access Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90198,6 +90390,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure the firewall does not allow all network traffic' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Networking > Firewalls and virtual networks. Remove the 'Allow access from all networks' rule and add explicit IP or VNet allow rules.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90273,6 +90466,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure `Public Network Access` is `Disabled` for Azure Database f' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Networking > Public network access: Disabled. Or: az mysql flexible-server update --resource-group <RG> --name <SERVER> --public-access Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90348,6 +90542,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure `Public Network Access` is `Disabled` for Azure Database f' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Networking > Public network access: Disabled. Or: az postgres flexible-server update --resource-group <RG> --name <SERVER> --public-access Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90423,6 +90618,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Public Network Access' is set to 'Disable'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Networking > Public network access: Disable. Or: az sql server update --resource-group <RG> --name <SERVER> --set publicNetworkAccess=Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90498,6 +90694,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure no Azure SQL Database firewall rule is overly permissive' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Networking > Firewall rules. Remove any rule allowing 0.0.0.0 to 255.255.255.255. Add specific IP ranges or configure VNet service endpoints.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90573,6 +90770,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --read-only-port is secured' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration setting readOnlyPort: 0 to disable the read-only port. Create a kubelet config file and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90648,6 +90846,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --make-iptables-util-chains argument is set to tr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration setting makeIPTablesUtilChains: true. Create a kubelet config file and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90723,6 +90922,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Restrict Access to the Control Plane Endpoint' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Networking > Authorized IP ranges. Add the CIDR ranges of authorized management networks. Or: az aks update --resource-group <RG> --name <CLUSTER> --api-server-authorized-ip-ranges <CIDR>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -90798,6 +90998,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure clusters are created with Private Nodes' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Create a new node pool with private nodes (no public IPs): az aks nodepool add --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --node-count 3 --no-public-ip-for-nodes. Existing public-IP node pools must be replaced.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -92674,6 +92875,7 @@
         "severity": "High",
         "rationale": "Without private endpoints, workspace traffic traverses public Microsoft backbone infrastructure, increasing exposure to interception and reducing network isolation guarantees."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Networking > Private endpoint connections > Add. Create a private endpoint in the VNet and configure private DNS to resolve the workspace URL to the private IP.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -92748,6 +92950,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Public Network Access is Disabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Networking > Public network access: Disable. Or: az keyvault update --resource-group <RG> --name <VAULT> --public-network-access Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -92822,6 +93025,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Private Endpoints are used to access Azure Key Vault' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Networking > Private endpoint connections > Add. Create a private endpoint in the VNet and configure private DNS zone 'privatelink.vaultcore.azure.net'.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -92896,6 +93100,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Private Endpoints are used to access Storage Accounts' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Security + networking > Networking > Private endpoint connections > Add. Create a private endpoint and configure DNS zone 'privatelink.blob.core.windows.net'.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -92970,6 +93175,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Public Network Access' is 'Disabled' for storage acc' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Security + networking > Networking > Public network access: Disabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --public-network-access Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93044,6 +93250,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure public network access is disabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Networking > Public network access: Disabled. Or: az webapp update --resource-group <RG> --name <APP> --public-network-access Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93118,6 +93325,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure App Service plan SKU supports private endpoints' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Upgrade the App Service plan from Free/Shared/Basic to Standard or Premium to support private endpoints. Azure Portal > App Service plans > [plan] > Scale up (App Service plan).",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93192,6 +93400,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure private endpoints are used to access App Service apps' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Networking > Private endpoints > Add. Select the VNet and subnet for the private endpoint. Configure private DNS zone integration.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93266,6 +93475,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure private endpoints used to access App Service apps use priv' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "When creating the private endpoint for App Service, enable private DNS zone integration: select the zone 'privatelink.azurewebsites.net'. Azure Portal > App Services > [app] > Networking > Private endpoints > Add > integrate with private DNS zone: Yes.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93340,6 +93550,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure app is integrated with a virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Networking > VNet integration > Add VNet integration. Select the VNet and a delegated subnet. Or: az webapp vnet-integration add --resource-group <RG> --name <APP> --vnet <VNET> --subnet <SUBNET>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93414,6 +93625,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure configuration is routed through the virtual network integr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "After enabling VNet integration, enable route-all traffic: Azure Portal > App Services > [app] > Networking > VNet integration > Route All: Enabled. Or: az webapp config set --resource-group <RG> --name <APP> --vnet-route-all-enabled true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93488,6 +93700,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure all traffic is routed through the virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Ensure all outbound traffic routes through the VNet by enabling route-all: Azure Portal > App Services > [app] > Networking > VNet integration > Route All: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93562,6 +93775,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure public network access is disabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Networking > Public network access: Disabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93636,6 +93850,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure deployment slot is integrated with a virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Networking > VNet integration > Add VNet integration. Select the VNet and delegated subnet.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93710,6 +93925,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure configuration is routed through the virtual network integr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Networking > VNet integration > Route All: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93784,6 +94000,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure all traffic is routed through the virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Networking > VNet integration > Route All: Enabled to route all outbound traffic through the VNet.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93858,6 +94075,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure public network access is disabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Networking > Public network access: Disabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -93932,6 +94150,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure function app is integrated with a virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Networking > VNet integration > Add VNet integration. Select the VNet and delegated subnet.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94006,6 +94225,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure configuration is routed through the virtual network integr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Networking > VNet integration > Route All: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94080,6 +94300,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure all traffic is routed through the virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Networking > VNet integration > Route All: Enabled to route all outbound traffic through the VNet.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94154,6 +94375,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure public network access is disabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Networking > Public network access: Disabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94228,6 +94450,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure deployment slot is integrated with a virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Networking > VNet integration > Add VNet integration.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94302,6 +94525,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure configuration is routed through the virtual network integr' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Networking > VNet integration > Route All: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94376,6 +94600,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure all traffic is routed through the virtual network' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Networking > VNet integration > Route All: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94450,6 +94675,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Cosmos DB uses Private Endpoints where possible' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Networking > Private endpoint connections > Add. Create a private endpoint and configure DNS to resolve the Cosmos DB endpoint to the private IP.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94524,6 +94750,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Private Endpoints Are Used for Azure MySQL Databases' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Networking > Private endpoint connections > Add. Configure private DNS zone 'privatelink.mysql.database.azure.com'.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94598,6 +94825,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Private Endpoints Are Used for Azure Database for PostgreS' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Networking > Private endpoint connections > Add. Configure private DNS zone 'privatelink.postgres.database.azure.com'.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94672,6 +94900,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure clusters are created with Private Endpoint Enabled and Pub' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Create or update the cluster with a private endpoint: az aks update --resource-group <RG> --name <CLUSTER> --enable-private-cluster. Public API server access must be disabled in the cluster networking settings.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -94881,6 +95110,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure DDoS Network Protection is enabled on virtual networ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual networks > [VNet] > DDoS protection > Standard: Enable. Or: az network ddos-protection create --resource-group <RG> --name <PLAN>; az network vnet update --resource-group <RG> --name <VNET> --ddos-protection-plan <PLAN>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101445,6 +101675,7 @@
         "severity": "High",
         "rationale": "VMs without endpoint protection are undefended against malware, ransomware, and fileless attacks."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Extensions + applications. Install Microsoft Antimalware extension. Or: az vm extension set --resource-group <RG> --vm-name <VM> --name IaaSAntimalware --publisher Microsoft.Azure.Security",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101524,6 +101755,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Microsoft Defender for Cloud is configured to check V' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Servers plan > Settings. Enable 'System updates should be installed on your machines' recommendation in the Defender for Servers configuration.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101603,6 +101835,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Microsoft Defender for APIs is set to 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > APIs: On. Save. Defender for APIs protects Azure API Management endpoints.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101682,6 +101915,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Defender for Servers is set to 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Servers: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101761,6 +101995,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Vulnerability assessment for machines' component sta' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Servers plan > Settings > Vulnerability assessment for machines: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101840,6 +102075,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Endpoint protection' component status is set to 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Servers plan > Settings > Endpoint protection: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101919,6 +102155,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Agentless scanning for machines' component status is' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Servers plan > Settings > Agentless scanning for machines: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -101998,6 +102235,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for Containers Is Set To 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Containers: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -102077,6 +102315,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for Azure Cosmos DB Is Set To 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Azure Cosmos DB: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -102156,6 +102395,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for Resource Manager Is Set To 'On' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Resource Manager: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -102235,6 +102475,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for IoT Hub Is Set To 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > IoT: On. Save. Requires Azure IoT Hub.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -102314,6 +102555,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Endpoint Protection for all Virtual Machines is insta' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Extensions + applications. Install Microsoft Antimalware or Defender for Endpoint extension. Or enable Defender for Servers in Defender for Cloud, which provisions endpoint protection automatically.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -102393,6 +102635,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Image Vulnerability Scanning using Microsoft Defender for ' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Defender for Cloud > Environment settings > [subscription] > Containers plan > Enable. This enables vulnerability scanning for images in Azure Container Registry via Microsoft Defender for Containers.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107067,6 +107310,7 @@
         "severity": "Medium",
         "rationale": "Without soft delete, a deleted Key Vault permanently destroys all cryptographic material, potentially causing application outages."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Soft-delete: Enabled. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-soft-delete true. Note: soft-delete cannot be disabled once enabled.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -107108,6 +107352,7 @@
         "severity": "High",
         "rationale": "Without purge protection, an attacker with Key Vault delete permissions can permanently destroy all secrets, keys, and certificates."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Purge protection: Enable. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-purge-protection true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107150,6 +107395,7 @@
         "severity": "Medium",
         "rationale": "Keys without expiry never rotate, allowing long-term exploitation of any compromise without detection."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Objects > Keys and Secrets. Set expiration dates on all keys and secrets. Or: az keyvault key set-attributes --vault-name <VAULT> --name <KEY> --expires <DATE>",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -107553,6 +107799,7 @@
         "severity": "High",
         "rationale": "Unencrypted HTTP transfers can expose storage access keys and data to network-level interception."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Secure transfer required: Enabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --https-only true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107597,6 +107844,7 @@
         "severity": "Medium",
         "rationale": "TLS 1.0/1.1 vulnerabilities allow downgrade attacks against storage communications."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Minimum TLS version: TLS 1.2. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --min-tls-version TLS1_2",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -107640,6 +107888,7 @@
         "severity": "High",
         "rationale": "Public blob containers have caused numerous data breaches through accidental exposure of sensitive files."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Allow Blob anonymous access: Disabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --allow-blob-public-access false",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107682,6 +107931,7 @@
         "severity": "High",
         "rationale": "Unencrypted VM disks expose CUI if the underlying hardware is repurposed or physically accessed."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Disks. Enable Azure Disk Encryption: Extensions > Add > Azure Disk Encryption. Or: az vm encryption enable --resource-group <RG> --name <VM> --disk-encryption-keyvault <VAULT>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107725,6 +107975,7 @@
         "severity": "High",
         "rationale": "Unencrypted SQL databases expose CUI stored in database files and backups."
       },
+      "remediation": "Azure Portal > SQL databases > [database] > Security > Transparent data encryption. Set to On. Or: az sql db tde set --resource-group <RG> --server <SERVER> --database <DB> --status Enabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107806,6 +108057,7 @@
         "severity": "High",
         "rationale": "Unencrypted inter-node cluster traffic exposes data in process to passive interception within the virtual network."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Encryption. Enable cluster encryption (encryption at rest covers data on cluster nodes). For encryption in transit between workers, configure at cluster level via spark.databricks.encryption.enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107886,6 +108138,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Resource Manager Delete locks are applied to Azure S' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Locks > Add lock. Apply CanNotDelete lock. Or: az lock create --name <LOCK> --resource-group <RG> --resource-type Microsoft.Storage/storageAccounts --resource <ACCOUNT> --lock-type CanNotDelete",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -107966,6 +108219,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Resource Manager ReadOnly locks are considered for A' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Locks > Add lock. Evaluate applying ReadOnly lock to critical storage accounts. Ensure that applications can still function with read-only access before applying.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108046,6 +108300,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Virtual Machines are utilizing Managed Disks' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Disks. If any disk shows 'Unmanaged', the VM must be migrated to managed disks. Or: az vm convert --resource-group <RG> --name <VM>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108126,6 +108381,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that encryption at host is enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Configuration > Encryption at host: Enabled. Or: az vm update --resource-group <RG> --name <VM> --set storageProfile.osDisk.encryptionSettings.encryptionAtHost=true. Requires the feature to be registered: az feature register --namespace Microsoft.Compute --name EncryptionAtHost",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108206,6 +108462,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Data encryption' is set to 'On' on a SQL Database' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > SQL databases > [database] > Security > Transparent data encryption: On. Or: az sql db tde set --resource-group <RG> --server <SERVER> --database <DB> --status Enabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108286,6 +108543,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Consider external secret storage' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Integrate the cluster with Azure Key Vault using the Secrets Store CSI driver: az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group <RG> --name <CLUSTER>. Reference Key Vault secrets in pod specs via SecretProviderClass.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108366,6 +108624,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Kubernetes Secrets are encrypted' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Enable encryption at rest for Kubernetes Secrets using an Azure Key Vault key: Azure Portal > Kubernetes services > [cluster] > Settings > Encryption (preview). Or use a KMS plugin via az aks create/update with --enable-azure-keyvault-kms.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108446,6 +108705,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure the SSL policy's 'Min protocol version' is set to 'TLSv1_2' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Application gateways > [gateway] > Settings > SSL policy. Set 'Policy type' to Custom and 'Min protocol version' to TLS 1.2. Remove TLS 1.0 and 1.1 cipher suites.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108527,6 +108787,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Microsoft Defender External Attack Surface Monitoring' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > External Attack Surface Management: Enable (requires EASM workspace).",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108607,6 +108868,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure an Azure Bastion Host Exists' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Create a resource > Azure Bastion. Deploy Azure Bastion in a subnet named 'AzureBastionSubnet' (/27 or larger) within the VNet. Once deployed, use Bastion for all RDP/SSH to VMs instead of public IPs.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108687,6 +108949,7 @@
         "severity": "High",
         "rationale": "SMB versions below 3.1.1 lack mandatory encryption and integrity validation, exposing file shares to eavesdropping and MITM attacks."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data storage > File shares > [share] > Properties > Protocol settings > SMB protocol version. Set to SMB 3.1.1 (disable 2.1 and 3.0). Or configure via az storage share-rm.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108767,6 +109030,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'SMB channel encryption' is set to 'AES-256-GCM' or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data storage > File shares > [share] > Properties > Protocol settings > SMB channel encryption. Set to AES-256-GCM. Or configure via az storage share-rm protocol.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108847,6 +109111,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Secure transfer required' is set to 'Enabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Secure transfer required: Enabled. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --https-only true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -108927,6 +109192,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure the 'Minimum TLS version' for storage accounts is set to '' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Minimum TLS version: Version 1.2. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --min-tls-version TLS1_2",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109007,6 +109273,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure App Service Environment has TLS 1.0 and 1.1 disabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Service Environments > [ASE] > Settings > Configuration > TLS 1.0/1.1: Disabled. Set minimum TLS version to 1.2.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109087,6 +109354,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure App Service Environment has TLS cipher suite ordering conf' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Configure TLS cipher suite ordering via ASE PowerShell or CLI. The ordering must be set per Microsoft's recommended cipher suite list. See: az appservice ase update --resource-group <RG> --name <ASE> with custom cipher ordering.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109167,6 +109435,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'HTTPS Only' is set to 'On'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > HTTPS Only: On. Or: az webapp update --resource-group <RG> --name <APP> --https-only true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109247,6 +109516,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Minimum Inbound TLS Version' is set to '1.2' or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > Minimum Inbound TLS Version: 1.2. Or: az webapp config set --resource-group <RG> --name <APP> --min-tls-version 1.2",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109327,6 +109597,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure end-to-end TLS encryption is enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > End-to-end TLS encryption: Enabled. This requires the App Service plan to support this feature (Standard or higher).",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109407,6 +109678,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'HTTPS Only' is set to 'On'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > HTTPS Only: On.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109487,6 +109759,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Minimum Inbound TLS Version' is set to '1.2' or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Minimum Inbound TLS Version: 1.2.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109567,6 +109840,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure end-to-end TLS encryption is enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > End-to-end TLS encryption: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109647,6 +109921,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'HTTPS Only' is set to 'On'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > HTTPS Only: On. Or: az functionapp update --resource-group <RG> --name <APP> --set httpsOnly=true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109727,6 +110002,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Minimum Inbound TLS Version' is set to '1.2' or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > Minimum Inbound TLS Version: 1.2.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109807,6 +110083,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure end-to-end TLS encryption is enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > End-to-end TLS encryption: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109887,6 +110164,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'HTTPS Only' is set to 'On'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > HTTPS Only: On.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -109967,6 +110245,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Minimum Inbound TLS Version' is set to '1.2' or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Minimum Inbound TLS Version: 1.2.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -110047,6 +110326,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure end-to-end TLS encryption is enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > End-to-end TLS encryption: Enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -110127,6 +110407,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure server parameter 'tls_version' is set to 'TLSv1.2' (or hig' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Server parameters > Filter 'tls_version'. Set to TLSv1.2 (remove TLSv1 and TLSv1.1). Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -110207,6 +110488,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure server parameter 'ssl_min_protocol_version' is set to 'TLS' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'ssl_min_protocol_version'. Set to TLSv1.2. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -110287,6 +110569,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Minimum TLS Version' is set to 'TLS 1.2' or higher' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Networking > Minimum TLS version: 1.2. Or: az sql server update --resource-group <RG> --name <SERVER> --minimal-tls-version 1.2",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -110367,6 +110650,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Encrypt traffic to HTTPS load balancers with TLS certificates' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Configure TLS certificates on HTTPS load balancers. Use cert-manager or Azure Application Gateway Ingress Controller (AGIC) with a certificate from Azure Key Vault. Ensure all ingress resources specify TLS secretName.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -113759,6 +114043,7 @@
         "severity": "High",
         "rationale": "Without customer-managed keys, Microsoft-managed keys control data access; a compromised cloud admin account can decrypt data without tenant knowledge."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Encryption. Enable customer-managed keys (CMK) for the managed storage account. CMK must be configured in the Azure Key Vault and linked at workspace creation or updated via az databricks workspace update.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -113822,6 +114107,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure the storage account containing the container with activity' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [activity log storage account] > Settings > Encryption. Set 'Encryption type' to Customer-managed keys and link to an Azure Key Vault key.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -113885,6 +114171,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that logging for Azure Key Vault is 'Enabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Monitoring > Diagnostic settings > Add diagnostic setting. Enable AuditEvent log category and send to Log Analytics Workspace. Retention: 90 days minimum.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -113948,6 +114235,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure That Microsoft Defender for Key Vault Is Set To 'On'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans > Key Vault: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114011,6 +114299,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure automatic key rotation is enabled within Azure Key Vault' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Objects > Keys > [key] > Rotation policy. Set a rotation period (e.g., 90 days) and enable automatic rotation. Or: az keyvault key rotation-policy update --vault-name <VAULT> --name <KEY> --value @policy.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114074,6 +114363,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Azure Key Vault Managed HSM is used when required' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Settings > Managed HSM. Assess whether cryptographic operations require FIPS 140-2 Level 3 compliance. If required, create a Managed HSM and migrate key material.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114137,6 +114427,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure certificate 'Validity Period (in months)' is less than or ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Key vaults > [vault] > Certificates > [certificate] > Current version. Review 'Valid from' and 'Expires' to ensure validity period is 12 months or less. Create new certificates with a shorter validity period as existing ones expire.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114200,6 +114491,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'OS and Data' disks are encrypted with Customer Manag' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Disks > [disk] > Encryption. Set encryption type to Customer-managed keys. Link to an Azure Key Vault key. Or via disk update: az disk update --resource-group <RG> --name <DISK> --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set <DES-ID>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114263,6 +114555,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Unattached disks' are encrypted with 'Customer Manag' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Disks (standalone, unattached). Filter by 'Unattached'. For each disk: Encryption > Encryption type: Customer-managed keys. Or: az disk update --resource-group <RG> --name <DISK> --encryption-type EncryptionAtRestWithCustomerKey",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114326,6 +114619,7 @@
         "severity": "High",
         "rationale": "Failure to configure '[Legacy] Ensure that VHDs are Encrypted' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual machines > [VM] > Settings > Disks. Ensure all disks use managed disks (not VHDs in storage accounts). Migrate from VHDs using: az vm convert --resource-group <RG> --name <VM>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114389,6 +114683,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure critical data is encrypted with customer-managed keys (CMK' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Cosmos DB > [account] > Settings > Encryption. Select 'Customer-managed key' and provide the Azure Key Vault key URI. CMK must be configured at account creation or via update before data is written.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114452,6 +114747,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Database for MySQL uses Customer Managed Keys for En' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL > [server] > Settings > Encryption. Set 'Data encryption' to Customer-managed key. Link to an Azure Key Vault key with appropriate permissions.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114515,6 +114811,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Database for PostgreSQL uses Customer Managed Keys f' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Encryption. Set 'Data encryption' to Customer-managed key. Link to an Azure Key Vault key.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114578,6 +114875,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure SQL server's Transparent Data Encryption (TDE) protector i' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Transparent data encryption > TDE protector. Select 'Customer-managed key'. Choose or import a key from Azure Key Vault. Or: az sql server tde-key set --resource-group <RG> --server <SERVER> --server-key-type AzureKeyVault --kid <KEY-URL>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114641,6 +114939,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Minimize access to secrets' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Review RBAC Role/ClusterRole definitions granting 'get','list','watch' on 'secrets'. Use: kubectl get roles,clusterroles -A -o yaml | grep -A5 'secrets'. Replace with least-privilege roles scoped to specific namespaces.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114877,6 +115176,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure soft delete for Azure File Shares is Enabled' leaves the environment exposed, reducing the ability to recover from security incidents."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data storage > File shares > [share] > Properties. Enable Soft delete with a retention period (e.g., 14 days). Or: az storage account file-service-properties update --account-name <ACCOUNT> --resource-group <RG> --enable-delete-retention true --delete-retention-days 14",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114935,6 +115235,7 @@
         "severity": "High",
         "rationale": "Without soft delete, accidentally or maliciously deleted blobs/containers are unrecoverable, causing permanent data loss."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data storage > Containers > [container] > Properties > Soft delete: Enabled with retention period >= 7 days. Or: az storage account blob-service-properties update --account-name <ACCOUNT> --enable-delete-retention true --delete-retention-days 7",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -114993,6 +115294,7 @@
         "severity": "High",
         "rationale": "Without soft delete, accidentally or maliciously deleted blobs/containers are unrecoverable, causing permanent data loss."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data management > Data protection > Container soft delete: Enabled with retention >= 7 days. Or: az storage account blob-service-properties update --account-name <ACCOUNT> --enable-container-delete-retention true --container-delete-retention-days 7",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -115051,6 +115353,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Versioning' is set to 'Enabled' on Azure Blob Storage sto' leaves the environment exposed, reducing the ability to recover from security incidents."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Data management > Data protection > Blob versioning: Enabled. Or: az storage account blob-service-properties update --account-name <ACCOUNT> --enable-versioning true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -115109,6 +115412,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Redundancy is set to 'geo-redundant storage (GRS)' on crit' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Settings > Configuration > Replication. Set to Geo-redundant storage (GRS) or Read-access geo-redundant storage (RA-GRS) for critical accounts. Or: az storage account update --resource-group <RG> --name <ACCOUNT> --sku Standard_GRS",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116299,6 +116603,7 @@
         "severity": "High",
         "rationale": "Without paid Defender plans, threat detection and vulnerability scanning are absent for critical workloads."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans. Enable required Defender plans (Servers, Storage, SQL, etc.).",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116341,6 +116646,7 @@
         "severity": "High",
         "rationale": "A low secure score indicates widespread unresolved security findings that increase risk of compromise."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Overview > Secure score. Review failing recommendations and remediate to raise the secure score above the organizational threshold.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116421,6 +116727,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure App Service Environment has internal encryption enabled' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Service Environments > [ASE] > Settings > Configuration > Internal encryption: Enabled. This encrypts traffic between the ASE front end and workers.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116501,6 +116808,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'HTTP2' is set to 'Enabled' on Azure Application Gateway' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Application gateways > [gateway] > Settings > Configuration. Set 'HTTP2': Enabled.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -116581,6 +116889,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure App Service Environment is deployed with an internal load ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "App Service Environment v3 must be deployed with an internal load balancer at creation time. To migrate: create a new internal ASE v3 and redeploy applications. Azure Portal > App Service Environments > Create > Virtual IP: Internal.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116661,6 +116970,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'FTP State' is set to 'FTPS only' or 'Disabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > FTP state: Disabled or FTPS only. Or: az webapp config set --resource-group <RG> --name <APP> --ftps-state Disabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116741,6 +117051,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'HTTP version' is set to '2.0' (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > HTTP version: 2.0. Or: az webapp config set --resource-group <RG> --name <APP> --http20-enabled true",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -116820,6 +117131,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'FTP state' is set to 'FTPS only' or 'Disabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > FTP state: Disabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -116900,6 +117212,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'HTTP version' is set to '2.0' (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > HTTP version: 2.0.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -116979,6 +117292,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'FTP state' is set to 'FTPS only' or 'Disabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > FTP state: Disabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -117059,6 +117373,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'HTTP version' is set to '2.0' (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > HTTP version: 2.0.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -117138,6 +117453,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'FTP state' is set to 'FTPS only' or 'Disabled'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > FTP state: Disabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -117218,6 +117534,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'HTTP version' is set to '2.0' (if in use)' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > HTTP version: 2.0.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -117297,6 +117614,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure server parameter 'require_secure_transport' is set to 'ON'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Server parameters > Filter 'require_secure_transport'. Set value to ON. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -117377,6 +117695,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure server parameter 'require_secure_transport' is set to 'ON'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'require_secure_transport'. Set to ON. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118175,6 +118494,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Storage Account access keys are periodically regenera' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Storage accounts > [account] > Security + networking > Access keys > Rotate key1 and key2. Ensure consuming applications are updated before rotating. Automate with Azure Key Vault rotation policy.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118238,6 +118558,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --rotate-certificates argument is not set to fals' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration with rotateCertificates: true. Create a kubelet config file and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118301,6 +118622,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the RotateKubeletServerCertificate argument is set to' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration with RotateKubeletServerCertificate: true. Create a kubelet config file and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118364,6 +118686,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Prefer using secrets as files over secrets as environment variabl' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Update application workload manifests to mount secrets as files (volumeMounts) rather than injecting them as environment variables (env.valueFrom.secretKeyRef). This prevents secrets from appearing in process listings.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118484,6 +118807,7 @@
         "severity": "Medium",
         "rationale": "Without Unity Catalog, data access controls and audit trails are per-workspace rather than centralised, increasing risk of unauthorised data access across workspaces."
       },
+      "remediation": "Azure Portal > Azure Databricks > [workspace] > Settings > Unity Catalog. Create or attach a Unity Catalog metastore via Azure Databricks account console. Unity Catalog must be enabled for centralized data governance.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -118554,6 +118878,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure passwordless authentication methods are considered' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Security > Authentication methods. Enable Windows Hello for Business, FIDO2 security keys, or Microsoft Authenticator passwordless sign-in. Configure Conditional Access to require passwordless for target users.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118625,6 +118950,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Authentication type' is set to 'Azure Active Directory' o' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Virtual network gateways > [gateway] > Settings > Point-to-site configuration > Tunnel type. Set to IKEv2 or OpenVPN. Authentication type: Microsoft Entra ID. Remove certificate-based authentication if not required.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118697,6 +119023,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure incoming client certificates are enabled and required (if ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > Incoming client certificates: Required. Or: az webapp update --resource-group <RG> --name <APP> --set clientCertEnabled=true clientCertMode=Required",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118768,6 +119095,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure incoming client certificates are enabled and required (if ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Incoming client certificates: Required.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118839,6 +119167,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure incoming client certificates are enabled and required (if ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > Incoming client certificates: Required.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118910,6 +119239,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure incoming client certificates are enabled and required (if ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Incoming client certificates: Required.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -118981,6 +119311,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Enable Data Access Authentication Mode' is 'Checked'' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Disks > [disk] > Settings > Networking > Enable data access authentication mode: Checked. This requires SAS token or Entra authentication to export or import disk content.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -119052,6 +119383,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Database for MySQL uses only Microsoft Entra Authent' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for MySQL flexible server > [server] > Settings > Authentication. Set 'Authentication method' to Microsoft Entra authentication only. Add an Entra user or group as admin.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -119123,6 +119455,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Database for PostgreSQL uses only Microsoft Entra Au' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Authentication. Set 'Authentication method' to Microsoft Entra authentication only. Add an Entra admin.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -119194,6 +119527,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Microsoft Entra authentication is Configured for SQL ' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Settings > Microsoft Entra ID > Set admin. Select an Entra user or group as the SQL Server Microsoft Entra administrator. Or: az sql server ad-admin create --resource-group <RG> --server <SERVER> --display-name <ADMIN> --object-id <OID>",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -119265,6 +119599,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --anonymous-auth argument is set to false' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration disabling anonymous auth. Create a kubelet config file with anonymousAuth: false and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -119336,6 +119671,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --client-ca-file argument is set as appropriate' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "AKS manages TLS certificates for the API server automatically. Ensure the cluster uses the AKS-managed CA by not overriding with --api-server-authorized-ip-ranges or custom CA unless required. Verify with: az aks show --resource-group <RG> --name <CLUSTER> --query 'networkProfile'",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -119994,6 +120330,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Azure Key Vaults are Used to Store Secrets' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Store application secrets in Azure Key Vault. Azure Portal > App Services > [app] > Settings > Configuration > Application settings. Replace plaintext secret values with Key Vault references: @Microsoft.KeyVault(SecretUri=https://<VAULT>.vault.azure.net/secrets/<SECRET>/)",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -120069,6 +120406,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Basic Authentication Publishing Credentials' are 'Disable' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Settings > Configuration > General settings > Basic Auth Publishing Credentials: Off. Or: az resource update --resource-type Microsoft.Web/sites/basicPublishingCredentialsPolicies --name scm --set properties.allow=false",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -120144,6 +120482,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Basic Authentication Publishing Credentials' are 'Disable' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > App Services > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Basic Auth Publishing Credentials: Off.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -120219,6 +120558,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Basic Authentication Publishing Credentials' are 'Disable' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Settings > Configuration > General settings > Basic Auth Publishing Credentials: Off.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -120294,6 +120634,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure 'Basic Authentication Publishing Credentials' are 'Disable' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Function App > [app] > Deployment slots > [slot] > Settings > Configuration > General settings > Basic Auth Publishing Credentials: Off.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -120749,6 +121090,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure server parameter 'connection_throttle.enable' is set to 'O' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'connection_throttle.enable'. Set to ON. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -120964,6 +121306,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --streaming-connection-idle-timeout argument is n' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Apply a custom kubelet configuration setting streamingConnectionIdleTimeout to a non-zero value (e.g., 4h). Create a kubelet config file and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -122074,6 +122417,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Guest invite restrictions' is set to 'Only users ass' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > External identities > External collaboration settings > Guest invite restrictions. Select 'Only users assigned to specific admin roles can invite guest users' or 'No one in the organization can invite guest users'. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -122158,6 +122502,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure there are between 2 and 3 subscription owners' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Azure Portal > Subscriptions > [subscription] > Access control (IAM) > Role assignments. Filter by Owner role. Ensure 2-3 users or groups are assigned. Add or remove as needed.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -122242,6 +122587,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Azure admin accounts are not used for daily operation' leaves the environment exposed, increasing the risk of unauthorized access or data compromise."
       },
+      "remediation": "Microsoft Entra admin center > Roles and administrators > Global administrator. Ensure admin accounts are separate from daily-use accounts. Admin accounts should not have assigned licenses or email access for non-administrative tasks.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -122579,6 +122925,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure Diagnostic Setting captures appropriate categories' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Monitor > Activity log > Diagnostic settings > [setting]. Verify that Administrative, Security, Alert, and Policy log categories are all enabled.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -122658,6 +123005,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that virtual network flow logs are captured and sent to Lo' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Virtual networks > [VNet] > Monitoring > Flow logs. Enable VNet flow logs and send to Log Analytics Workspace. Set retention to 90 days minimum.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -122736,6 +123084,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that Intune logs are captured and sent to Log Analytics' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Intune > Reports > Diagnostic settings > Add diagnostic setting. Enable IntuneAuditLogs and IntuneOperationalLogs and route to Log Analytics Workspace.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -122814,6 +123163,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure Application Insights are Configured' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > [Resource Group or Application]. Create an Application Insights resource: Azure Portal > Application Insights > Create. Instrument the application with the Application Insights SDK or enable auto-instrumentation for supported runtimes.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -122892,6 +123242,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that Network Watcher is 'Enabled' for Azure Regions that a' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Network Watcher > Overview > Region list. Enable Network Watcher for each Azure region in use. Or: az network watcher configure --resource-group NetworkWatcherRG --locations <REGION> --enabled true",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -122972,6 +123323,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that virtual network flow log retention days is set to gre' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Virtual networks > [VNet] > Monitoring > Flow logs. Set retention period to 90 days or greater. Or: az network watcher flow-log update --resource-group <RG> --name <LOG> --retention 90",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -123051,6 +123403,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure That 'All users with the following roles' is set to 'Owner' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Email notifications. Set 'All users with the following roles' to include Owner. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -123129,6 +123482,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure 'Additional email addresses' is Configured with a Security' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Email notifications > Additional email addresses. Add at least one security contact email address. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -123207,6 +123561,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure that 'Notify about alerts with the following severity (or ' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Email notifications > Notify about alerts with the following severity: High or above. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -123285,6 +123640,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Notify about attack paths with the following risk le' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Email notifications > Notify about attack paths: High or above. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -123364,6 +123720,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'File Integrity Monitoring' component status is set t' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Servers plan > Settings > File Integrity Monitoring: On. Save.",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -123443,6 +123800,7 @@
         "severity": "Medium",
         "rationale": "Failure to configure 'Ensure server parameter 'logfiles.retention_days' is greater than' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > Azure Database for PostgreSQL flexible server > [server] > Settings > Server parameters > Filter 'logfiles.retention_days'. Set to a value greater than 3. Save.",
       "effort": {
         "complexity": 2,
         "isPhased": false,
@@ -123521,6 +123879,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that 'Auditing' is set to 'On'' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Azure Portal > SQL servers > [server] > Security > Auditing > Enable Azure SQL Auditing: On. Or: az sql server audit-policy update --resource-group <RG> --name <SERVER> --state Enabled --blob-storage-target-state Enabled",
       "effort": {
         "complexity": 3,
         "isPhased": false,
@@ -123600,6 +123959,7 @@
         "severity": "High",
         "rationale": "Failure to configure 'Ensure that the --eventRecordQPS argument is set to 0 or a level ' leaves the environment exposed, reducing the ability to detect and respond to security incidents."
       },
+      "remediation": "Apply a custom kubelet configuration setting eventRecordQPS to 0 or an appropriate rate limit. Create a kubelet config file and apply via: az aks nodepool update --resource-group <RG> --cluster-name <CLUSTER> --name <POOL> --kubelet-config kubelet.json",
       "effort": {
         "complexity": 3,
         "isPhased": false,
