@@ -901,7 +901,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgPolicyIdentitySecurityDefaultsEnforcementPolicy -IsEnabled $true. Entra admin center > Properties > Manage security defaults."
     },
@@ -1688,10 +1689,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 3,
+        "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Enable B2B integration in SharePoint admin center > Policies > Sharing > More external sharing settings > Enable integration with Azure AD B2B."
     },
@@ -4194,7 +4196,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Settings > System-preferred multifactor authentication > Enabled."
     },
@@ -4374,7 +4377,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -4544,7 +4548,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -5071,7 +5076,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Informational — review and remove stale guest accounts periodically. Entra admin center > Users > Guest users."
     },
@@ -5682,7 +5688,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings with CustomBannedPasswordsEnforced = true. Entra admin center > Protection > Password protection."
     },
@@ -5886,7 +5893,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Not applicable for cloud-only tenants. If you configure hybrid identity in the future, enable on-premises password protection."
     },
@@ -6089,7 +6097,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Registration campaign > Enable and target All Users."
     },
@@ -8087,7 +8096,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings to add organization-specific terms. Entra admin center > Protection > Password protection."
     },
@@ -8410,7 +8420,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -EmailAttestationRequired $true -EmailAttestationReAuthDays 30. SharePoint admin center > Policies > Sharing > Verification code reauthentication."
     },
@@ -8558,7 +8569,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Persistent browser sessions on unmanaged devices increase the risk of session hijacking. Require device compliance or remove persistent browser grants. Entra admin center > Protection > Conditional Access."
     },
@@ -9044,9 +9056,10 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Block sign-in for shared mailbox accounts: Set-AzureADUser -ObjectId <UPN> -AccountEnabled $false. Entra admin center > Users > select shared mailbox user > Properties > Account enabled > No."
     },
@@ -10976,7 +10989,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -11923,7 +11937,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Identity Governance > Access reviews > New access review > Review type: Guest users only. Schedule recurring reviews."
     },
@@ -12618,7 +12633,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -12774,7 +12790,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -13299,7 +13316,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -14415,7 +14433,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > External Identities > External collaboration settings > Collaboration restrictions > Allow invitations only to the specified domains."
     },
@@ -14831,7 +14850,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowFederatedUsers $false (or restrict with -AllowedDomains). Teams admin center > Users > External access > Choose which external domains your users have access to > Allow only specific external domains."
     },
@@ -15037,7 +15057,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -15246,7 +15267,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AutoAdmittedUsers EveryoneInCompanyExcludingGuests. Teams admin center > Meetings > Meeting policies > Global > Who can bypass the lobby > People in my org."
     },
@@ -15439,7 +15461,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Informational — review Conditional Access policy coverage for your organization."
     },
@@ -15632,7 +15655,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Get-MgIdentityConditionalAccessPolicy | Where-Object {$_.State -eq ''enabled''}. Ensure policies are set to On, not Report-only."
     },
@@ -16460,7 +16484,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Restrict users from recovering the BitLocker key(s) for their owned devices > Yes."
     },
@@ -17033,7 +17058,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DefaultLinkPermission View. SharePoint admin center > Policies > Sharing > File and folder links > Default permission > View."
     },
@@ -28826,7 +28852,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "The Global Administrator directory role is not activated in this tenant. Activate the role by assigning at least one user, then re-run the assessment."
     },
@@ -28992,7 +29019,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Assign admin accounts minimal licenses (Entra ID P2). Do not assign E3/E5 productivity suites. M365 admin center > Users > Active users > Licenses."
     },
@@ -29346,7 +29374,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Global administrator is added as local administrator on the device during Azure AD Join > No."
     },
@@ -29516,7 +29545,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Manage Additional local administrators on all Azure AD joined devices. Minimize additional local admins."
     },
@@ -29681,7 +29711,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -29840,7 +29871,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Allow service principals to use Power BI APIs > Disabled or restricted to specific security groups"
     },
@@ -30000,7 +30032,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Allow service principals to create and use profiles > Disabled"
     },
@@ -30165,7 +30198,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -30316,7 +30350,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -30486,7 +30521,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Consider creating CA policies that specifically target privileged directory roles with stricter controls (phishing-resistant MFA, compliant devices)."
     },
@@ -31014,7 +31050,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -31185,7 +31222,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -31706,7 +31744,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -PreventExternalUsersFromResharing $true. SharePoint admin center > Policies > Sharing."
     },
@@ -31898,7 +31937,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -SharingDomainRestrictionMode AllowList -SharingAllowedDomainList \"partner.com\". SharePoint admin center > Policies > Sharing > Limit sharing by domain."
     },
@@ -32090,7 +32130,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Verify in SharePoint Admin Center or use Get-SPOTenant. SharePoint admin center > Policies > Sharing > More external sharing settings > \"Allow only users in specific security groups to share externally\"."
     },
@@ -32423,7 +32464,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgBetaDirectorySetting for Password Rule Settings with LockoutThreshold. Entra admin center > Protection > Password protection."
     },
@@ -32632,7 +32674,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Combining sign-in risk and user risk in one CA policy creates an AND condition -- both must be true to trigger. Microsoft recommends separate policies for each risk type. Entra admin center > Protection > Conditional Access."
     },
@@ -32810,7 +32853,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOBrowserIdleSignOut -Enabled $true -SignOutAfter ''01:00:00''. M365 admin center > Settings > Org settings > Idle session timeout."
     },
@@ -32988,7 +33032,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -34562,7 +34607,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -34734,7 +34780,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Informational — confirms Teams service connectivity."
     },
@@ -35962,7 +36009,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -36428,7 +36476,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Create a CA policy: User actions > Register security information > Grant > Require compliant device. Entra admin center > Protection > Conditional Access."
     },
@@ -36587,7 +36636,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Configuration > Create profile > Windows 10 and later > Device restrictions > General > Removable storage: Block."
     },
@@ -36773,7 +36823,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -ExternalUserExpirationRequired $true -ExternalUserExpireInDays 30. SharePoint admin center > Policies > Sharing > Guest access expiration."
     },
@@ -36959,7 +37010,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -DesignatedPresenterRoleMode OrganizerOnlyUserOverride. Teams admin center > Meetings > Meeting policies > Global > Who can present > Only organizers."
     },
@@ -37172,7 +37224,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can share and collaborate on forms\"."
     },
@@ -37385,7 +37438,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can respond\"."
     },
@@ -37587,7 +37641,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can see results summary and individual responses\"."
     },
@@ -37794,7 +37849,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"Bing search and YouTube video\"."
     },
@@ -53534,10 +53590,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 3,
-        "isPhased": false,
-        "phaseCount": 1,
-        "disruptionRisk": false
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 3,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Users > Per-user MFA > Ensure all users show Disabled. Use Conditional Access policies for MFA enforcement instead of per-user MFA."
     },
@@ -53732,7 +53789,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Enable Microsoft Entra Local Administrator Password Solution (LAPS) > Yes."
     },
@@ -53921,7 +53979,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -54678,7 +54737,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Enterprise applications > Consent and permissions > User consent settings > Do not allow user consent."
     },
@@ -54890,7 +54950,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "M365 admin center > Settings > Org settings > Microsoft 365 on the web > uncheck all third-party storage services."
     },
@@ -55113,7 +55174,8 @@
         "complexity": 3,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Enrollment > Device platform restrictions > Edit default policy > Block personally owned devices for each platform."
     },
@@ -55541,7 +55603,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Users may join devices to Microsoft Entra > Selected. Restrict to a specific group of authorized users."
     },
@@ -55952,7 +56015,8 @@
         "complexity": 3,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Security Defaults blocks legacy authentication protocols. For granular control, disable Security Defaults and create Conditional Access policies."
     },
@@ -56367,7 +56431,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > SMS > Disable. SMS is vulnerable to SIM-swapping attacks."
     },
@@ -56576,7 +56641,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Email OTP > Disable. Email OTP is a weaker authentication factor."
     },
@@ -56782,10 +56848,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 3,
+        "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Exchange admin center > Roles > User roles > Default Role Assignment Policy. Remove MyMarketplaceApps, MyCustomApps, MyReadWriteMailboxApps roles."
     },
@@ -56985,9 +57052,10 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": false,
-        "phaseCount": 1,
-        "disruptionRisk": false
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Exchange admin center > Settings > Modern authentication > Enable. Run: Set-OrganizationConfig -OAuth2ClientProfileEnabled $true"
     },
@@ -57852,7 +57920,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenantSyncClientRestriction -Enable. SharePoint admin center > Settings > Sync > Allow syncing only on computers joined to specific domains."
     },
@@ -58056,7 +58125,8 @@
         "complexity": 5,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOSite -Identity <PersonalSiteUrl> -DenyAddAndCustomizePages 1. SharePoint admin center > Settings > Custom Script > prevent users from running custom script on personal sites."
     },
@@ -58260,7 +58330,8 @@
         "complexity": 5,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DenyAddAndCustomizePagesForSitesCreatedByUser 1. SharePoint admin center > Settings > Custom Script > prevent users from running custom script on self-service created sites."
     },
@@ -58472,7 +58543,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsClientConfiguration -AllowDropBox $false -AllowBox $false -AllowGoogleDrive $false -AllowShareFile $false -AllowEgnyte $false. Teams admin center > Messaging policies > Manage third-party storage."
     },
@@ -58683,7 +58755,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowTeamsConsumer $false. Teams admin center > Users > External access > Teams accounts not managed by an organization > Off."
     },
@@ -58888,7 +58961,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowTeamsConsumerInbound $false. Teams admin center > Users > External access > External users can initiate conversations > Off."
     },
@@ -59089,7 +59163,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTenantFederationConfiguration -AllowPublicUsers $false. Teams admin center > Users > External access > Skype users > Off."
     },
@@ -59301,7 +59376,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowExternalNonTrustedMeetingChat $false. Teams admin center > Meetings > Meeting policies > Global > External meeting chat > Off."
     },
@@ -59503,7 +59579,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowCloudRecording $false. Teams admin center > Meetings > Meeting policies > Global > Cloud recording > Off."
     },
@@ -59713,7 +59790,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow guest users to browse and access Power BI content > Disabled"
     },
@@ -59928,7 +60006,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -60137,7 +60216,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Invite external users to your organization > Disabled"
     },
@@ -60352,7 +60432,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -60566,7 +60647,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -60775,7 +60857,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow Azure Active Directory guest users to access Power BI > Disabled"
     },
@@ -60982,7 +61065,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Publish to web > Disabled"
     },
@@ -61194,7 +61278,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -61437,7 +61522,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -61675,7 +61761,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > R and Python visuals > Interact with and share R and Python visuals > Disabled"
     },
@@ -61882,7 +61969,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow external data sharing > Disabled"
     },
@@ -62094,7 +62182,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -62302,7 +62391,8 @@
         "complexity": 3,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -62505,7 +62595,8 @@
         "complexity": 3,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Developer settings > Block ResourceKey Authentication > Enabled"
     },
@@ -62697,7 +62788,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{AllowedToCreateApps = $false}. Entra admin center > Users > User settings."
     },
@@ -62915,7 +63007,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "SharePoint admin center > Settings > Sync > disable Mac sync app if not required by organizational policy."
     },
@@ -63133,7 +63226,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Review Loop components usage policy. Disable via SharePoint admin center > Settings if not required by organizational policy."
     },
@@ -63351,7 +63445,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "SharePoint admin center > Settings > restrict Loop sharing to internal users or existing guests only."
     },
@@ -63539,7 +63634,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsAppPermissionPolicy -DefaultCatalogAppsType AllowedAppList. Teams admin center > Teams apps > Permission policies."
     },
@@ -63922,7 +64018,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Configuration > Create profile > Endpoint protection > Windows Defender Application Control. Alternatively, deploy WDAC via custom OMA-URI."
     },
@@ -64050,7 +64147,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -64215,7 +64313,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Teams admin center > Teams apps > Permission policies > Org-wide app settings > Third-party apps > Off (or restrict to approved apps)."
     },
@@ -64400,7 +64499,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Review report-only policies and either enable enforcement or remove if no longer needed. Entra admin center > Protection > Conditional Access."
     },
@@ -65265,9 +65365,10 @@
       },
       "effort": {
         "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only"
       },
       "remediation": "Microsoft Purview > Communication compliance > Create a policy to monitor communications for policy violations and insider risk. Requires E5 Compliance licensing."
     },
@@ -66011,7 +66112,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Teams admin center > Messaging policies > Global (Org-wide default) > Report a security concern > On."
     },
@@ -66218,7 +66320,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Enable \"Record name by default when new forms are created\"."
     },
@@ -73182,7 +73285,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -75060,10 +75164,11 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 3,
+        "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Identity Governance > Terms of use. Verify agreements have \"Require users to expand the terms of use\" enabled and are assigned via Conditional Access policies."
     },
@@ -76939,7 +77044,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -77760,7 +77866,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Information protection > Allow users to apply sensitivity labels for content > Enabled"
     },
@@ -77943,7 +78050,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -78119,7 +78227,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Power BI Admin Portal > Tenant settings > Export and sharing > Allow shareable links to grant access to everyone in your organization > Disabled"
     },
@@ -78301,7 +78410,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -79456,7 +79566,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -79664,7 +79775,8 @@
         "complexity": 5,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -79864,7 +79976,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -85846,7 +85959,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -86431,7 +86545,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowExternalParticipantGiveRequestControl $false. Teams admin center > Meetings > Meeting policies > Global > External participants can give or request control > Off."
     },
@@ -86705,7 +86820,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -87017,7 +87133,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -87190,7 +87307,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -87373,7 +87491,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Assign owners to ownerless public M365 groups. Entra admin center > Groups > All groups > select group > Owners > Add owners."
     },
@@ -87560,7 +87679,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Users > User settings > Users can register applications > No. Also review Enterprise applications > User settings > Users can consent to apps."
     },
@@ -89167,10 +89287,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Run: Set-AtpPolicyForO365 -EnableATPForSPOTeamsODB $true. Security admin center > Safe Attachments > Global settings > Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams."
     },
@@ -89954,10 +90075,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only"
       },
       "remediation": "Configure preset security policies in Security admin center > Preset security policies > Strict or Standard protection > Assign users/groups."
     },
@@ -90216,10 +90338,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only"
       },
       "remediation": "Assign priority account users to the Strict preset policy. Security admin center > Preset security policies > Strict protection > Manage protection settings > Add users or groups."
     },
@@ -90475,10 +90598,11 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
-        "disruptionRisk": false
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service"
       },
       "remediation": "Enable ZAP for Teams in Security admin center > Settings > Zero-hour auto purge > Teams."
     },
@@ -90731,7 +90855,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Enable \"Internal phishing protection\"."
     },
@@ -91757,7 +91882,8 @@
         "complexity": 5,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenant -DisallowInfectedFileDownload $true. SharePoint admin center > Policies > Malware protection."
     },
@@ -91993,7 +92119,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-SPOTenantSyncClientRestriction -Enable. Also consider Conditional Access policies with device compliance conditions for defense in depth. SharePoint admin center > Settings > Sync."
     },
@@ -94419,7 +94546,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -95685,7 +95813,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       }
     },
     {
@@ -96057,7 +96186,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowAnonymousUsersToStartMeeting $false. Teams admin center > Meetings > Meeting policies > Global > Anonymous users can start a meeting > Off."
     },
@@ -96226,7 +96356,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowPSTNUsersToBypassLobby $false. Teams admin center > Meetings > Meeting policies > Global > Dial-in users can bypass the lobby > Off."
     },
@@ -96429,7 +96560,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -MeetingChatEnabledType EnabledExceptAnonymous. Teams admin center > Meetings > Meeting policies > Global > Meeting chat > On for everyone except anonymous users."
     },
@@ -96630,7 +96762,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Entra admin center > Devices > Device settings > Maximum number of devices per user. Set to 15 or lower."
     },
@@ -96748,7 +96881,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Compliance > Create/edit iOS and Android compliance policies > Require device encryption."
     },
@@ -97108,7 +97242,8 @@
         "complexity": 4,
         "isPhased": true,
         "phaseCount": 3,
-        "disruptionRisk": false
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing"
       },
       "remediation": "Intune admin center > Devices > Configuration > Create profile > Custom OMA-URI > Add setting: ./Device/Vendor/MSFT/Policy/Config/Cryptography/AllowFipsAlgorithmPolicy = 1."
     },
@@ -104028,7 +104163,7 @@
         "scfWeighting": 9
       },
       "effort": {
-        "complexity": 3,
+        "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": false
