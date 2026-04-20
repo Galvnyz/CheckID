@@ -1,9 +1,9 @@
 {
   "frameworkId": "nist-800-171",
-  "label": "NIST 800-171 R2",
+  "label": "NIST SP 800-171 Rev. 2",
   "version": "R2",
-  "description": "NIST SP 800-171 — protecting Controlled Unclassified Information (CUI) in non-federal systems. Rev 3 aligns with SP 800-53 and forms the technical basis for CMMC Level 2 requirements.",
-  "homepageUrl": "https://csrc.nist.gov/pubs/sp/800/171/r3/final",
+  "description": "NIST SP 800-171 Rev. 2 — protecting Controlled Unclassified Information (CUI) in non-federal systems. 110 security requirements forming the technical basis for CMMC Level 2.",
+  "homepageUrl": "https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final",
   "css": "fw-nist-cui",
   "totalControls": 110,
   "registryKey": "nist-800-171",
