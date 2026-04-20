@@ -2,6 +2,8 @@
   "frameworkId": "gdpr",
   "label": "EU GDPR",
   "version": "2016/679",
+  "description": "General Data Protection Regulation — EU regulation governing data protection and privacy for individuals in the EU and EEA, with extraterritorial scope for organizations processing EU residents' data.",
+  "homepageUrl": "https://gdpr.eu/",
   "css": "fw-gdpr",
   "totalControls": 99,
   "registryKey": "gdpr",
