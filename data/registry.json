@@ -91795,7 +91795,7 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6a;SI-3a;SI-8;SI-3;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
           "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
@@ -92334,7 +92334,7 @@
           "controlId": "3.14.1;3.14.2;3.14.4;3.3.3;3.4.1;3.4.2"
         },
         "nist-800-53": {
-          "controlId": "CM-6a;SI-3a;SI-8;SI-3;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
+          "controlId": "CM-6;SI-3;SI-8;CM-02;CM-06;PL-10;SA-08;SA-15(05);SI-02;SI-03;SI-08",
           "title": "Configuration Settings; Malicious Code Protection; Spam Protection; Baseline Selection",
           "profiles": [
             "Low",
