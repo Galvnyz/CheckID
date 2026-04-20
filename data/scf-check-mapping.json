@@ -393,7 +393,7 @@
       "cisM365Profiles": [
         "E5-L2"
       ],
-      "cisaScubaControlId": "MS.EXO.15.1v1;MS.EXO.15.2v1;MS.EXO.15.3v1",
+      "cisaScubaControlId": "MS.DEFENDER.1.3v1",
       "remediation": "Run: New-SafeLinksPolicy -Name \"Safe Links\" -IsEnabled $true; New-SafeLinksRule -Name \"Safe Links\" -SafeLinksPolicy \"Safe Links\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Links > Create a policy covering all users."
     },
     {
@@ -466,7 +466,7 @@
       "cisM365Profiles": [
         "E5-L2"
       ],
-      "cisaScubaControlId": "MS.EXO.14.1v2",
+      "cisaScubaControlId": "MS.DEFENDER.1.3v1;MS.DEFENDER.3.1v1",
       "remediation": "Run: New-SafeAttachmentPolicy -Name \"Safe Attachments\" -Enable $true -Action Block; New-SafeAttachmentRule -Name \"Safe Attachments\" -SafeAttachmentPolicy \"Safe Attachments\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Attachments > Create a policy covering all users."
     },
     {
@@ -2193,7 +2193,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.17.1v1;MS.EXO.17.2v1",
+      "cisaScubaControlId": "MS.EXO.13.1v1",
       "remediation": "No user mailboxes found to sample."
     },
     {
@@ -2212,7 +2212,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.17.3v1",
+      "cisaScubaControlId": "MS.EXO.13.1v1",
       "remediation": "Run: Set-MailboxAuditBypassAssociation -Identity <user> -AuditBypassEnabled $false for each bypassed mailbox."
     },
     {
@@ -2267,7 +2267,7 @@
         "E3-L1",
         "E5-L1"
       ],
-      "cisaScubaControlId": "MS.EXO.1.1v1",
+      "cisaScubaControlId": "MS.EXO.1.1v2",
       "remediation": "Run: Set-RemoteDomain -Identity Default -AutoForwardEnabled $false. Also consider transport rules to block client-side forwarding."
     },
     {
