@@ -11702,7 +11702,7 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 3,
+        "complexity": 1,
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": false
@@ -12631,8 +12631,8 @@
       },
       "effort": {
         "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       }
@@ -12788,8 +12788,8 @@
       },
       "effort": {
         "complexity": 4,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       }
@@ -15860,7 +15860,7 @@
         "scfWeighting": 10
       },
       "effort": {
-        "complexity": 3,
+        "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": false
@@ -26253,8 +26253,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -46185,8 +46185,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -46507,8 +46507,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -47311,8 +47311,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -55172,8 +55172,8 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
@@ -56014,7 +56014,7 @@
       "effort": {
         "complexity": 3,
         "isPhased": true,
-        "phaseCount": 3,
+        "phaseCount": 2,
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
@@ -62389,8 +62389,8 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       }
@@ -62593,8 +62593,8 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
@@ -72627,8 +72627,8 @@
       },
       "effort": {
         "complexity": 1,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": false
       }
     },
@@ -82548,8 +82548,8 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -83010,8 +83010,8 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -83472,8 +83472,8 @@
       },
       "effort": {
         "complexity": 3,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -93146,8 +93146,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -93288,8 +93288,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -93430,8 +93430,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -93927,8 +93927,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -102380,8 +102380,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -102524,8 +102524,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
@@ -107401,8 +107401,8 @@
       },
       "effort": {
         "complexity": 2,
-        "isPhased": true,
-        "phaseCount": 3,
+        "isPhased": false,
+        "phaseCount": 1,
         "disruptionRisk": true,
         "disruptionScope": "service"
       }
