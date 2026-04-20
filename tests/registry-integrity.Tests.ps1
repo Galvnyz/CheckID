@@ -182,6 +182,28 @@ Describe 'Control Registry Integrity' {
         }
     }
 
+    # --- CMMC framework ---
+
+    It 'All CMMC control IDs use standard dot-separator format' {
+        $cmmcMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cmmc' }
+        foreach ($check in $cmmcMapped) {
+            $controlId = $check.frameworks.cmmc.controlId
+            foreach ($part in ($controlId -split ';')) {
+                $part.Trim() | Should -Not -Match '^[A-Z]+L[123]\.-' `
+                    -Because "$($check.checkId) CMMC controlId '$($part.Trim())' must use dot-separator format (e.g. AC.L2-3.1.1 not ACL2.-3.1.1)"
+            }
+        }
+    }
+
+    It 'CMMC-mapped entries have profiles array' {
+        $cmmcMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cmmc' }
+        $cmmcMapped.Count | Should -BeGreaterOrEqual 200 -Because "at least 200 checks should have CMMC mappings"
+        foreach ($check in $cmmcMapped) {
+            $check.frameworks.cmmc.profiles | Should -Not -BeNullOrEmpty `
+                -Because "$($check.checkId) CMMC entry must have a profiles array (L1/L2/L3)"
+        }
+    }
+
     # --- CIS framework ---
 
     It 'CIS-mapped entries have valid CIS framework data' {

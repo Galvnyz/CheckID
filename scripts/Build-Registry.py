@@ -130,7 +130,7 @@ def load_framework_mappings(
     mappings: dict[str, dict[int, list[str]]] = defaultdict(lambda: defaultdict(list))
     for scf_id, fw_id, ctrl_id in cur.fetchall():
         if ctrl_id:
-            mappings[scf_id][fw_id].append(ctrl_id.strip())
+            mappings[scf_id][fw_id].append(normalize_cmmc_id(ctrl_id.strip()))
     return dict(mappings)
 
 
@@ -366,6 +366,14 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
 _CMMC_L1 = re.compile(r"\.L1-")
 _CMMC_L2 = re.compile(r"\.L2-|L2\.-")
 _CMMC_L3 = re.compile(r"\.L3-|L3\.-")
+# scf.db stores CMMC practice IDs without the separator dot, e.g. "ACL2.-3.1.1"
+# instead of the standard "AC.L2-3.1.1". Normalize at load time.
+_CMMC_MALFORMED = re.compile(r"^([A-Z]+)(L[123])\.-(.+)$")
+
+
+def normalize_cmmc_id(ctrl_id: str) -> str:
+    m = _CMMC_MALFORMED.match(ctrl_id)
+    return f"{m.group(1)}.{m.group(2)}-{m.group(3)}" if m else ctrl_id
 
 
 def derive_cmmc_profiles(control_id: str) -> list[str]:
