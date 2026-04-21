@@ -44,6 +44,9 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
+# SQLite databases (upstream artifact — belongs in SecFrame, not here)
+*.db
+
 # PowerShell artifacts
 PSScriptAnalyzerResults.*
 testResults.xml
