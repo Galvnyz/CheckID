@@ -9247,7 +9247,7 @@
         "disruptionRisk": true,
         "disruptionScope": "user-facing"
       },
-      "remediation": "Verify Password Hash Sync status in Azure AD Connect. Entra admin center > Identity > Hybrid management > Azure AD Connect.",
+      "remediation": "Verify Password Hash Sync status in Microsoft Entra Connect or Microsoft Entra Cloud Sync. Entra admin center > Identity > Hybrid management > Microsoft Entra Connect.",
       "impact": "On-premises credential compromises are invisible to Entra ID Identity Protection when password hashes are not synced. Stolen on-premises credentials used in cloud authentication generate no risk signal and are not blocked by risk-based CA policies.",
       "rationale": "Password hash sync ensures that Entra ID has a copy of password hashes from on-premises AD. Without it, leaked on-premises credentials cannot be detected by Entra ID's Identity Protection and compromised on-premises accounts can authenticate to cloud services with no cloud-side risk signal.",
       "references": [
