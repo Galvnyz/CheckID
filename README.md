@@ -217,7 +217,7 @@ Each check in `registry.json` contains:
 }
 ```
 
-Top-level fields: `schemaVersion` (`"2.0.0"`), `dataVersion` (date), `generatedFrom`, `checks[]`.
+Top-level fields: `schemaVersion` (matches `CheckID.psd1` `ModuleVersion` — pinned, see VERSIONING.md), `dataVersion` (date), `generatedFrom`, `checks[]`.
 
 ## Rebuilding the Registry
 
