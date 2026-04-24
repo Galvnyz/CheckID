@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.2.0",
-  "dataVersion": "2026-04-20",
+  "dataVersion": "2026-04-24",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
     {
@@ -245,7 +245,6 @@
         "cmmc": {
           "controlId": "CA.L2-3.12.1;CA.L2-3.12.3;RA.L3-3.11.1E;SI.L2-3.14.3;SI.L3-3.14.6E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -491,7 +490,6 @@
         "cmmc": {
           "controlId": "CA.L2-3.12.1;RA.L2-3.11.1;RA.L3-3.11.1E;RA.L3-3.11.5E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -703,7 +701,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -2641,7 +2638,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -2735,7 +2731,6 @@
           "controlId": "AC.L2-3.1.1",
           "title": "Limit system access to authorized users",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -2778,7 +2773,6 @@
           "controlId": "IA.L2-3.5.1",
           "title": "Identify information system users, processes acting on behalf of users, and devices",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -2824,7 +2818,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -2896,7 +2889,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -2968,7 +2960,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3040,7 +3031,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3112,7 +3102,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3184,7 +3173,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3256,7 +3244,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3328,7 +3315,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3400,7 +3386,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3472,7 +3457,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3544,7 +3528,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3616,7 +3599,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3688,7 +3670,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3760,7 +3741,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -3832,7 +3812,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -4002,7 +3981,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -4216,7 +4194,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -4434,7 +4411,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.10;IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -4647,7 +4623,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -4859,7 +4834,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -5068,7 +5042,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -5274,7 +5247,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -5576,7 +5548,6 @@
           "controlId": "IA.L2-3.5.2",
           "title": "Authenticate the identities of users, processes, and devices",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -6314,7 +6285,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -6541,7 +6511,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -6765,7 +6734,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -6989,7 +6957,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7094,7 +7061,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7173,7 +7139,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7252,7 +7217,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7330,7 +7294,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7408,7 +7371,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7487,7 +7449,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7566,7 +7527,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7645,7 +7605,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7724,7 +7683,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7803,7 +7761,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7882,7 +7839,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -7961,7 +7917,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8040,7 +7995,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8119,7 +8073,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8198,7 +8151,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8279,7 +8231,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8360,7 +8311,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8441,7 +8391,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8521,7 +8470,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8601,7 +8549,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8680,7 +8627,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8759,7 +8705,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -8838,7 +8783,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -9003,7 +8947,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9;SC.L2-3.13.11",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -9183,7 +9126,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -9363,7 +9305,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -9753,7 +9694,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -10093,7 +10033,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.10;AC.L2-3.1.11",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -10174,7 +10113,6 @@
           "controlId": "AC.L2-3.1.1; AC.L2-3.1.5",
           "title": "Limit system access to authorized users and enforce least privilege",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -10217,7 +10155,6 @@
           "controlId": "AC.L2-3.1.5",
           "title": "Employ the principle of least privilege",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -10260,7 +10197,6 @@
           "controlId": "AC.L2-3.1.2",
           "title": "Limit system access to the types of transactions and functions authorized users are permitted to execute",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -15568,7 +15504,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -15635,7 +15570,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -15702,7 +15636,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -15771,7 +15704,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -15840,7 +15772,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -15909,7 +15840,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -15978,7 +15908,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16046,7 +15975,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16114,7 +16042,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16181,7 +16108,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16248,7 +16174,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16316,7 +16241,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16383,7 +16307,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -16563,7 +16486,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -19939,7 +19861,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20042,7 +19963,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20130,7 +20050,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20218,7 +20137,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20306,7 +20224,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20394,7 +20311,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20482,7 +20398,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20570,7 +20485,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20658,7 +20572,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20746,7 +20659,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20834,7 +20746,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -20922,7 +20833,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21010,7 +20920,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21098,7 +21007,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21186,7 +21094,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21274,7 +21181,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21362,7 +21268,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21450,7 +21355,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21538,7 +21442,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21626,7 +21529,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21714,7 +21616,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21802,7 +21703,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21890,7 +21790,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -21978,7 +21877,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22066,7 +21964,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22154,7 +22051,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22242,7 +22138,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22330,7 +22225,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22418,7 +22312,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22506,7 +22399,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22594,7 +22486,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22682,7 +22573,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22770,7 +22660,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22858,7 +22747,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -22946,7 +22834,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23034,7 +22921,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23122,7 +23008,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23210,7 +23095,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23298,7 +23182,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23386,7 +23269,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23474,7 +23356,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23562,7 +23443,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23650,7 +23530,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23738,7 +23617,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23826,7 +23704,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -23914,7 +23791,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24002,7 +23878,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24090,7 +23965,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24178,7 +24052,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24266,7 +24139,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24354,7 +24226,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24442,7 +24313,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24530,7 +24400,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24618,7 +24487,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24706,7 +24574,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24794,7 +24661,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24882,7 +24748,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -24970,7 +24835,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25058,7 +24922,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25146,7 +25009,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25234,7 +25096,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25324,7 +25185,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25414,7 +25274,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25504,7 +25363,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25594,7 +25452,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25684,7 +25541,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25774,7 +25630,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25864,7 +25719,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -25954,7 +25808,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26044,7 +25897,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26134,7 +25986,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26224,7 +26075,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26314,7 +26164,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26404,7 +26253,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26494,7 +26342,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26584,7 +26431,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26674,7 +26520,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26764,7 +26609,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26854,7 +26698,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -26944,7 +26787,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27034,7 +26876,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27124,7 +26965,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27214,7 +27054,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27304,7 +27143,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27394,7 +27232,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27484,7 +27321,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27574,7 +27410,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27664,7 +27499,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27754,7 +27588,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27844,7 +27677,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -27934,7 +27766,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28024,7 +27855,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28114,7 +27944,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28204,7 +28033,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28294,7 +28122,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28384,7 +28211,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28474,7 +28300,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28564,7 +28389,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28654,7 +28478,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28744,7 +28567,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28834,7 +28656,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -28924,7 +28745,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29014,7 +28834,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29104,7 +28923,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29194,7 +29012,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29284,7 +29101,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29374,7 +29190,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29464,7 +29279,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29554,7 +29368,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29644,7 +29457,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29734,7 +29546,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29824,7 +29635,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -29914,7 +29724,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30004,7 +29813,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30094,7 +29902,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30184,7 +29991,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30274,7 +30080,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30364,7 +30169,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30454,7 +30258,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30544,7 +30347,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30634,7 +30436,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30723,7 +30524,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -30915,7 +30715,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -31127,7 +30926,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -31342,7 +31140,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -31575,7 +31372,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -31812,7 +31608,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -32434,7 +32229,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -33029,7 +32823,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.6;SC.L2-3.13.3",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -33638,7 +33431,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -34232,7 +34024,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -34423,7 +34214,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -34613,7 +34403,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L2-3.1.5;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -34800,7 +34589,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L2-3.1.5;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -34989,7 +34777,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L2-3.1.5;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -35178,7 +34965,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L2-3.1.5;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -35365,7 +35151,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -36550,7 +36335,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -36732,7 +36516,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -36918,7 +36701,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -37763,7 +37545,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.6;CM.L2-3.4.8",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -37976,7 +37757,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.8",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -38201,7 +37981,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.8;AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -38404,7 +38183,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.10;AC.L2-3.1.11",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -38600,7 +38378,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.10;AC.L2-3.1.11",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -38796,7 +38573,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.10;AC.L2-3.1.11",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -39659,7 +39435,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.4",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -39907,7 +39682,6 @@
         "cmmc": {
           "controlId": "AT.L2-3.2.1",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -40112,7 +39886,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -40535,7 +40308,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -40719,7 +40491,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L3-3.4.1E;CM.L3-3.4.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -40903,7 +40674,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L3-3.4.1E;CM.L3-3.4.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -41926,7 +41696,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.7;MP.L2-3.8.8",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -44063,7 +43832,6 @@
           "controlId": "CM.L2-3.4.1",
           "title": "Establish and maintain baseline configurations and inventories",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -44420,7 +44188,6 @@
           "controlId": "CM.L2-3.4.2",
           "title": "Establish and enforce security configuration settings",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -44465,7 +44232,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -44557,7 +44323,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -44650,7 +44415,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -44742,7 +44506,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -44835,7 +44598,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -44927,7 +44689,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45019,7 +44780,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45112,7 +44872,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45205,7 +44964,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45298,7 +45056,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45391,7 +45148,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45484,7 +45240,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45577,7 +45332,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45670,7 +45424,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45763,7 +45516,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45856,7 +45608,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -45949,7 +45700,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46042,7 +45792,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46135,7 +45884,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46228,7 +45976,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46321,7 +46068,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46414,7 +46160,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46507,7 +46252,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46600,7 +46344,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46693,7 +46436,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46786,7 +46528,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46881,7 +46622,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -46975,7 +46715,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47069,7 +46808,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47163,7 +46901,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47257,7 +46994,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47351,7 +47087,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47445,7 +47180,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47539,7 +47273,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47632,7 +47365,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47725,7 +47457,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47818,7 +47549,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -47911,7 +47641,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48005,7 +47734,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48099,7 +47827,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48193,7 +47920,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48287,7 +48013,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48380,7 +48105,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48473,7 +48197,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48566,7 +48289,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48660,7 +48382,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48754,7 +48475,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48847,7 +48567,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -48941,7 +48660,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49035,7 +48753,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49128,7 +48845,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49222,7 +48938,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49316,7 +49031,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49410,7 +49124,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49503,7 +49216,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49597,7 +49309,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49690,7 +49401,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49784,7 +49494,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49877,7 +49586,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -49970,7 +49678,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50064,7 +49771,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50158,7 +49864,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50252,7 +49957,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50346,7 +50050,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50439,7 +50142,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50532,7 +50234,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50626,7 +50327,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50720,7 +50420,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50814,7 +50513,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -50908,7 +50606,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51002,7 +50699,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51096,7 +50792,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51190,7 +50885,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51284,7 +50978,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51378,7 +51071,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51472,7 +51164,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51566,7 +51257,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51660,7 +51350,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51753,7 +51442,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51846,7 +51534,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -51939,7 +51626,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52033,7 +51719,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52126,7 +51811,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52219,7 +51903,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52313,7 +51996,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52406,7 +52088,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52499,7 +52180,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52592,7 +52272,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52685,7 +52364,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52778,7 +52456,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52871,7 +52548,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -52964,7 +52640,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53057,7 +52732,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53150,7 +52824,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53243,7 +52916,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53336,7 +53008,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53429,7 +53100,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53523,7 +53193,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53617,7 +53286,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53711,7 +53379,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53805,7 +53472,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53898,7 +53564,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -53991,7 +53656,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54085,7 +53749,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54178,7 +53841,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54271,7 +53933,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54364,7 +54025,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54457,7 +54117,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54550,7 +54209,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54643,7 +54301,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54737,7 +54394,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54831,7 +54487,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -54925,7 +54580,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55019,7 +54673,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55112,7 +54765,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55205,7 +54857,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55298,7 +54949,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55391,7 +55041,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55484,7 +55133,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55577,7 +55225,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55670,7 +55317,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55764,7 +55410,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55858,7 +55503,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -55952,7 +55596,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56046,7 +55689,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56139,7 +55781,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56232,7 +55873,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56325,7 +55965,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56419,7 +56058,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56513,7 +56151,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56606,7 +56243,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56700,7 +56336,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56793,7 +56428,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56886,7 +56520,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -56979,7 +56612,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57072,7 +56704,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57165,7 +56796,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57258,7 +56888,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57351,7 +56980,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57444,7 +57072,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57537,7 +57164,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57630,7 +57256,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57723,7 +57348,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57816,7 +57440,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -57909,7 +57532,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58002,7 +57624,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58095,7 +57716,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58188,7 +57808,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58281,7 +57900,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58375,7 +57993,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58469,7 +58086,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58562,7 +58178,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58655,7 +58270,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58748,7 +58362,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58841,7 +58454,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -58934,7 +58546,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59027,7 +58638,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59120,7 +58730,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59213,7 +58822,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59306,7 +58914,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59399,7 +59006,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59492,7 +59098,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59585,7 +59190,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59678,7 +59282,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59771,7 +59374,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59864,7 +59466,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -59957,7 +59558,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60050,7 +59650,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60143,7 +59742,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60236,7 +59834,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60329,7 +59926,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60422,7 +60018,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60516,7 +60111,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60609,7 +60203,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60703,7 +60296,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60796,7 +60388,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60890,7 +60481,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -60983,7 +60573,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61077,7 +60666,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61170,7 +60758,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61263,7 +60850,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61356,7 +60942,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61449,7 +61034,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61542,7 +61126,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -61733,7 +61316,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;CM.L3-3.4.2E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -61940,7 +61522,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -62177,7 +61758,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;IA.L2-3.5.3;IA.L2-3.5.8;IA.L2-3.5.9;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -62393,7 +61973,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -62608,7 +62187,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -62819,7 +62397,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -63029,7 +62606,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -63235,7 +62811,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -63466,7 +63041,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -63948,7 +63522,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.18;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -64175,7 +63748,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -64648,7 +64220,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -64878,7 +64449,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -65111,7 +64681,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -65343,7 +64912,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -65598,7 +65166,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -65831,7 +65398,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -66066,7 +65632,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -66294,7 +65859,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -66749,7 +66313,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -66995,7 +66558,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -67244,7 +66806,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.18;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -67473,7 +67034,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -67698,7 +67258,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -68386,7 +67945,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -68608,7 +68166,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -69063,7 +68620,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -72176,7 +71732,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -72406,7 +71961,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -72654,7 +72208,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;CM.L2-3.4.1;CM.L2-3.4.2;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -72893,7 +72446,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -73139,7 +72691,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -73383,7 +72934,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -73627,7 +73177,6 @@
         "cmmc": {
           "controlId": "AC.L3-3.1.2E;CM.L2-3.4.1;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -73852,7 +73401,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -74091,7 +73639,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -74354,7 +73901,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -74588,7 +74134,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6;CM.L2-3.4.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -75023,7 +74568,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;CM.L2-3.4.7",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -75180,7 +74724,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.6;SC.L2-3.13.7",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -75361,7 +74904,6 @@
         "cmmc": {
           "controlId": "CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -75572,7 +75114,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6;CM.L3-3.4.2E;IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -75834,7 +75375,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;CM.L2-3.4.3",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -76018,7 +75558,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.4",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -76322,7 +75861,6 @@
           "controlId": "SI.L2-3.14.6",
           "title": "Monitor organizational systems to detect attacks and indicators of potential attacks",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -76365,7 +75903,6 @@
           "controlId": "AU.L2-3.3.1",
           "title": "Create and retain system audit logs to enable monitoring, analysis, investigation, and reporting",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -76410,7 +75947,6 @@
           "controlId": "AU.L2-3.3.1",
           "title": "Create and retain system audit logs",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -76568,7 +76104,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77001,7 +76536,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77201,7 +76735,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77400,7 +76933,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.3;AU.L2-3.3.4;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77635,7 +77167,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.2;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;CM.L2-3.4.1;CM.L2-3.4.2;SI.L2-3.14.3;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77739,7 +77270,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77821,7 +77351,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77903,7 +77432,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -77985,7 +77513,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78067,7 +77594,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78149,7 +77675,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78231,7 +77756,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78313,7 +77837,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78395,7 +77918,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78477,7 +77999,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78559,7 +78080,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78641,7 +78161,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78723,7 +78242,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78806,7 +78324,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78889,7 +78406,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -78972,7 +78488,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79055,7 +78570,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79138,7 +78652,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79221,7 +78734,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79303,7 +78815,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79385,7 +78896,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79467,7 +78977,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79549,7 +79058,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79632,7 +79140,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79714,7 +79221,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79796,7 +79302,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79878,7 +79383,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -79960,7 +79464,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80043,7 +79546,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80125,7 +79627,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80207,7 +79708,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80291,7 +79791,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80375,7 +79874,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80459,7 +79957,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80543,7 +80040,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80627,7 +80123,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80711,7 +80206,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80795,7 +80289,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80879,7 +80372,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -80963,7 +80455,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81047,7 +80538,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81131,7 +80621,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81215,7 +80704,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81299,7 +80787,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81383,7 +80870,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81467,7 +80953,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81551,7 +81036,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81635,7 +81119,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81719,7 +81202,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81803,7 +81285,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81887,7 +81368,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -81971,7 +81451,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82055,7 +81534,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82139,7 +81617,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82223,7 +81700,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82307,7 +81783,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82391,7 +81866,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82475,7 +81949,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82559,7 +82032,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82643,7 +82115,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82727,7 +82198,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82811,7 +82281,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82895,7 +82364,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -82979,7 +82447,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83063,7 +82530,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83147,7 +82613,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83231,7 +82696,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83315,7 +82779,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83398,7 +82861,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83481,7 +82943,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83564,7 +83025,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83647,7 +83107,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83730,7 +83189,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83813,7 +83271,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83896,7 +83353,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -83979,7 +83435,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84062,7 +83517,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84145,7 +83599,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84228,7 +83681,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84311,7 +83763,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84394,7 +83845,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84477,7 +83927,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84560,7 +84009,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84643,7 +84091,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84726,7 +84173,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84809,7 +84255,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84892,7 +84337,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -84975,7 +84419,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -85058,7 +84501,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -85141,7 +84583,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -85224,7 +84665,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -85422,7 +84862,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.2;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;CM.L2-3.4.1;CM.L2-3.4.2;SI.L2-3.14.3;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -85649,7 +85088,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;IR.L2-3.6.1;IR.L2-3.6.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -85865,7 +85303,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -86090,7 +85527,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9;IR.L2-3.6.1;IR.L2-3.6.2;SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -86200,7 +85636,6 @@
           "controlId": "AU.L2-3.3.5",
           "title": "Correlate audit record review, analysis, and reporting processes",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -86246,7 +85681,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -86652,7 +86086,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -86878,7 +86311,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6;IA.L2-3.5.3;IR.L2-3.6.1;IR.L2-3.6.2;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -87090,7 +86522,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -87295,7 +86726,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -87499,7 +86929,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -87694,7 +87123,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -87897,7 +87325,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -88093,7 +87520,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -88293,7 +87719,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -88497,7 +87922,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -88881,7 +88305,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -89113,7 +88536,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L2-3.1.5;MP.L2-3.8.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -89212,7 +88634,6 @@
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -90323,7 +89744,6 @@
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -90367,7 +89787,6 @@
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -90411,7 +89830,6 @@
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -90454,7 +89872,6 @@
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -92750,7 +92167,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -92970,7 +92386,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -93418,7 +92833,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94212,7 +93626,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94291,7 +93704,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94370,7 +93782,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94449,7 +93860,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94528,7 +93938,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94607,7 +94016,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94686,7 +94094,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94765,7 +94172,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94844,7 +94250,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -94924,7 +94329,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95004,7 +94408,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95084,7 +94487,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95164,7 +94566,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95244,7 +94645,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95324,7 +94724,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95404,7 +94803,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95484,7 +94882,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95564,7 +94961,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95643,7 +95039,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95722,7 +95117,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95801,7 +95195,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95880,7 +95273,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -95959,7 +95351,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96038,7 +95429,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96117,7 +95507,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96196,7 +95585,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96275,7 +95663,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96354,7 +95741,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96433,7 +95819,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96512,7 +95897,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96591,7 +95975,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96670,7 +96053,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96749,7 +96131,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96828,7 +96209,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96907,7 +96287,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -96986,7 +96365,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97065,7 +96443,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97144,7 +96521,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97223,7 +96599,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97302,7 +96677,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97381,7 +96755,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97460,7 +96833,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97539,7 +96911,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97618,7 +96989,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97697,7 +97067,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97776,7 +97145,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97855,7 +97223,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -97934,7 +97301,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98013,7 +97379,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98092,7 +97457,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98171,7 +97535,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98250,7 +97613,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98329,7 +97691,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98408,7 +97769,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98487,7 +97847,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98566,7 +97925,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98645,7 +98003,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98724,7 +98081,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98803,7 +98159,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98882,7 +98237,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -98961,7 +98315,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E;SC.L2-3.13.6",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99042,7 +98395,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99120,7 +98472,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99198,7 +98549,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99276,7 +98626,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99354,7 +98703,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99432,7 +98780,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99510,7 +98857,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99588,7 +98934,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99666,7 +99011,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99744,7 +99088,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99822,7 +99165,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99900,7 +99242,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -99978,7 +99319,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100056,7 +99396,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100134,7 +99473,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100212,7 +99550,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100290,7 +99627,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100368,7 +99704,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100446,7 +99781,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100524,7 +99858,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100602,7 +99935,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100680,7 +100012,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100758,7 +100089,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100836,7 +100166,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100914,7 +100243,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -100992,7 +100320,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -101070,7 +100397,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -101148,7 +100474,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.3;AC.L3-3.1.3E",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -101302,7 +100627,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -101381,7 +100705,6 @@
         "cmmc": {
           "controlId": "SI.L2-3.14.6",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -101510,7 +100833,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.15",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -101940,7 +101262,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.12",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -102102,7 +101423,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.12;AC.L2-3.1.13",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -102268,7 +101588,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.12;AC.L2-3.1.14",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -102442,7 +101761,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.12;AC.L2-3.1.15",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -102622,7 +101940,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.16;AC.L2-3.1.17",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -102807,7 +102124,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -103004,7 +102320,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.5;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -103209,7 +102524,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.5;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -103421,7 +102735,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.5;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -103628,7 +102941,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.5;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -103835,7 +103147,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.7;CM.L2-3.4.5;CM.L2-3.4.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -108187,7 +107498,6 @@
           "controlId": "SI.L2-3.14.2",
           "title": "Provide protection from malicious code at appropriate locations within organizational systems",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -112354,7 +111664,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.13",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -112760,7 +112069,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.12",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -112947,7 +112255,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.12",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -113369,7 +112676,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.18;AC.L3-3.1.2E;CM.L2-3.4.1",
           "profiles": [
-            "L1",
             "L2",
             "L3"
           ]
@@ -113544,7 +112850,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.19",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -113914,7 +113219,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.11",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -114019,7 +113323,6 @@
           "controlId": "SC.L2-3.13.10",
           "title": "Employ FIPS-validated cryptography",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114061,7 +113364,6 @@
           "controlId": "SC.L2-3.13.10",
           "title": "Employ FIPS-validated cryptography",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114104,7 +113406,6 @@
           "controlId": "IA.L2-3.5.10",
           "title": "Store and transmit only cryptographically-protected passwords",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114225,7 +113526,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.8",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -114520,7 +113820,6 @@
           "controlId": "SC.L2-3.13.8",
           "title": "Implement cryptographic mechanisms to prevent unauthorized disclosure",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114565,7 +113864,6 @@
           "controlId": "SC.L2-3.13.8",
           "title": "Implement cryptographic mechanisms to prevent unauthorized disclosure",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114609,7 +113907,6 @@
           "controlId": "SC.L2-3.13.3",
           "title": "Employ architectural designs and implement security functionality",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114652,7 +113949,6 @@
           "controlId": "SC.L2-3.13.16",
           "title": "Protect the confidentiality of CUI at rest",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114696,7 +113992,6 @@
           "controlId": "SC.L2-3.13.16",
           "title": "Protect the confidentiality of CUI at rest",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -114742,7 +114037,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -114826,7 +114120,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -114910,7 +114203,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -114994,7 +114286,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115078,7 +114369,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115162,7 +114452,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115246,7 +114535,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115330,7 +114618,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115414,7 +114701,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115499,7 +114785,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115583,7 +114868,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115667,7 +114951,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115751,7 +115034,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115835,7 +115117,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -115919,7 +115200,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116003,7 +115283,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116087,7 +115366,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116171,7 +115449,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116255,7 +115532,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116339,7 +115615,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116423,7 +115698,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116507,7 +115781,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116591,7 +115864,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116675,7 +115947,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116759,7 +116030,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116843,7 +116113,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -116927,7 +116196,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117011,7 +116279,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117095,7 +116362,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117179,7 +116445,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117263,7 +116528,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117347,7 +116611,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117431,7 +116694,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117515,7 +116777,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117601,7 +116862,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117687,7 +116947,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117773,7 +117032,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117859,7 +117117,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -117945,7 +117202,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118031,7 +117287,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118117,7 +117372,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118203,7 +117457,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118288,7 +117541,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118373,7 +117625,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118458,7 +117709,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118543,7 +117793,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118628,7 +117877,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118713,7 +117961,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118798,7 +118045,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118883,7 +118129,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -118968,7 +118213,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119053,7 +118297,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119138,7 +118381,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119223,7 +118465,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119308,7 +118549,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119393,7 +118633,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119478,7 +118717,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119563,7 +118801,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119648,7 +118885,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119733,7 +118969,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119818,7 +119053,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119903,7 +119137,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -119988,7 +119221,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120073,7 +119305,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120158,7 +119389,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120243,7 +119473,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120328,7 +119557,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120413,7 +119641,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120498,7 +119725,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120583,7 +119809,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120668,7 +119893,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120753,7 +119977,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120838,7 +120061,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -120923,7 +120145,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121005,7 +120226,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121069,7 +120289,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121133,7 +120352,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121197,7 +120415,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121261,7 +120478,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121325,7 +120541,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121389,7 +120604,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121453,7 +120667,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121517,7 +120730,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121581,7 +120793,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121645,7 +120856,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121709,7 +120919,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121773,7 +120982,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121837,7 +121045,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -121901,7 +121108,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -123315,7 +122521,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -123575,7 +122780,6 @@
         "cmmc": {
           "controlId": "RA.L2-3.11.2",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -123667,7 +122871,6 @@
           "controlId": "RA.L2-3.11.2",
           "title": "Scan for vulnerabilities in organizational systems",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -123710,7 +122913,6 @@
           "controlId": "RA.L2-3.11.2",
           "title": "Scan for vulnerabilities in organizational systems",
           "profiles": [
-            "L1",
             "L2"
           ]
         }
@@ -123755,7 +122957,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -123839,7 +123040,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -123923,7 +123123,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124007,7 +123206,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124091,7 +123289,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124174,7 +123371,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124258,7 +123454,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124341,7 +123536,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124425,7 +123619,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124508,7 +123701,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124592,7 +123784,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124675,7 +123866,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124759,7 +123949,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124843,7 +124032,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -124929,7 +124117,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125015,7 +124202,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125101,7 +124287,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125187,7 +124372,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125273,7 +124457,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125359,7 +124542,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125444,7 +124626,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125529,7 +124710,6 @@
         "cmmc": {
           "controlId": "MP.L2-3.8.6;SC.L2-3.13.16",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125611,7 +124791,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125675,7 +124854,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125739,7 +124917,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125803,7 +124980,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125867,7 +125043,6 @@
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -125994,7 +125169,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126066,7 +125240,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126139,7 +125312,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126211,7 +125383,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126283,7 +125454,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126355,7 +125525,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126427,7 +125596,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126499,7 +125667,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126571,7 +125738,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126643,7 +125809,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126715,7 +125880,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126787,7 +125951,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126859,7 +126022,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -126932,7 +126094,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127006,7 +126167,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127080,7 +126240,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127154,7 +126313,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127228,7 +126386,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127302,7 +126459,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127376,7 +126532,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.3;MA.L2-3.7.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127450,7 +126605,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127529,7 +126683,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127608,7 +126761,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127687,7 +126839,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127766,7 +126917,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127845,7 +126995,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -127925,7 +127074,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128005,7 +127153,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128085,7 +127232,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128165,7 +127311,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.7;IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128245,7 +127390,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128324,7 +127468,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128404,7 +127547,6 @@
         "cmmc": {
           "controlId": "IA.L2-3.5.8;IA.L2-3.5.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128484,7 +127626,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128551,7 +127692,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128620,7 +127760,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128689,7 +127828,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128757,7 +127895,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128825,7 +127962,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128893,7 +128029,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -128961,7 +128096,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129029,7 +128163,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129097,7 +128230,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129165,7 +128297,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129233,7 +128364,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129301,7 +128431,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129369,7 +128498,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129437,7 +128565,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129505,7 +128632,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129573,7 +128699,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129641,7 +128766,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129729,7 +128853,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129817,7 +128940,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129905,7 +129027,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -129995,7 +129116,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130085,7 +129205,6 @@
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130175,7 +129294,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130258,7 +129376,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130340,7 +129457,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130422,7 +129538,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130504,7 +129619,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130588,7 +129702,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130671,7 +129784,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130753,7 +129865,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130835,7 +129946,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -130917,7 +130027,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131000,7 +130109,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131083,7 +130191,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131165,7 +130272,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131248,7 +130354,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131331,7 +130436,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131416,7 +130520,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131501,7 +130604,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
@@ -131586,7 +130688,6 @@
         "cmmc": {
           "controlId": "AU.L2-3.3.1;AU.L2-3.3.3;AU.L2-3.3.5;AU.L2-3.3.6;AU.L2-3.3.8;AU.L2-3.3.9",
           "profiles": [
-            "L1",
             "L2"
           ]
         },
