@@ -1,15 +1,22 @@
 Describe 'Control Registry Integrity' {
     BeforeAll {
         $registryPath = "$PSScriptRoot/../data/registry.json"
+        $manifestPath = "$PSScriptRoot/../CheckID.psd1"
         $raw = Get-Content -Path $registryPath -Raw | ConvertFrom-Json
+        $manifest = Import-PowerShellDataFile -Path $manifestPath
         $checks = $raw.checks
     }
 
     # --- Schema-level tests ---
 
-    It 'Has schemaVersion 2.2.0' {
-        $raw.schemaVersion | Should -Be '2.2.0' `
-            -Because "registry must be schema version 2.2.0 (adds impact, rationale, references, tags fields)"
+    It 'schemaVersion is pinned to CheckID.psd1 ModuleVersion' {
+        $raw.schemaVersion | Should -Be $manifest.ModuleVersion `
+            -Because "schemaVersion and ModuleVersion are coupled per VERSIONING.md — bump both together"
+    }
+
+    It 'schemaVersion is valid semver' {
+        $raw.schemaVersion | Should -Match '^\d+\.\d+\.\d+$' `
+            -Because "schemaVersion must be MAJOR.MINOR.PATCH"
     }
 
     It 'Has dataVersion field with valid date format' {

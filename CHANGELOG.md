@@ -5,6 +5,24 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.22.0] - 2026-04-24
+
+### Changed
+
+- **Breaking (data semantics):** `frameworks.cmmc.profiles` now uses identity
+  semantics — it lists only the levels whose tokens appear in `controlId`
+  (e.g. `IA.L2-3.5.5` → `["L2"]`), not the cumulative superset
+  (`["L1","L2"]`). Closes #248. Registry regenerated: 790 previously-uniform
+  `[L1,L2]` entries are now `[L2]`; `[L2,L3]` is now representable (was
+  impossible before). Downstream consumers that filtered by profile should
+  review their logic.
+- **Versioning policy:** `CheckID.psd1` `ModuleVersion` and `registry.json`
+  `schemaVersion` are now pinned to each other, and both track the release
+  tag. CI (Pester test in `tests/registry-integrity.Tests.ps1` and
+  `scripts/Test-RegistryData.ps1`) fails if they diverge. Reconciles
+  historical drift where tags reached v2.21.0 while these fields lagged at
+  2.6.0 / 2.2.0. See VERSIONING.md.
+
 ## [2.6.0] - 2026-04-17
 
 ### Added

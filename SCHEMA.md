@@ -1,12 +1,12 @@
 # CheckID Registry Schema
 
-This document describes the `data/registry.json` schema (v2.1.0, SCF-based).
+This document describes the `data/registry.json` schema (v2.22.0, SCF-based).
 
 ## Top-Level Structure
 
 ```json
 {
-  "schemaVersion": "2.0.0",
+  "schemaVersion": "2.22.0",
   "dataVersion": "YYYY-MM-DD",
   "generatedFrom": "scf-check-mapping.json + SecFrame/SCF/scf.db (SCF 2025.4)",
   "checks": [ ... ]

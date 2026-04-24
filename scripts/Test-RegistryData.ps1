@@ -94,9 +94,12 @@ Test-Check "registry.json is valid JSON" {
 
 if (-not $reg) { Write-Host "`nRegistry JSON invalid — cannot continue." -ForegroundColor Red; exit 1 }
 
-Test-Check "registry.json has schemaVersion 2.2.0" {
+Test-Check "registry.json schemaVersion matches CheckID.psd1 ModuleVersion" {
     if (-not $reg.schemaVersion) { return "Missing schemaVersion field" }
-    if ($reg.schemaVersion -ne '2.2.0') { return "Expected schemaVersion 2.2.0, got '$($reg.schemaVersion)'" }
+    $manifest = Import-PowerShellDataFile -Path (Join-Path $PSScriptRoot '..' 'CheckID.psd1')
+    if ($reg.schemaVersion -ne $manifest.ModuleVersion) {
+        return "schemaVersion '$($reg.schemaVersion)' must equal ModuleVersion '$($manifest.ModuleVersion)' (see VERSIONING.md)"
+    }
 }
 
 Test-Check "registry.json has dataVersion" {
