@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "2.22.0",
+  "schemaVersion": "2.22.1",
   "dataVersion": "2026-04-24",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
@@ -2727,12 +2727,42 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "6.3;6.4"
+        },
         "cmmc": {
           "controlId": "AC.L2-3.1.1",
           "title": "Limit system access to authorized users",
           "profiles": [
             "L2"
           ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML2-P3;ML3-P3"
+        },
+        "fedramp": {
+          "controlId": "IA-02(01);IA-02(02)"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(j)"
+        },
+        "nist-800-171": {
+          "controlId": "3.5.3;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "IA-02(01);IA-02(02)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.3;8.4;8.4.2;8.4.3;8.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.6-POF3"
         }
       },
       "impactRating": {
@@ -2769,12 +2799,42 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "6.3;6.4"
+        },
         "cmmc": {
           "controlId": "IA.L2-3.5.1",
           "title": "Identify information system users, processes acting on behalf of users, and devices",
           "profiles": [
             "L2"
           ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P3;ML2-P3;ML3-P3"
+        },
+        "fedramp": {
+          "controlId": "IA-02(01);IA-02(02)"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(j)"
+        },
+        "nist-800-171": {
+          "controlId": "3.5.3;3.7.5"
+        },
+        "nist-800-53": {
+          "controlId": "IA-02(01);IA-02(02)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.3;8.4;8.4.2;8.4.3;8.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.6-POF3"
         }
       },
       "impactRating": {
@@ -4886,6 +4946,10 @@
             "E5-L1"
           ]
         },
+        "nist-csf": {
+          "controlId": "PR.AA-03",
+          "title": "Users, services, and hardware are authenticated"
+        },
         "eidsca": {
           "controlId": "EIDSCA.AM10"
         }
@@ -5544,12 +5608,47 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "6.1;6.2"
+        },
+        "fedramp": {
+          "controlId": "IA-12(04)"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(3)(ii)(C)"
+        },
+        "iso-27001": {
+          "controlId": "5.16;5.18"
+        },
+        "iso-27017": {
+          "controlId": "9.2.1;9.2.2"
+        },
+        "nist-800-53": {
+          "controlId": "IA-12(04)",
+          "profiles": [
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "7.2.3;8.2.4;8.3.5"
+        },
+        "soc2": {
+          "controlId": "CC6.2;CC6.2-POF1;CC6.2-POF3;CC6.3-POF1;CC6.3-POF2",
+          "title": "Prior to Issuing System Credentials and Granting System Access"
+        },
+        "iso-27002": {
+          "controlId": "5.16;5.18"
+        },
         "cmmc": {
           "controlId": "IA.L2-3.5.2",
           "title": "Authenticate the identities of users, processes, and devices",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.5.2"
         }
       },
       "impactRating": {
@@ -6557,6 +6656,10 @@
             "E5-L1"
           ]
         },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+        },
         "eidsca": {
           "controlId": "EIDSCA.PR03"
         }
@@ -6779,6 +6882,10 @@
             "E3-L1",
             "E5-L1"
           ]
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
         },
         "eidsca": {
           "controlId": "EIDSCA.PR05;EIDSCA.PR06"
@@ -10109,12 +10216,37 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "IA-11"
+        },
+        "mitre-attack": {
+          "controlId": "T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1556.006;T1556.007"
+        },
+        "nist-800-53": {
+          "controlId": "IA-11",
+          "title": "Re-authentication",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.8"
+        },
         "cmmc": {
           "controlId": "AC.L2-3.1.1; AC.L2-3.1.5",
           "title": "Limit system access to authorized users and enforce least privilege",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.1.1;3.1.5"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -10151,12 +10283,37 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "IA-11"
+        },
+        "mitre-attack": {
+          "controlId": "T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1556.006;T1556.007"
+        },
+        "nist-800-53": {
+          "controlId": "IA-11",
+          "title": "Re-authentication",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.8"
+        },
         "cmmc": {
           "controlId": "AC.L2-3.1.5",
           "title": "Employ the principle of least privilege",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.1.5"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -10193,12 +10350,37 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "IA-11"
+        },
+        "mitre-attack": {
+          "controlId": "T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1556.006;T1556.007"
+        },
+        "nist-800-53": {
+          "controlId": "IA-11",
+          "title": "Re-authentication",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "8.2.8"
+        },
         "cmmc": {
           "controlId": "AC.L2-3.1.2",
           "title": "Limit system access to the types of transactions and functions authorized users are permitted to execute",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.1.2"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -37789,6 +37971,10 @@
         "iso-27002": {
           "controlId": "8.1"
         },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+        },
         "eidsca": {
           "controlId": "EIDSCA.PR01;EIDSCA.PR02"
         }
@@ -43828,6 +44014,47 @@
         "csfFunction": "Govern"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "2.0;4.0;4.1;4.2"
+        },
+        "fedramp": {
+          "controlId": "CM-01;CM-09"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(1)(i)"
+        },
+        "iso-27001": {
+          "controlId": "8.12;8.3;8.9"
+        },
+        "iso-27017": {
+          "controlId": "9.4.1"
+        },
+        "nist-800-171": {
+          "controlId": "NFO - CM-1;NFO - CM-9"
+        },
+        "nist-800-53": {
+          "controlId": "CM-01;CM-09",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.PS;PR.PS-01;PR.PS-05",
+          "title": "Platform Security; Configuration management practices are established and applied; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "2.1;2.2;8.5"
+        },
+        "soc2": {
+          "controlId": "CC7.1;CC7.1-POF1;CC8.1-POF12;CC8.1-POF6",
+          "title": "Detection and Monitoring of New Vulnerabilities"
+        },
+        "iso-27002": {
+          "controlId": "8.12;8.3;8.9"
+        },
         "cmmc": {
           "controlId": "CM.L2-3.4.1",
           "title": "Establish and maintain baseline configurations and inventories",
@@ -44184,12 +44411,63 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "10.3;10.4;10.5;16.7;4.1;4.2;4.3;4.4;4.5;4.6;4.7;4.8"
+        },
         "cmmc": {
           "controlId": "CM.L2-3.4.2",
           "title": "Establish and enforce security configuration settings",
           "profiles": [
             "L2"
           ]
+        },
+        "essential-eight": {
+          "controlId": "ML1-P6;ML1-P7;ML2-P5;ML2-P6;ML2-P7;ML3-P4;ML3-P5;ML3-P6;ML3-P7"
+        },
+        "fedramp": {
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05)"
+        },
+        "hipaa": {
+          "controlId": "164.312(a)(2)(iii);164.312(e)(1);164.312(e)(2)(i);164.312(e)(2)(ii)"
+        },
+        "iso-27001": {
+          "controlId": "8.12;8.25;8.26;8.3;8.5;8.9"
+        },
+        "iso-27017": {
+          "controlId": "14.1.1;9.4.1;9.4.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1021.008;T1027;T1027.010;T1029;T1030;T1036;T1036.001;T1036.003;T1036.005;T1036.007;T1036.010;T1037;T1037.002;T1037.003;T1037.004;T1037.005;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.003;T1053.005;T1053.006;T1055;T1055.008;T1056.003;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1078;T1078.002;T1078.003;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1090.003;T1091;T1092;T1095;T1098;T1098.001;T1098.002;T1098.003;T1098.004;T1098.005;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1114;T1114.002;T1114.003;T1119;T1127;T1127.001;T1127.002;T1129;T1132;T1132.001;T1132.002;T1133;T1134;T1134.001;T1134.002;T1134.003;T1134.005;T1135;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1137.002;T1137.003;T1137.004;T1137.005;T1137.006;T1176;T1185;T1187;T1189;T1190;T1195;T1195.001;T1195.003;T1197;T1199;T1201;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1216.002;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.007;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1222;T1222.001;T1222.002;T1482;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1495;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.001;T1505.002;T1505.003;T1505.004;T1505.005;T1525;T1528;T1530;T1537;T1539;T1542;T1542.001;T1542.003;T1542.004;T1542.005;T1543;T1543.001;T1543.002;T1543.003;T1543.004;T1546;T1546.002;T1546.003;T1546.004;T1546.006;T1546.008;T1546.010;T1546.013;T1546.014;T1546.016;T1547.002;T1547.003;T1547.005;T1547.006;T1547.007;T1547.008;T1547.009;T1547.013;T1548;T1548.001;T1548.002;T1548.003;T1548.004;T1548.006;T1550;T1550.001;T1550.002;T1550.003;T1552;T1552.001;T1552.002;T1552.003;T1552.004;T1552.005;T1552.006;T1552.007;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1553.006;T1554;T1555.004;T1555.005;T1556;T1556.001;T1556.002;T1556.003;T1556.004;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1558;T1558.001;T1558.002;T1558.003;T1558.004;T1559;T1559.001;T1559.002;T1559.003;T1560;T1560.001;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.009;T1562.010;T1562.011;T1562.012;T1563;T1563.001;T1563.002;T1564.002;T1564.006;T1564.007;T1564.009;T1565;T1565.001;T1565.002;T1565.003;T1566;T1566.001;T1566.002;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.005;T1574.006;T1574.007;T1574.008;T1574.009;T1574.010;T1574.013;T1574.014;T1578;T1578.001;T1578.002;T1578.003;T1590.002;T1598;T1598.002;T1598.003;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1653"
+        },
+        "nis2": {
+          "controlId": "Article 21.5"
+        },
+        "nist-800-171": {
+          "controlId": "3.3.3;3.4.1;3.4.2"
+        },
+        "nist-800-53": {
+          "controlId": "CM-02;CM-06;PL-10;SA-08;SA-15(05)",
+          "title": "Baseline Selection",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-10;PR.PS;PR.PS-05",
+          "title": "The confidentiality, integrity, and availability of data-in-use are protected; Platform Security; Installation and execution of unauthorized software are prevented"
+        },
+        "pci-dss": {
+          "controlId": "1.1;1.2.1;1.2.6;10.2;10.2.1;10.2.1.1;10.2.1.2;10.2.1.3;10.2.1.4;10.2.1.5;10.2.1.6;10.2.1.7;10.2.2;10.6;10.6.1;10.6.2;10.6.3;11.2;2.2;2.2.1;8.3.2;8.5"
+        },
+        "soc2": {
+          "controlId": "CC6.1-POF7;CC6.7-POF1;CC7.1;CC7.1-POF1;CC8.1;CC8.1-POF12;CC8.1-POF6",
+          "title": "Detection and Monitoring of New Vulnerabilities; Changes to Infrastructure, Data, Software, and Procedures"
+        },
+        "iso-27002": {
+          "controlId": "8.12;8.25;8.26;8.3;8.5;8.9"
         }
       },
       "impactRating": {
@@ -75857,12 +76135,57 @@
         "csfFunction": "Govern"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.0;13.6;8.0;8.2"
+        },
         "cmmc": {
           "controlId": "SI.L2-3.14.6",
           "title": "Monitor organizational systems to detect attacks and indicators of potential attacks",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "AU-01;SI-04"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
+        },
+        "iso-27001": {
+          "controlId": "8.15;8.16"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1021.008;T1025;T1027;T1027.002;T1027.007;T1027.008;T1027.009;T1027.010;T1027.011;T1027.012;T1029;T1030;T1036;T1036.001;T1036.003;T1036.005;T1036.007;T1036.008;T1036.010;T1037;T1037.002;T1037.003;T1037.004;T1037.005;T1040;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.003;T1053.005;T1053.006;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.002;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.009;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1070.010;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1091;T1092;T1095;T1098;T1098.001;T1098.002;T1098.003;T1098.004;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1114;T1114.001;T1114.002;T1114.003;T1119;T1127;T1127.001;T1127.002;T1129;T1132;T1132.001;T1132.002;T1133;T1135;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1176;T1185;T1187;T1189;T1190;T1195;T1195.001;T1197;T1201;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1205.002;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.010;T1218.011;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.002;T1505.003;T1505.004;T1505.005;T1525;T1528;T1530;T1537;T1539;T1542.004;T1542.005;T1543;T1543.002;T1546.002;T1546.003;T1546.004;T1546.006;T1546.008;T1546.013;T1546.014;T1546.016;T1547.002;T1547.003;T1547.004;T1547.005;T1547.006;T1547.007;T1547.008;T1547.009;T1547.012;T1547.013;T1548;T1548.001;T1548.002;T1548.003;T1548.004;T1548.006;T1550.001;T1550.003;T1552;T1552.001;T1552.002;T1552.003;T1552.004;T1552.005;T1552.006;T1552.008;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1555;T1555.001;T1555.002;T1555.004;T1555.005;T1556;T1556.001;T1556.002;T1556.003;T1556.004;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1558;T1558.002;T1558.003;T1558.004;T1558.005;T1559;T1559.002;T1559.003;T1560;T1560.001;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.010;T1562.011;T1562.012;T1563;T1563.001;T1563.002;T1564.002;T1564.004;T1564.006;T1564.007;T1564.008;T1564.009;T1564.010;T1565;T1565.001;T1565.002;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1568;T1568.002;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.013;T1574.014;T1578;T1578.001;T1578.002;T1578.003;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1651;T1653"
+        },
+        "nist-800-171": {
+          "controlId": "3.14.6;3.3.3;NFO - AU-1"
+        },
+        "nist-800-53": {
+          "controlId": "AU-01;PM-31;SI-04",
+          "title": "Continuous Monitoring Strategy",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "DE.AE;DE.CM-01;DE.CM-03;DE.CM-06;DE.CM-09;PR.PS-04",
+          "title": "Adverse Event Analysis; Networks and network services are monitored to find potentially adverse events; Personnel activity and technology usage are monitored to find potentially adverse events; External service provider activities and services are monitored to find potentially adverse events; Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events; Log records are generated and made available for continuous monitoring"
+        },
+        "pci-dss": {
+          "controlId": "10.1;10.4.3;10.7;10.7.1;10.7.2;10.7.3;A3.3.1;A3.5"
+        },
+        "soc2": {
+          "controlId": "CC7.2;CC7.2-POF1",
+          "title": "Monitoring System Components for Anomalies"
+        },
+        "iso-27002": {
+          "controlId": "8.15;8.16"
         }
       },
       "impactRating": {
@@ -75899,12 +76222,57 @@
         "csfFunction": "Govern"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.0;13.6;8.0;8.2"
+        },
         "cmmc": {
           "controlId": "AU.L2-3.3.1",
           "title": "Create and retain system audit logs to enable monitoring, analysis, investigation, and reporting",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "AU-01;SI-04"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
+        },
+        "iso-27001": {
+          "controlId": "8.15;8.16"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1021.008;T1025;T1027;T1027.002;T1027.007;T1027.008;T1027.009;T1027.010;T1027.011;T1027.012;T1029;T1030;T1036;T1036.001;T1036.003;T1036.005;T1036.007;T1036.008;T1036.010;T1037;T1037.002;T1037.003;T1037.004;T1037.005;T1040;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.003;T1053.005;T1053.006;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.002;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.009;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1070.010;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1091;T1092;T1095;T1098;T1098.001;T1098.002;T1098.003;T1098.004;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1114;T1114.001;T1114.002;T1114.003;T1119;T1127;T1127.001;T1127.002;T1129;T1132;T1132.001;T1132.002;T1133;T1135;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1176;T1185;T1187;T1189;T1190;T1195;T1195.001;T1197;T1201;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1205.002;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.010;T1218.011;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.002;T1505.003;T1505.004;T1505.005;T1525;T1528;T1530;T1537;T1539;T1542.004;T1542.005;T1543;T1543.002;T1546.002;T1546.003;T1546.004;T1546.006;T1546.008;T1546.013;T1546.014;T1546.016;T1547.002;T1547.003;T1547.004;T1547.005;T1547.006;T1547.007;T1547.008;T1547.009;T1547.012;T1547.013;T1548;T1548.001;T1548.002;T1548.003;T1548.004;T1548.006;T1550.001;T1550.003;T1552;T1552.001;T1552.002;T1552.003;T1552.004;T1552.005;T1552.006;T1552.008;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1555;T1555.001;T1555.002;T1555.004;T1555.005;T1556;T1556.001;T1556.002;T1556.003;T1556.004;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1558;T1558.002;T1558.003;T1558.004;T1558.005;T1559;T1559.002;T1559.003;T1560;T1560.001;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.010;T1562.011;T1562.012;T1563;T1563.001;T1563.002;T1564.002;T1564.004;T1564.006;T1564.007;T1564.008;T1564.009;T1564.010;T1565;T1565.001;T1565.002;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1568;T1568.002;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.013;T1574.014;T1578;T1578.001;T1578.002;T1578.003;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1651;T1653"
+        },
+        "nist-800-171": {
+          "controlId": "3.14.6;3.3.3;NFO - AU-1"
+        },
+        "nist-800-53": {
+          "controlId": "AU-01;PM-31;SI-04",
+          "title": "Continuous Monitoring Strategy",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "DE.AE;DE.CM-01;DE.CM-03;DE.CM-06;DE.CM-09;PR.PS-04",
+          "title": "Adverse Event Analysis; Networks and network services are monitored to find potentially adverse events; Personnel activity and technology usage are monitored to find potentially adverse events; External service provider activities and services are monitored to find potentially adverse events; Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events; Log records are generated and made available for continuous monitoring"
+        },
+        "pci-dss": {
+          "controlId": "10.1;10.4.3;10.7;10.7.1;10.7.2;10.7.3;A3.3.1;A3.5"
+        },
+        "soc2": {
+          "controlId": "CC7.2;CC7.2-POF1",
+          "title": "Monitoring System Components for Anomalies"
+        },
+        "iso-27002": {
+          "controlId": "8.15;8.16"
         }
       },
       "impactRating": {
@@ -75943,12 +76311,57 @@
         "csfFunction": "Govern"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.0;13.6;8.0;8.2"
+        },
         "cmmc": {
           "controlId": "AU.L2-3.3.1",
           "title": "Create and retain system audit logs",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "AU-01;SI-04"
+        },
+        "hipaa": {
+          "controlId": "164.308(a)(1)(i);164.308(a)(1)(ii)(D);164.312(b)"
+        },
+        "iso-27001": {
+          "controlId": "8.15;8.16"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1008;T1011;T1011.001;T1020.001;T1021;T1021.001;T1021.002;T1021.003;T1021.004;T1021.005;T1021.006;T1021.008;T1025;T1027;T1027.002;T1027.007;T1027.008;T1027.009;T1027.010;T1027.011;T1027.012;T1029;T1030;T1036;T1036.001;T1036.003;T1036.005;T1036.007;T1036.008;T1036.010;T1037;T1037.002;T1037.003;T1037.004;T1037.005;T1040;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1053;T1053.002;T1053.003;T1053.005;T1053.006;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1056.002;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.009;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1070.010;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1078.001;T1078.002;T1078.003;T1078.004;T1080;T1087;T1087.001;T1087.002;T1090;T1090.001;T1090.002;T1091;T1092;T1095;T1098;T1098.001;T1098.002;T1098.003;T1098.004;T1098.007;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1110;T1110.001;T1110.002;T1110.003;T1110.004;T1111;T1114;T1114.001;T1114.002;T1114.003;T1119;T1127;T1127.001;T1127.002;T1129;T1132;T1132.001;T1132.002;T1133;T1135;T1136;T1136.001;T1136.002;T1136.003;T1137;T1137.001;T1176;T1185;T1187;T1189;T1190;T1195;T1195.001;T1197;T1201;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1205.002;T1210;T1211;T1212;T1213;T1213.001;T1213.002;T1213.004;T1213.005;T1216;T1216.001;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.010;T1218.011;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1220;T1221;T1222;T1222.001;T1222.002;T1484;T1485;T1486;T1489;T1490;T1491;T1491.001;T1491.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505;T1505.002;T1505.003;T1505.004;T1505.005;T1525;T1528;T1530;T1537;T1539;T1542.004;T1542.005;T1543;T1543.002;T1546.002;T1546.003;T1546.004;T1546.006;T1546.008;T1546.013;T1546.014;T1546.016;T1547.002;T1547.003;T1547.004;T1547.005;T1547.006;T1547.007;T1547.008;T1547.009;T1547.012;T1547.013;T1548;T1548.001;T1548.002;T1548.003;T1548.004;T1548.006;T1550.001;T1550.003;T1552;T1552.001;T1552.002;T1552.003;T1552.004;T1552.005;T1552.006;T1552.008;T1553;T1553.001;T1553.003;T1553.004;T1553.005;T1555;T1555.001;T1555.002;T1555.004;T1555.005;T1556;T1556.001;T1556.002;T1556.003;T1556.004;T1556.008;T1556.009;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1558;T1558.002;T1558.003;T1558.004;T1558.005;T1559;T1559.002;T1559.003;T1560;T1560.001;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.003;T1562.004;T1562.006;T1562.010;T1562.011;T1562.012;T1563;T1563.001;T1563.002;T1564.002;T1564.004;T1564.006;T1564.007;T1564.008;T1564.009;T1564.010;T1565;T1565.001;T1565.002;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1568;T1568.002;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.005;T1574.007;T1574.008;T1574.009;T1574.010;T1574.013;T1574.014;T1578;T1578.001;T1578.002;T1578.003;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1601;T1601.001;T1601.002;T1602;T1602.001;T1602.002;T1610;T1611;T1612;T1613;T1622;T1647;T1648;T1651;T1653"
+        },
+        "nist-800-171": {
+          "controlId": "3.14.6;3.3.3;NFO - AU-1"
+        },
+        "nist-800-53": {
+          "controlId": "AU-01;PM-31;SI-04",
+          "title": "Continuous Monitoring Strategy",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "DE.AE;DE.CM-01;DE.CM-03;DE.CM-06;DE.CM-09;PR.PS-04",
+          "title": "Adverse Event Analysis; Networks and network services are monitored to find potentially adverse events; Personnel activity and technology usage are monitored to find potentially adverse events; External service provider activities and services are monitored to find potentially adverse events; Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events; Log records are generated and made available for continuous monitoring"
+        },
+        "pci-dss": {
+          "controlId": "10.1;10.4.3;10.7;10.7.1;10.7.2;10.7.3;A3.3.1;A3.5"
+        },
+        "soc2": {
+          "controlId": "CC7.2;CC7.2-POF1",
+          "title": "Monitoring System Components for Anomalies"
+        },
+        "iso-27002": {
+          "controlId": "8.15;8.16"
         }
       },
       "impactRating": {
@@ -85632,12 +86045,54 @@
         "csfFunction": "Detect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "3.14;8.2;8.5"
+        },
         "cmmc": {
           "controlId": "AU.L2-3.3.5",
           "title": "Correlate audit record review, analysis, and reporting processes",
           "profiles": [
             "L2"
           ]
+        },
+        "essential-eight": {
+          "controlId": "ML2-P3;ML2-P5;ML3-P3;ML3-P5"
+        },
+        "fedramp": {
+          "controlId": "AU-03"
+        },
+        "hipaa": {
+          "controlId": "164.312(b)"
+        },
+        "iso-27001": {
+          "controlId": "8.15"
+        },
+        "iso-27017": {
+          "controlId": "12.4.1"
+        },
+        "nist-800-171": {
+          "controlId": "3.3.2"
+        },
+        "nist-800-53": {
+          "controlId": "AU-03",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.PS-04",
+          "title": "Log records are generated and made available for continuous monitoring"
+        },
+        "pci-dss": {
+          "controlId": "10.2;10.2.1;10.2.1.1;10.2.1.2;10.2.1.3;10.2.1.4;10.2.1.5;10.2.1.6;10.2.1.7;10.2.2;6.4.2"
+        },
+        "soc2": {
+          "controlId": "PI1.4"
+        },
+        "iso-27002": {
+          "controlId": "8.15"
         }
       },
       "impactRating": {
@@ -88630,12 +89085,56 @@
         "csfFunction": "Govern"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "12.0;12.1;12.2;12.3;12.6"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-01"
+        },
+        "hipaa": {
+          "controlId": "164.312(e)(1);164.312(e)(2)(i)"
+        },
+        "iso-27001": {
+          "controlId": "5.14;8.12;8.2;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2;13.2.1"
+        },
+        "nis2": {
+          "controlId": "Article 21.2(e);Article 21.5"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1;NFO - SC-1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-01",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.IR-01",
+          "title": "Networks and environments are protected from unauthorized logical access and usage"
+        },
+        "pci-dss": {
+          "controlId": "1.1;1.2;11.2.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF2;CC6.6-POF3;CC6.6-POF4",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries"
+        },
+        "iso-27002": {
+          "controlId": "5.14;8.12;8.2;8.21"
         }
       },
       "impactRating": {
@@ -89740,12 +90239,49 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;9.6"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)"
+        },
+        "iso-27001": {
+          "controlId": "8.2;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1029;T1030;T1036.008;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1080;T1090;T1090.001;T1090.002;T1090.003;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218;T1218.012;T1218.015;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1567.003;T1567.004;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1590.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1648;T1659"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        },
+        "iso-27002": {
+          "controlId": "8.2;8.21"
         }
       },
       "impactRating": {
@@ -89783,12 +90319,49 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;9.6"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)"
+        },
+        "iso-27001": {
+          "controlId": "8.2;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1029;T1030;T1036.008;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1080;T1090;T1090.001;T1090.002;T1090.003;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218;T1218.012;T1218.015;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1567.003;T1567.004;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1590.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1648;T1659"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        },
+        "iso-27002": {
+          "controlId": "8.2;8.21"
         }
       },
       "impactRating": {
@@ -89826,12 +90399,49 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;9.6"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)"
+        },
+        "iso-27001": {
+          "controlId": "8.2;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1029;T1030;T1036.008;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1080;T1090;T1090.001;T1090.002;T1090.003;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218;T1218.012;T1218.015;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1567.003;T1567.004;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1590.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1648;T1659"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        },
+        "iso-27002": {
+          "controlId": "8.2;8.21"
         }
       },
       "impactRating": {
@@ -89868,12 +90478,49 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "13.5;9.6"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.1",
           "title": "Monitor, control, and protect organizational communications",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)"
+        },
+        "iso-27001": {
+          "controlId": "8.2;8.21"
+        },
+        "iso-27017": {
+          "controlId": "13.1.1;13.1.2"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1008;T1020.001;T1021.001;T1021.002;T1021.003;T1021.005;T1021.006;T1029;T1030;T1036.008;T1041;T1046;T1048;T1048.001;T1048.002;T1048.003;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1068;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1071.005;T1072;T1078;T1080;T1090;T1090.001;T1090.002;T1090.003;T1095;T1098;T1098.001;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1114;T1114.003;T1132;T1132.001;T1132.002;T1133;T1136;T1136.002;T1136.003;T1176;T1187;T1189;T1190;T1197;T1199;T1203;T1204;T1204.001;T1204.002;T1204.003;T1205;T1205.001;T1210;T1211;T1212;T1218;T1218.012;T1218.015;T1219;T1221;T1482;T1489;T1498;T1498.001;T1498.002;T1499;T1499.001;T1499.002;T1499.003;T1499.004;T1505.004;T1530;T1537;T1542;T1542.004;T1542.005;T1552;T1552.001;T1552.004;T1552.005;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1559;T1559.001;T1559.002;T1560;T1560.001;T1563;T1563.002;T1565;T1565.001;T1565.003;T1566;T1566.001;T1566.002;T1566.003;T1567;T1567.001;T1567.002;T1567.003;T1567.004;T1568;T1568.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1590.002;T1598;T1598.001;T1598.002;T1598.003;T1599;T1599.001;T1602;T1602.001;T1602.002;T1609;T1610;T1611;T1612;T1613;T1622;T1648;T1659"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-07;SC-07(09);SC-07(11)",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "1.3.3;1.4;1.4.1;1.4.2;11.5.1"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF5;CC6.6;CC6.6-POF1;CC6.6-POF3;CC6.6-POF4;CC6.8",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Restriction of Access to System Boundaries; Prevention and Detection of Unauthorized Software"
+        },
+        "iso-27002": {
+          "controlId": "8.2;8.21"
         }
       },
       "impactRating": {
@@ -107494,12 +108141,53 @@
         "csfFunction": "Detect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "10.0;10.1;10.4"
+        },
         "cmmc": {
           "controlId": "SI.L2-3.14.2",
           "title": "Provide protection from malicious code at appropriate locations within organizational systems",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SI-03"
+        },
+        "iso-27001": {
+          "controlId": "8.7"
+        },
+        "iso-27017": {
+          "controlId": "12.2.1"
+        },
+        "mitre-attack": {
+          "controlId": "T1001;T1001.001;T1001.002;T1001.003;T1003;T1003.001;T1003.002;T1003.003;T1003.004;T1003.005;T1003.006;T1003.007;T1003.008;T1005;T1008;T1011.001;T1021.003;T1021.005;T1025;T1027;T1027.002;T1027.007;T1027.008;T1027.009;T1027.010;T1027.012;T1027.013;T1027.014;T1029;T1030;T1036;T1036.003;T1036.005;T1036.008;T1037;T1037.002;T1037.003;T1037.004;T1037.005;T1041;T1046;T1047;T1048;T1048.001;T1048.002;T1048.003;T1052;T1052.001;T1055;T1055.001;T1055.002;T1055.003;T1055.004;T1055.005;T1055.008;T1055.009;T1055.011;T1055.012;T1055.013;T1055.014;T1055.015;T1056.002;T1059;T1059.001;T1059.002;T1059.003;T1059.004;T1059.005;T1059.006;T1059.007;T1059.008;T1059.010;T1059.011;T1068;T1070;T1070.001;T1070.002;T1070.003;T1070.007;T1070.008;T1070.009;T1070.010;T1071;T1071.001;T1071.002;T1071.003;T1071.004;T1072;T1080;T1090;T1090.001;T1090.002;T1091;T1092;T1095;T1098.004;T1102;T1102.001;T1102.002;T1102.003;T1104;T1105;T1106;T1111;T1129;T1132;T1132.001;T1132.002;T1137;T1137.001;T1176;T1185;T1189;T1190;T1195;T1201;T1203;T1204;T1204.001;T1204.002;T1204.003;T1210;T1211;T1212;T1218;T1218.001;T1218.002;T1218.003;T1218.004;T1218.005;T1218.008;T1218.009;T1218.012;T1218.013;T1218.014;T1218.015;T1219;T1221;T1485;T1486;T1490;T1491;T1491.001;T1491.002;T1505.004;T1525;T1539;T1543;T1543.002;T1546.002;T1546.003;T1546.004;T1546.006;T1546.013;T1546.014;T1546.016;T1547.002;T1547.005;T1547.006;T1547.007;T1547.008;T1547.009;T1547.013;T1548;T1548.004;T1548.006;T1553.003;T1554;T1557;T1557.001;T1557.002;T1557.003;T1558;T1558.002;T1558.003;T1558.004;T1559;T1559.001;T1559.002;T1560;T1560.001;T1561;T1561.001;T1561.002;T1562;T1562.001;T1562.002;T1562.004;T1562.006;T1562.011;T1564.004;T1564.008;T1564.009;T1564.012;T1566;T1566.001;T1566.002;T1566.003;T1567;T1568;T1568.002;T1569;T1569.002;T1570;T1571;T1572;T1573;T1573.001;T1573.002;T1574;T1574.001;T1574.004;T1574.007;T1574.008;T1574.009;T1574.013;T1574.014;T1598;T1598.001;T1598.002;T1598.003;T1602;T1602.001;T1602.002;T1611;T1622"
+        },
+        "nist-800-171": {
+          "controlId": "3.14.2"
+        },
+        "nist-800-53": {
+          "controlId": "SI-03",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "DE.CM-09",
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+        },
+        "pci-dss": {
+          "controlId": "5.2;5.2.1;5.2.2;5.3;5.3.1;5.3.2;5.3.2.1;5.3.3;5.3.4;5.3.5"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC6.8-POF4",
+          "title": "Prevention and Detection of Unauthorized Software"
+        },
+        "iso-27002": {
+          "controlId": "8.7"
         }
       },
       "impactRating": {
@@ -113319,12 +114007,34 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "IA-07"
+        },
+        "nist-800-53": {
+          "controlId": "IA-07",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "2.2.7;3.6.1.1;3.6.1.2"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "title": "Employ FIPS-validated cryptography",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.13.10"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -113360,12 +114070,34 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "IA-07"
+        },
+        "nist-800-53": {
+          "controlId": "IA-07",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "2.2.7;3.6.1.1;3.6.1.2"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.10",
           "title": "Employ FIPS-validated cryptography",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.13.10"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -113402,12 +114134,34 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "IA-07"
+        },
+        "nist-800-53": {
+          "controlId": "IA-07",
+          "profiles": [
+            "Low",
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "pci-dss": {
+          "controlId": "2.2.7;3.6.1.1;3.6.1.2"
+        },
         "cmmc": {
           "controlId": "IA.L2-3.5.10",
           "title": "Store and transmit only cryptographically-protected passwords",
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.5.10"
+        },
+        "soc2": {
+          "controlId": "CC6.1",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures"
         }
       },
       "impactRating": {
@@ -113816,12 +114570,55 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "3.1"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.8",
           "title": "Implement cryptographic mechanisms to prevent unauthorized disclosure",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-08;SC-08(01)"
+        },
+        "hipaa": {
+          "controlId": "164.312(e)(1)"
+        },
+        "iso-27001": {
+          "controlId": "5.14;8.24;8.26"
+        },
+        "iso-27017": {
+          "controlId": "10.1.1;13.2.1;13.2.3;14.1.2;14.1.3"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1040;T1090;T1090.004;T1550.001;T1550.004;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1562;T1562.006;T1562.009;T1562.010;T1602;T1602.001;T1602.002;T1622"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.8"
+        },
+        "nist-800-53": {
+          "controlId": "SC-08;SC-08(01)",
+          "profiles": [
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+        },
+        "pci-dss": {
+          "controlId": "4.2;4.2.1;4.2.1.2;8.3.2;A2.1;A2.1.1;A2.1.2"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF10;CC6.7;CC6.7-POF2",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction"
+        },
+        "iso-27002": {
+          "controlId": "5.14;8.24;8.26"
         }
       },
       "impactRating": {
@@ -113860,12 +114657,55 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "cis-controls-v8": {
+          "controlId": "3.1"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.8",
           "title": "Implement cryptographic mechanisms to prevent unauthorized disclosure",
           "profiles": [
             "L2"
           ]
+        },
+        "fedramp": {
+          "controlId": "SC-08;SC-08(01)"
+        },
+        "hipaa": {
+          "controlId": "164.312(e)(1)"
+        },
+        "iso-27001": {
+          "controlId": "5.14;8.24;8.26"
+        },
+        "iso-27017": {
+          "controlId": "10.1.1;13.2.1;13.2.3;14.1.2;14.1.3"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1040;T1090;T1090.004;T1550.001;T1550.004;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1562;T1562.006;T1562.009;T1562.010;T1602;T1602.001;T1602.002;T1622"
+        },
+        "nist-800-171": {
+          "controlId": "3.13.8"
+        },
+        "nist-800-53": {
+          "controlId": "SC-08;SC-08(01)",
+          "profiles": [
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+        },
+        "pci-dss": {
+          "controlId": "4.2;4.2.1;4.2.1.2;8.3.2;A2.1;A2.1.1;A2.1.2"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.1-POF10;CC6.7;CC6.7-POF2",
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction"
+        },
+        "iso-27002": {
+          "controlId": "5.14;8.24;8.26"
         }
       },
       "impactRating": {
@@ -113903,6 +114743,45 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "SC-08;SC-16(01);SC-28(01)"
+        },
+        "hipaa": {
+          "controlId": "164.312(e)(2)(i)"
+        },
+        "iso-27001": {
+          "controlId": "8.24;8.26"
+        },
+        "iso-27017": {
+          "controlId": "10.1.1;14.1.3"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1040;T1090;T1090.004;T1550.001;T1550.004;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1562;T1562.006;T1562.009;T1562.010;T1602;T1602.001;T1602.002;T1622"
+        },
+        "nist-800-171": {
+          "controlId": "NFO - SI-1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-08;SC-16(01);SC-28(01)",
+          "profiles": [
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+        },
+        "pci-dss": {
+          "controlId": "3.7.5"
+        },
+        "soc2": {
+          "controlId": "CC6.1-POF10"
+        },
+        "iso-27002": {
+          "controlId": "8.24;8.26"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.3",
           "title": "Employ architectural designs and implement security functionality",
@@ -113945,6 +114824,45 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "SC-08;SC-16(01);SC-28(01)"
+        },
+        "hipaa": {
+          "controlId": "164.312(e)(2)(i)"
+        },
+        "iso-27001": {
+          "controlId": "8.24;8.26"
+        },
+        "iso-27017": {
+          "controlId": "10.1.1;14.1.3"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1040;T1090;T1090.004;T1550.001;T1550.004;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1562;T1562.006;T1562.009;T1562.010;T1602;T1602.001;T1602.002;T1622"
+        },
+        "nist-800-171": {
+          "controlId": "NFO - SI-1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-08;SC-16(01);SC-28(01)",
+          "profiles": [
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+        },
+        "pci-dss": {
+          "controlId": "3.7.5"
+        },
+        "soc2": {
+          "controlId": "CC6.1-POF10"
+        },
+        "iso-27002": {
+          "controlId": "8.24;8.26"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.16",
           "title": "Protect the confidentiality of CUI at rest",
@@ -113988,6 +114906,45 @@
         "csfFunction": "Protect"
       },
       "frameworks": {
+        "fedramp": {
+          "controlId": "SC-08;SC-16(01);SC-28(01)"
+        },
+        "hipaa": {
+          "controlId": "164.312(e)(2)(i)"
+        },
+        "iso-27001": {
+          "controlId": "8.24;8.26"
+        },
+        "iso-27017": {
+          "controlId": "10.1.1;14.1.3"
+        },
+        "mitre-attack": {
+          "controlId": "T1020.001;T1040;T1090;T1090.004;T1550.001;T1550.004;T1552.007;T1557;T1557.001;T1557.002;T1557.003;T1557.004;T1562;T1562.006;T1562.009;T1562.010;T1602;T1602.001;T1602.002;T1622"
+        },
+        "nist-800-171": {
+          "controlId": "NFO - SI-1"
+        },
+        "nist-800-53": {
+          "controlId": "SC-08;SC-16(01);SC-28(01)",
+          "profiles": [
+            "Moderate",
+            "High",
+            "Privacy"
+          ]
+        },
+        "nist-csf": {
+          "controlId": "PR.DS-02",
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+        },
+        "pci-dss": {
+          "controlId": "3.7.5"
+        },
+        "soc2": {
+          "controlId": "CC6.1-POF10"
+        },
+        "iso-27002": {
+          "controlId": "8.24;8.26"
+        },
         "cmmc": {
           "controlId": "SC.L2-3.13.16",
           "title": "Protect the confidentiality of CUI at rest",
@@ -122873,6 +123830,9 @@
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.11.2"
         }
       },
       "impactRating": {
@@ -122915,6 +123875,9 @@
           "profiles": [
             "L2"
           ]
+        },
+        "nist-800-171": {
+          "controlId": "3.11.2"
         }
       },
       "impactRating": {

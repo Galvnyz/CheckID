@@ -40,7 +40,7 @@ if sys.stdout.encoding != "utf-8":
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent
 
-SCHEMA_VERSION = "2.22.0"
+SCHEMA_VERSION = "2.22.1"
 
 
 # ---------------------------------------------------------------------------
@@ -641,6 +641,37 @@ def get_parent_scf_id(scf_id: str) -> str | None:
     return match.group(1) if match else None
 
 
+def apply_fw_overrides(
+    frameworks: dict,
+    check_id: str,
+    fw_overrides: dict,
+    titles: dict,
+) -> None:
+    """Apply manual framework overrides to a check's frameworks dict in-place.
+
+    mode: "replace" (default) fills when key is absent; "append" merges controlIds
+    into an existing entry. Used by both the SCF check-building path and the
+    AZ-* enrichment path so overrides apply uniformly.
+    """
+    check_overrides = fw_overrides.get(check_id, {})
+    for fw_key, fw_data in check_overrides.items():
+        if not fw_data.get("controlId"):
+            continue
+        mode = fw_data.get("mode", "replace")
+        if mode == "append" and fw_key in frameworks:
+            existing_ids = [x.strip() for x in frameworks[fw_key].get("controlId", "").split(";") if x.strip()]
+            frameworks[fw_key]["controlId"] = merge_control_ids(existing_ids, fw_data["controlId"])
+        elif fw_key not in frameworks:
+            entry = OrderedDict([("controlId", fw_data["controlId"])])
+            title = resolve_title(fw_data["controlId"], fw_key, titles)
+            if title:
+                entry["title"] = title
+            for extra_key in ("profiles", "evidenceType"):
+                if extra_key in fw_data:
+                    entry[extra_key] = fw_data[extra_key]
+            frameworks[fw_key] = entry
+
+
 def derive_frameworks(
     scf_primary: str,
     scf_additional: list[str],
@@ -753,12 +784,25 @@ def main():
     print("Loading framework titles...")
     titles = load_framework_titles(title_path)
 
-    # Load manual framework overrides (for gaps in SCF coverage)
+    # Load manual framework overrides (for gaps in SCF coverage).
+    # Duplicate keys silently clobber each other under json.load defaults, so we
+    # parse with a dup-detecting hook. A real bug (pre-2.22.1) lost 4 overrides
+    # when EIDSCA was appended without de-duping against existing ENTRA-* entries.
     overrides_path = REPO_ROOT / "data" / "framework-overrides.json"
     fw_overrides: dict[str, dict] = {}
     if overrides_path.exists():
+        def _reject_duplicates(pairs: list[tuple]) -> dict:
+            seen: dict = {}
+            for k, v in pairs:
+                if k in seen:
+                    raise ValueError(
+                        f"framework-overrides.json: duplicate key '{k}'. "
+                        "Merge the two entries instead of appending a second one."
+                    )
+                seen[k] = v
+            return seen
         with open(overrides_path, "r", encoding="utf-8") as f:
-            overrides_data = json.load(f)
+            overrides_data = json.load(f, object_pairs_hook=_reject_duplicates)
         fw_overrides = overrides_data.get("overrides", {})
         print(f"Loaded {len(fw_overrides)} framework overrides")
 
@@ -883,25 +927,7 @@ def main():
             frameworks["stig"] = stig_entry
 
         # Apply manual framework overrides (for gaps in SCF coverage)
-        # mode: "replace" (default) — fills when key is absent; "append" — merges controlIds into existing entry
-        check_overrides = fw_overrides.get(check_id, {})
-        for fw_key, fw_data in check_overrides.items():
-            if not fw_data.get("controlId"):
-                continue
-            mode = fw_data.get("mode", "replace")
-            if mode == "append" and fw_key in frameworks:
-                existing_ids = [x.strip() for x in frameworks[fw_key].get("controlId", "").split(";") if x.strip()]
-                frameworks[fw_key]["controlId"] = merge_control_ids(existing_ids, fw_data["controlId"])
-            elif fw_key not in frameworks:
-                entry = OrderedDict([("controlId", fw_data["controlId"])])
-                title = resolve_title(fw_data["controlId"], fw_key, titles)
-                if title:
-                    entry["title"] = title
-                # Carry forward any extra fields (profiles, evidenceType)
-                for extra_key in ("profiles", "evidenceType"):
-                    if extra_key in fw_data:
-                        entry[extra_key] = fw_data[extra_key]
-                frameworks[fw_key] = entry
+        apply_fw_overrides(frameworks, check_id, fw_overrides, titles)
 
         # Ensure at least one framework exists
         if not frameworks:
@@ -954,20 +980,32 @@ def main():
 
         checks.append(check_obj)
 
-    # Merge AZ-Assess checks (Azure ARM surface — not SCF-database-derived)
+    # Merge AZ-Assess checks (Azure ARM surface — not SCF-database-derived).
+    # Always SCF-derive and union with any hardcoded frameworks: hardcoded keys
+    # win on collision so custom CMMC titles/controlIds stay as authored, but
+    # missing frameworks (nist-800-171, soc2, fedramp, …) get filled in from SCF.
+    # Prior behaviour skipped derivation whenever ANY hardcoded framework
+    # existed, leaving 28 AZ-* checks with only their single hardcoded mapping.
     az_checks = load_az_assess_source_checks(REPO_ROOT)
-    # Derive framework mappings for any az-assess check that has none (e.g. newly
-    # promoted CIS candidates whose frameworks field was left as {}).
     fw_derived = 0
+    fw_enriched = 0
     for az in az_checks:
-        if not az.get("frameworks"):
-            scf_primary = az.get("scf", {}).get("primaryControlId", "")
-            if scf_primary:
-                az["frameworks"] = derive_frameworks(
-                    scf_primary, [],
-                    all_fw_mappings, fwid_to_key, baseline_fwids, titles,
-                )
+        hardcoded = az.get("frameworks") or {}
+        scf_primary = az.get("scf", {}).get("primaryControlId", "")
+        if scf_primary:
+            derived = derive_frameworks(
+                scf_primary, [],
+                all_fw_mappings, fwid_to_key, baseline_fwids, titles,
+            )
+            # Union: keep all derived keys, then let hardcoded win on conflict.
+            merged = {**derived, **hardcoded}
+            az["frameworks"] = merged
+            if not hardcoded:
                 fw_derived += 1
+            elif set(merged) - set(hardcoded):
+                fw_enriched += 1
+        # Apply manual overrides (same code path as SCF-driven checks).
+        apply_fw_overrides(az.setdefault("frameworks", {}), az["checkId"], fw_overrides, titles)
         az["effort"] = derive_effort(az, effort_overrides)
         az_tags = derive_tags(az)
         if az_tags:
@@ -986,6 +1024,8 @@ def main():
         print(f"Merged {len(az_checks)} AZ-* checks from az-assess-source-checks.json")
     if fw_derived:
         print(f"  Derived framework mappings for {fw_derived} checks with empty frameworks")
+    if fw_enriched:
+        print(f"  Enriched {fw_enriched} checks by unioning SCF-derived with hardcoded frameworks")
 
     # Build registry
     registry = OrderedDict()

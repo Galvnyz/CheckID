@@ -5,6 +5,43 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.22.1] - 2026-04-24
+
+### Fixed
+
+- **`framework-overrides.json` duplicate-key silent data loss.** 4 check IDs
+  (`ENTRA-AUTHMETHOD-004`, `ENTRA-PASSWORD-002`, `ENTRA-PASSWORD-003`,
+  `ENTRA-PASSWORD-005`) had two override entries each; `json.load` kept only
+  the last, silently discarding the first. Merged the pairs. Restores
+  `soc2=CC6.1` on `ENTRA-PASSWORD-003` (flagged by M365-Assess CI) plus
+  three lost `nist-csf=PR.AA-*` overrides.
+- **AZ-`*` checks with hardcoded `cmmc` lost all SCF-derived frameworks.** The
+  AZ enrichment path in `Build-Registry.py` skipped derivation whenever any
+  hardcoded framework existed, leaving 26 AZ-`*` checks with only their single
+  hardcoded mapping. Fix: union derived + hardcoded, hardcoded wins on
+  collision so custom CMMC titles stay. Adds ~400 previously-missing
+  framework mappings (nist-800-171, soc2, fedramp, hipaa, pci-dss, etc.).
+- **`framework-overrides.json` now applies to AZ-`*` checks too.** The override
+  pass previously ran only in the SCF-driven check-building path. Refactored
+  into `apply_fw_overrides()` helper and invoked from both paths.
+- **Added 9 AZ-`*` overrides** (`AZ-AKS-001`, `AZ-DEFENDER-001`/`002`,
+  `AZ-GOVERNANCE-001`, `AZ-IDENTITY-002`/`003`, `AZ-KEYVAULT-001`/`002`/`003`)
+  to close the `nist-800-171` and `soc2` gaps surfaced by post-fix scans.
+
+### Added
+
+- **Load-time guard** in `Build-Registry.py`: `framework-overrides.json` is
+  parsed with an `object_pairs_hook` that raises `ValueError` on any duplicate
+  key. Makes the v2.22.0 dup-key bug structurally impossible to recur.
+- **Pester consistency tests** (framework pairing rules):
+  - no duplicate check-id keys in `framework-overrides.json`
+  - every CMMC-mapped check also has a `nist-800-171` mapping (CMMC L2
+    practice IDs are literally NIST 800-171 controls)
+  - every check mapping to NIST 800-53 AC/AU/IA/SC/SI families also has a
+    SOC 2 mapping (mirrors M365-Assess's downstream consistency gate)
+
+Closes #251 (typo fix confirmed shipped in v2.22.0; no regression).
+
 ## [2.22.0] - 2026-04-24
 
 ### Changed
