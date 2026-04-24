@@ -98,9 +98,12 @@ jobs:
         shell: pwsh
         run: |
           $reg = Get-Content data/registry.json -Raw | ConvertFrom-Json
+          $manifest = Import-PowerShellDataFile -Path CheckID.psd1
           $errors = @()
 
-          if ($reg.schemaVersion -ne '2.2.0') { $errors += "Expected schemaVersion 2.2.0, got '$($reg.schemaVersion)'" }
+          if ($reg.schemaVersion -ne $manifest.ModuleVersion) {
+            $errors += "schemaVersion '$($reg.schemaVersion)' must equal CheckID.psd1 ModuleVersion '$($manifest.ModuleVersion)' — see VERSIONING.md"
+          }
           if (-not $reg.dataVersion) { $errors += "Missing 'dataVersion' field" }
           if (-not $reg.checks) { $errors += "Missing 'checks' array" }
           if ($reg.checks.Count -lt 160) { $errors += "Expected at least 160 checks, got $($reg.checks.Count)" }
