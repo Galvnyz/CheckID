@@ -241,6 +241,45 @@ Describe 'Control Registry Integrity' {
             -Because "this check maps to both L1 and L2 controlId tokens and must retain both profile tags"
     }
 
+    # --- Framework pairing consistency (guards against silent data-loss like v2.22.1 dup-key bug) ---
+
+    It 'framework-overrides.json has no duplicate check-id keys' {
+        $overridesPath = "$PSScriptRoot/../data/framework-overrides.json"
+        $text = Get-Content -Path $overridesPath -Raw
+        $matches = [regex]::Matches($text, '(?m)^    "([^"]+)":\s*\{')
+        $keys = $matches | ForEach-Object { $_.Groups[1].Value }
+        $dupes = $keys | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name }
+        $dupes | Should -BeNullOrEmpty `
+            -Because "duplicate keys in framework-overrides.json silently clobber each other under json.load — merge the entries instead"
+    }
+
+    It 'every CMMC-mapped check also has a nist-800-171 mapping (CMMC L2 IDs are 800-171 controls)' {
+        $gaps = @()
+        foreach ($check in $checks) {
+            $fw = $check.frameworks
+            if ($fw.PSObject.Properties.Name -contains 'cmmc') {
+                $nist171 = if ($fw.PSObject.Properties.Name -contains 'nist-800-171') { $fw.'nist-800-171'.controlId } else { $null }
+                if (-not $nist171) { $gaps += $check.checkId }
+            }
+        }
+        $gaps | Should -BeNullOrEmpty `
+            -Because "CMMC 2.0 practices are literally NIST 800-171 controls; any CMMC-mapped check should also carry a nist-800-171 mapping"
+    }
+
+    It 'every check mapping to NIST 800-53 AC/AU/IA/SC/SI families also has a SOC 2 mapping' {
+        $gaps = @()
+        foreach ($check in $checks) {
+            $fw = $check.frameworks
+            $nist53 = if ($fw.PSObject.Properties.Name -contains 'nist-800-53') { $fw.'nist-800-53'.controlId } else { $null }
+            if ($nist53 -and $nist53 -match '\b(AC|AU|IA|SC|SI)-\d') {
+                $soc2 = if ($fw.PSObject.Properties.Name -contains 'soc2') { $fw.soc2.controlId } else { $null }
+                if (-not $soc2) { $gaps += "$($check.checkId) (nist-800-53=$nist53)" }
+            }
+        }
+        $gaps | Should -BeNullOrEmpty `
+            -Because "any check mapping to NIST 800-53 AC/AU/IA/SC/SI should have a SOC 2 pairing (CC6.x family usually); mirrors M365-Assess's consistency gate"
+    }
+
     # --- CIS framework ---
 
     It 'CIS-mapped entries have valid CIS framework data' {
