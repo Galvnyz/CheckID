@@ -204,6 +204,36 @@ Describe 'Control Registry Integrity' {
         }
     }
 
+    It 'CMMC profiles match the levels present in controlId (identity semantics, issue #248)' {
+        $cmmcMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cmmc' }
+        foreach ($check in $cmmcMapped) {
+            $controlId = $check.frameworks.cmmc.controlId
+            $expected = ([regex]::Matches($controlId, '\.L([123])-') |
+                ForEach-Object { "L$($_.Groups[1].Value)" } |
+                Sort-Object -Unique) -join ','
+            $actual = (@($check.frameworks.cmmc.profiles) | Sort-Object -Unique) -join ','
+            $actual | Should -Be $expected `
+                -Because "$($check.checkId) profiles must equal the set of level tokens in controlId '$controlId' (identity, not cumulative)"
+        }
+    }
+
+    It 'CMMC profiles expose L2-only entries when controlId is purely L2' {
+        $l2Only = $checks | Where-Object {
+            ($_.frameworks.PSObject.Properties.Name -contains 'cmmc') -and
+            ((@($_.frameworks.cmmc.profiles)) -join ',') -eq 'L2'
+        }
+        $l2Only.Count | Should -BeGreaterThan 0 `
+            -Because "after issue #248 fix, pure-L2 controls must be tagged ['L2'] (not ['L1','L2'])"
+    }
+
+    It 'ENTRA-SECDEFAULT-001 keeps mixed [L1,L2] profiles (genuine L1+L2 controlIds)' {
+        $check = $checks | Where-Object { $_.checkId -eq 'ENTRA-SECDEFAULT-001' } | Select-Object -First 1
+        $check | Should -Not -BeNullOrEmpty
+        $joined = (@($check.frameworks.cmmc.profiles) | Sort-Object -Unique) -join ','
+        $joined | Should -Be 'L1,L2' `
+            -Because "this check maps to both L1 and L2 controlId tokens and must retain both profile tags"
+    }
+
     # --- CIS framework ---
 
     It 'CIS-mapped entries have valid CIS framework data' {

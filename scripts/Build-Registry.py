@@ -363,12 +363,10 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
 # CMMC profile derivation
 # ---------------------------------------------------------------------------
 
-_CMMC_L1 = re.compile(r"\.L1-")
-_CMMC_L2 = re.compile(r"\.L2-|L2\.-")
-_CMMC_L3 = re.compile(r"\.L3-|L3\.-")
 # scf.db stores CMMC practice IDs without the separator dot, e.g. "ACL2.-3.1.1"
 # instead of the standard "AC.L2-3.1.1". Normalize at load time.
 _CMMC_MALFORMED = re.compile(r"^([A-Z]+)(L[123])\.-(.+)$")
+_CMMC_LEVEL_TOKEN = re.compile(r"\.L([123])-")
 
 
 def normalize_cmmc_id(ctrl_id: str) -> str:
@@ -379,18 +377,14 @@ def normalize_cmmc_id(ctrl_id: str) -> str:
 def derive_cmmc_profiles(control_id: str) -> list[str]:
     """Derive CMMC level profiles from a semicolon-delimited practice ID string.
 
-    CMMC is cumulative (L3 ⊇ L2 ⊇ L1): if the highest level found is L3,
-    returns ['L1','L2','L3']; if L2, returns ['L1','L2']; if L1, ['L1'].
+    Returns the identity set of CMMC levels whose tokens appear in the
+    controlId — e.g. "IA.L2-3.5.5" → ["L2"], "AC.L1-B.1.I;AC.L2-3.1.1" →
+    ["L1","L2"]. Profiles describe what the practice IS, not the cumulative
+    scope of assessments it participates in (see issue #248).
     """
     if not control_id:
         return []
-    if _CMMC_L3.search(control_id):
-        return ["L1", "L2", "L3"]
-    if _CMMC_L2.search(control_id):
-        return ["L1", "L2"]
-    if _CMMC_L1.search(control_id):
-        return ["L1"]
-    return []
+    return sorted({f"L{n}" for n in _CMMC_LEVEL_TOKEN.findall(control_id)})
 
 
 # ---------------------------------------------------------------------------
