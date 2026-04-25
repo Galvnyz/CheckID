@@ -243,14 +243,18 @@ Describe 'Control Registry Integrity' {
 
     # --- Framework pairing consistency (guards against silent data-loss like v2.22.1 dup-key bug) ---
 
-    It 'framework-overrides.json has no duplicate check-id keys' {
-        $overridesPath = "$PSScriptRoot/../data/framework-overrides.json"
-        $text = Get-Content -Path $overridesPath -Raw
-        $matches = [regex]::Matches($text, '(?m)^    "([^"]+)":\s*\{')
-        $keys = $matches | ForEach-Object { $_.Groups[1].Value }
-        $dupes = $keys | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name }
+    It 'No duplicate check-id keys among inlined frameworkOverrides (post-v3.0)' {
+        # framework-overrides.json was dissolved in v3.0 (#262); per-check overrides
+        # now live inline on each entry in scf-check-mapping.json and
+        # az-assess-source-checks.json. The dup-key risk is now per-source-file:
+        # multiple check entries can't share the same checkId. The duplicate-key
+        # JSON gate (#254) and the schema's checkId pattern enforce this for the
+        # raw files; this test asserts the registry's check IDs are unique as a
+        # cross-check.
+        $ids = $checks | ForEach-Object { $_.checkId }
+        $dupes = $ids | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name }
         $dupes | Should -BeNullOrEmpty `
-            -Because "duplicate keys in framework-overrides.json silently clobber each other under json.load — merge the entries instead"
+            -Because "duplicate checkIds would mask override conflicts and break consumer lookups"
     }
 
     It 'every CMMC-mapped check also has a nist-800-171 mapping (CMMC L2 IDs are 800-171 controls)' {

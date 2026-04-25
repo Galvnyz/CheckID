@@ -39,7 +39,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/plan-hybrid-identity-design-considerations-overview",
           "title": "Microsoft Learn — Hybrid identity design considerations"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Migrating admin accounts to cloud-only (not synced from on-prem AD) requires reprovisioning admin credentials and updating MFA/SSPR for each affected admin. Phased: audit synced admin accounts → provision cloud-only equivalents → decommission hybrid admin accounts. Disrupts only affected administrators."
+      }
     },
     {
       "checkId": "ENTRA-SYNCADMIN-001",
@@ -111,7 +119,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices",
           "title": "Microsoft Learn — Best practices for Microsoft Entra roles"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01;PR.AA-05"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Defining emergency access (break-glass) accounts is an administrative provisioning task — create two accounts, store credentials securely, configure exclusions from MFA/CA policies. Not phased, admin-only. Derivation overcounted complexity (5) and misclassified as user-facing; the accounts themselves don't affect end users."
+      }
     },
     {
       "checkId": "ENTRA-ADMIN-001",
@@ -302,7 +323,20 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/email/block-user-access-to-shared-mailbox",
           "title": "Microsoft Learn — Block sign-in for the shared mailbox account"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Blocking direct sign-in to shared mailboxes breaks automation scripts, monitoring tools, and legacy service accounts that authenticate directly to shared mailboxes (rather than using delegate access). Service-scope disruption — end users accessing via delegation are unaffected, but integrations using direct auth break immediately."
+      }
     },
     {
       "checkId": "ENTRA-PASSWORD-001",
@@ -332,7 +366,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-smart-lockout",
           "title": "Microsoft Learn — Protect user accounts from attacks with Microsoft Entra Smart Lockout"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01"
+        }
+      }
     },
     {
       "checkId": "SPO-SESSION-001",
@@ -360,7 +399,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-online/sign-out-inactive-users",
           "title": "Microsoft Learn — Sign out inactive users"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        },
+        "soc2": {
+          "controlId": "CC6.1"
+        }
+      }
     },
     {
       "checkId": "EXO-SHARING-001",
@@ -391,7 +438,12 @@
           "url": "https://learn.microsoft.com/en-us/exchange/sharing/sharing-policies/sharing-policies",
           "title": "Microsoft Learn — Sharing policies in Exchange Online"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "ENTRA-ORGSETTING-001",
@@ -450,7 +502,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions",
           "title": "Microsoft Learn — Restrict guest access permissions in Microsoft Entra ID"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1"
+        }
+      }
     },
     {
       "checkId": "EXO-LOCKBOX-001",
@@ -479,7 +539,14 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/compliance/customer-lockbox-requests",
           "title": "Microsoft Learn — Customer Lockbox in Microsoft 365"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Customer Lockbox is a single toggle in the M365 admin center (Settings > Org Settings > Customer Lockbox). Enabling it does not change any data access or security posture immediately — it only requires admin approval before Microsoft support can access tenant data during support cases. No user impact, no disruption. Derivation overcounted via E5 + manual check adjustments."
+      }
     },
     {
       "checkId": "ENTRA-ORGSETTING-003",
@@ -539,7 +606,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/misc/sway-admin",
           "title": "Microsoft Learn — Manage Sway in the Microsoft 365 admin center"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "ENTRA-ORGSETTING-004",
@@ -605,7 +677,14 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-policies-configure",
           "title": "Microsoft Learn — Set up Safe Links policies"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Safe Links is a Defender for Office 365 P1/P2 policy — enabling it rewrites URLs in email and Office documents for time-of-click protection. Transparent to users in most cases; only affects users if a link is detonated and blocked. Not disruptive to enable; not phased. Derivation overcounted to 5 from severity + SCF weighting."
+      }
     },
     {
       "checkId": "DEFENDER-ANTIMALWARE-001",
@@ -714,7 +793,14 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-policies-configure",
           "title": "Microsoft Learn — Set up Safe Attachments policies"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Safe Attachments detonates email attachments in a sandbox before delivery. May add delivery delay (minutes) for flagged attachments; not a user-visible disruption in practice. Policy-level enable — not phased. Derivation overcounted from severity + SCF weighting adjustment."
+      }
     },
     {
       "checkId": "DEFENDER-SAFEATTACH-002",
@@ -749,7 +835,15 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-policies-configure",
           "title": "Microsoft Learn — Set up Safe Attachments policies in Microsoft Defender for Office 365"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Safe Attachments for SharePoint/OneDrive/Teams scans files uploaded to these services and blocks malicious files from being opened. May cause brief delays on first access to flagged files — service-level behavior change rather than user-visible disruption in most cases."
+      }
     },
     {
       "checkId": "DEFENDER-ANTISPAM-001",
@@ -815,7 +909,15 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-mdo-configure",
           "title": "Microsoft Learn — Configure anti-phishing policies in Microsoft Defender for Office 365"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1"
+        }
+      }
     },
     {
       "checkId": "DNS-SPF-001",
@@ -851,7 +953,20 @@
           "url": "https://www.rfc-editor.org/rfc/rfc7208",
           "title": "RFC 7208 — Sender Policy Framework (SPF) for Authorizing Use of Domains in Email"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-02"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "SPF is a single DNS record publish but overly restrictive records (hard fail) can cause mail delivery issues for legitimate senders using third-party services not yet in the SPF record. Risk is real but implementation is not inherently phased."
+      }
     },
     {
       "checkId": "DNS-DKIM-001",
@@ -880,7 +995,15 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure",
           "title": "Microsoft Learn — Set up DKIM to sign mail from your Microsoft 365 domain"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Enabling DKIM requires DNS record publication and Exchange Online activation per domain. Misconfiguration causes mail authentication failures. Two phases: configure signing → publish DNS records and validate."
+      }
     },
     {
       "checkId": "DNS-DMARC-001",
@@ -913,7 +1036,15 @@
           "url": "https://www.rfc-editor.org/rfc/rfc7489",
           "title": "RFC 7489 — Domain-based Message Authentication, Reporting, and Conformance (DMARC)"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 5,
+        "isPhased": true,
+        "phaseCount": 3,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "DMARC requires monitor→quarantine→reject with recommended 2-week minimum dwell time between phases. Jumping directly to enforcement (p=reject) causes legitimate mail rejection for misaligned senders. This is a well-known multi-month org-wide project."
+      }
     },
     {
       "checkId": "DEFENDER-MALWARE-002",
@@ -977,7 +1108,12 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure",
           "title": "Microsoft Learn — Configure connection filter policies in EOP"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        }
+      }
     },
     {
       "checkId": "EXO-CONNFILTER-002",
@@ -1005,7 +1141,12 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure",
           "title": "Microsoft Learn — Configure connection filtering"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        }
+      }
     },
     {
       "checkId": "DEFENDER-ANTISPAM-002",
@@ -1035,7 +1176,15 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-policies-configure",
           "title": "Microsoft Learn — Configure anti-spam policies in EOP"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1"
+        }
+      }
     },
     {
       "checkId": "DEFENDER-OUTBOUND-001",
@@ -1103,7 +1252,15 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-turn-on-priority-account-protection",
           "title": "Microsoft Learn — Configure and review priority account protection in Microsoft Defender for Office 365"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Enabling Microsoft Defender priority account protection requires defining which accounts are 'priority' and enabling enhanced protections. Admin configuration task — end users are not disrupted, but admin effort is needed to tag accounts and validate coverage."
+      }
     },
     {
       "checkId": "DEFENDER-PRIORITY-002",
@@ -1138,7 +1295,15 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-turn-on-priority-account-protection",
           "title": "Microsoft Learn — Configure and review priority account protection in Microsoft Defender for Office 365"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Applying Strict protection preset to priority accounts is an admin policy configuration. May tighten filtering for flagged accounts (reducing false negatives for spear-phishing), but does not block mail flow. Admin-only configuration and validation effort."
+      }
     },
     {
       "checkId": "DEFENDER-CLOUDAPPS-001",
@@ -1198,7 +1363,15 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/zero-hour-auto-purge",
           "title": "Microsoft Learn — Zero-hour auto purge (ZAP) in Microsoft Defender for Office 365"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Zero-hour Auto Purge (ZAP) for Teams retroactively removes malicious messages from Teams chats after delivery. Service-level behavior — messages silently removed from chat history, which could surprise users but is transparent by design."
+      }
     },
     {
       "checkId": "COMPLIANCE-AUDIT-001",
@@ -1224,7 +1397,12 @@
           "url": "https://learn.microsoft.com/en-us/purview/audit-log-enable-disable",
           "title": "Microsoft Learn — Turn auditing on or off"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.AE-03"
+        }
+      }
     },
     {
       "checkId": "COMPLIANCE-DLP-001",
@@ -1257,7 +1435,12 @@
           "url": "https://learn.microsoft.com/en-us/purview/dlp-create-deploy-policy",
           "title": "Microsoft Learn — Create and deploy a data loss prevention policy"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-01;PR.DS-02"
+        }
+      }
     },
     {
       "checkId": "COMPLIANCE-DLP-002",
@@ -1284,7 +1467,12 @@
           "url": "https://learn.microsoft.com/en-us/purview/dlp-microsoft-teams",
           "title": "Microsoft Learn — Data loss prevention and Microsoft Teams"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-01;PR.DS-02"
+        }
+      }
     },
     {
       "checkId": "COMPLIANCE-LABELS-001",
@@ -1319,7 +1507,12 @@
           "url": "https://learn.microsoft.com/en-us/purview/get-started-with-sensitivity-labels",
           "title": "Microsoft Learn — Get started with sensitivity labels"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "FORMS-CONFIG-002",
@@ -1349,7 +1542,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/misc/forms-settings",
           "title": "Microsoft Learn — Manage Microsoft Forms settings in the Microsoft 365 admin center"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "FORMS-CONFIG-001",
@@ -1379,7 +1577,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/misc/forms-settings",
           "title": "Microsoft Learn — Manage Microsoft Forms settings in the Microsoft 365 admin center"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "FORMS-CONFIG-004",
@@ -1441,7 +1644,15 @@
           "url": "https://learn.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started",
           "title": "Microsoft Learn — Use compliance policies to set rules for devices managed with Intune"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Marking devices without a compliance policy as 'Not Compliant' is a policy change that, combined with CA policy enforcement, can block non-compliant devices from accessing M365 resources. If CA enforcement is active, this immediately affects users on non-compliant devices. Two phases: audit compliance policy coverage gaps → enable marking with CA enforcement review."
+      }
     },
     {
       "checkId": "EXO-ANTIPHISH-001",
@@ -1529,7 +1740,12 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-protection-about",
           "title": "Microsoft Learn — Anti-spam protection in EOP"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "soc2": {
+          "controlId": "CC6.8;CC7.1"
+        }
+      }
     },
     {
       "checkId": "EXO-DKIM-001",
@@ -1562,7 +1778,14 @@
           "url": "https://www.rfc-editor.org/rfc/rfc6376",
           "title": "RFC 6376 — DomainKeys Identified Mail (DKIM) Signatures"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "EXO-DKIM-001 is the Exchange Online DKIM signing configuration check (enabling signing in the portal), distinct from DNS-DKIM-001 which covers DNS record publication. The Exchange Online activation itself is low-risk; DNS propagation is the complex step covered separately."
+      }
     },
     {
       "checkId": "EXO-MALWARE-001",
@@ -1623,7 +1846,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-userstates",
           "title": "Microsoft Learn — Enable per-user Microsoft Entra multifactor authentication to secure sign-in events"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 3,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Disabling per-user MFA (legacy MFA) while migrating to CA-based MFA is a high-risk operation if not sequenced carefully. If per-user MFA is disabled before CA-based MFA policies cover all users, affected users lose MFA protection entirely. Three phases: (1) ensure CA-based MFA policies cover all users in report-only, (2) validate CA coverage, (3) disable per-user MFA and switch CA to enforce. Complexity derivation underestimated because Medium severity doesn't trigger phased detection."
+      }
     },
     {
       "checkId": "CA-EXCLUSION-001",
@@ -1721,7 +1952,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
           "title": "Microsoft Learn — What is Microsoft Entra ID?"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AP05"
+        }
+      }
     },
     {
       "checkId": "ENTRA-ADMIN-002",
@@ -1779,7 +2015,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-session-lifetime",
           "title": "Microsoft Learn — Configure authentication session management with Conditional Access"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        },
+        "soc2": {
+          "controlId": "CC6.1"
+        }
+      }
     },
     {
       "checkId": "ENTRA-LINKEDIN-001",
@@ -1866,7 +2110,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/users/groups-settings-v2-cmdlets",
           "title": "Microsoft Learn — Microsoft Entra cmdlets for configuring group settings"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AP06"
+        }
+      }
     },
     {
       "checkId": "ENTRA-DEVICE-001",
@@ -2081,7 +2330,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent",
           "title": "Microsoft Learn — Configure how users consent to applications"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.CP01;EIDSCA.AP10"
+        }
+      }
     },
     {
       "checkId": "ENTRA-CONSENT-002",
@@ -2110,7 +2364,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent",
           "title": "Microsoft Learn — Configure how users consent to applications"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.CR01;EIDSCA.CP03"
+        }
+      }
     },
     {
       "checkId": "ENTRA-GUEST-004",
@@ -2144,7 +2403,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions",
           "title": "Microsoft Learn — Restrict guest access permissions in Microsoft Entra ID"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "ENTRA-GUEST-001",
@@ -2174,7 +2438,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions",
           "title": "Microsoft Learn — Restrict guest access permissions in Microsoft Entra ID"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AP14"
+        }
+      }
     },
     {
       "checkId": "ENTRA-GUEST-002",
@@ -2201,7 +2470,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions",
           "title": "Microsoft Learn — Restrict guest access permissions in Microsoft Entra ID"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.ST09"
+        }
+      }
     },
     {
       "checkId": "ENTRA-HYBRID-001",
@@ -2233,7 +2507,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks",
           "title": "Microsoft Learn — Risk detections in Microsoft Entra ID Protection"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01;PR.AA-03"
+        }
+      }
     },
     {
       "checkId": "EXO-TRANSPORT-002",
@@ -2296,7 +2575,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa",
           "title": "Microsoft Learn — Require MFA for administrators"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03"
+        }
+      },
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Admin MFA is narrower scope than all-user MFA but still high-risk — admin lockout has outsized operational impact. Two phases: register admins for MFA method → enforce policy."
+      }
     },
     {
       "checkId": "CA-MFA-ALL-001",
@@ -2334,7 +2626,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-azure-mfa",
           "title": "Microsoft Learn — Enable Microsoft Entra multifactor authentication"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03"
+        }
+      },
+      "effortOverride": {
+        "complexity": 5,
+        "isPhased": true,
+        "phaseCount": 3,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "MFA enforcement for all users is an org-wide change affecting every sign-in. Phased approach: report-only CA policy → enforce for pilot group → enforce org-wide. Rushing causes immediate lockouts for users without MFA registered."
+      }
     },
     {
       "checkId": "ENTRA-CA-001",
@@ -2394,7 +2699,15 @@
           "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online",
           "title": "Microsoft Learn — Disable Basic authentication in Exchange Online"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Enabling a CA policy to block legacy authentication protocols (IMAP, POP3, basic auth SMTP) breaks mail clients and apps that have not migrated to modern auth. Two phases: report-only CA policy (identify legacy auth traffic via sign-in logs) → enforce blocking after legacy client remediation. Sprint 4: explicit override added after 'block' keyword removed from _PHASED_NAME_KEYWORDS — this is one of the few legitimate block-keyword phased cases."
+      }
     },
     {
       "checkId": "CA-SIGNIN-FREQ-001",
@@ -2423,7 +2736,23 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-session-lifetime",
           "title": "Microsoft Learn — Configure authentication session management with Conditional Access"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        },
+        "soc2": {
+          "controlId": "CC6.1"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Sign-in frequency forces re-authentication at the configured interval. Shorter intervals cause UX friction but not access loss. Not inherently phased but disruption scope is user-facing."
+      }
     },
     {
       "checkId": "CA-PHISHRES-001",
@@ -2621,7 +2950,15 @@
           "url": "https://learn.microsoft.com/en-us/intune/protect/conditional-access-intune-common-ways-use",
           "title": "Microsoft Learn — Common ways to use Conditional Access with Intune"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Requiring a managed device to register security information prevents users on personal/unmanaged devices from registering new MFA methods. Directly affects users trying to register authenticators from non-managed devices — a deliberate security restriction with user-facing impact."
+      }
     },
     {
       "checkId": "CA-INTUNE-001",
@@ -2658,7 +2995,20 @@
           "url": "https://learn.microsoft.com/en-us/intune/protect/conditional-access-intune-common-ways-use",
           "title": "Microsoft Learn — Common ways to use Conditional Access with Intune"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05"
+        }
+      },
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 3,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Device compliance CA policy blocks non-compliant devices from accessing resources. Without phasing (report-only → pilot → enforce) users on unmanaged devices lose access immediately. Intune enrollment rollout must precede enforcement."
+      }
     },
     {
       "checkId": "CA-DEVICECODE-001",
@@ -2725,7 +3075,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-mfa-additional-context",
           "title": "Microsoft Learn — Use additional context in Microsoft Authenticator notifications"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AM01;EIDSCA.AM02;EIDSCA.AM07"
+        }
+      }
     },
     {
       "checkId": "ENTRA-PASSWORD-002",
@@ -2754,7 +3109,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-smart-lockout",
           "title": "Microsoft Learn — Protect user accounts from attacks with Microsoft Entra Smart Lockout"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.PR03"
+        }
+      }
     },
     {
       "checkId": "ENTRA-PASSWORD-005",
@@ -2783,7 +3146,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad-on-premises",
           "title": "Microsoft Learn — Enforce on-premises Microsoft Entra Password Protection for Active Directory"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.PR05;EIDSCA.PR06"
+        }
+      }
     },
     {
       "checkId": "ENTRA-MFA-001",
@@ -2819,7 +3190,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-licensing",
           "title": "Microsoft Learn — Features and licenses for Microsoft Entra multifactor authentication"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03"
+        }
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-001",
@@ -2853,7 +3229,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-methods-manage",
           "title": "Microsoft Learn — Manage authentication methods for Microsoft Entra ID"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AS04;EIDSCA.AV01"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Disabling weak authentication methods (SMS OTP, voice call) removes sign-in options for users who currently rely on them as their only registered MFA method. Without a migration path to stronger methods first, affected users face authentication failures. Communication and migration campaign required before disabling."
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-004",
@@ -2889,7 +3278,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-methods-manage",
           "title": "Microsoft Learn — Manage authentication methods for Microsoft Entra ID"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.AM10"
+        }
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-005",
@@ -2918,7 +3315,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.AG01 Authentication methods policy migration state"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AG01"
+        }
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-006",
@@ -2948,7 +3350,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.AG02 Suspicious activity reporting state"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AG02"
+        }
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-007",
@@ -2977,7 +3384,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.AT01 Temporary Access Pass state"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AT01"
+        }
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-008",
@@ -3006,7 +3418,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.AT02 Temporary Access Pass single-use enforcement"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AT02"
+        }
+      }
     },
     {
       "checkId": "ENTRA-AUTHMETHOD-002",
@@ -3039,7 +3456,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-methods-manage",
           "title": "Microsoft Learn — Manage authentication methods for Microsoft Entra ID"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Disabling the email OTP authentication method affects users who use email as their MFA factor. Removing it without ensuring alternative methods are registered causes authentication failures at next sign-in. User-facing disruption for any user without an alternative method registered."
+      }
     },
     {
       "checkId": "ENTRA-SSPR-001",
@@ -3072,7 +3497,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr",
           "title": "Microsoft Learn — Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01"
+        }
+      }
     },
     {
       "checkId": "PURVIEW-AUDIT-001",
@@ -3105,7 +3535,14 @@
           "url": "https://learn.microsoft.com/en-us/purview/audit-solutions-overview",
           "title": "Microsoft Learn — Microsoft Purview Audit overview"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Enabling Unified Audit Logging is a single toggle in the Purview compliance portal. No user impact, no service disruption. Complexity 2 (requires E5 or add-on licensing verification before enabling). Derivation miscounted this as phased because complexity reached 4 due to SCF weighting adjustment."
+      }
     },
     {
       "checkId": "ENTRA-PIM-001",
@@ -3169,7 +3606,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure-security-alerts",
           "title": "Microsoft Learn — Configure security alerts for Microsoft Entra roles in PIM"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "ENTRA-PIM-003",
@@ -3197,7 +3639,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-create-roles-and-resource-roles-review",
           "title": "Microsoft Learn — Create an access review of Azure resource and Microsoft Entra roles in PIM"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      },
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Configuring access reviews for privileged roles in PIM is an admin governance task. The review process itself is admin-only workflow — end users are not affected. Not inherently phased; it is a PIM configuration step."
+      }
     },
     {
       "checkId": "ENTRA-PIM-004",
@@ -3223,7 +3678,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings",
           "title": "Microsoft Learn — Configure Microsoft Entra role settings in PIM"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 5,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Requiring approval for Global Administrator role activation is a significant governance change. Affects all admins who currently activate GA via PIM without approval — their activation workflow changes immediately. Two phases: configure approvers/notifications → enforce approval requirement. Admin-only disruption."
+      }
     },
     {
       "checkId": "ENTRA-PIM-005",
@@ -3249,7 +3712,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings",
           "title": "Microsoft Learn — Configure Microsoft Entra role settings in PIM"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 5,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Same pattern as ENTRA-PIM-004 — requiring approval for Privileged Role Administrator activation changes the workflow for a critical role that can assign all other roles. Admin-only disruption."
+      }
     },
     {
       "checkId": "PURVIEW-RETENTION-001",
@@ -3364,7 +3835,12 @@
           "url": "https://learn.microsoft.com/en-us/purview/audit-log-enable-disable",
           "title": "Microsoft Learn — Turn auditing on or off"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.AE-03"
+        }
+      }
     },
     {
       "checkId": "EXO-AUDIT-003",
@@ -3391,7 +3867,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/compliance/audit-mailboxes",
           "title": "Microsoft Learn — Manage mailbox auditing"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.AE-03"
+        }
+      }
     },
     {
       "checkId": "EXO-AUDIT-002",
@@ -3418,7 +3899,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/compliance/audit-mailboxes",
           "title": "Microsoft Learn — Manage mailbox auditing"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.AE-03"
+        }
+      }
     },
     {
       "checkId": "INTUNE-ENCRYPTION-001",
@@ -3503,7 +3989,12 @@
           "url": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding",
           "title": "Microsoft Learn — Control automatic external email forwarding in Microsoft 365"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-02"
+        }
+      }
     },
     {
       "checkId": "EXO-TRANSPORT-001",
@@ -3529,7 +4020,15 @@
           "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/mail-flow-rules",
           "title": "Microsoft Learn — Mail flow rules (transport rules) in Exchange Online"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1"
+        }
+      }
     },
     {
       "checkId": "EXO-EXTTAG-001",
@@ -3556,7 +4055,15 @@
           "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/enable-external-email-tagging",
           "title": "Microsoft Learn — Enable external email tagging in Exchange Online"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "DE.CM-09"
+        },
+        "soc2": {
+          "controlId": "CC6.8;CC7.1"
+        }
+      }
     },
     {
       "checkId": "INTUNE-ENROLLMENT-001",
@@ -3615,7 +4122,15 @@
           "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/add-ins-for-outlook/specify-who-can-install-and-manage-add-ins",
           "title": "Microsoft Learn — Specify the administrators and users who can install and manage add-ins for Outlook"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Restricting user-installed Outlook add-ins removes add-ins users have already installed and rely on for productivity workflows. Immediate user-facing disruption when enforced — users lose add-ins without warning unless communicated in advance."
+      }
     },
     {
       "checkId": "INTUNE-UPDATE-001",
@@ -3667,7 +4182,15 @@
           "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission",
           "title": "Microsoft Learn — Enable or disable authenticated client SMTP submission (SMTP AUTH)"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Enabling modern authentication for Exchange Online forces OAuth2 token-based auth, breaking legacy mail clients (Outlook 2013 without updates, some mobile apps) that only support basic auth. Two phases: identify legacy auth clients via sign-in logs → enforce modern auth after client remediation."
+      }
     },
     {
       "checkId": "EXO-MAILTIPS-001",
@@ -3749,7 +4272,15 @@
           "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission",
           "title": "Microsoft Learn — Enable or disable authenticated client SMTP submission (SMTP AUTH)"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 5,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Disabling SMTP AUTH is one of the most commonly underestimated M365 changes. Legacy printers, scanners, MFDs, LOB applications, and monitoring systems frequently use SMTP AUTH without IT's knowledge. Orgs routinely discover unknown senders only after enforcement. Two phases: SMTP AUTH audit via message trace (identify senders) → disable with per-mailbox re-enablement for verified legacy devices. Complexity was understated by derivation."
+      }
     },
     {
       "checkId": "EXO-DIRECTSEND-001",
@@ -3806,7 +4337,15 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication",
           "title": "Microsoft Learn — Set up multifactor authentication for Microsoft 365"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Modern authentication enforcement for SharePoint breaks legacy apps and scripts using basic auth. Disruption is service-level (apps/integrations) rather than user-facing. Single policy change."
+      }
     },
     {
       "checkId": "SPO-B2B-001",
@@ -3837,7 +4376,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-online/sharepoint-azureb2b-integration",
           "title": "Microsoft Learn — Azure AD B2B integration for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "SharePoint B2B integration with Entra ID is a service-level configuration enabling guest access for external collaborators. Enabling/configuring it affects service behavior for B2B scenarios rather than disrupting existing user workflows. Service scope is more accurate than user-facing."
+      }
     },
     {
       "checkId": "SPO-SHARING-001",
@@ -3869,7 +4416,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off",
           "title": "Microsoft Learn — Manage sharing settings for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Restricting external content sharing breaks existing sharing workflows for users who actively share with external parties. Must audit current sharing before tightening — two phases: identify/communicate impact → enforce new policy. Derivation missed disruptionScope because SharePoint collector is not in _EMAIL_COLLECTORS or _AUTH_COLLECTORS."
+      }
     },
     {
       "checkId": "SPO-OD-001",
@@ -3901,7 +4456,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off",
           "title": "Microsoft Learn — Manage sharing settings for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Restricting OneDrive sharing settings affects users who rely on external sharing from OneDrive. Single policy change but disruptionScope derivation missed SharePoint collector. Not inherently phased but communication to users is required before enforcement."
+      }
     },
     {
       "checkId": "SPO-SHARING-002",
@@ -3993,7 +4556,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/change-default-sharing-link",
           "title": "Microsoft Learn — Change the default link type for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Restricting link sharing (anyone/org-wide links) breaks existing shared links users have distributed externally. Same pattern as SPO-SHARING-001 — requires audit and communication before enforcement."
+      }
     },
     {
       "checkId": "SPO-SHARING-008",
@@ -4054,7 +4625,12 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-online/turn-external-sharing-on-or-off",
           "title": "Microsoft Learn — Manage sharing settings for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "SPO-SHARING-006",
@@ -4084,7 +4660,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-online/turn-external-sharing-on-or-off",
           "title": "Microsoft Learn — Manage sharing settings for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03"
+        },
+        "soc2": {
+          "controlId": "CC6.1"
+        }
+      }
     },
     {
       "checkId": "SPO-SHARING-007",
@@ -4250,7 +4834,15 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/set-up-guests",
           "title": "Microsoft Learn — Turn guest access on or off in Microsoft Teams"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Changing guest access settings affects existing guest users in Teams and internal users collaborating with them. Restricting guest access removes existing guest access immediately — communication required. DisruptionScope missed because Teams collector not in derivation rules."
+      }
     },
     {
       "checkId": "PBI-TENANT-001",
@@ -4336,7 +4928,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/teams-client-update",
           "title": "Microsoft Learn — Teams update process"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-02"
+        }
+      }
     },
     {
       "checkId": "PBI-TENANT-002",
@@ -4392,7 +4989,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/communicate-with-users-from-other-organizations",
           "title": "Microsoft Learn — Communicate with users from other organizations in Microsoft Teams"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "TEAMS-EXTACCESS-001",
@@ -4560,7 +5162,20 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams",
           "title": "Microsoft Learn — Manage meeting settings in Microsoft Teams"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05"
+        }
+      },
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Blocking anonymous meeting join is a policy change that affects users who regularly invite external parties to meetings without requiring them to sign in. Low complexity (single Teams admin policy), but user-facing disruption for existing meeting patterns."
+      }
     },
     {
       "checkId": "TEAMS-MEETING-002",
@@ -4586,7 +5201,15 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-policies-overview",
           "title": "Microsoft Learn — Manage meeting policies in Microsoft Teams"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03;PR.AA-05"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.7"
+        }
+      }
     },
     {
       "checkId": "TEAMS-MEETING-003",
@@ -4615,7 +5238,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-policies-participants-and-guests",
           "title": "Microsoft Learn — Manage meeting policies for participants and guests"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "TEAMS-MEETING-004",
@@ -4641,7 +5269,15 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-policies-participants-and-guests",
           "title": "Microsoft Learn — Manage meeting policies for participants and guests"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        },
+        "soc2": {
+          "controlId": "CC6.1;CC6.7"
+        }
+      }
     },
     {
       "checkId": "TEAMS-MEETING-006",
@@ -4671,7 +5307,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-policies-overview",
           "title": "Microsoft Learn — Manage meeting policies in Microsoft Teams"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "TEAMS-MEETING-007",
@@ -4702,7 +5343,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-policies-participants-and-guests",
           "title": "Microsoft Learn — Manage meeting policies for participants and guests"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "TEAMS-MEETING-005",
@@ -4728,7 +5374,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-policies-recording-and-transcription",
           "title": "Microsoft Learn — Teams meeting recording"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "TEAMS-MEETING-008",
@@ -5147,7 +5798,12 @@
           "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-security-data-protection-overview",
           "title": "Microsoft Learn — Data protection in Power BI"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "PBI-LABELS-001",
@@ -5178,7 +5834,12 @@
           "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-security-sensitivity-label-overview",
           "title": "Microsoft Learn — Sensitivity labels in Power BI"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "POWERBI-SHARING-003",
@@ -5208,7 +5869,12 @@
           "url": "https://learn.microsoft.com/en-us/power-bi/admin/service-admin-portal-export-sharing",
           "title": "Microsoft Learn — Export and sharing settings in the Power BI admin portal"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "PBI-LINK-001",
@@ -5238,7 +5904,12 @@
           "url": "https://learn.microsoft.com/en-us/power-bi/admin/service-admin-portal-export-sharing",
           "title": "Microsoft Learn — Export and sharing settings in the Power BI admin portal"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05;PR.DS-01"
+        }
+      }
     },
     {
       "checkId": "POWERBI-SHARING-004",
@@ -5606,7 +6277,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview",
           "title": "Microsoft Learn — What are access reviews in Microsoft Entra ID?"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01;PR.AA-05"
+        }
+      }
     },
     {
       "checkId": "FORMS-CONFIG-003",
@@ -5704,7 +6380,12 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/misc/forms-settings",
           "title": "Microsoft Learn — Manage Microsoft Forms settings in the Microsoft 365 admin center"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "GV.SC-07"
+        }
+      }
     },
     {
       "checkId": "INTUNE-MAA-001",
@@ -5841,7 +6522,17 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user",
           "title": "Microsoft Learn — Assign Microsoft Entra roles in PIM"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-05"
+        }
+      },
+      "effortOverride": {
+        "isPhased": false,
+        "phaseCount": 1,
+        "rationale": "Remediating permanent eligible Tier-0 role assignments requires converting each assignment to time-bound in PIM settings. While this requires coordination with each role holder, it is not a sequential phased technical deployment — it is a bulk admin task that can be completed in one change window. Complexity=4 is appropriate; isPhased is not warranted since there is no staged rollout with dwell time between phases."
+      }
     },
     {
       "checkId": "PURVIEW-RETENTION-004",
@@ -5951,7 +6642,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-configure-security-alert",
           "title": "Microsoft Learn — Configure security alerts for Azure resource roles in PIM"
         }
-      ]
+      ],
+      "effortOverride": {
+        "isPhased": false,
+        "phaseCount": 1,
+        "rationale": "Tier-0 role activation duration setting (e.g., max 4 hours) is a single slider in PIM settings. Changing the maximum duration does not require a phased rollout — the new limit applies to future activations only; existing activations are not affected. Complexity=4 is retained (E5 + weighting, appropriate for Tier-0 governance), but isPhased is not warranted for a single-field config change."
+      }
     },
     {
       "checkId": "ENTRA-SECDEFAULT-001",
@@ -6004,7 +6700,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app",
           "title": "Microsoft Learn — Register an application with the Microsoft identity platform"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AP01;EIDSCA.AP08"
+        }
+      }
     },
     {
       "checkId": "ENTRA-GUEST-003",
@@ -6106,7 +6807,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-authentication-smart-lockout",
           "title": "Microsoft Learn — Protect user accounts from attacks with Microsoft Entra Smart Lockout"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "soc2": {
+          "controlId": "CC6.1"
+        },
+        "eidsca": {
+          "controlId": "EIDSCA.PR01;EIDSCA.PR02"
+        }
+      }
     },
     {
       "checkId": "ENTRA-PASSWORD-004",
@@ -6678,7 +7387,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-methods-activity",
           "title": "Microsoft Learn — Authentication methods activity reports"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-03"
+        }
+      }
     },
     {
       "checkId": "ENTRA-APPS-002",
@@ -6740,7 +7454,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.AP04 Block legacy MSOL PowerShell"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AP04"
+        }
+      }
     },
     {
       "checkId": "PURVIEW-RETENTION-005",
@@ -6939,7 +7658,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-session",
           "title": "Microsoft Learn — Session controls in Conditional Access policy"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "soc2": {
+          "controlId": "CC6.1"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Persistent browser sessions allowed without device compliance is a CA policy gap — fixing it means non-compliant device users lose persistent sessions and must re-authenticate more frequently. User-facing change in authentication behavior. Derivation missed because CAEvaluator was previously not in _USER_FACING_COLLECTORS for Medium severity."
+      }
     },
     {
       "checkId": "ENTRA-ADMIN-004",
@@ -7088,7 +7820,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent",
           "title": "Microsoft Learn — Configure how users consent to applications"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.AP09;EIDSCA.CP04"
+        }
+      }
     },
     {
       "checkId": "ENTRA-CONSENT-004",
@@ -7150,7 +7887,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.CR02 Admin consent request designated reviewers"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.CR02"
+        }
+      }
     },
     {
       "checkId": "ENTRA-CONSENT-006",
@@ -7180,7 +7922,12 @@
           "url": "https://maester.dev/docs/tests/EIDSCA",
           "title": "Maester — EIDSCA.CR04 Admin consent request email notifications"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "eidsca": {
+          "controlId": "EIDSCA.CR04"
+        }
+      }
     },
     {
       "checkId": "ENTRA-ENTAPP-010",
@@ -7212,7 +7959,15 @@
           "url": "https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model",
           "title": "Microsoft Learn — Privileged access: enterprise access model (Tier 0)"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Internal apps with Tier 0 (Global Reader, Directory Read All, etc.) application permissions represent significant privilege. Revoking permissions breaks app functionality — requires testing in non-production first. Phased: audit and triage → revoke in controlled batches. Service-level disruption to app integrations."
+      }
     },
     {
       "checkId": "ENTRA-ENTAPP-011",
@@ -7364,7 +8119,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/architecture/service-accounts-principal",
           "title": "Microsoft Learn — Securing service principals in Microsoft Entra ID"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 2,
+        "disruptionRisk": true,
+        "disruptionScope": "service",
+        "rationale": "Service principals with permanent client secrets and Tier 0 privileges require secret rotation and privilege reduction. Rotating secrets breaks app authentication until the new secret is deployed — phased: coordinate secret rotation with app teams → reduce permissions. Service-level disruption."
+      }
     },
     {
       "checkId": "ENTRA-ENTAPP-016",
@@ -7392,7 +8155,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/overview-assign-app-owners",
           "title": "Microsoft Learn — Manage app registration owners"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Removing owners from Tier 0 permission apps restricts who can modify those apps — admin-only change. Not inherently phased but requires identifying correct ownership before removing incorrect owners."
+      }
     },
     {
       "checkId": "ENTRA-ENTAPP-017",
@@ -7480,7 +8251,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-application-permissions",
           "title": "Microsoft Learn — Manage and review permissions granted to enterprise apps"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Reviewing and disabling Tier 0 apps with no sign-in activity is an admin governance task. No end-user impact unless an app that appears unused is actually still referenced. Requires investigation before removal — admin-only."
+      }
     },
     {
       "checkId": "ENTRA-ENTAPP-020",
@@ -7508,7 +8287,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-sign-in-unexpected-user-consent-error",
           "title": "Microsoft Learn — Unexpected error when performing consent to an application"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Investigating and removing foreign apps impersonating Microsoft branding is an admin investigation/remediation task. Requires reviewing app registrations and removing or renaming offending apps — admin-only process. Not phased but requires careful review before acting."
+      }
     },
     {
       "checkId": "ENTRA-ENTAPP-021",
@@ -7572,7 +8359,14 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/plan-conditional-access",
           "title": "Microsoft Learn — Plan a Conditional Access deployment"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Security Defaults Gap Analysis is a detection/reporting check — it identifies gaps in CA policy coverage, it does not enforce or change anything. No remediation action is taken by enabling this check. Derivation overcounted complexity because it scored against severity; the check itself is a read-only assessment."
+      }
     },
     {
       "checkId": "EXO-HIDDEN-001",
@@ -7628,7 +8422,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off",
           "title": "Microsoft Learn — Manage sharing settings for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Site-level sharing settings affect site owners and users who share content externally. Tightening tenant-level policy can override site owner settings, disrupting established sharing workflows."
+      }
     },
     {
       "checkId": "SPO-SITE-002",
@@ -7656,7 +8458,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off",
           "title": "Microsoft Learn — Manage sharing settings for SharePoint and OneDrive"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Restricting external sharing on sensitive sites may break existing collaboration with external parties. Requires inventory of current external access before enforcement."
+      }
     },
     {
       "checkId": "SPO-SITE-003",
@@ -7683,7 +8493,14 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-online/manage-sites-in-new-admin-center",
           "title": "Microsoft Learn — Manage sites in the SharePoint admin center"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 1,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Site collection administrator visibility is an Informational (observe-only) check. The remediation is to review the list of site collection admins — no configuration change is made. Complexity 1 (read-only admin review). Derivation overcounted because impactRating.severity=Informational defaults to base=1 but E5 and weighting bumped it to 3."
+      }
     },
     {
       "checkId": "SPO-ACCESS-001",
@@ -7711,7 +8528,15 @@
           "url": "https://learn.microsoft.com/en-us/sharepoint/control-access-from-unmanaged-devices",
           "title": "Microsoft Learn — Control access from unmanaged devices"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": true,
+        "phaseCount": 3,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "CA policy coverage for SharePoint gates access to all SharePoint resources by device compliance or network location. Non-compliant/unmanaged devices lose SharePoint access immediately without phasing (report-only → pilot → enforce). Derivation missed disruptionScope because SharePoint collector is not in _AUTH_COLLECTORS."
+      }
     },
     {
       "checkId": "SPO-ACCESS-002",
@@ -7771,7 +8596,14 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/misc/versioning-in-sharepoint",
           "title": "Microsoft Learn — Overview of versioning in SharePoint"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Version history configuration is a passive admin policy (setting retention limits for document versions). Does not remove access or break active user workflows. Rule fix over-flagged because SharePoint collector now triggers user-facing for Medium; version history is an exception — admin-only governance."
+      }
     },
     {
       "checkId": "ENTRA-SOD-001",
@@ -7796,7 +8628,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices",
           "title": "Microsoft Learn — Best practices for Microsoft Entra roles"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Separation of duties for critical admin roles requires reviewing and removing conflicting role assignments from admin accounts. Affects only administrators — removing roles from admin accounts disrupts those admins' access to specific functions but not end users."
+      }
     },
     {
       "checkId": "ENTRA-TOU-001",
@@ -7820,7 +8660,20 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/terms-of-use",
           "title": "Microsoft Learn — Microsoft Entra terms of use"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "soc2": {
+          "controlId": "CC2.2"
+        }
+      },
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Configuring a Terms of Use (ToU) CA policy requires all targeted users to accept the ToU on their next sign-in before accessing resources. This is an intentional user-facing interruption to the sign-in flow — acceptable by design but affects all users in scope on first enforcement."
+      }
     },
     {
       "checkId": "ENTRA-PRIVREMOTE-001",
@@ -8028,7 +8881,14 @@
           "url": "https://learn.microsoft.com/en-us/intune/remote-actions/device-inventory",
           "title": "Microsoft Learn — See device details with Microsoft Intune"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Ensuring Intune is authoritative for device inventory is an admin/configuration check — it verifies MDM authority settings, not a change that disrupts end users. Rule fix over-flagged Intune collector as user-facing for Medium; inventory configuration is an admin-only concern."
+      }
     },
     {
       "checkId": "DEFENDER-CFGDETECT-001",
@@ -8074,7 +8934,14 @@
           "url": "https://learn.microsoft.com/en-us/intune/enrollment/windows-enrollment-automatic",
           "title": "Microsoft Learn — Set up automatic enrollment for Windows devices in Microsoft Intune"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 2,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Automated device discovery and enrollment configuration is a backend MDM policy setup. Configuring auto-discovery does not disrupt existing enrolled devices or active user sessions. Admin-only backend configuration."
+      }
     },
     {
       "checkId": "COMPLIANCE-COMMS-001",
@@ -8098,7 +8965,15 @@
           "url": "https://learn.microsoft.com/en-us/purview/communication-compliance-solution-overview",
           "title": "Microsoft Learn — Learn about communication compliance in Microsoft Purview"
         }
-      ]
+      ],
+      "effortOverride": {
+        "complexity": 4,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "admin-only",
+        "rationale": "Communication Compliance policies enable monitoring of communications for policy violations (regulatory, HR). Setting up the policies is an admin task requiring legal/HR coordination for scope and reviewers. Does not disrupt user communications — monitoring is passive. Admin-only effort."
+      }
     },
     {
       "checkId": "COMPLIANCE-DLP-003",
@@ -8167,7 +9042,13 @@
           "url": "https://learn.microsoft.com/en-us/mem/intune/configuration/device-restrictions-windows-10",
           "title": "Microsoft Learn — Windows 10/11 device restriction settings in Intune"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "mode": "append",
+          "controlId": "MP.L2-3.8.8"
+        }
+      }
     },
     {
       "checkId": "ENTRA-ADMINROLE-SEPARATION-001",
@@ -8194,7 +9075,13 @@
           "url": "https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-accounts",
           "title": "Microsoft Learn — Privileged access: accounts"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "mode": "append",
+          "controlId": "SC.L2-3.13.3"
+        }
+      }
     },
     {
       "checkId": "ENTRA-CA-SESSIONFREQ-001",
@@ -8215,7 +9102,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-session-lifetime",
           "title": "Microsoft Learn — Configure authentication session management with Conditional Access"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.9"
+        },
+        "soc2": {
+          "controlId": "CC6.6"
+        }
+      }
     },
     {
       "checkId": "INTUNE-MOBILECODE-001",
@@ -8240,7 +9135,15 @@
           "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy",
           "title": "Microsoft Learn — Set-ExecutionPolicy"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.13"
+        },
+        "soc2": {
+          "controlId": "CC6.6"
+        }
+      }
     },
     {
       "checkId": "ENTRA-SESSIONAUTH-001",
@@ -8261,7 +9164,15 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/block-legacy-authentication",
           "title": "Microsoft Learn — Block legacy authentication with Conditional Access"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "controlId": "SC.L2-3.13.15"
+        },
+        "soc2": {
+          "controlId": "CC6.6"
+        }
+      }
     },
     {
       "checkId": "SPO-CUIACCESS-001",
@@ -8288,7 +9199,20 @@
           "url": "https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final",
           "title": "NIST SP 800-171 Rev. 2 — Protecting CUI in Non-Federal Systems"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "controlId": "MP.L2-3.8.2"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": true,
+        "disruptionScope": "user-facing",
+        "rationale": "Restricting access to SharePoint content to specific groups affects all users currently accessing via anonymous or broad links. DisruptionScope missed by derivation due to SharePoint collector not being in _AUTH_COLLECTORS."
+      }
     },
     {
       "checkId": "BACKUP-ENABLED-001",
@@ -8311,7 +9235,19 @@
           "url": "https://learn.microsoft.com/en-us/microsoft-365/backup/backup-overview",
           "title": "Microsoft Learn — Overview of Microsoft 365 Backup"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "cmmc": {
+          "controlId": "MP.L2-3.8.9"
+        }
+      },
+      "effortOverride": {
+        "complexity": 3,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false,
+        "rationale": "Enabling Microsoft 365 Backup is a service enablement action — select workloads, assign licenses, configure retention. No disruption to end users or services. Complexity 3 (licensing acquisition, policy scoping, and validation required). Derivation overcounted to 5 because severity is High with SCF weighting adjustment."
+      }
     },
     {
       "checkId": "INTUNE-VPNCONFIG-001",
@@ -8354,7 +9290,12 @@
           "url": "https://learn.microsoft.com/en-us/mem/intune/configuration/wi-fi-settings-configure",
           "title": "Microsoft Learn — Configure Wi-Fi settings for devices in Intune"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "soc2": {
+          "controlId": "CC6.1;CC6.3"
+        }
+      }
     },
     {
       "checkId": "CA-REMOTEDEVICE-001",

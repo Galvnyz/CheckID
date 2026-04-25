@@ -25,7 +25,15 @@
       "severity": "High",
       "rationale": "Excessive Owner assignments violate least privilege and expand the attack surface for subscription takeover."
     },
-    "remediation": "Azure Portal > Subscriptions > [subscription] > Access control (IAM) > Role assignments. Review Owner role assignments. Remove accounts that do not require Owner. Reduce to 2-3 maximum. Use Privileged Identity Management (PIM) for eligible assignments instead."
+    "remediation": "Azure Portal > Subscriptions > [subscription] > Access control (IAM) > Role assignments. Review Owner role assignments. Remove accounts that do not require Owner. Reduce to 2-3 maximum. Use Privileged Identity Management (PIM) for eligible assignments instead.",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.1.1;3.1.5"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    }
   },
   {
     "checkId": "AZ-GOVERNANCE-002",
@@ -137,7 +145,12 @@
       "severity": "High",
       "rationale": "Expired credentials on active service principals indicate unmanaged automation that may have been compromised or abandoned."
     },
-    "remediation": "Microsoft Entra admin center > App registrations > All applications > filter for apps with expired credentials. Remove expired certificates and secrets: [app] > Certificates & secrets. Delete expired entries and rotate active credentials."
+    "remediation": "Microsoft Entra admin center > App registrations > All applications > filter for apps with expired credentials. Remove expired certificates and secrets: [app] > Certificates & secrets. Delete expired entries and rotate active credentials.",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.5.2"
+      }
+    }
   },
   {
     "checkId": "AZ-IDENTITY-003",
@@ -165,7 +178,15 @@
       "severity": "High",
       "rationale": "Service principals with stored secrets are a common attack vector; managed identities eliminate secret management overhead."
     },
-    "remediation": "Microsoft Entra admin center > Enterprise applications > All applications. Review service principals using service principal credentials vs. managed identities. Where feasible, migrate app authentication to managed identities to eliminate credential management."
+    "remediation": "Microsoft Entra admin center > Enterprise applications > All applications. Review service principals using service principal credentials vs. managed identities. Where feasible, migrate app authentication to managed identities to eliminate credential management.",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.1.5"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    }
   },
   {
     "checkId": "AZ-NETWORK-001",
@@ -361,7 +382,15 @@
       "severity": "Medium",
       "rationale": "Without soft delete, a deleted Key Vault permanently destroys all cryptographic material, potentially causing application outages."
     },
-    "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Soft-delete: Enabled. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-soft-delete true. Note: soft-delete cannot be disabled once enabled."
+    "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Soft-delete: Enabled. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-soft-delete true. Note: soft-delete cannot be disabled once enabled.",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.13.10"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    }
   },
   {
     "checkId": "AZ-KEYVAULT-002",
@@ -389,7 +418,15 @@
       "severity": "High",
       "rationale": "Without purge protection, an attacker with Key Vault delete permissions can permanently destroy all secrets, keys, and certificates."
     },
-    "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Purge protection: Enable. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-purge-protection true"
+    "remediation": "Azure Portal > Key vaults > [vault] > Settings > Properties > Purge protection: Enable. Or: az keyvault update --resource-group <RG> --name <VAULT> --enable-purge-protection true",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.13.10"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    }
   },
   {
     "checkId": "AZ-KEYVAULT-003",
@@ -417,7 +454,15 @@
       "severity": "Medium",
       "rationale": "Keys without expiry never rotate, allowing long-term exploitation of any compromise without detection."
     },
-    "remediation": "Azure Portal > Key vaults > [vault] > Objects > Keys and Secrets. Set expiration dates on all keys and secrets. Or: az keyvault key set-attributes --vault-name <VAULT> --name <KEY> --expires <DATE>"
+    "remediation": "Azure Portal > Key vaults > [vault] > Objects > Keys and Secrets. Set expiration dates on all keys and secrets. Or: az keyvault key set-attributes --vault-name <VAULT> --name <KEY> --expires <DATE>",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.5.10"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    }
   },
   {
     "checkId": "AZ-DEFENDER-001",
@@ -445,7 +490,12 @@
       "severity": "High",
       "rationale": "Without paid Defender plans, threat detection and vulnerability scanning are absent for critical workloads."
     },
-    "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans. Enable required Defender plans (Servers, Storage, SQL, etc.)."
+    "remediation": "Azure Portal > Microsoft Defender for Cloud > Environment settings > [subscription] > Defender plans. Enable required Defender plans (Servers, Storage, SQL, etc.).",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.11.2"
+      }
+    }
   },
   {
     "checkId": "AZ-DEFENDER-002",
@@ -473,7 +523,12 @@
       "severity": "High",
       "rationale": "A low secure score indicates widespread unresolved security findings that increase risk of compromise."
     },
-    "remediation": "Azure Portal > Microsoft Defender for Cloud > Overview > Secure score. Review failing recommendations and remediate to raise the secure score above the organizational threshold."
+    "remediation": "Azure Portal > Microsoft Defender for Cloud > Overview > Secure score. Review failing recommendations and remediate to raise the secure score above the organizational threshold.",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.11.2"
+      }
+    }
   },
   {
     "checkId": "AZ-DEFENDER-003",
@@ -725,7 +780,15 @@
       "severity": "High",
       "rationale": "Without RBAC, all authenticated users have unrestricted access to Kubernetes API operations including cluster-admin capabilities."
     },
-    "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > Enable Kubernetes RBAC. Or: az aks update --resource-group <RG> --name <CLUSTER> --enable-aad --enable-azure-rbac"
+    "remediation": "Azure Portal > Kubernetes services > [cluster] > Settings > Cluster configuration > Enable Kubernetes RBAC. Or: az aks update --resource-group <RG> --name <CLUSTER> --enable-aad --enable-azure-rbac",
+    "frameworkOverrides": {
+      "nist-800-171": {
+        "controlId": "3.1.2"
+      },
+      "soc2": {
+        "controlId": "CC6.1"
+      }
+    }
   },
   {
     "checkId": "AZ-AKS-002",
