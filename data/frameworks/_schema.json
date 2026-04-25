@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Galvnyz/CheckID/data/frameworks/_schema.json",
+  "title": "Framework Metadata",
+  "description": "Schema for individual framework metadata files in data/frameworks/. Each *.json file (excluding this _schema.json) describes how a single compliance framework is rendered, scored, and identified in the CheckID registry.",
+  "type": "object",
+  "required": [
+    "frameworkId",
+    "label",
+    "version",
+    "description",
+    "homepageUrl",
+    "css",
+    "totalControls",
+    "registryKey",
+    "csvColumn",
+    "displayOrder",
+    "scoring"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "frameworkId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "description": "Stable lowercase-kebab identifier. Must match the filename stem."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable framework name shown in UI."
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Framework version string (e.g., '6.0.1', 'R2', 'v10', '2022')."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "description": "One- or two-sentence description of the framework's purpose."
+    },
+    "homepageUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Authoritative source URL for the framework."
+    },
+    "css": {
+      "type": "string",
+      "pattern": "^fw-[a-z0-9-]+$",
+      "description": "CSS class prefix used by consumers for framework-specific styling."
+    },
+    "totalControls": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Total count of controls/practices/techniques in the framework."
+    },
+    "registryKey": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Key used in registry.json check entries to reference this framework."
+    },
+    "csvColumn": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Column header in framework-mappings.csv that holds this framework's mapping."
+    },
+    "displayOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Sort order for UI rendering (lower = earlier)."
+    },
+    "scoring": {
+      "type": "object",
+      "required": ["method"],
+      "additionalProperties": true,
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": [
+            "profile-compliance",
+            "control-coverage",
+            "maturity-level",
+            "criteria-coverage",
+            "technique-coverage",
+            "requirement-compliance",
+            "function-coverage",
+            "policy-compliance",
+            "severity-coverage"
+          ],
+          "description": "Scoring strategy. Method-specific fields (profiles, maturityLevels, criteria, tactics, requirements, functions, policies, severities) are permitted via additionalProperties."
+        }
+      }
+    },
+    "colors": {
+      "$ref": "#/definitions/colorTheme",
+      "description": "Optional top-level light/dark theme colors. Some frameworks (CIS) declare colors per scoring profile instead."
+    }
+  },
+  "definitions": {
+    "colorTheme": {
+      "type": "object",
+      "required": ["light", "dark"],
+      "additionalProperties": false,
+      "properties": {
+        "light": { "$ref": "#/definitions/colorPair" },
+        "dark": { "$ref": "#/definitions/colorPair" }
+      }
+    },
+    "colorPair": {
+      "type": "object",
+      "required": ["background", "color"],
+      "additionalProperties": false,
+      "properties": {
+        "background": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        }
+      }
+    }
+  }
+}

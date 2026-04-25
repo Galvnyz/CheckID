@@ -1,4 +1,4 @@
-name: Notify Downstream
+name: Notify Downstream (stable)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify:
-    name: Notify consumer repos
+    name: Notify consumer repos — stable channel
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
           token: ${{ secrets.CROSS_REPO_TOKEN }}
           repository: Galvnyz/M365-Assess
           event-type: checkid-released
-          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}"}'
+          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}", "channel": "stable"}'
 
       - name: Dispatch to M365-Remediate
         uses: peter-evans/repository-dispatch@v3
@@ -34,7 +34,7 @@ jobs:
           token: ${{ secrets.CROSS_REPO_TOKEN }}
           repository: Galvnyz/M365-Remediate
           event-type: checkid-released
-          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}"}'
+          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}", "channel": "stable"}'
 
       - name: Dispatch to StrykerScan
         uses: peter-evans/repository-dispatch@v3
@@ -42,13 +42,22 @@ jobs:
           token: ${{ secrets.CROSS_REPO_TOKEN }}
           repository: Galvnyz/StrykerScan
           event-type: checkid-released
-          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}"}'
+          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}", "channel": "stable"}'
+
+      - name: Dispatch to EZ-CMMC
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          repository: Galvnyz/EZ-CMMC
+          event-type: checkid-released
+          client-payload: '{"version": "${{ steps.info.outputs.version }}", "tag": "${{ steps.info.outputs.tag }}", "channel": "stable"}'
 
       - name: Summary
         run: |
-          echo "### Downstream notifications sent" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Downstream notifications sent — stable channel" >> "$GITHUB_STEP_SUMMARY"
           echo "- M365-Assess" >> "$GITHUB_STEP_SUMMARY"
           echo "- M365-Remediate" >> "$GITHUB_STEP_SUMMARY"
           echo "- StrykerScan" >> "$GITHUB_STEP_SUMMARY"
+          echo "- EZ-CMMC" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "CheckID **${{ steps.info.outputs.tag }}** released." >> "$GITHUB_STEP_SUMMARY"

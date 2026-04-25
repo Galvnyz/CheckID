@@ -1,0 +1,69 @@
+name: Notify Downstream (preview)
+
+# Fires on every push to main (post-merge). Consumers configured for the preview
+# channel pick this up; consumers on the stable channel ignore preview events.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/registry.json'
+      - 'data/frameworks/**'
+      - 'data/scf-check-mapping.json'
+      - 'data/scf-framework-map.json'
+
+jobs:
+  notify:
+    name: Notify consumer repos — preview channel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get commit info
+        id: info
+        shell: bash
+        run: |
+          SHA="${GITHUB_SHA}"
+          SHORT="${SHA:0:7}"
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "short=$SHORT" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch to M365-Assess
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          repository: Galvnyz/M365-Assess
+          event-type: checkid-preview
+          client-payload: '{"sha": "${{ steps.info.outputs.sha }}", "short": "${{ steps.info.outputs.short }}", "channel": "preview"}'
+
+      - name: Dispatch to M365-Remediate
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          repository: Galvnyz/M365-Remediate
+          event-type: checkid-preview
+          client-payload: '{"sha": "${{ steps.info.outputs.sha }}", "short": "${{ steps.info.outputs.short }}", "channel": "preview"}'
+
+      - name: Dispatch to StrykerScan
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          repository: Galvnyz/StrykerScan
+          event-type: checkid-preview
+          client-payload: '{"sha": "${{ steps.info.outputs.sha }}", "short": "${{ steps.info.outputs.short }}", "channel": "preview"}'
+
+      - name: Dispatch to EZ-CMMC
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          repository: Galvnyz/EZ-CMMC
+          event-type: checkid-preview
+          client-payload: '{"sha": "${{ steps.info.outputs.sha }}", "short": "${{ steps.info.outputs.short }}", "channel": "preview"}'
+
+      - name: Summary
+        run: |
+          echo "### Downstream notifications sent — preview channel" >> "$GITHUB_STEP_SUMMARY"
+          echo "Commit: \`${{ steps.info.outputs.short }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Consumers subscribed to the **preview** channel will sync from main HEAD." >> "$GITHUB_STEP_SUMMARY"
+          echo "Consumers on the **stable** channel only respond to tag releases." >> "$GITHUB_STEP_SUMMARY"
