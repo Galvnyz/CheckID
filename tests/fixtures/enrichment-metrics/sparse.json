@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "test-fixture",
+  "checks": [
+    {
+      "checkId": "TEST-001",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "Y"
+        }
+      },
+      "rationale": "Why this control matters.",
+      "impact": "What an attacker sees on failure.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/example",
+          "title": "Example doc 1"
+        },
+        {
+          "url": "https://learn.microsoft.com/another",
+          "title": "Example doc 2"
+        }
+      ]
+    },
+    {
+      "checkId": "TEST-002",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "Y"
+        }
+      },
+      "rationale": "Why this control matters.",
+      "impact": "What an attacker sees on failure.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/example",
+          "title": "Example doc 1"
+        },
+        {
+          "url": "https://learn.microsoft.com/another",
+          "title": "Example doc 2"
+        }
+      ]
+    },
+    {
+      "checkId": "TEST-003",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "Y"
+        }
+      },
+      "rationale": "Why this control matters.",
+      "impact": "What an attacker sees on failure.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/example",
+          "title": "Example doc 1"
+        },
+        {
+          "url": "https://learn.microsoft.com/another",
+          "title": "Example doc 2"
+        }
+      ]
+    },
+    {
+      "checkId": "TEST-004",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "Y"
+        }
+      },
+      "rationale": "Why this control matters.",
+      "impact": "What an attacker sees on failure.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/example",
+          "title": "Example doc 1"
+        },
+        {
+          "url": "https://learn.microsoft.com/another",
+          "title": "Example doc 2"
+        }
+      ]
+    },
+    {
+      "checkId": "TEST-005",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "Y"
+        }
+      },
+      "rationale": "Why this control matters.",
+      "impact": "What an attacker sees on failure.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/example",
+          "title": "Example doc 1"
+        },
+        {
+          "url": "https://learn.microsoft.com/another",
+          "title": "Example doc 2"
+        }
+      ]
+    },
+    {
+      "checkId": "TEST-006",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-007",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-008",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-009",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-010",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        }
+      }
+    }
+  ]
+}
