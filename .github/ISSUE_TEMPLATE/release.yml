@@ -1,0 +1,81 @@
+name: Release
+description: Track a milestone release through tag, CHANGELOG, and downstream notification
+title: "Release vX.Y.Z"
+labels: ["chore"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Semver-compliant version being released (e.g., v2.23.0, v3.0.0)
+      placeholder: "v3.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: milestone
+    attributes:
+      label: Milestone
+      description: Link to the GitHub milestone this release closes
+      placeholder: "https://github.com/Galvnyz/CheckID/milestone/37"
+    validations:
+      required: true
+
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Release checklist
+      description: |
+        Run through these in order. Do not push the tag without explicit user approval (per CLAUDE.md).
+      value: |
+        ### Pre-tag (in order)
+
+        - [ ] All issues in the milestone are CLOSED
+        - [ ] Every closed issue is linked to a merged PR (no manual closes)
+        - [ ] CI green on `main` HEAD
+        - [ ] `data/registry.json` rebuilt; `schemaVersion` matches new ModuleVersion
+        - [ ] `CheckID.psd1` ModuleVersion bumped
+        - [ ] `CHANGELOG.md` has a section for this version with: themes, breaking changes (if any), issue refs, contributor credits
+        - [ ] Downstream consumer tracking issues reviewed (M365-Assess, M365-Remediate, StrykerScan) — any blockers resolved
+        - [ ] Migration doc updated if schema changed (e.g., `docs/SCHEMA-MIGRATION-3.0.md`)
+
+        ### Tag (requires user approval)
+
+        - [ ] User has explicitly approved the tag push
+        - [ ] `git tag -a vX.Y.Z -m "vX.Y.Z — <theme>"`
+        - [ ] `git push origin vX.Y.Z`
+
+        ### Post-tag
+
+        - [ ] GitHub release drafted from CHANGELOG section
+        - [ ] Release published (not draft)
+        - [ ] Milestone closed on GitHub
+        - [ ] Backlog groomed: any deferred items from this milestone moved to the next milestone or to Backlog with rationale
+        - [ ] Downstream consumers notified (comment on their tracking issues with the release URL)
+
+        ### Verification
+
+        - [ ] `git log v<prev>..vX.Y.Z` shows commits aligned to milestone issues only — no scope creep
+        - [ ] `gh release view vX.Y.Z` shows the published release with correct notes
+        - [ ] Schema version in published `registry.json` matches the tag
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Release notes draft
+      description: |
+        Working area for the GitHub release notes. Draft here, then copy to the GitHub release form when publishing.
+      placeholder: |
+        ## Themes
+        - …
+
+        ## Breaking changes
+        - …
+
+        ## Issues closed
+        - #…
+
+        ## Contributors
+        - @…
