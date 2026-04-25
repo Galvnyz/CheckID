@@ -1,0 +1,6 @@
+{
+  "checks": {
+    "ENTRA-PASSWORD-002": { "controlId": "PR.AA-01" },
+    "ENTRA-PASSWORD-002": { "controlId": "PR.AA-02" }
+  }
+}

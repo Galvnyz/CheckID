@@ -261,7 +261,11 @@ jobs:
           python -m py_compile scripts/Build-ScfMigration.py
           python -m py_compile scripts/Build-FrameworkTitles.py
           python -m py_compile scripts/Generate-ImpactRationale.py
+          python -m py_compile scripts/Validate-NoDuplicateKeys.py
           echo "All Python scripts compile clean"
+
+      - name: Validate no duplicate JSON keys
+        run: python scripts/Validate-NoDuplicateKeys.py
 
       - name: Install Python test dependencies
         run: pip install pytest
