@@ -380,6 +380,15 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
         if rationale:
             check_obj["rationale"] = rationale
 
+        # Pass through inline overrides (v3.0+) — applied later by the
+        # AZ enrichment loop in main(). Stored on check_obj as transient
+        # build-time state; they're stripped before write since the
+        # registry's frameworks/effort already reflect the applied data.
+        if "frameworkOverrides" in entry:
+            check_obj["frameworkOverrides"] = entry["frameworkOverrides"]
+        if "effortOverride" in entry:
+            check_obj["effortOverride"] = entry["effortOverride"]
+
         checks.append(check_obj)
 
     return checks
@@ -426,21 +435,14 @@ _AZURE_COLLECTORS = {"AzAssess"}
 _ADMIN_CATEGORIES = {"CLOUDADMIN", "ROLES", "AUDIT", "PRIVACCESS", "ADMIN", "LOGGING"}
 
 
-def load_effort_overrides(repo_root: Path) -> dict[str, dict]:
-    """Load effort-overrides.json, stripping _rationale build-time annotations."""
-    path = repo_root / "data" / "effort-overrides.json"
-    if not path.exists():
-        return {}
-    data = _strict_load_json(path)
-    raw = data.get("overrides", {})
-    return {
-        cid: {k: v for k, v in entry.items() if not k.startswith("_")}
-        for cid, entry in raw.items()
-    }
+def derive_effort(check_obj: dict, effort_override: dict | None) -> dict:
+    """Derive effort fields for a check, then apply any inline override.
 
-
-def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
-    """Derive effort fields for a check, then apply any manual override."""
+    `effort_override` is the per-check `effortOverride` dict from the source
+    file (v3.0+). When present, its scalar fields override the derived
+    defaults, and its `rationale` text becomes `effort.overrideReason` —
+    preserved on the check (was silently stripped pre-v3.0).
+    """
     check_id = check_obj.get("checkId", "")
     severity = check_obj.get("impactRating", {}).get("severity", "Medium")
     collector = check_obj.get("collector", "")
@@ -495,13 +497,13 @@ def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
         disruption_risk = True
         disruption_scope = "user-facing"
 
-    # Apply manual override (only fields present in the override)
-    override = effort_overrides.get(check_id, {})
-    complexity = override.get("complexity", complexity)
-    is_phased = override.get("isPhased", is_phased)
-    phase_count = override.get("phaseCount", phase_count)
-    disruption_risk = override.get("disruptionRisk", disruption_risk)
-    disruption_scope = override.get("disruptionScope", disruption_scope)
+    # Apply inline override (only fields present in the override)
+    if effort_override:
+        complexity = effort_override.get("complexity", complexity)
+        is_phased = effort_override.get("isPhased", is_phased)
+        phase_count = effort_override.get("phaseCount", phase_count)
+        disruption_risk = effort_override.get("disruptionRisk", disruption_risk)
+        disruption_scope = effort_override.get("disruptionScope", disruption_scope)
 
     effort = OrderedDict([
         ("complexity", complexity),
@@ -511,6 +513,10 @@ def derive_effort(check_obj: dict, effort_overrides: dict) -> dict:
     ])
     if disruption_risk and disruption_scope:
         effort["disruptionScope"] = disruption_scope
+    if effort_override and effort_override.get("rationale"):
+        # Preserve tribal knowledge from the override author (was '_rationale'
+        # pre-v3.0, silently stripped from output).
+        effort["overrideReason"] = effort_override["rationale"]
 
     return effort
 
@@ -668,17 +674,20 @@ def get_parent_scf_id(scf_id: str) -> str | None:
 
 def apply_fw_overrides(
     frameworks: dict,
-    check_id: str,
-    fw_overrides: dict,
+    check_overrides: dict,
     titles: dict,
 ) -> None:
-    """Apply manual framework overrides to a check's frameworks dict in-place.
+    """Apply inline framework overrides to a check's frameworks dict in-place.
 
-    mode: "replace" (default) fills when key is absent; "append" merges controlIds
-    into an existing entry. Used by both the SCF check-building path and the
-    AZ-* enrichment path so overrides apply uniformly.
+    `check_overrides` is the per-check `frameworkOverrides` dict from the
+    source file (v3.0+). Every applied entry is tagged with
+    `source: "manual-override"` so consumers can distinguish authored
+    mappings from SCF-derived ones; an optional `reason` field is preserved
+    when the override carries one.
+
+    Mode semantics: "replace" (default) fills when the key is absent;
+    "append" merges controlIds into an existing entry.
     """
-    check_overrides = fw_overrides.get(check_id, {})
     for fw_key, fw_data in check_overrides.items():
         if not fw_data.get("controlId"):
             continue
@@ -686,7 +695,19 @@ def apply_fw_overrides(
         if mode == "append" and fw_key in frameworks:
             existing_ids = [x.strip() for x in frameworks[fw_key].get("controlId", "").split(";") if x.strip()]
             frameworks[fw_key]["controlId"] = merge_control_ids(existing_ids, fw_data["controlId"])
-        elif fw_key not in frameworks:
+            frameworks[fw_key]["source"] = "manual-override"
+            if "reason" in fw_data:
+                frameworks[fw_key]["reason"] = fw_data["reason"]
+        elif fw_key in frameworks:
+            # mode == "replace" and key already present (e.g., SCF derivation
+            # produced it). Keep the SCF-supplied controlId and any extras
+            # (title, profiles), but tag the entry with manual-override
+            # provenance — the curator's deliberate decision to assert this
+            # mapping shouldn't be lost just because SCF produced the same.
+            frameworks[fw_key]["source"] = "manual-override"
+            if "reason" in fw_data:
+                frameworks[fw_key]["reason"] = fw_data["reason"]
+        else:
             entry = OrderedDict([("controlId", fw_data["controlId"])])
             title = resolve_title(fw_data["controlId"], fw_key, titles)
             if title:
@@ -694,6 +715,9 @@ def apply_fw_overrides(
             for extra_key in ("profiles", "evidenceType"):
                 if extra_key in fw_data:
                     entry[extra_key] = fw_data[extra_key]
+            entry["source"] = "manual-override"
+            if "reason" in fw_data:
+                entry["reason"] = fw_data["reason"]
             frameworks[fw_key] = entry
 
 
@@ -807,20 +831,12 @@ def main():
     print("Loading framework titles...")
     titles = load_framework_titles(title_path)
 
-    # Load manual framework overrides (for gaps in SCF coverage).
-    # Duplicate keys silently clobber each other under json.load defaults, so we
-    # parse with a dup-detecting hook. A real bug (pre-2.22.1) lost 4 overrides
-    # when EIDSCA was appended without de-duping against existing ENTRA-* entries.
-    overrides_path = REPO_ROOT / "data" / "framework-overrides.json"
-    fw_overrides: dict[str, dict] = {}
-    if overrides_path.exists():
-        overrides_data = _strict_load_json(overrides_path)
-        fw_overrides = overrides_data.get("overrides", {})
-        print(f"Loaded {len(fw_overrides)} framework overrides")
-
-    effort_overrides = load_effort_overrides(REPO_ROOT)
-    if effort_overrides:
-        print(f"Loaded {len(effort_overrides)} effort overrides")
+    # v3.0: framework and effort overrides are inlined per-check on
+    # data/scf-check-mapping.json (M365) and data/az-assess-source-checks.json
+    # (AZ-*). The standalone framework-overrides.json and effort-overrides.json
+    # files were dissolved as part of the v3.0 schema restructure (#262 + #263).
+    # Build-Registry now reads `frameworkOverrides` and `effortOverride`
+    # directly from each check's source-file entry.
 
     # Load CIS M365 and SCuBA NIST sources
     cis_crosswalk = load_cis_m365_crosswalk(REPO_ROOT)
@@ -938,8 +954,8 @@ def main():
                 stig_entry["title"] = stig_title
             frameworks["stig"] = stig_entry
 
-        # Apply manual framework overrides (for gaps in SCF coverage)
-        apply_fw_overrides(frameworks, check_id, fw_overrides, titles)
+        # Apply inline framework overrides (for gaps in SCF coverage)
+        apply_fw_overrides(frameworks, cm.get("frameworkOverrides", {}), titles)
 
         # Ensure at least one framework exists
         if not frameworks:
@@ -968,7 +984,7 @@ def main():
                 impact["scfWeighting"] = weighting
             check_obj["impactRating"] = impact
 
-        check_obj["effort"] = derive_effort(check_obj, effort_overrides)
+        check_obj["effort"] = derive_effort(check_obj, cm.get("effortOverride"))
 
         remediation = cm.get("remediation", "")
         if remediation:
@@ -1016,9 +1032,14 @@ def main():
                 fw_derived += 1
             elif set(merged) - set(hardcoded):
                 fw_enriched += 1
-        # Apply manual overrides (same code path as SCF-driven checks).
-        apply_fw_overrides(az.setdefault("frameworks", {}), az["checkId"], fw_overrides, titles)
-        az["effort"] = derive_effort(az, effort_overrides)
+        # Apply inline overrides (same code path as SCF-driven checks).
+        apply_fw_overrides(az.setdefault("frameworks", {}), az.get("frameworkOverrides", {}), titles)
+        az["effort"] = derive_effort(az, az.get("effortOverride"))
+        # Strip transient build-time fields — the override data is now
+        # baked into az["frameworks"] and az["effort"], so the source
+        # fields would only duplicate state and break schema validation.
+        az.pop("frameworkOverrides", None)
+        az.pop("effortOverride", None)
         az_tags = derive_tags(az)
         if az_tags:
             az["tags"] = az_tags

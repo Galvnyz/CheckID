@@ -760,7 +760,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Investigating and removing foreign apps impersonating Microsoft branding is an admin investigation/remediation task. Requires reviewing app registrations and removing or renaming offending apps — admin-only process. Not phased but requires careful review before acting."
       },
       "remediation": "Investigate foreign apps using Microsoft product names -- they may be social engineering attempts. Verify the publisher and appId against known Microsoft first-party apps. Remove if suspicious.",
       "impact": "Users who grant consent to impersonating apps give external parties persistent delegated access to their data. The Microsoft-branded name increases consent rates and reduces user suspicion.",
@@ -1204,7 +1205,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Security Defaults Gap Analysis is a detection/reporting check — it identifies gaps in CA policy coverage, it does not enforce or change anything. No remediation action is taken by enabling this check. Derivation overcounted complexity because it scored against severity; the check itself is a read-only assessment."
       },
       "remediation": "No action needed. Conditional Access policies provide equivalent coverage to Security Defaults.",
       "impact": "Users or actions not covered by Conditional Access policies are subject to password-only authentication. A CA configuration that appears comprehensive but misses specific roles or legacy auth endpoints provides false assurance of MFA coverage.",
@@ -1655,7 +1657,8 @@
           "controlId": "MS.AAD.3.5v2"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AM01;EIDSCA.AM02;EIDSCA.AM07"
+          "controlId": "EIDSCA.AM01;EIDSCA.AM02;EIDSCA.AM07",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -1870,7 +1873,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "SharePoint B2B integration with Entra ID is a service-level configuration enabling guest access for external collaborators. Enabling/configuring it affects service behavior for B2B scenarios rather than disrupting existing user workflows. Service scope is more accurate than user-facing."
       },
       "remediation": "Enable B2B integration in SharePoint admin center > Policies > Sharing > More external sharing settings > Enable integration with Azure AD B2B.",
       "impact": "External users accessing SharePoint content via email verification codes bypass Entra ID authentication, MFA requirements, and Conditional Access policies that would otherwise apply.",
@@ -2070,7 +2074,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Restricting external content sharing breaks existing sharing workflows for users who actively share with external parties. Must audit current sharing before tightening — two phases: identify/communicate impact → enforce new policy. Derivation missed disruptionScope because SharePoint collector is not in _EMAIL_COLLECTORS or _AUTH_COLLECTORS."
       },
       "remediation": "Run: Set-SPOTenant -SharingCapability ExistingExternalUserSharingOnly. SharePoint admin center > Policies > Sharing.",
       "impact": "Sensitive documents including financial data, PII, and IP can be shared externally without audit or approval. Anonymous sharing links persist indefinitely and are discoverable by search engines if not restricted.",
@@ -2272,7 +2277,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Restricting OneDrive sharing settings affects users who rely on external sharing from OneDrive. Single policy change but disruptionScope derivation missed SharePoint collector. Not inherently phased but communication to users is required before enforcement."
       },
       "remediation": "SharePoint admin center > Policies > Sharing > OneDrive > set to \"Existing guests\" or more restrictive.",
       "impact": "Sensitive files stored in OneDrive can be shared externally via unauthenticated anonymous links. A user can exfiltrate any file they have access to — including synchronized SharePoint content — without DLP inspection.",
@@ -2470,7 +2476,8 @@
           "controlId": "5.15;5.16;5.18"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AT01"
+          "controlId": "EIDSCA.AT01",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -2693,7 +2700,8 @@
         "isPhased": true,
         "phaseCount": 3,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "CA policy coverage for SharePoint gates access to all SharePoint resources by device compliance or network location. Non-compliant/unmanaged devices lose SharePoint access immediately without phasing (report-only → pilot → enforce). Derivation missed disruptionScope because SharePoint collector is not in _AUTH_COLLECTORS."
       },
       "remediation": "Ensure Policy.Read.All permission is consented. Create a CA policy targeting SharePoint Online (00000003-0000-0ff1-ce00-000000000000) or All Cloud Apps.",
       "impact": "Unmanaged or compromised devices can access SharePoint and OneDrive content. Files downloaded to an unmanaged device bypass DLP, endpoint security, and data classification controls.",
@@ -4101,7 +4109,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+          "title": "Users, services, and hardware are authenticated",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -4114,7 +4123,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Admin MFA is narrower scope than all-user MFA but still high-risk — admin lockout has outsized operational impact. Two phases: register admins for MFA method → enforce policy."
       },
       "remediation": "Security Defaults enforces MFA for all admin roles. For granular control, disable Security Defaults and create Conditional Access policies.",
       "impact": "A phished or sprayed admin password gives full administrative access. Attackers can create backdoor accounts, disable security policies, and exfiltrate data before the incident is detected.",
@@ -4314,7 +4324,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+          "title": "Users, services, and hardware are authenticated",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -4327,7 +4338,8 @@
         "isPhased": true,
         "phaseCount": 3,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "MFA enforcement for all users is an org-wide change affecting every sign-in. Phased approach: report-only CA policy → enforce for pilot group → enforce org-wide. Rushing causes immediate lockouts for users without MFA registered."
       },
       "remediation": "Security Defaults enforces MFA for all users. For granular control, disable Security Defaults and create Conditional Access policies.",
       "impact": "Compromised user credentials give full access to email, Teams, SharePoint, and any app the user accesses. Business email compromise (BEC) attacks exploit standard user accounts to intercept payments and exfiltrate data.",
@@ -4528,7 +4540,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03;PR.AA-05",
-          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -4541,7 +4554,8 @@
         "isPhased": true,
         "phaseCount": 3,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Device compliance CA policy blocks non-compliant devices from accessing resources. Without phasing (report-only → pilot → enforce) users on unmanaged devices lose access immediately. Intune enrollment rollout must precede enforcement."
       },
       "remediation": "Create a CA policy: Target Microsoft Intune enrollment app > Session > Sign-in frequency = Every time. Entra admin center > Protection > Conditional Access.",
       "impact": "A compromised session token can be used to enroll an attacker-controlled device into Intune, giving it access to corporate resources as a 'managed' device.",
@@ -4737,7 +4751,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+          "title": "Users, services, and hardware are authenticated",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -4948,10 +4963,12 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+          "title": "Users, services, and hardware are authenticated",
+          "source": "manual-override"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AM10"
+          "controlId": "EIDSCA.AM10",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -5356,7 +5373,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+          "title": "Users, services, and hardware are authenticated",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -5648,7 +5666,8 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.5.2"
+          "controlId": "3.5.2",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -6435,7 +6454,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -6658,10 +6678,12 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+          "source": "manual-override"
         },
         "eidsca": {
-          "controlId": "EIDSCA.PR03"
+          "controlId": "EIDSCA.PR03",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -6885,10 +6907,12 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+          "source": "manual-override"
         },
         "eidsca": {
-          "controlId": "EIDSCA.PR05;EIDSCA.PR06"
+          "controlId": "EIDSCA.PR05;EIDSCA.PR06",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -7111,7 +7135,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -9281,7 +9306,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01;PR.AA-03",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Users, services, and hardware are authenticated"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Users, services, and hardware are authenticated",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -9836,7 +9862,8 @@
           "controlId": "CC6.6-POF3"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AT02"
+          "controlId": "EIDSCA.AT02",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -9994,11 +10021,13 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03",
-          "title": "Users, services, and hardware are authenticated"
+          "title": "Users, services, and hardware are authenticated",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -10169,7 +10198,8 @@
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -10182,7 +10212,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Persistent browser sessions allowed without device compliance is a CA policy gap — fixing it means non-compliant device users lose persistent sessions and must re-authenticate more frequently. User-facing change in authentication behavior. Derivation missed because CAEvaluator was previously not in _USER_FACING_COLLECTORS for Medium severity."
       },
       "remediation": "Persistent browser sessions on unmanaged devices increase the risk of session hijacking. Require device compliance or remove persistent browser grants. Entra admin center > Protection > Conditional Access.",
       "impact": "An attacker who gains physical or remote access to a browser with a persistent session on an unmanaged device has indefinite access to all resources available in that session.",
@@ -10242,11 +10273,13 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.1.1;3.1.5"
+          "controlId": "3.1.1;3.1.5",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -10309,11 +10342,13 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.1.5"
+          "controlId": "3.1.5",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -10376,11 +10411,13 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.1.2"
+          "controlId": "3.1.2",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -10777,7 +10814,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03;PR.AA-05",
-          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -10790,7 +10828,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Blocking direct sign-in to shared mailboxes breaks automation scripts, monitoring tools, and legacy service accounts that authenticate directly to shared mailboxes (rather than using delegate access). Service-scope disruption — end users accessing via delegation are unaffected, but integrations using direct auth break immediately."
       },
       "remediation": "Block sign-in for shared mailbox accounts: Set-AzureADUser -ObjectId <UPN> -AccountEnabled $false. Entra admin center > Users > select shared mailbox user > Properties > Account enabled > No.",
       "impact": "Shared mailboxes with active credentials can be accessed by anyone who knows the password, including former employees who had access before the mailbox was shared. These sign-ins may not appear in per-user audit logs.",
@@ -11191,7 +11230,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-02",
-          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -11204,7 +11244,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "SPF is a single DNS record publish but overly restrictive records (hard fail) can cause mail delivery issues for legitimate senders using third-party services not yet in the SPF record. Risk is real but implementation is not inherently phased."
       },
       "remediation": "Connect to Exchange Online and verify accepted domains.",
       "impact": "Attackers can send email appearing to come from your domain without SPF, DKIM, or DMARC to block them. Phishing campaigns impersonating your organization are more effective when the sending domain has no authentication.",
@@ -12425,7 +12466,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01;PR.AA-05",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -13601,7 +13643,8 @@
         "complexity": 1,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Site collection administrator visibility is an Informational (observe-only) check. The remediation is to review the list of site collection admins — no configuration change is made. Complexity 1 (read-only admin review). Derivation overcounted because impactRating.severity=Informational defaults to base=1 but E5 and weighting bumped it to 3."
       },
       "remediation": "Run: Get-SPOSite | ForEach-Object { Get-SPOSiteAdministrator -Site $_.Url } to enumerate site administrators.",
       "impact": "Without visibility into site collection administrators, access reviews cannot confirm that all administrator assignments are current and authorized. Orphaned administrator accounts on SharePoint sites represent ungoverned elevated access that may persist after personnel changes.",
@@ -13853,7 +13896,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -14044,7 +14088,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -14057,7 +14102,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Configuring access reviews for privileged roles in PIM is an admin governance task. The review process itself is admin-only workflow — end users are not affected. Not inherently phased; it is a PIM configuration step."
       },
       "remediation": "Entra admin center > Identity Governance > Access reviews > New access review > Review type: Members of a group or Users assigned to a privileged role.",
       "impact": "Stale privileged role assignments accumulate over time. Former employees, moved employees, or compromised accounts that retain role assignments provide persistent attack vectors that are never automatically detected or removed.",
@@ -14250,7 +14296,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-01;PR.AA-05",
-          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -14263,7 +14310,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Defining emergency access (break-glass) accounts is an administrative provisioning task — create two accounts, store credentials securely, configure exclusions from MFA/CA policies. Not phased, admin-only. Derivation overcounted complexity (5) and misclassified as user-facing; the accounts themselves don't affect end users."
       },
       "remediation": "Maintain at least two cloud-only emergency access accounts excluded from all Conditional Access policies.",
       "impact": "A misconfigured Conditional Access policy or MFA outage can permanently lock all administrators out of the tenant, requiring a time-consuming Microsoft Support escalation to recover.",
@@ -14648,7 +14696,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -14661,7 +14710,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Remediating permanent eligible Tier-0 role assignments requires converting each assignment to time-bound in PIM settings. While this requires coordination with each role holder, it is not a sequential phased technical deployment — it is a bulk admin task that can be completed in one change window. Complexity=4 is appropriate; isPhased is not warranted since there is no staged rollout with dwell time between phases."
       },
       "remediation": "Set a time-bound expiry on eligible assignments for Tier-0 roles. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Assignment tab > Expire eligible assignments after (e.g., 12 months). Remove existing permanent eligible assignments and reissue as time-bound.",
       "impact": "A compromised account with a permanent eligible assignment can activate privileged roles indefinitely. Time-bound assignments would limit the attack window, but permanent assignments remove this defense.",
@@ -14848,7 +14898,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Tier-0 role activation duration setting (e.g., max 4 hours) is a single slider in PIM settings. Changing the maximum duration does not require a phased rollout — the new limit applies to future activations only; existing activations are not affected. Complexity=4 is retained (E5 + weighting, appropriate for Tier-0 governance), but isPhased is not warranted for a single-field config change."
       },
       "remediation": "Reduce Tier-0 role activation duration to 4 hours or less. Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Maximum activation duration.",
       "impact": "An attacker who captures a session during an active Tier-0 role activation has the full activation duration to perform administrative actions. A 4+ hour window allows extensive tenant manipulation.",
@@ -15235,7 +15286,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Reviewing and disabling Tier 0 apps with no sign-in activity is an admin governance task. No end-user impact unless an app that appears unused is actually still referenced. Requires investigation before removal — admin-only."
       },
       "remediation": "Review apps with Tier 0 permissions that show no sign-in activity. These permissions may have been granted but never used -- remove them to reduce attack surface. Entra admin center > Enterprise applications > Sign-in logs.",
       "impact": "A compromised client secret for an inactive Tier 0 app allows an attacker to use the app's permissions without generating user-facing anomalies. Inactivity signals may mask the compromise in log reviews.",
@@ -16954,7 +17006,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -17198,7 +17251,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Changing guest access settings affects existing guest users in Teams and internal users collaborating with them. Restricting guest access removes existing guest access immediately — communication required. DisruptionScope missed because Teams collector not in derivation rules."
       },
       "remediation": "Disable or restrict guest access. Teams Admin Center > Org-wide settings > Guest access > Allow guest access in Teams: Off, or restrict calling, meeting, and messaging settings to the minimum required for external collaboration.",
       "impact": "External guest users added to Teams channels can access all historical messages and files in those channels. Sensitive business discussions, shared documents, and strategic information are visible to unvetted external parties.",
@@ -17416,7 +17470,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -17874,7 +17929,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -18562,7 +18618,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Customer Lockbox is a single toggle in the M365 admin center (Settings > Org Settings > Customer Lockbox). Enabling it does not change any data access or security posture immediately — it only requires admin approval before Microsoft support can access tenant data during support cases. No user impact, no disruption. Derivation overcounted via E5 + manual check adjustments."
       },
       "remediation": "M365 admin center > Settings > Org settings > Security & privacy > Customer Lockbox > Require approval. Requires E5 or equivalent.",
       "impact": "Without Customer Lockbox, Microsoft support personnel can access organizational data under Microsoft's internal approval workflow without tenant administrator notification or approval. This may not satisfy regulatory requirements for data access control in HIPAA, FedRAMP, or similar frameworks.",
@@ -19461,7 +19518,8 @@
           "controlId": "V-260342"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AP14"
+          "controlId": "EIDSCA.AP14",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -19683,7 +19741,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Restricting link sharing (anyone/org-wide links) breaks existing shared links users have distributed externally. Same pattern as SPO-SHARING-001 — requires audit and communication before enforcement."
       },
       "remediation": "Run: Set-SPOTenant -DefaultSharingLinkType Direct. SharePoint admin center > Policies > Sharing > File and folder links > Default link type > Specific people.",
       "impact": "Documents shared via Anyone links are accessible without authentication. Links shared in emails, chats, or indexed by search engines expose content permanently, with no audit trail of who accessed it.",
@@ -30965,7 +31024,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Requiring approval for Global Administrator role activation is a significant governance change. Affects all admins who currently activate GA via PIM without approval — their activation workflow changes immediately. Two phases: configure approvers/notifications → enforce approval requirement. Admin-only disruption."
       },
       "remediation": "Entra admin center > Identity Governance > PIM > Azure AD roles > Settings > Global Administrator > Require approval to activate > Yes.",
       "impact": "Without approval requirements, a compromised account with eligible Global Administrator assignment can self-activate the role immediately, granting full tenant control with no human verification required.",
@@ -31176,7 +31236,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Same pattern as ENTRA-PIM-004 — requiring approval for Privileged Role Administrator activation changes the workflow for a critical role that can assign all other roles. Admin-only disruption."
       },
       "remediation": "Entra admin center > Identity Governance > PIM > Azure AD roles > Settings > Privileged Role Administrator > Require approval to activate > Yes.",
       "impact": "A compromised account with eligible Privileged Role Administrator assignment can activate the role, then assign Global Administrator to any account, bypassing all access controls in a single step.",
@@ -32468,7 +32529,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Internal apps with Tier 0 (Global Reader, Directory Read All, etc.) application permissions represent significant privilege. Revoking permissions breaks app functionality — requires testing in non-production first. Phased: audit and triage → revoke in controlled batches. Service-level disruption to app integrations."
       },
       "remediation": "Entra admin center > App registrations > review internal apps with Tier 0 permissions. Each has a documented path to Global Administrator. Replace with narrower permissions or use managed identities where possible.",
       "impact": "Credential theft for any app holding Tier 0 permissions grants the attacker full tenant control: ability to create admin accounts, disable CA policies, read all user data, and persist indefinitely without triggering user-facing alerts.",
@@ -32678,7 +32740,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Removing owners from Tier 0 permission apps restricts who can modify those apps — admin-only change. Not inherently phased but requires identifying correct ownership before removing incorrect owners."
       },
       "remediation": "Remove owners from apps with Tier 0 permissions. An owner of a Tier 0 app can add credentials and impersonate it to escalate to Global Admin. Entra admin center > App registrations > Owners.",
       "impact": "Any user listed as an owner of a Tier 0 permission app can add client secrets and use the app's full permissions. This creates an indirect path to tenant compromise via accounts that may not themselves hold privileged roles.",
@@ -33006,7 +33069,8 @@
           "controlId": "AC.L2-3.1.5;AC.L2-3.1.6;SC.L2-3.13.3",
           "profiles": [
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "essential-eight": {
           "controlId": "ML1-P4;ML2-P4;ML3-P4"
@@ -33278,7 +33342,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Migrating admin accounts to cloud-only (not synced from on-prem AD) requires reprovisioning admin credentials and updating MFA/SSPR for each affected admin. Phased: audit synced admin accounts → provision cloud-only equivalents → decommission hybrid admin accounts. Disrupts only affected administrators."
       },
       "remediation": "Create cloud-only admin accounts instead of using on-premises synced accounts. Entra admin center > Users > New user > Create user (cloud identity).",
       "impact": "A compromised on-premises domain controller provides NTLM or Kerberos credentials for any synced admin account. The attacker converts on-premises domain dominance into cloud tenant administrator access without any additional steps.",
@@ -36756,7 +36821,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Service principals with permanent client secrets and Tier 0 privileges require secret rotation and privilege reduction. Rotating secrets breaks app authentication until the new secret is deployed — phased: coordinate secret rotation with app teams → reduce permissions. Service-level disruption."
       },
       "remediation": "Migrate privileged service principals from client secrets to certificates or managed identities. A secret on a permanently privileged SP is a persistent backdoor risk.",
       "impact": "A leaked or brute-forced client secret grants the attacker persistent, silent access at Global Admin or equivalent privilege with no user interaction, no MFA challenge, and no sign-in behavior visible in user-based risk signals.",
@@ -36942,7 +37008,8 @@
           "controlId": "MS.AAD.8.3v1"
         },
         "eidsca": {
-          "controlId": "EIDSCA.ST09"
+          "controlId": "EIDSCA.ST09",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -37973,10 +38040,12 @@
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         },
         "eidsca": {
-          "controlId": "EIDSCA.PR01;EIDSCA.PR02"
+          "controlId": "EIDSCA.PR01;EIDSCA.PR02",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -38405,11 +38474,13 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -38600,11 +38671,13 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -38798,11 +38871,13 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -38815,7 +38890,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Sign-in frequency forces re-authentication at the configured interval. Shorter intervals cause UX friction but not access loss. Not inherently phased but disruption scope is user-facing."
       },
       "remediation": "Create a CA policy: Target admin roles > Session > Sign-in frequency (e.g., 4 hours) + Persistent browser session = Never. Entra admin center > Protection > Conditional Access.",
       "impact": "A stolen session token provides persistent access to all resources the user can access with no re-authentication required. The attacker can maintain access even after the user changes their password.",
@@ -39672,7 +39748,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Separation of duties for critical admin roles requires reviewing and removing conflicting role assignments from admin accounts. Affects only administrators — removing roles from admin accounts disrupts those admins' access to specific functions but not end users."
       },
       "remediation": "Ensure Global Administrator and Privileged Role Administrator roles are assigned to separate accounts. Entra admin center > Identity > Roles & admins. Enable PIM approval workflows for role activation.",
       "impact": "An account with conflicting admin roles can self-authorize sensitive operations without a second approver. This eliminates the detection and prevention benefit of requiring multiple parties for sensitive actions.",
@@ -40143,7 +40220,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Marking devices without a compliance policy as 'Not Compliant' is a policy change that, combined with CA policy enforcement, can block non-compliant devices from accessing M365 resources. If CA enforcement is active, this immediately affects users on non-compliant devices. Two phases: audit compliance policy coverage gaps → enable marking with CA enforcement review."
       },
       "remediation": "Intune admin center > Devices > Compliance > Compliance policy settings > Mark devices with no compliance policy assigned as > Not compliant.",
       "impact": "Unassigned devices bypass device compliance requirements in Conditional Access. An unmanaged or misconfigured device that reaches a 'compliant' CA policy without a compliance policy may be granted access based on an unchecked compliance state.",
@@ -40737,7 +40815,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Ensuring Intune is authoritative for device inventory is an admin/configuration check — it verifies MDM authority settings, not a change that disrupts end users. Rule fix over-flagged Intune collector as user-facing for Medium; inventory configuration is an admin-only concern."
       },
       "remediation": "Ensure devices are enrolled in Intune. Configure device categories: Intune admin center > Devices > Device categories > Create category.",
       "impact": "Devices not in the Intune inventory are never evaluated for compliance and never receive configuration profiles, security policies, or patch enforcement.",
@@ -40920,7 +40999,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Automated device discovery and enrollment configuration is a backend MDM policy setup. Configuring auto-discovery does not disrupt existing enrolled devices or active user sessions. Admin-only backend configuration."
       },
       "remediation": "Configure Intune automatic enrollment: Entra admin center > Mobility (MDM and WIP) > Microsoft Intune > MDM user scope: All or Some. Consider configuring Windows Autopilot for zero-touch provisioning.",
       "impact": "New devices used with corporate credentials before enrollment bypass all endpoint compliance checks. Users on unmanaged devices access corporate resources without BitLocker, AV, or patch enforcement.",
@@ -41145,7 +41225,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Site-level sharing settings affect site owners and users who share content externally. Tightening tenant-level policy can override site owner settings, disrupting established sharing workflows."
       },
       "remediation": "Ensure SharePointTenantSettings.Read.All permission is consented. Review site sharing levels in SharePoint admin center > Active sites.",
       "impact": "Sites created without explicit sharing restrictions default to the tenant maximum — potentially allowing anonymous link sharing for all new sites. Sensitive data in default-configured sites is exposed without intentional site-level controls.",
@@ -41302,7 +41383,8 @@
           "profiles": [
             "L1",
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "fedramp": {
           "controlId": "MP-02;SC-07;SC-07(09);SC-07(10);SC-07(11)"
@@ -41356,7 +41438,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Restricting access to SharePoint content to specific groups affects all users currently accessing via anonymous or broad links. DisruptionScope missed by derivation due to SharePoint collector not being in _AUTH_COLLECTORS."
       },
       "remediation": "Restrict SharePoint external sharing to prevent CUI exposure. SharePoint Admin Center > Policies > Sharing > set external sharing to 'Existing guests only' or 'Only people in your organization'. Apply sensitivity labels and CA policies to CUI-classified sites.",
       "impact": "CUI stored in SharePoint can be shared with external parties who are not authorized to access it, creating regulatory compliance violations and potentially triggering mandatory breach reporting.",
@@ -41757,7 +41840,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Restricting external sharing on sensitive sites may break existing collaboration with external parties. Requires inventory of current external access before enforcement."
       },
       "remediation": "Review site sharing manually in SharePoint admin center > Active sites.",
       "impact": "Sensitive SharePoint sites with default or tenant-maximum sharing settings allow authorized users to share sensitive content with external parties. Data classification controls have no effect if sharing policies do not reflect data sensitivity.",
@@ -41883,7 +41967,8 @@
           "controlId": "MP.L2-3.8.7;MP.L2-3.8.8",
           "profiles": [
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "fedramp": {
           "controlId": "MP-07;SC-08(02)"
@@ -42441,7 +42526,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Requiring a managed device to register security information prevents users on personal/unmanaged devices from registering new MFA methods. Directly affects users trying to register authenticators from non-managed devices — a deliberate security restriction with user-facing impact."
       },
       "remediation": "Create a CA policy: User actions > Register security information > Grant > Require compliant device. Entra admin center > Protection > Conditional Access.",
       "impact": "An attacker with a stolen password can register a new MFA method on an unmanaged device, effectively adding a backdoor authentication method and locking out the legitimate user.",
@@ -42816,7 +42902,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -43025,7 +43112,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -43264,7 +43352,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -43504,7 +43593,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -43967,7 +44057,8 @@
         },
         "nist-csf": {
           "controlId": "GV.SC-07",
-          "title": "The risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship"
+          "title": "The risks posed by a supplier, their products and services, and other third parties are understood, recorded, prioritized, assessed, responded to, and monitored over the course of the relationship",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -62106,7 +62197,8 @@
         "isPhased": true,
         "phaseCount": 3,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Disabling per-user MFA (legacy MFA) while migrating to CA-based MFA is a high-risk operation if not sequenced carefully. If per-user MFA is disabled before CA-based MFA policies cover all users, affected users lose MFA protection entirely. Three phases: (1) ensure CA-based MFA policies cover all users in report-only, (2) validate CA coverage, (3) disable per-user MFA and switch CA to enforce. Complexity derivation underestimated because Medium severity doesn't trigger phased detection."
       },
       "remediation": "Entra admin center > Users > Per-user MFA > Ensure all users show Disabled. Use Conditional Access policies for MFA enforcement instead of per-user MFA.",
       "impact": "Per-user MFA and Conditional Access policies can conflict, resulting in double-MFA prompts or unexpected bypass scenarios. Users not covered by either mechanism may authenticate with password only.",
@@ -64792,7 +64884,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Enabling a CA policy to block legacy authentication protocols (IMAP, POP3, basic auth SMTP) breaks mail clients and apps that have not migrated to modern auth. Two phases: report-only CA policy (identify legacy auth traffic via sign-in logs) → enforce blocking after legacy client remediation. Sprint 4: explicit override added after 'block' keyword removed from _PHASED_NAME_KEYWORDS — this is one of the few legitimate block-keyword phased cases."
       },
       "remediation": "Security Defaults blocks legacy authentication protocols. For granular control, disable Security Defaults and create Conditional Access policies.",
       "impact": "Attackers can spray passwords against legacy protocol endpoints and authenticate successfully even when CA MFA policies are in place. A single compromised account via legacy auth gives full mailbox and Graph API access.",
@@ -65244,7 +65337,8 @@
           "controlId": "MS.AAD.3.4v1"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AS04;EIDSCA.AV01"
+          "controlId": "EIDSCA.AS04;EIDSCA.AV01",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -65257,7 +65351,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Disabling weak authentication methods (SMS OTP, voice call) removes sign-in options for users who currently rely on them as their only registered MFA method. Without a migration path to stronger methods first, affected users face authentication failures. Communication and migration campaign required before disabling."
       },
       "remediation": "Entra admin center > Protection > Authentication methods > SMS > Disable. SMS is vulnerable to SIM-swapping attacks.",
       "impact": "Accounts protected only by SMS or voice MFA can be compromised by attackers who SIM-swap the registered phone number or intercept SS7 signaling, effectively bypassing MFA without the user's knowledge.",
@@ -65491,7 +65586,8 @@
           "controlId": "8.12;8.3;8.9"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AG01"
+          "controlId": "EIDSCA.AG01",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -65737,7 +65833,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Disabling the email OTP authentication method affects users who use email as their MFA factor. Removing it without ensuring alternative methods are registered causes authentication failures at next sign-in. User-facing disruption for any user without an alternative method registered."
       },
       "remediation": "Entra admin center > Protection > Authentication methods > Email OTP > Disable. Email OTP is a weaker authentication factor.",
       "impact": "An attacker who has already compromised a user's email account can receive email OTP codes sent to that address, completing MFA using only the email account compromise.",
@@ -65970,7 +66067,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Restricting user-installed Outlook add-ins removes add-ins users have already installed and rely on for productivity workflows. Immediate user-facing disruption when enforced — users lose add-ins without warning unless communicated in advance."
       },
       "remediation": "Exchange admin center > Roles > User roles > Default Role Assignment Policy. Remove MyMarketplaceApps, MyCustomApps, MyReadWriteMailboxApps roles.",
       "impact": "A malicious Outlook add-in installed by a user can silently read all email, exfiltrate contacts, and send messages on behalf of the user — all using the user's delegated session.",
@@ -66196,7 +66294,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Enabling modern authentication for Exchange Online forces OAuth2 token-based auth, breaking legacy mail clients (Outlook 2013 without updates, some mobile apps) that only support basic auth. Two phases: identify legacy auth clients via sign-in logs → enforce modern auth after client remediation."
       },
       "remediation": "Exchange admin center > Settings > Modern authentication > Enable. Run: Set-OrganizationConfig -OAuth2ClientProfileEnabled $true",
       "impact": "Email clients using Basic Authentication bypass MFA and Conditional Access policies. Credential spray attacks against Exchange Online basic auth endpoints succeed with password only.",
@@ -66653,7 +66752,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Disabling SMTP AUTH is one of the most commonly underestimated M365 changes. Legacy printers, scanners, MFDs, LOB applications, and monitoring systems frequently use SMTP AUTH without IT's knowledge. Orgs routinely discover unknown senders only after enforcement. Two phases: SMTP AUTH audit via message trace (identify senders) → disable with per-mailbox re-enablement for verified legacy devices. Complexity was understated by derivation."
       },
       "remediation": "Run: Set-TransportConfig -SmtpClientAuthenticationDisabled $true. Disable SMTP AUTH org-wide and enable per-mailbox only where required.",
       "impact": "Attackers can spray passwords against the SMTP AUTH endpoint to compromise mailboxes and use them as relay points for spam, phishing, or internal reconnaissance — all with only a valid username and password.",
@@ -66896,7 +66996,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Modern authentication enforcement for SharePoint breaks legacy apps and scripts using basic auth. Disruption is service-level (apps/integrations) rather than user-facing. Single policy change."
       },
       "remediation": "Run: Set-SPOTenant -LegacyAuthProtocolsEnabled $false. SharePoint admin center > Policies > Access control > Apps that do not use modern authentication > Block access.",
       "impact": "Applications or scripts using legacy SharePoint authentication authenticate with only a username and password, bypassing MFA and CA policies. Compromised credentials provide full SharePoint access without any additional control.",
@@ -72768,7 +72869,8 @@
           "controlId": "MS.AAD.5.3v1"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AP01;EIDSCA.AP08"
+          "controlId": "EIDSCA.AP01;EIDSCA.AP08",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -73965,7 +74067,8 @@
           "controlId": "5.15;5.16;5.18;8.12;8.3;8.9"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AP04"
+          "controlId": "EIDSCA.AP04",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -74227,7 +74330,8 @@
           "controlId": "5.15;5.18;5.19;8.12;8.2;8.3;8.9"
         },
         "eidsca": {
-          "controlId": "EIDSCA.CR02"
+          "controlId": "EIDSCA.CR02",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -74457,7 +74561,8 @@
           "controlId": "5.15;5.18;6.8;8.12;8.15;8.2;8.3;8.9"
         },
         "eidsca": {
-          "controlId": "EIDSCA.CR04"
+          "controlId": "EIDSCA.CR04",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -75896,7 +76001,8 @@
           "controlId": "MS.AAD.5.2v1"
         },
         "eidsca": {
-          "controlId": "EIDSCA.CR01;EIDSCA.CP03"
+          "controlId": "EIDSCA.CR01;EIDSCA.CP03",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -76573,7 +76679,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Communication Compliance policies enable monitoring of communications for policy violations (regulatory, HR). Setting up the policies is an admin task requiring legal/HR coordination for scope and reviewers. Does not disrupt user communications — monitoring is passive. Admin-only effort."
       },
       "remediation": "Microsoft Purview > Communication compliance > Create a policy to monitor communications for policy violations and insider risk. Requires E5 Compliance licensing.",
       "impact": "Regulatory violations, insider threat indicators, and data exfiltration via communication channels are undetected. Compliance officers have no visibility into policy-violating activity.",
@@ -77016,7 +77123,8 @@
         "isPhased": true,
         "phaseCount": 3,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "DMARC requires monitor→quarantine→reject with recommended 2-week minimum dwell time between phases. Jumping directly to enforcement (p=reject) causes legitimate mail rejection for misaligned senders. This is a well-known multi-month org-wide project."
       },
       "remediation": "Connect to Exchange Online and verify accepted domains.",
       "impact": "External attackers can send phishing emails appearing to originate from your organization's domain. Employees, customers, and partners receive convincing impersonation emails with no visual indicator of spoofing.",
@@ -85339,7 +85447,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Enabling Unified Audit Logging is a single toggle in the Purview compliance portal. No user impact, no service disruption. Complexity 2 (requires E5 or add-on licensing verification before enabling). Derivation miscounted this as phased because complexity reached 4 due to SCF weighting adjustment."
       },
       "remediation": "Enable unified audit logging. Purview compliance portal > Audit > Search > Start recording user and admin activity. PowerShell: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true",
       "impact": "Security incidents cannot be investigated, breaches cannot be scoped, and compliance audits cannot be satisfied. Attackers can operate for extended periods without any log trail to detect or reconstruct their activities.",
@@ -86582,7 +86691,8 @@
         },
         "nist-csf": {
           "controlId": "DE.AE-03",
-          "title": "Information is correlated from multiple sources"
+          "title": "Information is correlated from multiple sources",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -86815,7 +86925,8 @@
           "controlId": "5.24;5.25;5.26;6.8;8.15"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AG02"
+          "controlId": "EIDSCA.AG02",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -87018,7 +87129,8 @@
         },
         "nist-csf": {
           "controlId": "DE.AE-03",
-          "title": "Information is correlated from multiple sources"
+          "title": "Information is correlated from multiple sources",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -87225,7 +87337,8 @@
         },
         "nist-csf": {
           "controlId": "DE.AE-03",
-          "title": "Information is correlated from multiple sources"
+          "title": "Information is correlated from multiple sources",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -87428,7 +87541,8 @@
         },
         "nist-csf": {
           "controlId": "DE.AE-03",
-          "title": "Information is correlated from multiple sources"
+          "title": "Information is correlated from multiple sources",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -88399,7 +88513,8 @@
         },
         "soc2": {
           "controlId": "CC2.2",
-          "title": "COSO Principle 14: Internal Communication"
+          "title": "COSO Principle 14: Internal Communication",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -88412,7 +88527,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Configuring a Terms of Use (ToU) CA policy requires all targeted users to accept the ToU on their next sign-in before accessing resources. This is an intentional user-facing interruption to the sign-in flow — acceptable by design but affects all users in scope on first enforcement."
       },
       "remediation": "Entra admin center > Identity Governance > Terms of use. Verify agreements have \"Require users to expand the terms of use\" enabled and are assigned via Conditional Access policies.",
       "impact": "Without a terms of use agreement, users access organizational resources without formally acknowledging acceptable use policies. This creates legal and compliance gaps, particularly for regulated industries.",
@@ -88812,7 +88928,8 @@
           "controlId": "5.15;5.18;5.19;8.12;8.19;8.3"
         },
         "eidsca": {
-          "controlId": "EIDSCA.AP09;EIDSCA.CP04"
+          "controlId": "EIDSCA.AP09;EIDSCA.CP04",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -90714,7 +90831,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-01",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -90919,7 +91037,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-01",
-          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -91088,7 +91207,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-01;PR.DS-02",
-          "title": "The confidentiality, integrity, and availability of data-at-rest are protected; The confidentiality, integrity, and availability of data-in-transit are protected"
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected; The confidentiality, integrity, and availability of data-in-transit are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -91258,7 +91378,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-01;PR.DS-02",
-          "title": "The confidentiality, integrity, and availability of data-at-rest are protected; The confidentiality, integrity, and availability of data-in-transit are protected"
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected; The confidentiality, integrity, and availability of data-in-transit are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -91463,7 +91584,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-01",
-          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -91657,7 +91779,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-02",
-          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -91860,7 +91983,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-01",
-          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -92068,7 +92192,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-01",
-          "title": "The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -92271,7 +92396,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-01",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -92475,7 +92601,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05;PR.DS-01",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties; The confidentiality, integrity, and availability of data-at-rest are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -92861,7 +92988,8 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -93080,7 +93208,8 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -93530,7 +93659,8 @@
         },
         "nist-csf": {
           "controlId": "PR.DS-02",
-          "title": "The confidentiality, integrity, and availability of data-in-transit are protected"
+          "title": "The confidentiality, integrity, and availability of data-in-transit are protected",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -101275,7 +101405,8 @@
           "controlId": "SC.L2-3.13.9",
           "profiles": [
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "fedramp": {
           "controlId": "SC-10"
@@ -101299,7 +101430,8 @@
         },
         "soc2": {
           "controlId": "CC6.6",
-          "title": "Restriction of Access to System Boundaries"
+          "title": "Restriction of Access to System Boundaries",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -101481,7 +101613,8 @@
           "controlId": "SC.L2-3.13.15",
           "profiles": [
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "fedramp": {
           "controlId": "SC-23"
@@ -101505,7 +101638,8 @@
         },
         "soc2": {
           "controlId": "CC6.6",
-          "title": "Restriction of Access to System Boundaries"
+          "title": "Restriction of Access to System Boundaries",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -101953,7 +102087,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -102623,7 +102758,8 @@
         },
         "soc2": {
           "controlId": "CC6.1;CC6.3",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures; Enrollment and Authorization Based on Credentials"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Enrollment and Authorization Based on Credentials",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -103439,7 +103575,8 @@
           ]
         },
         "eidsca": {
-          "controlId": "EIDSCA.AP05"
+          "controlId": "EIDSCA.AP05",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -103645,7 +103782,8 @@
           ]
         },
         "eidsca": {
-          "controlId": "EIDSCA.AP06"
+          "controlId": "EIDSCA.AP06",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -103854,7 +103992,8 @@
           "controlId": "MS.AAD.5.1v1"
         },
         "eidsca": {
-          "controlId": "EIDSCA.CP01;EIDSCA.AP10"
+          "controlId": "EIDSCA.CP01;EIDSCA.AP10",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -104155,7 +104294,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Safe Links is a Defender for Office 365 P1/P2 policy — enabling it rewrites URLs in email and Office documents for time-of-click protection. Transparent to users in most cases; only affects users if a link is detonated and blocked. Not disruptive to enable; not phased. Derivation overcounted to 5 from severity + SCF weighting."
       },
       "remediation": "Run: New-SafeLinksPolicy -Name \"Safe Links\" -IsEnabled $true; New-SafeLinksRule -Name \"Safe Links\" -SafeLinksPolicy \"Safe Links\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Links > Create a policy covering all users.",
       "impact": "Users who click malicious URLs are taken directly to phishing pages, credential harvesters, or malware download sites. Time-of-click protection is the only defense against links weaponized after email delivery.",
@@ -104736,7 +104876,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Safe Attachments detonates email attachments in a sandbox before delivery. May add delivery delay (minutes) for flagged attachments; not a user-visible disruption in practice. Policy-level enable — not phased. Derivation overcounted from severity + SCF weighting adjustment."
       },
       "remediation": "Run: New-SafeAttachmentPolicy -Name \"Safe Attachments\" -Enable $true -Action Block; New-SafeAttachmentRule -Name \"Safe Attachments\" -SafeAttachmentPolicy \"Safe Attachments\" -RecipientDomainIs (Get-AcceptedDomain).Name. Security admin center > Safe Attachments > Create a policy covering all users.",
       "impact": "Zero-day malware and novel attack tools embedded in Office documents, PDFs, and archives are delivered to users. A single opened attachment can compromise an endpoint and provide an initial foothold in the organization.",
@@ -105020,7 +105161,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Safe Attachments for SharePoint/OneDrive/Teams scans files uploaded to these services and blocks malicious files from being opened. May cause brief delays on first access to flagged files — service-level behavior change rather than user-visible disruption in most cases."
       },
       "remediation": "Run: Set-AtpPolicyForO365 -EnableATPForSPOTeamsODB $true. Security admin center > Safe Attachments > Global settings > Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams.",
       "impact": "Malware uploaded directly to SharePoint or OneDrive, or shared as a Teams file attachment, is not sandboxed and is available for download by any user with access to the library or channel.",
@@ -105881,7 +106023,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Enabling Microsoft Defender priority account protection requires defining which accounts are 'priority' and enabling enhanced protections. Admin configuration task — end users are not disrupted, but admin effort is needed to tag accounts and validate coverage."
       },
       "remediation": "Configure preset security policies in Security admin center > Preset security policies > Strict or Standard protection > Assign users/groups.",
       "impact": "Executives and other high-value targets receive targeted phishing with the same detection thresholds as standard users. BEC campaigns targeting these accounts are more likely to succeed without enhanced protection.",
@@ -106168,7 +106311,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "admin-only"
+        "disruptionScope": "admin-only",
+        "overrideReason": "Applying Strict protection preset to priority accounts is an admin policy configuration. May tighten filtering for flagged accounts (reducing false negatives for spear-phishing), but does not block mail flow. Admin-only configuration and validation effort."
       },
       "remediation": "Assign priority account users to the Strict preset policy. Security admin center > Preset security policies > Strict protection > Manage protection settings > Add users or groups.",
       "impact": "Priority accounts — the most targeted by sophisticated threat actors — are protected by lower-confidence detection thresholds. Well-crafted phishing emails designed to bypass standard filtering reach executive inboxes at higher rates.",
@@ -106452,7 +106596,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Zero-hour Auto Purge (ZAP) for Teams retroactively removes malicious messages from Teams chats after delivery. Service-level behavior — messages silently removed from chat history, which could surprise users but is transparent by design."
       },
       "remediation": "Enable ZAP for Teams in Security admin center > Settings > Zero-hour auto purge > Teams.",
       "impact": "Links or files shared in Teams that are later identified as malicious remain in chat history and are accessible to all channel members, even after threat intelligence flags the content.",
@@ -107290,7 +107435,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "EXO-DKIM-001 is the Exchange Online DKIM signing configuration check (enabling signing in the portal), distinct from DNS-DKIM-001 which covers DNS record publication. The Exchange Online activation itself is low-risk; DNS propagation is the complex step covered separately."
       },
       "remediation": "Enable DKIM signing for each accepted domain. Defender portal > Email & Collaboration > Policies & rules > Threat policies > DKIM > select domain > Enable. Add the two provided CNAME records to your DNS zone before enabling.",
       "impact": "Email from your domain can be spoofed or tampered with in transit without detection. Without DKIM signatures, DMARC enforcement is weakened and phishing emails may pass alignment checks.",
@@ -111324,11 +111470,13 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",
-          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -111490,11 +111638,13 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",
-          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -111658,11 +111808,13 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",
-          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -111820,7 +111972,8 @@
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",
-          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -111980,11 +112133,13 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",
-          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -112147,11 +112302,13 @@
         },
         "nist-csf": {
           "controlId": "DE.CM-09",
-          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events"
+          "title": "Computing hardware and software, runtime environments, and their data are monitored to find potentially adverse events",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",
-          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities"
+          "title": "Prevention and Detection of Unauthorized Software; Detection and Monitoring of New Vulnerabilities",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -112353,7 +112510,8 @@
           "controlId": "SC.L2-3.13.13",
           "profiles": [
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "fedramp": {
           "controlId": "SC-18;SC-18(01);SC-18(02);SC-18(03);SC-18(04)"
@@ -112375,7 +112533,8 @@
         },
         "soc2": {
           "controlId": "CC6.6",
-          "title": "Restriction of Access to System Boundaries"
+          "title": "Restriction of Access to System Boundaries",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -112603,7 +112762,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03;PR.AA-05",
-          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -112616,7 +112776,8 @@
         "isPhased": false,
         "phaseCount": 1,
         "disruptionRisk": true,
-        "disruptionScope": "user-facing"
+        "disruptionScope": "user-facing",
+        "overrideReason": "Blocking anonymous meeting join is a policy change that affects users who regularly invite external parties to meetings without requiring them to sign in. Low complexity (single Teams admin policy), but user-facing disruption for existing meeting patterns."
       },
       "remediation": "Run: Set-CsTeamsMeetingPolicy -Identity Global -AllowAnonymousUsersToJoinMeeting $false. Teams admin center > Meetings > Meeting policies > Global > Anonymous users can join a meeting > Off.",
       "impact": "Meeting links forwarded or accidentally shared publicly allow unauthorized parties to join internal meetings. Sensitive business discussions, strategy sessions, and confidential presentations can be observed by anonymous attendees.",
@@ -112785,11 +112946,13 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-03;PR.AA-05",
-          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Users, services, and hardware are authenticated; Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1;CC6.7",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -112971,11 +113134,13 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1;CC6.7",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures; Data Transmission and Movement Restriction",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -113199,7 +113364,8 @@
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
-          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties"
+          "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -114030,11 +114196,13 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.13.10"
+          "controlId": "3.13.10",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -114093,11 +114261,13 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.13.10"
+          "controlId": "3.13.10",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -114157,11 +114327,13 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.5.10"
+          "controlId": "3.5.10",
+          "source": "manual-override"
         },
         "soc2": {
           "controlId": "CC6.1",
-          "title": "Logical Access Security Software, Infrastructure, and Architectures"
+          "title": "Logical Access Security Software, Infrastructure, and Architectures",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -114346,7 +114518,8 @@
         "isPhased": true,
         "phaseCount": 2,
         "disruptionRisk": true,
-        "disruptionScope": "service"
+        "disruptionScope": "service",
+        "overrideReason": "Enabling DKIM requires DNS record publication and Exchange Online activation per domain. Misconfiguration causes mail authentication failures. Two phases: configure signing → publish DNS records and validate."
       },
       "remediation": "Connect to Exchange Online and verify accepted domains.",
       "impact": "Without DKIM, outbound mail from Exchange Online domains lacks cryptographic authentication. Receiving servers cannot distinguish legitimate mail from spoofed messages claiming the same domain, weakening DMARC enforcement and reducing deliverability scores. Phishing messages impersonating the domain are harder for recipients to detect.",
@@ -122278,7 +122451,8 @@
         "complexity": 2,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Version history configuration is a passive admin policy (setting retention limits for document versions). Does not remove access or break active user workflows. Rule fix over-flagged because SharePoint collector now triggers user-facing for Medium; version history is an exception — admin-only governance."
       },
       "remediation": "Set version history limits at the library level in SharePoint admin center. Ensure at least 100 major versions are retained for ransomware recovery.",
       "impact": "Without version history, files overwritten or encrypted by ransomware cannot be restored to a known-good state. SharePoint becomes a ransomware target with no recovery path within the platform.",
@@ -123479,7 +123653,8 @@
           "controlId": "MP.L2-3.8.9",
           "profiles": [
             "L2"
-          ]
+          ],
+          "source": "manual-override"
         },
         "essential-eight": {
           "controlId": "ML1-P8;ML2-P8;ML3-P8"
@@ -123538,7 +123713,8 @@
         "complexity": 3,
         "isPhased": false,
         "phaseCount": 1,
-        "disruptionRisk": false
+        "disruptionRisk": false,
+        "overrideReason": "Enabling Microsoft 365 Backup is a service enablement action — select workloads, assign licenses, configure retention. No disruption to end users or services. Complexity 3 (licensing acquisition, policy scoping, and validation required). Derivation overcounted to 5 because severity is High with SCF weighting adjustment."
       },
       "remediation": "Enable Microsoft 365 Backup in the admin center. Microsoft 365 Admin Center > Settings > Org settings > Microsoft 365 Backup > Enable. Requires Microsoft 365 Backup add-on license. Configure backup scope for Exchange, SharePoint, and OneDrive.",
       "impact": "Ransomware that encrypts and deletes Exchange, SharePoint, and OneDrive data cannot be recovered if the retention period has expired. Without backup, recovery from destructive attacks requires rebuilding from scratch rather than restoring from a known-good point in time.",
@@ -123832,7 +124008,8 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.11.2"
+          "controlId": "3.11.2",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -123877,7 +124054,8 @@
           ]
         },
         "nist-800-171": {
-          "controlId": "3.11.2"
+          "controlId": "3.11.2",
+          "source": "manual-override"
         }
       },
       "impactRating": {
