@@ -388,6 +388,22 @@
         },
         "evidenceType": {
           "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "scf-derived",
+            "manual-override",
+            "cis-paraphrased",
+            "stig-manual",
+            "eidsca-crosswalk"
+          ],
+          "description": "Where this mapping came from. Absent means scf-derived (default). 'manual-override' means it was added in framework-overrides.json (or, post-v3.0, inlined on the check). 'cis-paraphrased' / 'eidsca-crosswalk' / 'stig-manual' identify other authored sources."
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Free-text explanation for why this mapping exists. Primarily used on 'manual-override' entries to capture tribal knowledge (e.g. 'SCF lacks PR.AA-05 coverage for sign-in frequency'). Absent on 'scf-derived' entries since the source is self-explanatory."
         }
       }
     }
