@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-04-25
+
+**Theme:** Schema Foundation — provenance + structured remediation. **BREAKING CHANGE.** Consumers must update their renderers; see `docs/SCHEMA-MIGRATION-3.0.md`.
+
+### Breaking changes
+
+- **`remediation` is now a structured object, not a string.** Channels: `powershell`, `portal`, `graph`, `cli`, `notes`. Null channels are omitted, not stored as null. At least one channel is always present.
+- **`data/framework-overrides.json` deleted.** Its 95 override entries (119 mappings total) moved onto each check's `frameworks.<id>` with `source: "manual-override"` provenance.
+- **`data/effort-overrides.json` deleted.** Its 59 override entries moved onto each check's `effort` object. The previously-stripped `_rationale` annotations are now preserved as `effort.overrideReason`.
+- **Schema-strict gate now requires `impactRating` and `remediation` per check** (already enforced informally in v2.23.0; now explicit in `data/registry.schema.json`).
+
+### Added
+
+- **Per-mapping provenance** ([#260](https://github.com/Galvnyz/CheckID/issues/260)). Optional `source` + `reason` fields on every framework mapping. `source` enum: `scf-derived` (default if absent), `manual-override`, `cis-paraphrased`, `stig-manual`, `eidsca-crosswalk`.
+- **`effort.overrideReason`** ([#263](https://github.com/Galvnyz/CheckID/issues/263)). Free-text rationale preserved on the 59 hand-overridden effort entries.
+- **Migration round-trip CI gate** ([#266](https://github.com/Galvnyz/CheckID/issues/266)). New `tests/migration-3.0.Tests.ps1` validates that every override-file entry survives onto the corresponding check post-migration with correct provenance.
+- **Consumer migration helper** ([#265](https://github.com/Galvnyz/CheckID/issues/265)):
+  - `ConvertTo-LegacyRemediationString` cmdlet in `CheckID.psm1` — backward-compat bridge that reconstructs a v2.x string from a v3.0 structured object. Emits a deprecation warning once per session. **Slated for removal in v3.3.0** ([#295](https://github.com/Galvnyz/CheckID/issues/295)).
+  - `tools/migrate-checkid-3.0.ps1` — PowerShell port of the parser, converts a v2.x registry to v3.0 shape locally for testing.
+- **Migration documentation** ([#267](https://github.com/Galvnyz/CheckID/issues/267)). `docs/SCHEMA-MIGRATION-3.0.md` — what changed, before/after JSON, PowerShell consumer guide, provenance usage, migration checklist, removal timeline.
+- **One-shot migration scripts** (committed for reproducibility/audit, not used in regular builds):
+  - `scripts/Migrate-Overrides-3.0.py` — inlined override files into source files
+  - `scripts/Parse-Remediation-3.0.py` — heuristic parser that converted 1,105 string remediations into structured shape
+
+### Changed
+
+- **`scripts/Build-Registry.py`** — `apply_fw_overrides()` and `derive_effort()` take per-check inline override data (previously: global lookup dicts). `load_effort_overrides()` removed. `load_az_assess_source_checks()` passes through new inline override fields. Transient build-time fields stripped from check_obj before write to satisfy `additionalProperties: false`.
+- **Replace-mode override semantics**: when an override entry's framework key already exists from SCF derivation, the entry is now still tagged with `source: "manual-override"` to preserve the curator's deliberate intent. Pre-v3.0, replace-mode was a no-op fallback when SCF produced the same key.
+- **`tests/registry-integrity.Tests.ps1`** — replaced the now-stale "framework-overrides.json has no duplicate keys" test with a registry-wide checkId uniqueness check (the same bug class, surfaced in the right place post-migration).
+
+### Channel distribution after parse
+
+Of 1,105 checks with structured remediation:
+- portal: 898
+- portal + cli: 69 (Azure with `az` alternative)
+- powershell + portal: 53 (Entra/SPO/EXO with both)
+- notes-only: 75 (6.8%; legitimate prose-only remediation like "Connect to Exchange Online and verify…")
+- powershell-only: 9
+- graph: 1
+
+Closes #260, #261, #262, #263, #264, #265, #266, #267.
+
 ## [2.23.0] - 2026-04-25
 
 **Theme:** Silent-Loss Prevention. CI hardening makes the v2.22.0-class data-loss bug structurally impossible. Plus framework metadata contract and release channels for downstream consumers.
