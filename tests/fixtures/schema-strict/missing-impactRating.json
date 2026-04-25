@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2.22.1",
+  "dataVersion": "2026-04-24",
+  "generatedFrom": "fixture",
+  "checks": [
+    {
+      "checkId": "TEST-MISSING-001",
+      "name": "Test check missing impactRating",
+      "category": "TEST",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": { "minimum": "E3" },
+      "scf": {
+        "primaryControlId": "IAC-01",
+        "domain": "Identification & Authentication",
+        "controlName": "Identification & Authentication",
+        "controlDescription": "Test description"
+      },
+      "frameworks": {
+        "nist-csf": { "controlId": "PR.AA-01" }
+      },
+      "effort": {
+        "complexity": 1,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false
+      },
+      "remediation": "Test remediation"
+    }
+  ]
+}

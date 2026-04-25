@@ -48,7 +48,9 @@
         "licensing",
         "scf",
         "frameworks",
-        "effort"
+        "effort",
+        "impactRating",
+        "remediation"
       ],
       "additionalProperties": false,
       "properties": {
