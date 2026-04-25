@@ -355,3 +355,55 @@ jobs:
             echo "$body_json" | gh api "repos/$REPO/issues/$PR_NUMBER/comments" --input -
             echo "Posted new sticky comment"
           fi
+
+  enrichment-metrics:
+    name: Enrichment Metrics
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch main branch for comparison
+        run: git fetch origin main --depth=1
+
+      - name: Extract main registry
+        run: git show origin/main:data/registry.json > /tmp/registry-main.json
+
+      - name: Compute enrichment metrics (informational, non-blocking)
+        run: |
+          python scripts/Compute-EnrichmentMetrics.py \
+            /tmp/registry-main.json \
+            data/registry.json \
+            --markdown enrichment-metrics.md
+
+      - name: Post or update sticky comment with enrichment metrics
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ ! -f enrichment-metrics.md ]; then
+            echo "No metrics markdown generated, skipping comment"
+            exit 0
+          fi
+          marker="<!-- enrichment-metrics -->"
+          existing_id=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" \
+            --jq ".[] | select(.body | contains(\"$marker\")) | .id" | head -n 1)
+          body_json=$(jq -Rs '{body: .}' < enrichment-metrics.md)
+          if [ -n "$existing_id" ]; then
+            echo "$body_json" | gh api "repos/$REPO/issues/comments/$existing_id" -X PATCH --input -
+            echo "Updated existing sticky comment $existing_id"
+          else
+            echo "$body_json" | gh api "repos/$REPO/issues/$PR_NUMBER/comments" --input -
+            echo "Posted new sticky comment"
+          fi
