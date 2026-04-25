@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- **Framework metadata JSON Schema** at `data/frameworks/_schema.json`. Validates
-  the 20 framework metadata files in `data/frameworks/` for required fields
+- **Framework metadata JSON Schema** at `data/frameworks.schema.json` (mirrors
+  the `data/registry.schema.json` convention). Validates the 20 framework
+  metadata files under `data/frameworks/` for required fields
   (frameworkId, label, version, totalControls, registryKey, csvColumn,
   displayOrder, scoring) and enforces the known scoring methods. Wired into
   `validate.yml` so PRs touching framework metadata fail on contract drift.

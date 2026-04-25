@@ -149,13 +149,10 @@ jobs:
           python <<'PY'
           import json, sys, jsonschema
           from pathlib import Path
-          frameworks_dir = Path("data/frameworks")
-          schema = json.loads((frameworks_dir / "_schema.json").read_text())
+          schema = json.loads(Path("data/frameworks.schema.json").read_text())
           errors = []
           count = 0
-          for fp in sorted(frameworks_dir.glob("*.json")):
-              if fp.name == "_schema.json":
-                  continue
+          for fp in sorted(Path("data/frameworks").glob("*.json")):
               try:
                   jsonschema.validate(json.loads(fp.read_text()), schema)
                   count += 1

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/Galvnyz/CheckID/data/frameworks/_schema.json",
+  "$id": "https://github.com/Galvnyz/CheckID/data/frameworks.schema.json",
   "title": "Framework Metadata",
-  "description": "Schema for individual framework metadata files in data/frameworks/. Each *.json file (excluding this _schema.json) describes how a single compliance framework is rendered, scored, and identified in the CheckID registry.",
+  "description": "Schema for framework metadata files under data/frameworks/. Each *.json file in that directory describes how a single compliance framework is rendered, scored, and identified in the CheckID registry. The schema lives outside data/frameworks/ to mirror the data/registry.schema.json convention and to keep the Pester enumerator (Get-ChildItem data/frameworks/*.json) focused on framework files.",
   "type": "object",
   "required": [
     "frameworkId",
