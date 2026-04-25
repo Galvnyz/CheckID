@@ -219,6 +219,10 @@ Each check in `registry.json` contains:
 
 Top-level fields: `schemaVersion` (matches `CheckID.psd1` `ModuleVersion` — pinned, see VERSIONING.md), `dataVersion` (date), `generatedFrom`, `checks[]`.
 
+## Data Quality Guarantees
+
+What CI enforces about `registry.json`, what's tracked but not gated, and what consumers can safely assume — see [`docs/data-quality-guarantees.md`](docs/data-quality-guarantees.md).
+
 ## Rebuilding the Registry
 
 The registry is built from two sources merged at build time:
