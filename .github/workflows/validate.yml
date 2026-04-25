@@ -292,3 +292,66 @@ jobs:
               sys.exit(1)
           print(f'All {len(files)} JSON files are valid UTF-8')
           "
+
+  mapping-count-regression:
+    name: Mapping Count Regression
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch main branch for comparison
+        run: git fetch origin main --depth=1
+
+      - name: Extract main registry
+        run: git show origin/main:data/registry.json > /tmp/registry-main.json
+
+      - name: Compare per-framework mapping counts
+        shell: bash
+        env:
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          allow_drop_args=()
+          IFS=',' read -ra labels <<< "$LABELS"
+          for label in "${labels[@]}"; do
+            case "$label" in
+              ALLOW_MAPPING_DROP=*) allow_drop_args+=("--allow-drop" "${label#ALLOW_MAPPING_DROP=}") ;;
+            esac
+          done
+          python scripts/Compare-MappingCounts.py \
+            /tmp/registry-main.json \
+            data/registry.json \
+            --markdown mapping-delta.md \
+            "${allow_drop_args[@]}"
+
+      - name: Post or update sticky comment with mapping-count delta
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ ! -f mapping-delta.md ]; then
+            echo "No delta markdown generated, skipping comment"
+            exit 0
+          fi
+          marker="<!-- mapping-count-delta -->"
+          existing_id=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" \
+            --jq ".[] | select(.body | contains(\"$marker\")) | .id" | head -n 1)
+          body_json=$(jq -Rs '{body: .}' < mapping-delta.md)
+          if [ -n "$existing_id" ]; then
+            echo "$body_json" | gh api "repos/$REPO/issues/comments/$existing_id" -X PATCH --input -
+            echo "Updated existing sticky comment $existing_id"
+          else
+            echo "$body_json" | gh api "repos/$REPO/issues/$PR_NUMBER/comments" --input -
+            echo "Posted new sticky comment"
+          fi
