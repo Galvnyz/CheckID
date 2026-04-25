@@ -183,8 +183,8 @@
           }
         },
         "remediation": {
-          "type": "string",
-          "description": "Actionable guidance for resolving a failing check \u2014 UI navigation path or PowerShell command."
+          "$ref": "#/$defs/remediation",
+          "description": "Actionable guidance for resolving a failing check, broken into typed channels: powershell, portal, graph, cli. Free-text caveats go in notes. v3.0+: structured object (was a single string in v2.x)."
         },
         "impact": {
           "type": "string",
@@ -366,6 +366,62 @@
             "type": "string",
             "pattern": "^[NM]T-\\d+$"
           }
+        }
+      }
+    },
+    "remediation": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "description": "Structured remediation guidance. At least one of powershell/portal/graph/cli/notes must be present; null channels are omitted, not included as null. Pure-prose remediation lands in notes alone — acceptable for v3.0 launch but candidates for future enrichment.",
+      "properties": {
+        "powershell": {
+          "type": "object",
+          "required": ["command"],
+          "additionalProperties": false,
+          "properties": {
+            "command": { "type": "string", "minLength": 1 },
+            "module": { "type": "string", "minLength": 1 },
+            "requiresAdmin": { "type": "boolean" }
+          }
+        },
+        "portal": {
+          "type": "object",
+          "required": ["path"],
+          "additionalProperties": false,
+          "properties": {
+            "path": { "type": "string", "minLength": 1 },
+            "steps": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "graph": {
+          "type": "object",
+          "required": ["endpoint", "method"],
+          "additionalProperties": false,
+          "properties": {
+            "endpoint": { "type": "string", "minLength": 1 },
+            "method": {
+              "type": "string",
+              "enum": ["GET", "POST", "PATCH", "PUT", "DELETE"]
+            },
+            "body": { "type": "string" }
+          }
+        },
+        "cli": {
+          "type": "object",
+          "required": ["command"],
+          "additionalProperties": false,
+          "properties": {
+            "command": { "type": "string", "minLength": 1 }
+          }
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Free-text caveats, prose-only remediation, or anything the parser couldn't structurally classify."
         }
       }
     },
