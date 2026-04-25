@@ -1,12 +1,77 @@
 # CheckID — Findings Communication, Schema Consolidation & Content Enrichment
 
-> **Status:** Approved 2026-04-24. Milestones and issues filed.
+## Update — 2026-04-24 (post-issue-filing review)
+
+After the initial 30 issues were filed, a review pass surfaced gaps and a versioning correction. These changes are LOCKED IN; this section is the source of truth where it conflicts with the original-scope sections below.
+
+### 1. Versioning correction — v2.24/25/26 → v3.0/1/2
+
+The schema changes in the second milestone are unambiguously breaking (deletes public files `framework-overrides.json` and `effort-overrides.json`, changes `remediation` shape from string to object). SemVer demands a major bump. `schemaVersion` is pinned to `ModuleVersion`, so the version IS the consumer-facing contract signal — calling it v2.24 understated the break.
+
+| Was | Now | Theme |
+|---|---|---|
+| v2.23.0 | v2.23.0 *(unchanged)* | Silent-Loss Prevention |
+| v2.24.0 | **v3.0.0** | Schema Foundation |
+| v2.25.0 | **v3.1.0** | CIS M365 v6 Pilot |
+| v2.26.0 | **v3.2.0** | Critical/High Backfill |
+| "v2.27" (deprecation removal) | **v3.3.0** (#295) | Remove `ConvertTo-LegacyRemediationString` shim |
+
+### 2. Cross-repo coordination — v0.2 placeholder filed (#41)
+
+`v0.1 — Cross-Repo Contracts (foundation)` (#40, closed) explicitly deferred "consumer block-merge enforcement" to a follow-up after the v3.0 schema restructure. **v0.2 — Cross-Repo Contracts: Consumer Enforcement** (#41) filed as an empty placeholder so the dependency is visible from the milestone view.
+
+### 3. Issue #268 closed
+
+The downstream tracking issues are filed (M365-Assess#738, M365-Remediate#239, StrykerScan#17). #268 closed with a comment linking those three. Release-time verification that consumers are migrated is now captured in the v3.0.0 release issue (#298).
+
+### 4. Release process — issue template + 4 release issues
+
+- **Template:** `.github/ISSUE_TEMPLATE/release.yml` (PR [#296](https://github.com/Galvnyz/CheckID/pull/296)). Comprehensive checklist for pre-tag, tag (with explicit user-approval gate per CLAUDE.md), post-tag, verification.
+- **Release issues:** one per milestone, filed with the checklist inline (the template applies to future iterations once PR #296 merges):
+  - #297 — Release v2.23.0
+  - #298 — Release v3.0.0 (with prominent breaking-change notice)
+  - #299 — Release v3.1.0
+  - #300 — Release v3.2.0
+
+### 5. Backlog forward-pointer (#295)
+
+`v3.3.0: remove ConvertTo-LegacyRemediationString deprecation shim` filed in Backlog as a forward-pointer for the deprecation timeline declared in #265. Pre-conditions: v3.0/v3.1/v3.2 shipped, all downstream consumer issues resolved.
+
+### 6. Scheduled enrichment heartbeat (#294)
+
+Added to v3.1.0: weekly cron-based GitHub Actions workflow posting CIS M365 v6 enrichment progress to a sticky comment on a tracking issue. **CI-driven (deterministic, free), not agent-driven** — agents earn their keep when interpretation is needed, not when output is a number.
+
+### 7. Refinement lines added to existing issues
+
+- **#266** (round-trip test) — TDD ordering enforced: test written first against pre-migration override files, watched to fail, then migrations land until it passes.
+- **#272** (LLM-draft 150) — prompt-review checkpoint: maintainer-approved prompt template + 25-check pilot batch spot-check before scaling.
+- **#280** (blastRadius derived field) — coverage spike: 30-minute spike on `effort.disruptionScope` populated %; defer to Backlog if <50%.
+
+### 8. File path renames in issue bodies
+
+#261, #265, #266, #267 updated to reference renamed files:
+- `docs/SCHEMA-MIGRATION-2.24.md` → `docs/SCHEMA-MIGRATION-3.0.md`
+- `tools/migrate-checkid-2.24.ps1` → `tools/migrate-checkid-3.0.ps1`
+- `tests/migration-2.24.Tests.ps1` → `tests/migration-3.0.Tests.ps1`
+
+### 9. Issue title prefix renames
+
+All 23 issues in milestones formerly v2.24/v2.25/v2.26 have title prefixes updated to v3.0/v3.1/v3.2 for consistency with the renamed milestones.
+
+---
+
+
+
+> **Status:** Approved 2026-04-24. Milestones, issues, and refinements applied (see Update section).
 > **Tracking:**
 > - v2.23.0 — Silent-Loss Prevention (#36) — issues [#254](https://github.com/Galvnyz/CheckID/issues/254)–[#259](https://github.com/Galvnyz/CheckID/issues/259)
-> - v2.24.0 — Schema Foundation (#37) — issues [#260](https://github.com/Galvnyz/CheckID/issues/260)–[#268](https://github.com/Galvnyz/CheckID/issues/268)
-> - v2.25.0 — CIS M365 v6 Pilot (#38) — issues [#269](https://github.com/Galvnyz/CheckID/issues/269)–[#275](https://github.com/Galvnyz/CheckID/issues/275)
-> - v2.26.0 — Critical/High Backfill (#39) — issues [#276](https://github.com/Galvnyz/CheckID/issues/276)–[#282](https://github.com/Galvnyz/CheckID/issues/282)
-> - Backlog (#26) — issues [#283](https://github.com/Galvnyz/CheckID/issues/283)–[#290](https://github.com/Galvnyz/CheckID/issues/290)
+> - **v3.0.0** — Schema Foundation (#37, *was v2.24.0*) — issues [#260](https://github.com/Galvnyz/CheckID/issues/260)–[#267](https://github.com/Galvnyz/CheckID/issues/267) (#268 closed)
+> - **v3.1.0** — CIS M365 v6 Pilot (#38, *was v2.25.0*) — issues [#269](https://github.com/Galvnyz/CheckID/issues/269)–[#275](https://github.com/Galvnyz/CheckID/issues/275), [#294](https://github.com/Galvnyz/CheckID/issues/294)
+> - **v3.2.0** — Critical/High Backfill (#39, *was v2.26.0*) — issues [#276](https://github.com/Galvnyz/CheckID/issues/276)–[#282](https://github.com/Galvnyz/CheckID/issues/282)
+> - Backlog (#26) — issues [#283](https://github.com/Galvnyz/CheckID/issues/283)–[#290](https://github.com/Galvnyz/CheckID/issues/290), [#295](https://github.com/Galvnyz/CheckID/issues/295) (v3.3.0 deprecation removal)
+> - **v0.2 — Cross-Repo Contracts: Consumer Enforcement** ([#41](https://github.com/Galvnyz/CheckID/milestone/41), placeholder)
+> - Release issues: [#297](https://github.com/Galvnyz/CheckID/issues/297) (v2.23.0), [#298](https://github.com/Galvnyz/CheckID/issues/298) (v3.0.0), [#299](https://github.com/Galvnyz/CheckID/issues/299) (v3.1.0), [#300](https://github.com/Galvnyz/CheckID/issues/300) (v3.2.0)
+> - PR [#296](https://github.com/Galvnyz/CheckID/pull/296) — release issue template
 
 ## Context
 
