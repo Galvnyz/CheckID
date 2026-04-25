@@ -44,6 +44,34 @@ SCHEMA_VERSION = "2.22.1"
 
 
 # ---------------------------------------------------------------------------
+# Strict JSON loader — defense in depth against the v2.22.0 dup-key bug class
+# ---------------------------------------------------------------------------
+
+def _strict_load_json(path: Path) -> object:
+    """Load JSON, raising ValueError on duplicate keys.
+
+    Python's json.load silently keeps the last value when an object contains
+    duplicate keys. That bug class lost 4 framework overrides in v2.22.0 and
+    was caught only by downstream cross-validation. This helper makes the
+    same bug class structurally impossible at build time (mirrors the CI gate
+    in scripts/Validate-NoDuplicateKeys.py).
+    """
+    def _reject_duplicates(pairs: list[tuple]) -> dict:
+        seen: dict = {}
+        for k, v in pairs:
+            if k in seen:
+                raise ValueError(
+                    f"{path.name}: duplicate key '{k}'. "
+                    "Merge the two entries instead of appending a second one."
+                )
+            seen[k] = v
+        return seen
+
+    with path.open("r", encoding="utf-8") as fh:
+        return json.load(fh, object_pairs_hook=_reject_duplicates)
+
+
+# ---------------------------------------------------------------------------
 # SCF database helpers
 # ---------------------------------------------------------------------------
 
@@ -143,7 +171,7 @@ def load_cis_m365_crosswalk(repo_root: Path) -> dict:
     path = repo_root / "data" / "cis-m365-crosswalk.json"
     if not path.exists():
         return {}
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = _strict_load_json(path)
     return data.get("controls", {})
 
 
@@ -156,7 +184,7 @@ def load_scuba_nist_mapping(repo_root: Path) -> dict:
     path = repo_root / "data" / "scuba-nist-mapping.json"
     if not path.exists():
         return {}
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = _strict_load_json(path)
     return data.get("controls", {})
 
 
@@ -219,8 +247,7 @@ def load_framework_titles(path: Path) -> dict[str, dict[str, str]]:
     """Load framework-titles.json as {framework_key: {control_id: title}}."""
     if not path.exists():
         return {}
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    data = _strict_load_json(path)
     return {k: dict(v.items()) if isinstance(v, dict) else {} for k, v in data.items()}
 
 
@@ -302,12 +329,11 @@ def load_az_assess_source_checks(repo_root: Path) -> list[dict]:
     source_path = repo_root / "data" / "az-assess-source-checks.json"
     if not source_path.exists():
         return []
-    with open(source_path, encoding="utf-8") as f:
-        try:
-            entries = json.load(f)
-        except json.JSONDecodeError as exc:
-            print(f"WARN: az-assess-source-checks.json is invalid JSON — skipping: {exc}")
-            return []
+    try:
+        entries = _strict_load_json(source_path)
+    except (json.JSONDecodeError, ValueError) as exc:
+        print(f"WARN: az-assess-source-checks.json is invalid — skipping: {exc}")
+        return []
     if not isinstance(entries, list):
         print(f"WARN: az-assess-source-checks.json must be a JSON array, got {type(entries).__name__} — skipping")
         return []
@@ -405,8 +431,7 @@ def load_effort_overrides(repo_root: Path) -> dict[str, dict]:
     path = repo_root / "data" / "effort-overrides.json"
     if not path.exists():
         return {}
-    with open(path, encoding="utf-8") as f:
-        data = json.load(f)
+    data = _strict_load_json(path)
     raw = data.get("overrides", {})
     return {
         cid: {k: v for k, v in entry.items() if not k.startswith("_")}
@@ -774,12 +799,10 @@ def main():
     title_path = REPO_ROOT / "data" / "framework-titles.json"
 
     print(f"Loading check mapping from {mapping_path}")
-    with open(mapping_path, "r", encoding="utf-8") as f:
-        check_mapping = json.load(f)
+    check_mapping = _strict_load_json(mapping_path)
 
     print(f"Loading framework map from {fw_map_path}")
-    with open(fw_map_path, "r", encoding="utf-8") as f:
-        fw_map = json.load(f)
+    fw_map = _strict_load_json(fw_map_path)
 
     print("Loading framework titles...")
     titles = load_framework_titles(title_path)
@@ -791,18 +814,7 @@ def main():
     overrides_path = REPO_ROOT / "data" / "framework-overrides.json"
     fw_overrides: dict[str, dict] = {}
     if overrides_path.exists():
-        def _reject_duplicates(pairs: list[tuple]) -> dict:
-            seen: dict = {}
-            for k, v in pairs:
-                if k in seen:
-                    raise ValueError(
-                        f"framework-overrides.json: duplicate key '{k}'. "
-                        "Merge the two entries instead of appending a second one."
-                    )
-                seen[k] = v
-            return seen
-        with open(overrides_path, "r", encoding="utf-8") as f:
-            overrides_data = json.load(f, object_pairs_hook=_reject_duplicates)
+        overrides_data = _strict_load_json(overrides_path)
         fw_overrides = overrides_data.get("overrides", {})
         print(f"Loaded {len(fw_overrides)} framework overrides")
 
@@ -1037,6 +1049,32 @@ def main():
     registry["generatedFrom"] = sources
     registry["checks"] = checks
 
+    # Pre-write schema validation — defense in depth.
+    # CI runs the same validation, but failing here prevents a malformed
+    # registry from being written to disk (which would then propagate to
+    # consumers who pull this branch locally before CI catches it).
+    schema_validated = False
+    schema_path = REPO_ROOT / "data" / "registry.schema.json"
+    if schema_path.exists():
+        try:
+            import jsonschema  # soft import; skip with warning if missing
+        except ImportError:
+            print(
+                "WARN: jsonschema not installed — skipping pre-write schema validation. "
+                "CI will still validate. Install with: pip install jsonschema"
+            )
+        else:
+            schema = _strict_load_json(schema_path)
+            try:
+                jsonschema.validate(registry, schema)
+                print(f"  Pre-write schema validation: PASS ({len(checks)} checks)")
+                schema_validated = True
+            except jsonschema.ValidationError as exc:
+                raise ValueError(
+                    f"Built registry fails schema validation: {exc.message} "
+                    f"at {list(exc.absolute_path)}. Refusing to write."
+                ) from exc
+
     # Write output
     print(f"\nWriting registry to {args.output}")
     with open(args.output, "w", encoding="utf-8", newline="\n") as f:
@@ -1077,7 +1115,13 @@ def main():
             print(w)
 
     conn.close()
-    print("\nDone.")
+
+    # One-line affirmation that all guards passed (#258).
+    schema_status = "schema validated" if schema_validated else "schema validation SKIPPED"
+    print(
+        f"\n[OK] {len(checks)} checks, {len(fw_counts)} frameworks, "
+        f"0 dup-key violations, {schema_status}. Done."
+    )
 
 
 if __name__ == "__main__":
