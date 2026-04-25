@@ -223,6 +223,10 @@ Top-level fields: `schemaVersion` (matches `CheckID.psd1` `ModuleVersion` — pi
 
 What CI enforces about `registry.json`, what's tracked but not gated, and what consumers can safely assume — see [`docs/data-quality-guarantees.md`](docs/data-quality-guarantees.md).
 
+## v3.0.0 Migration
+
+If you're a downstream consumer (M365-Assess, M365-Remediate, StrykerScan, or other registry reader), v3.0.0 is a breaking schema change. See [`docs/SCHEMA-MIGRATION-3.0.md`](docs/SCHEMA-MIGRATION-3.0.md) for what changed, before/after examples, the backward-compat cmdlet, and a migration checklist.
+
 ## Rebuilding the Registry
 
 The registry is built from two sources merged at build time:
