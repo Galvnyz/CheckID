@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "2.23.0",
+  "dataVersion": "2026-04-25",
+  "generatedFrom": "fixture",
+  "checks": [
+    {
+      "checkId": "TEST-PROVENANCE-002",
+      "name": "Test check with invalid source value",
+      "category": "TEST",
+      "collector": "Entra",
+      "hasAutomatedCheck": true,
+      "licensing": { "minimum": "E3" },
+      "scf": {
+        "primaryControlId": "IAC-01",
+        "domain": "Identification & Authentication",
+        "controlName": "IA",
+        "controlDescription": "test"
+      },
+      "frameworks": {
+        "fw-bogus": { "controlId": "X", "source": "made-up-source" }
+      },
+      "effort": {
+        "complexity": 1,
+        "isPhased": false,
+        "phaseCount": 1,
+        "disruptionRisk": false
+      },
+      "impactRating": { "severity": "Medium" },
+      "remediation": "Test"
+    }
+  ]
+}
