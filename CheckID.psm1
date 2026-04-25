@@ -394,8 +394,80 @@ function Test-CheckRegistryData {
     return $LASTEXITCODE -eq 0
 }
 
+function ConvertTo-LegacyRemediationString {
+    <#
+    .SYNOPSIS
+        Reconstruct a v2.x-style remediation string from a v3.0+ structured object.
+    .DESCRIPTION
+        DEPRECATED ON ARRIVAL — slated for removal in v3.3.0 (issue #295).
+
+        Provided as a backward-compat bridge for downstream consumers
+        (M365-Assess, M365-Remediate, StrykerScan) to keep their v2.x string-
+        based renderers working while they migrate to consume the v3.0
+        structured remediation shape directly.
+
+        The reconstruction is approximate — the parser that originally produced
+        the structured shape was heuristic, so a perfect round-trip back to
+        the original string is not guaranteed (see #312 PR notes).
+    .PARAMETER Remediation
+        A v3.0+ structured remediation object with optional powershell, portal,
+        graph, cli, and notes channels. Pass $check.remediation directly.
+    .EXAMPLE
+        $check = Get-CheckById 'SPO-SHARING-001'
+        ConvertTo-LegacyRemediationString $check.remediation
+        # → "Run: Set-SPOTenant -SharingCapability ExistingExternalUserSharingOnly. SharePoint admin center > Policies > Sharing."
+    .OUTPUTS
+        String — the legacy v2.x form of the remediation, approximated.
+    #>
+    [CmdletBinding()]
+    [OutputType([string])]
+    param(
+        [Parameter(ValueFromPipeline = $true)]
+        [AllowNull()]
+        [PSCustomObject]$Remediation
+    )
+
+    process {
+        if (-not $Remediation) { return '' }
+
+        # Suppress the deprecation warning when called many times; surface it
+        # once per session via a script-scoped flag.
+        if (-not $script:_LegacyRemediationDeprecationWarned) {
+            Write-Warning "ConvertTo-LegacyRemediationString is deprecated; will be removed in v3.3.0 (issue #295). Update your renderer to consume the structured remediation shape directly."
+            $script:_LegacyRemediationDeprecationWarned = $true
+        }
+
+        $parts = [System.Collections.Generic.List[string]]::new()
+
+        $ps = $Remediation.PSObject.Properties.Match('powershell').Value
+        if ($ps -and $ps.command) {
+            $parts.Add("Run: $($ps.command).")
+        }
+        $graph = $Remediation.PSObject.Properties.Match('graph').Value
+        if ($graph -and $graph.endpoint) {
+            $parts.Add("Microsoft Graph API: $($graph.method) $($graph.endpoint).")
+        }
+        $portal = $Remediation.PSObject.Properties.Match('portal').Value
+        if ($portal -and $portal.path) {
+            $parts.Add("$($portal.path).")
+        }
+        $cli = $Remediation.PSObject.Properties.Match('cli').Value
+        if ($cli -and $cli.command) {
+            $parts.Add("Or: $($cli.command).")
+        }
+        $notes = $Remediation.PSObject.Properties.Match('notes').Value
+        if ($notes) {
+            $parts.Add($notes)
+        }
+
+        return ($parts -join ' ').Trim()
+    }
+}
+
+
 # Export module members
 Export-ModuleMember -Function @(
+    'ConvertTo-LegacyRemediationString'
     'Export-ComplianceMatrix'
     'Get-CheckAutomationGaps'
     'Get-CheckById'

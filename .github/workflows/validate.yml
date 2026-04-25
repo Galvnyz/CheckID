@@ -212,8 +212,8 @@ jobs:
           $manifest = Test-ModuleManifest -Path ./CheckID.psd1
           Write-Host "Module: $($manifest.Name) v$($manifest.Version)"
           Write-Host "Exported functions: $($manifest.ExportedFunctions.Keys -join ', ')"
-          if ($manifest.ExportedFunctions.Count -ne 9) {
-            Write-Host "::error::Expected 9 exported functions, got $($manifest.ExportedFunctions.Count)"
+          if ($manifest.ExportedFunctions.Count -ne 10) {
+            Write-Host "::error::Expected 10 exported functions, got $($manifest.ExportedFunctions.Count)"
             exit 1
           }
 

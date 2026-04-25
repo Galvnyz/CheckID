@@ -13,6 +13,7 @@
 
     # Exported members
     FunctionsToExport = @(
+        'ConvertTo-LegacyRemediationString'
         'Export-ComplianceMatrix'
         'Get-CheckAutomationGaps'
         'Get-CheckById'
