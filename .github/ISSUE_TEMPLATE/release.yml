@@ -1,7 +1,7 @@
 name: Release
 description: Track a milestone release through tag, CHANGELOG, and downstream notification
 title: "Release vX.Y.Z"
-labels: ["chore"]
+labels: ["release"]
 body:
   - type: input
     id: version
