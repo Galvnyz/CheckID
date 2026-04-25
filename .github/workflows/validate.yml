@@ -144,6 +144,27 @@ jobs:
           print(f'Registry validates against schema ({len(registry[\"checks\"])} checks)')
           "
 
+      - name: Validate framework metadata against JSON Schema
+        run: |
+          python <<'PY'
+          import json, sys, jsonschema
+          from pathlib import Path
+          schema = json.loads(Path("data/frameworks.schema.json").read_text())
+          errors = []
+          count = 0
+          for fp in sorted(Path("data/frameworks").glob("*.json")):
+              try:
+                  jsonschema.validate(json.loads(fp.read_text()), schema)
+                  count += 1
+              except jsonschema.ValidationError as e:
+                  errors.append(f"{fp.name}: {e.message} at {list(e.absolute_path)}")
+          if errors:
+              for e in errors:
+                  print(f"::error::{e}")
+              sys.exit(1)
+          print(f"{count} framework metadata files validate against schema")
+          PY
+
   data-quality:
     name: Data Quality
     runs-on: ubuntu-latest

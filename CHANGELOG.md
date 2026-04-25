@@ -5,6 +5,26 @@ All notable changes to the CheckID module will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- **Framework metadata JSON Schema** at `data/frameworks.schema.json` (mirrors
+  the `data/registry.schema.json` convention). Validates the 20 framework
+  metadata files under `data/frameworks/` for required fields
+  (frameworkId, label, version, totalControls, registryKey, csvColumn,
+  displayOrder, scoring) and enforces the known scoring methods. Wired into
+  `validate.yml` so PRs touching framework metadata fail on contract drift.
+- **Release channels** for downstream consumers. `notify-downstream.yml` now
+  emits `"channel": "stable"` on tag push (existing behavior, now labeled).
+  New `notify-downstream-preview.yml` emits `"channel": "preview"` on every
+  push to `main` that touches `data/registry.json`, `data/frameworks/**`,
+  `data/scf-check-mapping.json`, or `data/scf-framework-map.json`. Consumers
+  declare their channel; preview-channel consumers track main HEAD, stable-
+  channel consumers track tagged releases.
+- **EZ-CMMC** added to the downstream dispatch list in both stable and preview
+  workflows.
+
 ## [2.22.1] - 2026-04-24
 
 ### Fixed
