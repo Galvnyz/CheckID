@@ -1,0 +1,1990 @@
+{
+  "schemaVersion": "test-fixture",
+  "checks": [
+    {
+      "checkId": "TEST-001",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-002",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-003",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-004",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-005",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-006",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-007",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-008",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-009",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-010",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-011",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-012",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-013",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-014",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-015",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-016",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-017",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-018",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-019",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-020",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-021",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-022",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-023",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-024",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-025",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-026",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-027",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-028",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-029",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-030",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-031",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-032",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-033",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-034",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-035",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-036",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-037",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-038",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-039",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-040",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-041",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-042",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-043",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-044",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-045",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-046",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-047",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-048",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-049",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-050",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-051",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-052",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-053",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-054",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-055",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-056",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-057",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-058",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-059",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-060",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-061",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-062",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-063",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-064",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-065",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-066",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-067",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-068",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-069",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-070",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-071",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-072",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-073",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-074",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-075",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-076",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-077",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-078",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-079",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-080",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-081",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-082",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-083",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-084",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-085",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-086",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-087",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-088",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-089",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-090",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-091",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-092",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-093",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-094",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-095",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-096",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-097",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-098",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-099",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    },
+    {
+      "checkId": "TEST-100",
+      "frameworks": {
+        "fw-a": {
+          "controlId": "X"
+        },
+        "fw-b": {
+          "controlId": "X"
+        },
+        "fw-c": {
+          "controlId": "X"
+        },
+        "fw-d": {
+          "controlId": "X"
+        },
+        "fw-e": {
+          "controlId": "X"
+        }
+      }
+    }
+  ]
+}
