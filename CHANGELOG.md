@@ -7,23 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [2.23.0] - 2026-04-25
+
+**Theme:** Silent-Loss Prevention. CI hardening makes the v2.22.0-class data-loss bug structurally impossible. Plus framework metadata contract and release channels for downstream consumers.
+
 ### Added
 
-- **Framework metadata JSON Schema** at `data/frameworks.schema.json` (mirrors
-  the `data/registry.schema.json` convention). Validates the 20 framework
-  metadata files under `data/frameworks/` for required fields
-  (frameworkId, label, version, totalControls, registryKey, csvColumn,
-  displayOrder, scoring) and enforces the known scoring methods. Wired into
-  `validate.yml` so PRs touching framework metadata fail on contract drift.
-- **Release channels** for downstream consumers. `notify-downstream.yml` now
-  emits `"channel": "stable"` on tag push (existing behavior, now labeled).
-  New `notify-downstream-preview.yml` emits `"channel": "preview"` on every
-  push to `main` that touches `data/registry.json`, `data/frameworks/**`,
-  `data/scf-check-mapping.json`, or `data/scf-framework-map.json`. Consumers
-  declare their channel; preview-channel consumers track main HEAD, stable-
-  channel consumers track tagged releases.
-- **EZ-CMMC** added to the downstream dispatch list in both stable and preview
-  workflows.
+- **Duplicate-key CI gate** ([#254](https://github.com/Galvnyz/CheckID/issues/254)). New `scripts/Validate-NoDuplicateKeys.py` rejects any `data/*.json` containing duplicate object keys; mirrored as a Pester gate. Hard-fails CI under the *Validate Python Scripts* job. Closes the bug class that lost 4 framework overrides in v2.22.0.
+- **Mapping-count regression gate** ([#255](https://github.com/Galvnyz/CheckID/issues/255)). New `scripts/Compare-MappingCounts.py` compares per-framework mapping counts against `main` and fails CI when any framework drops more than 2%. Override via `ALLOW_MAPPING_DROP=<framework>` PR label. Posts a sticky PR comment with the delta table even when passing. Catches the v2.22.0 AZ-enrichment bug class where ~400 mappings were silently dropped across 26 AZ-* checks.
+- **Schema-strict validation** ([#256](https://github.com/Galvnyz/CheckID/issues/256)). `data/registry.schema.json` now requires `impactRating` and `remediation` per check. All 1,105 production checks already populate both — this codifies the existing contract.
+- **Enrichment metrics PR comment** ([#257](https://github.com/Galvnyz/CheckID/issues/257)). New `scripts/Compute-EnrichmentMetrics.py` computes per-framework rationale/impact/references population %, posts a sticky comment with delta vs `main`. Informational only — the hard release-gate for Critical/High enrichment lands in v3.2.0 ([#281](https://github.com/Galvnyz/CheckID/issues/281)).
+- **Build-Registry defense-in-depth guards** ([#258](https://github.com/Galvnyz/CheckID/issues/258)). Module-level `_strict_load_json` helper used by all 7 input JSON loads; pre-write schema validation refuses to write a malformed registry locally; final affirmation line `[OK] N checks, M frameworks, 0 dup-key violations, schema validated.` Honest reporting — says "SKIPPED" if `jsonschema` isn't installed.
+- **Data quality guarantees doc** ([#259](https://github.com/Galvnyz/CheckID/issues/259)). New `docs/data-quality-guarantees.md` — one-page statement of what CI enforces, what's tracked but not gated, what's planned for future milestones, plus consumer guidance on safe assumptions and defensive coding. Linked from `README.md`.
+- **Framework metadata JSON Schema** at `data/frameworks.schema.json` (mirrors the `data/registry.schema.json` convention). Validates the 20 framework metadata files under `data/frameworks/` for required fields (frameworkId, label, version, totalControls, registryKey, csvColumn, displayOrder, scoring) and enforces the known scoring methods. Wired into `validate.yml`.
+- **Release channels** for downstream consumers. `notify-downstream.yml` emits `"channel": "stable"` on tag push (existing behavior, now labeled). New `notify-downstream-preview.yml` emits `"channel": "preview"` on every push to `main` that touches registry data. Consumers declare their channel; preview-channel consumers track main HEAD, stable-channel consumers track tagged releases.
+- **EZ-CMMC** added to the downstream dispatch list (stable + preview).
+
+### Changed
+
+- `data/registry.schema.json` `$defs/check.required` extended to include `impactRating` and `remediation`.
+- `scripts/Build-Registry.py` reorganized: `_strict_load_json` helper at module level replaces the local `_reject_duplicates` function that previously guarded only `framework-overrides.json`.
+
+### Test infrastructure
+
+- 9 new Pester test files / helpers (+38 tests total): `duplicate-keys.Tests.ps1`, `mapping-counts.Tests.ps1`, `schema-strict.Tests.ps1`, `enrichment-metrics.Tests.ps1`, `build-registry-guards.Tests.ps1` plus their fixtures under `tests/fixtures/`.
+
+Closes #254, #255, #256, #257, #258, #259.
 
 ## [2.22.1] - 2026-04-24
 

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "2.22.1",
+  "schemaVersion": "2.23.0",
   "dataVersion": "2026-04-24",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
