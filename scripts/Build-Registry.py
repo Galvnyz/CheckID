@@ -685,8 +685,19 @@ def apply_fw_overrides(
     mappings from SCF-derived ones; an optional `reason` field is preserved
     when the override carries one.
 
-    Mode semantics: "replace" (default) fills when the key is absent;
-    "append" merges controlIds into an existing entry.
+    Mode semantics:
+      - "replace" (default): fills when the key is absent; tags an existing
+        SCF-derived entry as manual-override but does NOT overwrite its
+        controlId. Right choice when the curator's mapping agrees with SCF
+        and they only want to assert provenance.
+      - "append": merges the override controlId into an existing entry.
+        Use when both SCF's mapping and the curator's mapping should be
+        expressed (separate criteria, multi-control coverage).
+      - "force-replace": always builds a fresh entry from override data,
+        discarding any SCF-derived controlId / title for this framework.
+        Use when SCF's mapping is wrong for the framework — e.g., SCF maps
+        SEA-18 to SOC 2 CC2.2 but CC2 is non-automatable per soc2-tsc.json,
+        so we need to land on CC5 (Control Activities) instead.
     """
     for fw_key, fw_data in check_overrides.items():
         if not fw_data.get("controlId"):
@@ -698,16 +709,10 @@ def apply_fw_overrides(
             frameworks[fw_key]["source"] = "manual-override"
             if "reason" in fw_data:
                 frameworks[fw_key]["reason"] = fw_data["reason"]
-        elif fw_key in frameworks:
-            # mode == "replace" and key already present (e.g., SCF derivation
-            # produced it). Keep the SCF-supplied controlId and any extras
-            # (title, profiles), but tag the entry with manual-override
-            # provenance — the curator's deliberate decision to assert this
-            # mapping shouldn't be lost just because SCF produced the same.
-            frameworks[fw_key]["source"] = "manual-override"
-            if "reason" in fw_data:
-                frameworks[fw_key]["reason"] = fw_data["reason"]
-        else:
+        elif mode == "force-replace" or fw_key not in frameworks:
+            # force-replace discards any SCF-derived entry; "key not present"
+            # has nothing to discard. Both build a fresh entry from override
+            # data — same code path.
             entry = OrderedDict([("controlId", fw_data["controlId"])])
             title = resolve_title(fw_data["controlId"], fw_key, titles)
             if title:
@@ -719,6 +724,16 @@ def apply_fw_overrides(
             if "reason" in fw_data:
                 entry["reason"] = fw_data["reason"]
             frameworks[fw_key] = entry
+        else:
+            # mode == "replace" (default) and key already present (SCF
+            # derivation produced it). Keep the SCF-supplied controlId and
+            # any extras (title, profiles), but tag the entry with
+            # manual-override provenance — the curator's deliberate decision
+            # to assert this mapping shouldn't be lost just because SCF
+            # produced the same.
+            frameworks[fw_key]["source"] = "manual-override"
+            if "reason" in fw_data:
+                frameworks[fw_key]["reason"] = fw_data["reason"]
 
 
 def derive_frameworks(
