@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Fixed
 
 - **`ENTRA-TOU-001` SOC 2 mapping** ([#316](https://github.com/Galvnyz/CheckID/issues/316)). Changed from `CC2.2` (Internal Communication, classified as non-automatable per `soc2-tsc.json`) to `CC5` (Control Activities — *"Security policies and procedures are in place and operating effectively"*) using the new `force-replace` mode. Terms of Use enforcement is automatable via Graph and is a textbook control activity, not an internal-communication policy review.
+- **`ENTRA-PASSWORD-003` and `ENTRA-PASSWORD-004` missing NIST CSF override** ([#253](https://github.com/Galvnyz/CheckID/issues/253)). Their three peers (`-001`, `-002`, `-005`) all carried `nist-csf: PR.AA-01`; the override author got partway through the family and stopped. Added the missing override on both — the password / smart-lockout / banned-password-list controls now consistently map to PR.AA-01 (Identities and credentials are managed). Surfaced during cross-session review with M365-Assess after the v2.22.1 SOC 2 pairing test caught the analogous SOC 2 gap; this is the NIST CSF equivalent.
 
 ### Changed
 
