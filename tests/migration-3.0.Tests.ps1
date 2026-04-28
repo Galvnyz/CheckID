@@ -61,6 +61,16 @@ Describe 'Migration v3.0 — framework-overrides round-trip' -Skip:(-not $script
         $registry = Get-Content $registryPath -Raw | ConvertFrom-Json
         $script:checksById = @{}
         foreach ($c in $registry.checks) { $script:checksById[$c.checkId] = $c }
+
+        # Checks intentionally re-targeted post-migration via the `force-replace`
+        # override mode. Each entry documents why the v2.23 override controlId
+        # is no longer literally present in the registry — distinguishes
+        # "deliberate retarget" from "accidental data loss in migration."
+        $script:postMigrationRetargets = @{
+            'ENTRA-TOU-001' = @{
+                soc2 = '#316: CC2 family is non-automatable per soc2-tsc.json; force-replaced from CC2.2 to CC5 (Control Activities)'
+            }
+        }
     }
 
     It 'Every override entry maps to a check that exists in registry.json' {
@@ -82,12 +92,21 @@ Describe 'Migration v3.0 — framework-overrides round-trip' -Skip:(-not $script
                 $actual | Should -Not -BeNullOrEmpty `
                     -Because "$checkId.frameworks.$fwId must exist after migration"
 
-                # Inclusion semantics handles all three cases uniformly:
-                # - Pure addition (key absent): actual.controlId == override.controlId
-                # - Replace with SCF collision: override.controlId is one of actual's IDs
-                # - Append mode: override.controlId is appended to existing IDs
-                $actual.controlId | Should -Match ([regex]::Escape($expected.controlId)) `
-                    -Because "$checkId.frameworks.$fwId.controlId must include the override id (got '$($actual.controlId)', expected to contain '$($expected.controlId)')"
+                # Skip the controlId-inclusion check for entries deliberately
+                # re-targeted via force-replace post-migration. The mapping
+                # still exists with source=manual-override (asserted below);
+                # only the controlId value has changed by design.
+                $isRetarget = $script:postMigrationRetargets.ContainsKey($checkId) `
+                    -and $script:postMigrationRetargets[$checkId].ContainsKey($fwId)
+
+                if (-not $isRetarget) {
+                    # Inclusion semantics handles three cases uniformly:
+                    # - Pure addition (key absent): actual.controlId == override.controlId
+                    # - Replace with SCF collision: override.controlId is one of actual's IDs
+                    # - Append mode: override.controlId is appended to existing IDs
+                    $actual.controlId | Should -Match ([regex]::Escape($expected.controlId)) `
+                        -Because "$checkId.frameworks.$fwId.controlId must include the override id (got '$($actual.controlId)', expected to contain '$($expected.controlId)')"
+                }
 
                 $actual.source | Should -Be 'manual-override' `
                     -Because "$checkId.frameworks.$fwId must carry source=manual-override post-migration"

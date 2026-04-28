@@ -11451,7 +11451,9 @@
       ],
       "frameworkOverrides": {
         "soc2": {
-          "controlId": "CC2.2"
+          "controlId": "CC5",
+          "mode": "force-replace",
+          "reason": "SCF maps SEA-18 (System Use Notification) to SOC 2 CC2.2 (Internal Communication), but soc2-tsc.json classifies the entire CC2 family as nonAutomatableCriteria — those criteria require policy documentation review, not config-state checks. Terms of Use is a Control Activity (CC5 — 'Security policies and procedures are in place and operating effectively'), which is automatable via Graph. force-replace lands on CC5 instead of carrying both."
         }
       },
       "effortOverride": {

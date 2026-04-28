@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- **`force-replace` override mode** in `scripts/Build-Registry.py` `apply_fw_overrides()`. Until now, `mode: "replace"` (the default) only filled when the framework key was absent — if SCF had already produced an entry, the override silently became a no-op for the controlId. The new `force-replace` mode fully discards the SCF-derived entry and rebuilds it from override data (controlId, title resolved from `framework-titles.json`, profiles, evidenceType, source, reason). Use it when SCF's mapping is wrong for a framework — e.g., SCF maps SEA-18 to SOC 2 CC2.2 but `soc2-tsc.json` classifies CC2 as `nonAutomatableCriteria`. ([#316](https://github.com/Galvnyz/CheckID/issues/316))
+- **`tests/test_build_registry_overrides.py`** — pytest unit tests covering all three modes (`replace`, `append`, `force-replace`) including the case where `force-replace` has no SCF entry to discard.
+
+### Fixed
+
+- **`ENTRA-TOU-001` SOC 2 mapping** ([#316](https://github.com/Galvnyz/CheckID/issues/316)). Changed from `CC2.2` (Internal Communication, classified as non-automatable per `soc2-tsc.json`) to `CC5` (Control Activities — *"Security policies and procedures are in place and operating effectively"*) using the new `force-replace` mode. Terms of Use enforcement is automatable via Graph and is a textbook control activity, not an internal-communication policy review.
+
+### Changed
+
+- **`tests/migration-3.0.Tests.ps1`** — added a `postMigrationRetargets` exemption list for the framework-overrides round-trip test. Distinguishes intentional `force-replace` re-targets (where the v2.23 controlId is no longer literally present in the registry) from accidental data loss during migration. Each entry documents the reason and references the issue number.
+
 ## [3.0.0] - 2026-04-25
 
 **Theme:** Schema Foundation — provenance + structured remediation. **BREAKING CHANGE.** Consumers must update their renderers; see `docs/SCHEMA-MIGRATION-3.0.md`.
