@@ -9037,6 +9037,9 @@
         },
         "eidsca": {
           "controlId": "EIDSCA.PR01;EIDSCA.PR02"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01"
         }
       }
     },
@@ -9073,7 +9076,12 @@
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad",
           "title": "Microsoft Learn — Eliminate bad passwords using Microsoft Entra Password Protection"
         }
-      ]
+      ],
+      "frameworkOverrides": {
+        "nist-csf": {
+          "controlId": "PR.AA-01"
+        }
+      }
     },
     {
       "checkId": "SPO-SYNC-002",

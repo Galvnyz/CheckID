@@ -10232,6 +10232,11 @@
         },
         "iso-27002": {
           "controlId": "5.17;5.18"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
+          "source": "manual-override"
         }
       },
       "impactRating": {
@@ -41146,6 +41151,11 @@
         },
         "eidsca": {
           "controlId": "EIDSCA.PR01;EIDSCA.PR02",
+          "source": "manual-override"
+        },
+        "nist-csf": {
+          "controlId": "PR.AA-01",
+          "title": "Identities and credentials for authorized users, services, and hardware are managed by the organization",
           "source": "manual-override"
         }
       },
