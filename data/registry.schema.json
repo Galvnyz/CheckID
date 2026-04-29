@@ -481,14 +481,6 @@
           "minLength": 1,
           "description": "Phase 1 of #347 — Microsoft's factory / out-of-the-box state for this control. Drives gap analysis: 'is the tenant deviating from the default in a secure direction.'"
         },
-        "cisControls": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^\\d+(\\.\\d+)*$"
-          },
-          "description": "Phase 1 of #347 — CIS Controls v8 control numbers (e.g. ['6.6']) crosswalked from this recommendation. Distinct from cisSafeguardsByVersion which carries the per-IG safeguard breakdown."
-        },
         "cisSafeguardsByVersion": {
           "type": "object",
           "additionalProperties": false,

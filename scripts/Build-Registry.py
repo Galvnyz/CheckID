@@ -23,6 +23,7 @@ Usage:
     python scripts/Build-Registry.py --scf-db C:/git/SecFrame/SCF/scf.db
 """
 import argparse
+import copy
 import io
 import json
 import re
@@ -955,23 +956,14 @@ def main():
             for key in ("sectionNumber", "assessmentStatus", "defaultValue"):
                 if key in cis_meta:
                     cis_entry[key] = cis_meta[key]
-            for key in ("cisControls", "cisSafeguardsByVersion", "references"):
+            for key in ("cisSafeguardsByVersion", "references"):
                 if key in cis_meta and cis_meta[key]:
                     cis_entry[key] = cis_meta[key]
-            # Phase 2 of #347 (Path A consumer-side): merge CIS-authored prose
-            # from the local artifact when the consumer has run
-            # tools/import-cis-prose.py against their licensed XLSX. Public
-            # CheckID builds never have this — see LICENSES/CIS-CONSUMER-SIDE.md.
-            if cis_authored_local:
-                authored = cis_authored_local.get(cis_id, {})
-                if authored:
-                    # Filter to non-empty schema-defined fields only
-                    valid_fields = ("description", "rationale", "impact",
-                                    "remediation", "audit", "additionalInfo")
-                    cleaned = {k: v for k, v in authored.items()
-                               if k in valid_fields and v}
-                    if cleaned:
-                        cis_entry["cisAuthored"] = cleaned
+            # Phase 2 of #347: CIS-authored prose merge happens AFTER the
+            # canonical registry is written, into a separate
+            # data/registry.local.json artifact. Keeps data/registry.json
+            # licensing-clean regardless of whether the consumer has run
+            # tools/import-cis-prose.py. See LICENSES/CIS-CONSUMER-SIDE.md.
             frameworks["cis-m365-v6"] = cis_entry
 
         # Enrich NIST 800-53 from M365-specific authoritative sources.
@@ -1157,11 +1149,49 @@ def main():
                     f"at {list(exc.absolute_path)}. Refusing to write."
                 ) from exc
 
-    # Write output
+    # Write canonical (prose-free) registry — this is the file that gets
+    # committed to the public CheckID repo and CI validates.
     print(f"\nWriting registry to {args.output}")
     with open(args.output, "w", encoding="utf-8", newline="\n") as f:
         json.dump(registry, f, indent=2, ensure_ascii=False)
         f.write("\n")
+
+    # Phase 2 of #347 (Path A consumer-side): when the local CIS-authored prose
+    # artifact is present, ALSO write a separate prose-merged registry to
+    # data/registry.local.json. This stays gitignored. The consumer's downstream
+    # tooling reads the .local.json when it exists, falls back to registry.json.
+    # data/registry.json itself NEVER carries prose — preserves licensing-clean
+    # commits regardless of consumer state. See LICENSES/CIS-CONSUMER-SIDE.md.
+    if cis_authored_local:
+        out_path = Path(args.output)
+        local_out = out_path.with_name(out_path.stem + ".local" + out_path.suffix)
+        # Deep-copy via stdlib so the merged variant is fully independent of
+        # the canonical registry's in-memory object (no aliasing risk if main
+        # mutates after this point). Using copy.deepcopy rather than json
+        # round-trip keeps the duplicate-key defense gate (#258) clean — that
+        # gate guards `json.load*` calls that read input files, which a
+        # roundtrip on an in-memory dict isn't.
+        local_registry = copy.deepcopy(registry)
+        valid_fields = ("description", "rationale", "impact",
+                        "remediation", "audit", "additionalInfo")
+        merged_count = 0
+        for chk in local_registry.get("checks", []):
+            cis_block = chk.get("frameworks", {}).get("cis-m365-v6")
+            if not cis_block:
+                continue
+            cid = cis_block.get("controlId")
+            authored = cis_authored_local.get(cid, {}) if cid else {}
+            cleaned = {k: v for k, v in authored.items()
+                       if k in valid_fields and v}
+            if cleaned:
+                cis_block["cisAuthored"] = cleaned
+                merged_count += 1
+        with open(local_out, "w", encoding="utf-8", newline="\n") as f:
+            json.dump(local_registry, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+        print(f"Writing prose-enriched LOCAL registry to {local_out}")
+        print(f"  Merged cisAuthored prose into {merged_count} CIS-mapped checks. "
+              f"This file is gitignored and must NOT be committed.")
 
     # Summary
     fw_counts = defaultdict(int)

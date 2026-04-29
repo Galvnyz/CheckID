@@ -49,21 +49,36 @@ By placing the importer in `tools/` and gitignoring the output, CheckID:
 
 | File | Role | Tracked? |
 |---|---|---|
-| `tools/import-cis-prose.py` | Consumer-side importer (reads licensed XLSX, emits local JSON) | ✅ Public |
+| `tools/import-cis-prose.py` | Consumer-side importer (reads licensed XLSX, emits local prose JSON) | ✅ Public |
 | `data/registry.schema.json` `$defs.cisAuthoredProse` | Schema for the prose block | ✅ Public |
 | `data/cis-m365-v6-authored.local.json` | Local prose artifact populated by the importer | ❌ Gitignored |
-| `scripts/Build-Registry.py` | Merges local prose into registry build when present | ✅ Public |
-| `.gitignore` | Excludes `*.local.json` and the specific path | ✅ Public |
+| `data/registry.json` | Canonical registry — **never** carries CIS prose, regardless of whether the local artifact is present | ✅ Public |
+| `data/registry.local.json` | Prose-enriched registry built alongside `registry.json` when the local artifact is present | ❌ Gitignored |
+| `scripts/Build-Registry.py` | Always writes the canonical `registry.json` prose-free; additionally writes `registry.local.json` with prose merged when consumer artifact is present | ✅ Public |
+| `.gitignore` | Excludes `*.local.json` and both specific paths | ✅ Public |
+
+### Output-separation architecture
+
+`scripts/Build-Registry.py` always writes two files when the consumer artifact is present:
+
+1. **`data/registry.json`** — canonical registry. **Never** contains CIS-authored prose, regardless of consumer state. This is what gets committed and what CI validates against.
+2. **`data/registry.local.json`** — prose-enriched variant. Same shape, but every CIS-mapped check that has matching prose in the local artifact gets a populated `frameworks.cis-m365-v6.cisAuthored` block. Gitignored.
+
+When the consumer artifact is absent (the normal CI flow, or any consumer who hasn't run the importer), `Build-Registry.py` writes only `registry.json`. The architecture means **a developer can rebuild locally without contaminating their committable diff** — `registry.json` always reflects what's safe to commit.
+
+Downstream consumers who want the prose layer load `data/registry.local.json` if it exists, falling back to `data/registry.json` otherwise. This is a one-line check in their loader.
 
 ### Constraint enforcement layers
 
 The "don't accidentally commit the prose" outcome is enforced at multiple layers:
 
-1. **`.gitignore`** — `*.local.json` and `data/cis-m365-v6-authored.local.json` are explicitly excluded.
-2. **Output `_warning` field** — every generated artifact carries a `_warning` reminding the consumer of the constraint at the data layer.
-3. **`tools/README.md`** — documents the constraint at the tool docs.
-4. **Importer stdout** — the script prints a licensing notice to stdout on every run.
-5. **This file** — the canonical reference for the licensing posture.
+1. **Output separation** — `Build-Registry.py` writes prose to `registry.local.json`, never to `registry.json`. The committable artifact is structurally separate from the prose-bearing artifact.
+2. **`.gitignore`** — `*.local.json`, `data/cis-m365-v6-authored.local.json`, and `data/registry.local.json` are explicitly excluded.
+3. **Output `_warning` field** — every generated artifact carries a `_warning` reminding the consumer of the constraint at the data layer.
+4. **`tools/README.md`** — documents the constraint at the tool docs.
+5. **Importer stdout** — the script prints a licensing notice to stdout on every run.
+6. **Pester invariant guard** — `tests/registry-integrity.Tests.ps1` fails CI if `data/registry.json` ever contains a `cisAuthored` block. Unconditional — fires regardless of consumer state, since the canonical registry should never carry prose.
+7. **This file** — the canonical reference for the licensing posture.
 
 If you discover a CheckID branch or PR that has accidentally committed `*.local.json` content, file an issue immediately (label `licensing`); the file should be removed from history.
 
