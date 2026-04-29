@@ -188,6 +188,24 @@ def load_scuba_nist_mapping(repo_root: Path) -> dict:
     return data.get("controls", {})
 
 
+def load_cis_authored_local(repo_root: Path) -> dict:
+    """Phase 2 of #347 (Path A consumer-side) — load CIS-authored prose from a
+    consumer's local artifact when present.
+
+    Returns {cisId: {description, rationale, impact, remediation, audit,
+    additionalInfo}} or {} when the artifact is absent (the public CheckID flow).
+
+    The artifact is gitignored — public registries built by CI never have prose;
+    only consumer-local builds run by members against their licensed XLSX do.
+    See LICENSES/CIS-CONSUMER-SIDE.md.
+    """
+    path = repo_root / "data" / "cis-m365-v6-authored.local.json"
+    if not path.exists():
+        return {}
+    data = _strict_load_json(path)
+    return data.get("controls", {})
+
+
 def merge_control_ids(primary: list[str], secondary_str: str) -> str:
     """Prepend primary IDs; append any secondary IDs not already present."""
     secondary = [x.strip() for x in secondary_str.split(";") if x.strip()]
@@ -860,6 +878,10 @@ def main():
     scuba_nist = load_scuba_nist_mapping(REPO_ROOT)
     if scuba_nist:
         print(f"Loaded SCuBA NIST mapping ({len(scuba_nist)} policies)")
+    cis_authored_local = load_cis_authored_local(REPO_ROOT)
+    if cis_authored_local:
+        print(f"Loaded LOCAL CIS-authored prose ({len(cis_authored_local)} recommendations) "
+              f"— consumer-side artifact, not committed.")
 
     # Connect to SCF database
     print(f"Connecting to SCF database at {args.scf_db}")
@@ -936,6 +958,20 @@ def main():
             for key in ("cisControls", "cisSafeguardsByVersion", "references"):
                 if key in cis_meta and cis_meta[key]:
                     cis_entry[key] = cis_meta[key]
+            # Phase 2 of #347 (Path A consumer-side): merge CIS-authored prose
+            # from the local artifact when the consumer has run
+            # tools/import-cis-prose.py against their licensed XLSX. Public
+            # CheckID builds never have this — see LICENSES/CIS-CONSUMER-SIDE.md.
+            if cis_authored_local:
+                authored = cis_authored_local.get(cis_id, {})
+                if authored:
+                    # Filter to non-empty schema-defined fields only
+                    valid_fields = ("description", "rationale", "impact",
+                                    "remediation", "audit", "additionalInfo")
+                    cleaned = {k: v for k, v in authored.items()
+                               if k in valid_fields and v}
+                    if cleaned:
+                        cis_entry["cisAuthored"] = cleaned
             frameworks["cis-m365-v6"] = cis_entry
 
         # Enrich NIST 800-53 from M365-specific authoritative sources.

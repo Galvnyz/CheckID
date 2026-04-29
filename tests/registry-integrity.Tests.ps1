@@ -340,6 +340,52 @@ Describe 'Control Registry Integrity' {
         }
     }
 
+    It '#347 phase 2 — cisAuthored, when present, has only allowed fields with non-empty strings' {
+        $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
+        $allowedFields = @('description','rationale','impact','remediation','audit','additionalInfo')
+        foreach ($check in $cisMapped) {
+            $cis = $check.frameworks.'cis-m365-v6'
+            if ($cis.PSObject.Properties.Name -contains 'cisAuthored') {
+                $authored = $cis.cisAuthored
+                $authoredFields = $authored.PSObject.Properties.Name
+                $authoredFields.Count | Should -BeGreaterThan 0 `
+                    -Because "$($check.checkId).frameworks.cis-m365-v6.cisAuthored, when present, must contain at least one field"
+                foreach ($f in $authoredFields) {
+                    $f | Should -BeIn $allowedFields `
+                        -Because "$($check.checkId) cisAuthored field '$f' must be one of: $($allowedFields -join ', ')"
+                    $authored.$f | Should -Not -BeNullOrEmpty `
+                        -Because "$($check.checkId) cisAuthored.$f must be a non-empty string"
+                }
+            }
+        }
+    }
+
+    It '#347 phase 2 — public registry must NOT carry cisAuthored prose (CC BY-NC-SA + CIS member terms)' {
+        # The public registry MUST NOT contain CIS-authored prose.
+        # Consumer-side local builds (where data/cis-m365-v6-authored.local.json
+        # is present from running tools/import-cis-prose.py) MAY have it. This
+        # test enforces the public-build invariant by checking for the local
+        # artifact's absence.
+        $localArtifact = Join-Path (Resolve-Path "$PSScriptRoot/..").Path 'data/cis-m365-v6-authored.local.json'
+        $localArtifactExists = Test-Path $localArtifact
+
+        if (-not $localArtifactExists) {
+            $offenders = @()
+            foreach ($check in $checks) {
+                if ($check.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6') {
+                    $cis = $check.frameworks.'cis-m365-v6'
+                    if ($cis.PSObject.Properties.Name -contains 'cisAuthored') {
+                        $offenders += $check.checkId
+                    }
+                }
+            }
+            $offenders | Should -BeNullOrEmpty `
+                -Because "Public CheckID builds (no local artifact present) MUST NOT carry cisAuthored prose. Found offenders: $($offenders -join ', '). See LICENSES/CIS-CONSUMER-SIDE.md."
+        } else {
+            Write-Host "  (skipped — local consumer artifact present; cisAuthored prose is permitted in this consumer-side build)"
+        }
+    }
+
     It '#347 phase 1 — cisControls and cisSafeguardsByVersion shapes, when present, are well-formed' {
         $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
         $validIGs = @('IG1', 'IG2', 'IG3')
