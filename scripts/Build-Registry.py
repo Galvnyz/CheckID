@@ -23,6 +23,7 @@ Usage:
     python scripts/Build-Registry.py --scf-db C:/git/SecFrame/SCF/scf.db
 """
 import argparse
+import copy
 import io
 import json
 import re
@@ -1164,10 +1165,13 @@ def main():
     if cis_authored_local:
         out_path = Path(args.output)
         local_out = out_path.with_name(out_path.stem + ".local" + out_path.suffix)
-        # Deep-copy + merge prose. We re-serialize via json round-trip so the
-        # merged variant is fully independent of the canonical registry's
-        # in-memory object (no aliasing risk if main mutates after this point).
-        local_registry = json.loads(json.dumps(registry))
+        # Deep-copy via stdlib so the merged variant is fully independent of
+        # the canonical registry's in-memory object (no aliasing risk if main
+        # mutates after this point). Using copy.deepcopy rather than json
+        # round-trip keeps the duplicate-key defense gate (#258) clean — that
+        # gate guards `json.load*` calls that read input files, which a
+        # roundtrip on an in-memory dict isn't.
+        local_registry = copy.deepcopy(registry)
         valid_fields = ("description", "rationale", "impact",
                         "remediation", "audit", "additionalInfo")
         merged_count = 0
