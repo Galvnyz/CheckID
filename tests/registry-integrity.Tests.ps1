@@ -360,43 +360,30 @@ Describe 'Control Registry Integrity' {
         }
     }
 
-    It '#347 phase 2 — public registry must NOT carry cisAuthored prose (CC BY-NC-SA + CIS member terms)' {
-        # The public registry MUST NOT contain CIS-authored prose.
-        # Consumer-side local builds (where data/cis-m365-v6-authored.local.json
-        # is present from running tools/import-cis-prose.py) MAY have it. This
-        # test enforces the public-build invariant by checking for the local
-        # artifact's absence.
-        $localArtifact = Join-Path (Resolve-Path "$PSScriptRoot/..").Path 'data/cis-m365-v6-authored.local.json'
-        $localArtifactExists = Test-Path $localArtifact
-
-        if (-not $localArtifactExists) {
-            $offenders = @()
-            foreach ($check in $checks) {
-                if ($check.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6') {
-                    $cis = $check.frameworks.'cis-m365-v6'
-                    if ($cis.PSObject.Properties.Name -contains 'cisAuthored') {
-                        $offenders += $check.checkId
-                    }
+    It '#347 phase 2 — public registry.json must NEVER carry cisAuthored prose (CC BY-NC-SA + CIS member terms)' {
+        # Under #347 phase-2 architecture (output separation), the canonical
+        # data/registry.json is built WITHOUT prose regardless of whether the
+        # local consumer artifact exists. Prose merging happens to a separate
+        # data/registry.local.json file. This invariant therefore fires
+        # unconditionally — no skip path. See LICENSES/CIS-CONSUMER-SIDE.md.
+        $offenders = @()
+        foreach ($check in $checks) {
+            if ($check.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6') {
+                $cis = $check.frameworks.'cis-m365-v6'
+                if ($cis.PSObject.Properties.Name -contains 'cisAuthored') {
+                    $offenders += $check.checkId
                 }
             }
-            $offenders | Should -BeNullOrEmpty `
-                -Because "Public CheckID builds (no local artifact present) MUST NOT carry cisAuthored prose. Found offenders: $($offenders -join ', '). See LICENSES/CIS-CONSUMER-SIDE.md."
-        } else {
-            Write-Host "  (skipped — local consumer artifact present; cisAuthored prose is permitted in this consumer-side build)"
         }
+        $offenders | Should -BeNullOrEmpty `
+            -Because "data/registry.json MUST NOT carry cisAuthored prose under any circumstance. Prose belongs in data/registry.local.json (gitignored). Found offenders: $($offenders -join ', '). See LICENSES/CIS-CONSUMER-SIDE.md."
     }
 
-    It '#347 phase 1 — cisControls and cisSafeguardsByVersion shapes, when present, are well-formed' {
+    It '#347 phase 1 — cisSafeguardsByVersion shape, when present, is well-formed' {
         $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
         $validIGs = @('IG1', 'IG2', 'IG3')
         foreach ($check in $cisMapped) {
             $cis = $check.frameworks.'cis-m365-v6'
-            if ($cis.PSObject.Properties.Name -contains 'cisControls') {
-                foreach ($cc in $cis.cisControls) {
-                    $cc | Should -Match '^\d+(\.\d+)*$' `
-                        -Because "$($check.checkId) cisControls entry '$cc' must be dotted-numeric"
-                }
-            }
             if ($cis.PSObject.Properties.Name -contains 'cisSafeguardsByVersion') {
                 $sgbv = $cis.cisSafeguardsByVersion
                 foreach ($ver in 'v8','v7') {

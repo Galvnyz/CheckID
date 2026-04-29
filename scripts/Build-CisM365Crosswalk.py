@@ -148,52 +148,36 @@ def _parse_ig_flag(value) -> bool:
 
 
 def _parse_references(value) -> list[dict]:
-    """Parse References cell into [{url, title}] entries.
+    """Parse References cell into [{url}] entries.
 
-    The cell is typically newline-separated URL lines, optionally with title prefix.
-    Best-effort — preserves bare URLs as {url: ...} when no title is parseable.
+    The CIS v6.0.1 spreadsheet stores References as URLs joined by colons
+    (no whitespace), e.g. "https://a/foo:https://b/bar:https://c/baz". A naive
+    `https?://\\S+` regex would greedy-match across colon separators and emit
+    one giant concatenated URL; instead we split on a `(?=https?://)` lookahead,
+    which yields one entry per URL without consuming the boundary.
+
+    Newline-separated cells (older XLSX versions) are also handled because the
+    lookahead split is content-agnostic about whitespace between URL boundaries.
+    Trailing punctuation on each URL (`.,;:)`) is stripped.
     """
     text = _cell_text(value)
     if not text:
         return []
+    # Split at every URL boundary, then keep only the URL-prefixed pieces.
+    parts = re.split(r'(?=https?://)', text)
     refs: list[dict] = []
-    for line in re.split(r'[\r\n]+', text):
-        line = line.strip()
-        if not line:
-            continue
-        # Match a URL anywhere in the line; if there's prose before/after, treat
-        # the prose as the title.
-        m = re.search(r'(https?://\S+)', line)
-        if not m:
-            continue
-        url = m.group(1).rstrip('.,;:)')
-        title = line.replace(url, "").strip(' -|—:')
-        entry: dict = {"url": url}
-        if title:
-            entry["title"] = title
-        refs.append(entry)
-    return refs
-
-
-def _parse_cis_controls_cell(value) -> list[str]:
-    """Parse the 'CIS Controls' column — list of v8 control numbers (e.g., '6.6')."""
-    text = _cell_text(value)
-    if not text or text.lower() in ("none", "n/a"):
-        return []
-    parts = re.split(r'[\n,;]+', text)
-    out: list[str] = []
     seen: set[str] = set()
-    for p in parts:
-        t = p.strip()
-        if not t:
+    for piece in parts:
+        piece = piece.strip()
+        if not piece.startswith(('http://', 'https://')):
             continue
-        # Accept dotted-numeric forms; reject everything else
-        if not re.match(r'^\d+(\.\d+)*$', t):
-            continue
-        if t not in seen:
-            seen.add(t)
-            out.append(t)
-    return out
+        # Stop at the first whitespace OR colon-followed-by-colon if any (rare).
+        m = re.match(r'(https?://[^\s]+?)(?=:https?://|$)', piece)
+        url = (m.group(1) if m else piece).rstrip('.,;:)\'\"')
+        if url and url not in seen:
+            seen.add(url)
+            refs.append({"url": url})
+    return refs
 
 
 def build_crosswalk(xlsx_path: Path, sg_nist: dict[str, list[str]]) -> tuple[dict, dict]:
@@ -205,18 +189,25 @@ def build_crosswalk(xlsx_path: Path, sg_nist: dict[str, list[str]]) -> tuple[dic
         assessmentStatus,                  # "Manual" | "Automated"
         safeguards,                        # legacy: union of v8 safeguards
         nist800_53,
-        cisControls,                       # CIS Controls v8 control numbers
         cisSafeguardsByVersion: {
           v8: { ig1: [...], ig2: [...], ig3: [...], applicableIGs: ["IG1"|"IG2"|"IG3"] },
           v7: { ig1: [...], ig2: [...], ig3: [...], applicableIGs: [...] }
         },
         defaultValue,                      # Microsoft factory state — factual
-        references                         # [{url, title}] — citation-only, factual
+        references                         # [{url}] — citation-only URLs, factual
       }
 
     Phase 1 of #347 deliberately omits CIS-authored prose columns (Description,
     Rationale Statement, Impact Statement, Remediation Procedure, Audit Procedure,
-    Additional Information) pending licensing resolution.
+    Additional Information) — those live in tools/import-cis-prose.py output
+    (gitignored) per the licensing posture documented in
+    LICENSES/CIS-CONSUMER-SIDE.md.
+
+    The "CIS Controls" XLSX column is also intentionally not parsed: its IDs
+    duplicate the per-IG safeguard data that's already captured in
+    cisSafeguardsByVersion, and the additional prose content (TITLE / DESCRIPTION
+    sub-fields) is CIS-authored and licensing-restricted. The redundancy makes
+    the column unnecessary; the prose makes it unsafe to redistribute.
     """
     wb = openpyxl.load_workbook(xlsx_path, read_only=True, data_only=True)
     ws = wb["Combined Profiles"]
@@ -230,10 +221,10 @@ def build_crosswalk(xlsx_path: Path, sg_nist: dict[str, list[str]]) -> tuple[dic
     title_col = col("Title")
     sg_cols   = [i for i, h in enumerate(headers) if h and "Safeguard" in str(h) and "v8" in str(h)]
 
-    # Optional columns (#347 phase 1 — factual subset only)
+    # Optional columns (#347 phase 1 — factual subset only).
+    # The "CIS Controls" column is intentionally not read — see docstring.
     section_num_col   = _opt_col(headers, "Section #")
     assess_col        = _opt_col(headers, "Assessment Status")
-    cis_controls_col  = _opt_col(headers, "CIS Controls")
     sg_v8_ig1_col     = _opt_col(headers, "CIS Safeguards 1 (v8)")
     sg_v8_ig2_col     = _opt_col(headers, "CIS Safeguards 2 (v8)")
     sg_v8_ig3_col     = _opt_col(headers, "CIS Safeguards 3 (v8)")
@@ -319,8 +310,6 @@ def build_crosswalk(xlsx_path: Path, sg_nist: dict[str, list[str]]) -> tuple[dic
         if assessment_status not in ("Manual", "Automated"):
             assessment_status = ""
 
-        cis_controls_v8 = _parse_cis_controls_cell(row[cis_controls_col]) if cis_controls_col is not None else []
-
         v8_ig1_sgs = _parse_safeguards_cell(row[sg_v8_ig1_col]) if sg_v8_ig1_col is not None else []
         v8_ig2_sgs = _parse_safeguards_cell(row[sg_v8_ig2_col]) if sg_v8_ig2_col is not None else []
         v8_ig3_sgs = _parse_safeguards_cell(row[sg_v8_ig3_col]) if sg_v8_ig3_col is not None else []
@@ -356,8 +345,6 @@ def build_crosswalk(xlsx_path: Path, sg_nist: dict[str, list[str]]) -> tuple[dic
                 entry["sectionNumber"] = section_number
             if assessment_status:
                 entry["assessmentStatus"] = assessment_status
-            if cis_controls_v8:
-                entry["cisControls"] = cis_controls_v8
             v8_payload: dict = {}
             if v8_ig1_sgs: v8_payload["ig1"] = v8_ig1_sgs
             if v8_ig2_sgs: v8_payload["ig2"] = v8_ig2_sgs
@@ -421,9 +408,10 @@ def write_crosswalk(controls: dict, out_path: Path) -> None:
         ("source",        f"{XLSX_NAME} + {SG_CSV_NAME}"),
         ("derivation",    "CIS M365 recommendation -> CIS Controls v8 safeguard -> NIST 800-53 R5"),
         ("phase1Note",    "Schema v1.2.0 adds factual metadata (sectionNumber, "
-                          "assessmentStatus, cisControls, cisSafeguardsByVersion, "
-                          "defaultValue, references) per #347 phase 1. CIS-authored "
-                          "prose deferred pending licensing resolution."),
+                          "assessmentStatus, cisSafeguardsByVersion, defaultValue, "
+                          "references) per #347 phase 1. CIS-authored prose lives in "
+                          "data/cis-m365-v6-authored.local.json (gitignored, "
+                          "consumer-side only) per LICENSES/CIS-CONSUMER-SIDE.md."),
         ("controls",      controls),
     ])
     out_path.write_text(
@@ -432,7 +420,7 @@ def write_crosswalk(controls: dict, out_path: Path) -> None:
     )
     covered = sum(1 for c in controls.values() if c["nist800_53"])
     enriched = sum(1 for c in controls.values() if any(
-        k in c for k in ("assessmentStatus", "cisControls", "cisSafeguardsByVersion", "defaultValue", "references")
+        k in c for k in ("assessmentStatus", "cisSafeguardsByVersion", "defaultValue", "references")
     ))
     print(f"  Written: {out_path.relative_to(REPO_ROOT)} "
           f"({len(controls)} controls, {covered} with NIST mappings, "

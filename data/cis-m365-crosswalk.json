@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "source": "CIS_Microsoft_365_Foundations_Benchmark_v6.0.1.xlsx + CIS_Controls_v8.1_Mapping_to_NIST_SP_800-53_Rev5.csv",
   "derivation": "CIS M365 recommendation -> CIS Controls v8 safeguard -> NIST 800-53 R5",
+  "phase1Note": "Schema v1.2.0 adds factual metadata (sectionNumber, assessmentStatus, cisSafeguardsByVersion, defaultValue, references) per #347 phase 1. CIS-authored prose lives in data/cis-m365-v6-authored.local.json (gitignored, consumer-side only) per LICENSES/CIS-CONSUMER-SIDE.md.",
   "controls": {
     "1.1.1": {
       "title": "Ensure Administrative accounts are cloud-only",
@@ -14,6 +15,47 @@
       "nist800_53": [
         "AC-6(2)",
         "AC-6(5)"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.4"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "N/A",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/add-users?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/protect-your-global-administrator-accounts?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices#9-use-cloud-native-accounts-for-microsoft-entra-roles"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference"
+        }
       ]
     },
     "1.1.2": {
@@ -26,6 +68,35 @@
       ],
       "nist800_53": [
         "AC-2"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Not defined.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-planning#stage-1-critical-items-to-do-right-now"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/admin-units-restricted-management"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication#accounts"
+        }
       ]
     },
     "1.1.3": {
@@ -38,6 +109,40 @@
       ],
       "nist800_53": [
         "AC-2"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryrole?view=graph-powershell-1.0"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#all-roles"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5"
+        }
       ]
     },
     "1.1.4": {
@@ -51,6 +156,50 @@
       "nist800_53": [
         "AC-6(2)",
         "AC-6(5)"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.4"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "N/A",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/protect-your-global-administrator-accounts?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis#what-are-the-microsoft-entra-id-licenses"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/business-premium/m365bp-protect-admin-accounts?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings?view=o365-worldwide#licenses"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-deployment-plan#principle-of-least-privilege"
+        }
       ]
     },
     "1.2.1": {
@@ -66,6 +215,39 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Public when created from the Administration portal; private otherwise.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/groups-self-service-management"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/create-groups/compare-groups?view=o365-worldwide"
+        }
       ]
     },
     "1.2.2": {
@@ -76,7 +258,33 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "AccountEnabled: `True`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/email/about-shared-mailboxes?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/email/create-a-shared-mailbox?view=o365-worldwide#block-sign-in-for-the-shared-mailbox-account"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/enterprise/block-user-accounts-with-microsoft-365-powershell?view=o365-worldwide#block-individual-user-accounts"
+        }
+      ]
     },
     "1.3.1": {
       "title": "Ensure the 'Password expiration policy' is set to 'Set passwords to never expire (recommended)'",
@@ -88,6 +296,41 @@
       ],
       "nist800_53": [
         "IA-5(1)"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.4"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "If the property is not set, a default value of 90 days will be used",
+      "references": [
+        {
+          "url": "https://pages.nist.gov/800-63-3/sp800-63b.html"
+        },
+        {
+          "url": "https://www.cisecurity.org/white-papers/cis-password-policy-guide/"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/misc/password-policy-recommendations?view=o365-worldwide"
+        }
       ]
     },
     "1.3.2": {
@@ -103,6 +346,26 @@
         "AC-11",
         "AC-11(1)",
         "AC-12"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Not configured. (Idle sessions will not timeout.)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/idle-session-timeout-web-apps?view=o365-worldwide"
+        }
       ]
     },
     "1.3.3": {
@@ -116,6 +379,35 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "14.6"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled (True)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/share-calendars-with-external-users?view=o365-worldwide"
+        }
       ]
     },
     "1.3.4": {
@@ -129,6 +421,35 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "5.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "`Let users access the Office Store` is `Checked`\n\n`Let users start trials on behalf of your organization` is `Checked`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-addins-in-the-admin-center?view=o365-worldwide#manage-add-in-downloads-by-turning-onoff-the-office-store-across-all-apps-except-outlook"
+        }
       ]
     },
     "1.3.5": {
@@ -143,6 +464,32 @@
       "nist800_53": [
         "SI-3",
         "AT-2(3)"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "10.1"
+          ],
+          "ig2": [
+            "14.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Internal Phishing Protection is enabled.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-US/microsoft-forms/administrator-settings-microsoft-forms"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-US/microsoft-forms/review-unblock-forms-users-detected-blocked-potential-phishing"
+        }
       ]
     },
     "1.3.6": {
@@ -153,7 +500,22 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "`Require approval for all data access requests` - `Unchecked`\n\n`CustomerLockboxEnabled` - `False`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/customer-lockbox-requests#turn-customer-lockbox-requests-on-or-off"
+        }
+      ]
     },
     "1.3.7": {
       "title": "Ensure 'third-party storage services' are restricted in 'Microsoft 365 on the web'",
@@ -168,6 +530,39 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "ig2": [
+            "13.4"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled - Users are able to open files stored in third-party storage services",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/setup/set-up-file-storage-and-sharing?view=o365-worldwide#enable-or-disable-third-party-storage-services"
+        }
       ]
     },
     "1.3.8": {
@@ -181,6 +576,38 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "`Let people in your organization share their sways with people outside your organization` - Enabled",
+      "references": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/administrator-settings-for-sway-d298e79b-b6ab-44c6-9239-aa312f5784d4"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/microsoft-sway-service-description"
+        }
       ]
     },
     "1.3.9": {
@@ -198,6 +625,33 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 1,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "BookingsMailboxCreationEnabled : True (OwaMailboxPolicy-Default)\n\nBookingsEnabled : True",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/bookings/turn-bookings-on-or-off?view=o365-worldwide"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/office365businessappsblog/enhancing-security-in-microsoft-bookings-best-practices-for-admins/4382447"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/bookings/best-practices-shared-bookings?view=o365-worldwide&source=recommendations"
+        },
+        {
+          "url": "https://www.cyberis.com/article/microsoft-bookings-facilitating-impersonation"
+        }
       ]
     },
     "2.1.1": {
@@ -210,6 +664,40 @@
       ],
       "nist800_53": [
         "SI-3"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "10.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.4"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-links-policies-configure?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-safelinkspolicy?view=exchange-ps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies?view=o365-worldwide"
+        }
       ]
     },
     "2.1.2": {
@@ -223,6 +711,40 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.6"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.9"
+          ],
+          "ig2": [
+            "8.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Always on",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/get-malwarefilterpolicy?view=exchange-ps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-policies-configure?view=o365-worldwide"
+        }
       ]
     },
     "2.1.3": {
@@ -236,6 +758,41 @@
       "nist800_53": [
         "IR-1",
         "IR-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "17.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.1"
+          ],
+          "ig2": [
+            "8.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "```\nEnableInternalSenderAdminNotifications : False\nInternalSenderAdminAddress : $null\n```",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-protection-about"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-policies-configure"
+        }
       ]
     },
     "2.1.4": {
@@ -249,6 +806,39 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.10"
+          ],
+          "ig2": [
+            "8.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "```\nIdentity : Built-In Protection Policy\nEnable : True\nAction : Block\nQuarantineTag : AdminOnlyAccessPolicy\nPriority : (lowest)\n```",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-about"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-policies-configure"
+        }
       ]
     },
     "2.1.5": {
@@ -263,6 +853,40 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "ig2": [
+            "10.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.10"
+          ],
+          "ig2": [
+            "8.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-for-spo-odfb-teams-about"
+        }
       ]
     },
     "2.1.6": {
@@ -276,6 +900,37 @@
       "nist800_53": [
         "IR-1",
         "IR-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "17.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.10"
+          ],
+          "ig2": [
+            "7.9"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "```\nBccSuspiciousOutboundAdditionalRecipients : {}\nBccSuspiciousOutboundMail : False\nNotifyOutboundSpamRecipients : {}\nNotifyOutboundSpam : False\n```",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-protection-about"
+        }
       ]
     },
     "2.1.7": {
@@ -289,6 +944,31 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-protection-about"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-eop-configure"
+        }
       ]
     },
     "2.1.8": {
@@ -301,6 +981,33 @@
       ],
       "nist800_53": [
         "SC-7"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-spf-configure?view=o365-worldwide"
+        }
       ]
     },
     "2.1.9": {
@@ -313,6 +1020,33 @@
       ],
       "nist800_53": [
         "SC-7"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide"
+        }
       ]
     },
     "2.1.10": {
@@ -325,6 +1059,39 @@
       ],
       "nist800_53": [
         "SC-7"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/email-authentication-dmarc-configure?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/step-by-step-guides/how-to-enable-dmarc-reporting-for-microsoft-online-email-routing-address-moera-and-parked-domains?view=o365-worldwide"
+        },
+        {
+          "url": "https://media.defense.gov/2024/May/02/2003455483/-1/-1/0/CSA-NORTH-KOREAN-ACTORS-EXPLOIT-WEAK-DMARC.PDF"
+        }
       ]
     },
     "2.1.11": {
@@ -338,6 +1105,43 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.6"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.9"
+          ],
+          "ig2": [
+            "8.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "The following extensions are blocked by default:\n\nace, ani, apk, app, appx, arj, bat, cab, cmd, com, deb, dex, dll, docm, elf, exe, hta, img, iso, jar, jnlp, kext, lha, lib, library, lnk, lzh, macho, msc, msi, msix, msp, mst, pif, ppa, ppam, reg, rev, scf, scr, sct, sys, uif, vb, vbe, vbs, vxd, wsc, wsf, wsh, xll, xz, z",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/get-malwarefilterpolicy?view=exchange-ps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/anti-malware-policies-configure?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/office/compatibility/office-file-format-reference"
+        }
       ]
     },
     "2.1.12": {
@@ -351,6 +1155,30 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "IPAllowList : {}",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365#use-the-ip-allow-list"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/how-policies-and-protections-are-combined#user-and-tenant-settings-conflict"
+        }
       ]
     },
     "2.1.13": {
@@ -364,6 +1192,30 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "EnableSafeList : False",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/connection-filter-policies-configure"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/create-safe-sender-lists-in-office-365#use-the-ip-allow-list"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/how-policies-and-protections-are-combined#user-and-tenant-settings-conflict"
+        }
       ]
     },
     "2.1.14": {
@@ -377,6 +1229,24 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "AllowedSenderDomains : {}",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-spam-protection-about#allow-and-block-lists-in-anti-spam-policies"
+        }
       ]
     },
     "2.1.15": {
@@ -390,6 +1260,30 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "```\nRecipientLimitExternalPerHour : 0\nRecipientLimitInternalPerHour : 0\nRecipientLimitPerDay : 0\nActionWhenThresholdReached : BlockUserForToday\n```\n\nThe value of `0` means the service defaults are being used. More information on sending limits is here: https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits-1",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-protection-about"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365#outbound-spam-policy-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#sending-limits-1"
+        }
       ]
     },
     "2.2.1": {
@@ -404,6 +1298,34 @@
         "AU-2",
         "AU-7",
         "AU-12"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "8.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16"
+          ]
+        }
+      },
+      "defaultValue": "A policy to monitor emergency access accounts does not exist by default.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access#monitor-sign-in-and-audit-logs"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-cloud-apps/control-cloud-apps-with-policies"
+        }
       ]
     },
     "2.4.1": {
@@ -417,6 +1339,27 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "By default, priority accounts are undefined.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/setup/priority-accounts"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-security-recommendations"
+        }
       ]
     },
     "2.4.2": {
@@ -432,6 +1375,34 @@
         "SI-3",
         "SI-8",
         "SI-4"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "ig2": [
+            "10.7"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "By default, presets are not applied to any users or groups.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/preset-security-policies?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/priority-accounts-security-recommendations"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/recommended-settings-for-eop-and-office365?view=o365-worldwide#impersonation-settings-in-anti-phishing-policies-in-microsoft-defender-for-office-365"
+        }
       ]
     },
     "2.4.3": {
@@ -446,6 +1417,54 @@
       "nist800_53": [
         "SI-3",
         "SI-16"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "10.1"
+          ],
+          "ig2": [
+            "10.5"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "6.2"
+          ],
+          "ig2": [
+            "16"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-office-365#connect-microsoft-365-to-microsoft-defender-for-cloud-apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-cloud-apps/protect-azure#connect-azure-to-microsoft-defender-for-cloud-apps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-cloud-apps/best-practices"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-cloud-apps/get-started"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks"
+        }
       ]
     },
     "2.4.4": {
@@ -458,6 +1477,29 @@
       ],
       "nist800_53": [
         "SI-3"
+      ],
+      "sectionNumber": 2,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "10.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "On (Default)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/zero-hour-auto-purge?view=o365-worldwide#zero-hour-auto-purge-zap-in-microsoft-teams"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/mdo-support-teams-about?view=o365-worldwide#configure-zap-for-teams-protection-in-defender-for-office-365-plan-2"
+        }
       ]
     },
     "3.1.1": {
@@ -472,6 +1514,42 @@
         "AU-2",
         "AU-7",
         "AU-12"
+      ],
+      "sectionNumber": 3,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "8.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "6.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "180 days",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-adminauditlogconfig?view=exchange-ps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#verify-the-auditing-status-for-your-organization"
+        }
       ]
     },
     "3.2.1": {
@@ -486,6 +1564,36 @@
         "AU-11",
         "CM-12",
         "SI-12"
+      ],
+      "sectionNumber": 3,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13"
+          ],
+          "ig2": [
+            "14.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp?view=o365-worldwide"
+        }
       ]
     },
     "3.2.2": {
@@ -500,6 +1608,43 @@
         "AU-11",
         "CM-12",
         "SI-12"
+      ],
+      "sectionNumber": 3,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13"
+          ],
+          "ig2": [
+            "14.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled (On)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/exchange/connect-to-scc-powershell?view=exchange-ps"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/dlp-teams-default-policy"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/connect-ippssession?view=exchange-ps"
+        }
       ]
     },
     "3.3.1": {
@@ -512,6 +1657,41 @@
       ],
       "nist800_53": [
         "RA-2"
+      ],
+      "sectionNumber": 3,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.7"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "ig2": [
+            "14.6"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "The \"Global sensitivity label policy\" exists by default.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/create-sensitivity-labels"
+        }
       ]
     },
     "4.1": {
@@ -522,7 +1702,27 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 4,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "UI: \"Compliant\"\n\nGraph: secureByDefault = $false",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started"
+        }
+      ]
     },
     "4.2": {
       "title": "Ensure device enrollment for personally owned devices is blocked by default",
@@ -538,6 +1738,31 @@
         "SC-39",
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 4,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.12"
+          ],
+          "ig2": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Allow",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set"
+        },
+        {
+          "url": "https://www.glueckkanja.com/blog/security/2025/01/compliant-device-bypass-en/"
+        }
       ]
     },
     "5.1.2.1": {
@@ -551,6 +1776,31 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-userstates#convert-users-from-per-user-mfa-to-conditional-access"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide#use-conditional-access-policies"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-userstates#convert-per-user-mfa-enabled-and-enforced-users-to-disabled"
+        }
       ]
     },
     "5.1.2.2": {
@@ -564,6 +1814,34 @@
       "nist800_53": [
         "CM-7(5)",
         "CM-10"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "2.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "18.4"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Yes (Users can register applications.)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity-platform/how-applications-are-added"
+        }
       ]
     },
     "5.1.2.3": {
@@ -574,7 +1852,22 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "No - Non-administrators can create tenants.\n\n`AllowedToCreateTenants` is `True`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions#restrict-member-users-default-permissions"
+        }
+      ]
     },
     "5.1.2.4": {
       "title": "Ensure access to the Entra admin center is restricted",
@@ -584,7 +1877,22 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 5,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "No - Non-administrators can access the Microsoft Entra admin center.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions#restrict-member-users-default-permissions"
+        }
+      ]
     },
     "5.1.2.5": {
       "title": "Ensure the option to remain signed in is hidden",
@@ -599,6 +1907,29 @@
         "AC-11",
         "AC-11(1)",
         "AC-12"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Users may select `stay signed in`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-stay-signed-in-prompt"
+        }
       ]
     },
     "5.1.2.6": {
@@ -612,6 +1943,36 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.3"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "LinkedIn integration is enabled by default.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/linkedin-integration"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/linkedin-user-consent"
+        }
       ]
     },
     "5.1.3.1": {
@@ -627,6 +1988,32 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Undefined",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/groups-create-rule"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/use-dynamic-groups"
+        }
       ]
     },
     "5.1.3.2": {
@@ -642,6 +2029,29 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "AllowedToCreateSecurityGroups : True",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/groups-self-service-management?WT.mc_id=Portal-Microsoft_AAD_IAM#group-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/authorizationpolicy-get?view=graph-rest-1.0&tabs=http"
+        }
       ]
     },
     "5.1.4.1": {
@@ -659,6 +2069,30 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "All",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities#configure-device-settings"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/12/05/microsoft-incident-response-lessons-on-preventing-cloud-identity-compromise/#poor-device"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/deviceregistrationpolicy?view=graph-rest-beta"
+        }
       ]
     },
     "5.1.4.2": {
@@ -676,6 +2110,30 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "50",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities#configure-device-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/device-enrollment-manager-enroll"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/deviceregistrationpolicy?view=graph-rest-beta"
+        }
       ]
     },
     "5.1.4.3": {
@@ -693,6 +2151,30 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Yes",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities#configure-device-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/deviceregistrationpolicy?view=graph-rest-beta"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/assign-local-admin"
+        }
       ]
     },
     "5.1.4.4": {
@@ -710,6 +2192,30 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "All",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities#configure-device-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/deviceregistrationpolicy?view=graph-rest-beta"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/assign-local-admin"
+        }
       ]
     },
     "5.1.4.5": {
@@ -722,6 +2228,32 @@
       ],
       "nist800_53": [
         "IA-5(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "No",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities#configure-device-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/resources/deviceregistrationpolicy?view=graph-rest-beta"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/howto-manage-local-admin-passwords"
+        }
       ]
     },
     "5.1.4.6": {
@@ -737,6 +2269,35 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "No",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/manage-device-identities#configure-device-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/graph/api/authorizationpolicy-get?view=graph-rest-1.0"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/intunecustomersuccess/user-self-service-bitlocker-recovery-key-access-with-intune-company-portal-websi/4150458"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-process#self-recovery"
+        }
       ]
     },
     "5.1.5.1": {
@@ -752,6 +2313,36 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "14.6"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "UI - `Allow user consent for apps`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-user-consent?pivots=portal"
+        }
       ]
     },
     "5.1.5.2": {
@@ -765,6 +2356,34 @@
       "nist800_53": [
         "CM-7(5)",
         "CM-10"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "2.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "18.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "'- `Users can request admin consent to apps they are unable to consent to`: `No`\n- `Selected users to review admin consent requests`: `None`\n- `Selected users will receive email notifications for requests`: `Yes`\n- `Selected users will receive request expiration reminders`: `Yes`\n- `Consent request expires after (days)`: `30`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow"
+        }
       ]
     },
     "5.1.6.1": {
@@ -781,6 +2400,39 @@
         "AC-1",
         "AC-2",
         "AC-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Allow invitations to be sent to any domain (most inclusive)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/allow-deny-list"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b"
+        }
       ]
     },
     "5.1.6.2": {
@@ -797,6 +2449,29 @@
         "AC-1",
         "AC-2",
         "AC-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "'- UI: `Guest users have limited access to properties and memberships of directory objects` \n- PowerShell: `10dae51f-b6af-4016-8d66-8c2a99b929b3`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-restrict-guest-permissions"
+        },
+        {
+          "url": "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"
+        }
       ]
     },
     "5.1.6.3": {
@@ -813,6 +2488,39 @@
         "AC-1",
         "AC-2",
         "AC-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "'- UI: `Anyone in the organization can invite guest users including guests and non-admins (most inclusive)` \n- PowerShell: `everyone`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#guest-inviter"
+        }
       ]
     },
     "5.1.8.1": {
@@ -826,6 +2534,43 @@
       "nist800_53": [
         "AC-2(1)",
         "AC-3"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.7"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.4"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "'- Microsoft Entra Connect sync `disabled` by default \n- Password Hash Sync is Microsoft's recommended setting for new deployments",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-phs"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/download/details.aspx?id=47594"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sync-staging-server"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization"
+        }
       ]
     },
     "5.2.2.1": {
@@ -838,6 +2583,34 @@
       ],
       "nist800_53": [
         "IA-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.5"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa"
+        }
       ]
     },
     "5.2.2.2": {
@@ -851,6 +2624,33 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-policy-all-users-mfa"
+        }
       ]
     },
     "5.2.2.3": {
@@ -864,6 +2664,40 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "9.2"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Basic authentication is disabled by default as of January 2023.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online"
+        }
       ]
     },
     "5.2.2.4": {
@@ -879,6 +2713,35 @@
         "AC-11",
         "AC-11(1)",
         "AC-12"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "The default configuration for user sign-in frequency is a rolling window of 90 days.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/howto-conditional-access-session-lifetime"
+        }
       ]
     },
     "5.2.2.5": {
@@ -891,6 +2754,34 @@
       ],
       "nist800_53": [
         "IA-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.5"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passwordless#fido2-security-keys"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-enable-passkey-fido2"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-configure-mfa-policy"
+        }
       ]
     },
     "5.2.2.6": {
@@ -904,6 +2795,35 @@
       "nist800_53": [
         "SI-4",
         "SI-4(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "13.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.13"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-risk-feedback"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks"
+        }
       ]
     },
     "5.2.2.7": {
@@ -917,6 +2837,35 @@
       "nist800_53": [
         "SI-4",
         "SI-4(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "13.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.13"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/howto-identity-protection-risk-feedback"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks"
+        }
       ]
     },
     "5.2.2.8": {
@@ -930,6 +2879,24 @@
       "nist800_53": [
         "SI-4",
         "SI-4(4)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "13.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks#risk-detections-mapped-to-riskeventtype"
+        }
       ]
     },
     "5.2.2.9": {
@@ -943,6 +2910,30 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/concept-hybrid-join"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/mem/intune/fundamentals/deployment-guide-enrollment"
+        }
       ]
     },
     "5.2.2.10": {
@@ -956,6 +2947,33 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-grant#require-device-to-be-marked-as-compliant"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/devices/concept-hybrid-join"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/mem/intune/fundamentals/deployment-guide-enrollment"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps#user-actions"
+        }
       ]
     },
     "5.2.2.11": {
@@ -969,6 +2987,31 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Sign-in frequency defaults to 90 days.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime#require-reauthentication-every-time"
+        },
+        {
+          "url": "https://www.blackhat.com/eu-24/briefings/schedule/#unveiling-the-power-of-intune-leveraging-intune-for-breaking-into-your-cloud-and-on-premise-42176"
+        },
+        {
+          "url": "https://www.glueckkanja.com/blog/security/2025/01/compliant-device-bypass-en/"
+        }
       ]
     },
     "5.2.2.12": {
@@ -982,6 +3025,36 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "16.7"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-device-code"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-authentication-flows"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2025/02/13/storm-2372-conducts-device-code-phishing-campaign/"
+        },
+        {
+          "url": "https://securing365.com/secure-your-device-code-auth-flows-now/"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-authentication-flows#device-code-flow-policies"
+        }
       ]
     },
     "5.2.3.1": {
@@ -996,6 +3069,32 @@
         "AC-19",
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.4"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Microsoft-managed",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-default-enablement"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/t5/microsoft-entra-blog/defend-your-users-from-mfa-fatigue-attacks/ba-p/2365677"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-mfa-number-match"
+        }
       ]
     },
     "5.2.3.2": {
@@ -1008,6 +3107,28 @@
       ],
       "nist800_53": [
         "IA-5(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-password-ban-bad#custom-banned-password-list"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-configure-custom-password-protection"
+        }
       ]
     },
     "5.2.3.3": {
@@ -1020,6 +3141,35 @@
       ],
       "nist800_53": [
         "IA-5(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.4"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enable - Yes\n\nMode - Audit",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-password-ban-bad-on-premises-operations"
+        }
       ]
     },
     "5.2.3.4": {
@@ -1033,6 +3183,42 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.reports/update-mgreportauthenticationmethoduserregistrationdetail?view=graph-powershell-1.0#-ismfacapable"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/monitoring-health/how-to-view-applied-conditional-access-policies"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/what-if-tool"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-authentication-methods-activity"
+        }
       ]
     },
     "5.2.3.5": {
@@ -1046,6 +3232,31 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "'- SMS : Disabled\n- Voice Call : Disabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods-manage"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/security/zero-trust/sfi/phishing-resistant-mfa#context-and-problem"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/microsoft-365-life-hacks/privacy-and-safety/what-is-sim-swapping"
+        }
       ]
     },
     "5.2.3.6": {
@@ -1059,6 +3270,28 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Microsoft Managed (Enabled)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-system-preferred-multifactor-authentication"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-system-preferred-multifactor-authentication#how-does-system-preferred-mfa-determine-the-most-secure-method"
+        }
       ]
     },
     "5.2.3.7": {
@@ -1072,6 +3305,31 @@
       "nist800_53": [
         "IA-2(1)",
         "IA-2(2)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "'- Email OTP : Enabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods-manage"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/one-time-passcode"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/security/zero-trust/sfi/phishing-resistant-mfa#context-and-problem"
+        }
       ]
     },
     "5.2.4.1": {
@@ -1082,7 +3340,27 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 5,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/let-users-reset-passwords?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-registration-mfa-sspr-combined"
+        }
+      ]
     },
     "5.3.1": {
       "title": "Ensure 'Privileged Identity Management' is used to manage roles",
@@ -1099,6 +3377,37 @@
         "AC-1",
         "AC-2",
         "AC-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.1"
+          ],
+          "ig2": [
+            "6.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure"
+        }
       ]
     },
     "5.3.2": {
@@ -1113,6 +3422,32 @@
       "nist800_53": [
         "AC-2",
         "AC-2(3)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.1"
+          ],
+          "ig2": [
+            "5.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "By default access reviews are not configured.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/create-access-review"
+        }
       ]
     },
     "5.3.3": {
@@ -1127,6 +3462,32 @@
       "nist800_53": [
         "AC-2",
         "AC-2(3)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "5.1"
+          ],
+          "ig2": [
+            "5.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "By default access reviews are not configured.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-create-roles-and-resource-roles-review"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/access-reviews-overview"
+        }
       ]
     },
     "5.3.4": {
@@ -1144,6 +3505,41 @@
         "AC-1",
         "AC-2",
         "AC-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.1"
+          ],
+          "ig2": [
+            "6.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "`Require approval to activate` : `No`.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/groups-role-settings#require-approval-to-activate"
+        }
       ]
     },
     "5.3.5": {
@@ -1161,6 +3557,41 @@
         "AC-1",
         "AC-2",
         "AC-2(1)"
+      ],
+      "sectionNumber": 5,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.1"
+          ],
+          "ig2": [
+            "6.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "4.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "`Require approval to activate` : `No`.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/groups-role-settings#require-approval-to-activate"
+        }
       ]
     },
     "6.1.1": {
@@ -1175,6 +3606,39 @@
         "AU-2",
         "AU-7",
         "AU-12"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "8.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "6.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "False",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/audit-mailboxes?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-organizationconfig?view=exchange-ps#-auditdisabled"
+        }
       ]
     },
     "6.1.2": {
@@ -1189,6 +3653,36 @@
         "AU-2",
         "AU-7",
         "AU-12"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "8.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "6.2"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "`AuditEnabled`: `True` for all mailboxes except below:\n\n- Resource Mailboxes\n- Public Folder Mailboxes\n- DiscoverySearch Mailbox\n\n**AuditAdmin:** ApplyRecord, Create, HardDelete, MailItemsAccessed, MoveToDeletedItems, Send, SendAs, SendOnBehalf, SoftDelete, Update, UpdateCalendarDelegation, UpdateFolderPermissions, UpdateInboxRules\n\n**AuditDelegate:** ApplyRecord, Create, HardDelete, MailItemsAccessed, MoveToDeletedItems, SendAs, SendOnBehalf, SoftDelete, Update, UpdateFolderPermissions, UpdateInboxRules\n\n**AuditOwner:** ApplyRecord, HardDelete, MailItemsAccessed, MoveToDeletedItems, Send, SoftDelete, Update, UpdateCalendarDelegation, UpdateFolderPermissions, UpdateInboxRules",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/purview/audit-mailboxes?view=o365-worldwide"
+        }
       ]
     },
     "6.1.3": {
@@ -1204,6 +3698,25 @@
         "AU-3(1)",
         "AU-7",
         "AU-12"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "8.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "AuditBypassEnabled `False`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/get-mailboxauditbypassassociation?view=exchange-ps"
+        }
       ]
     },
     "6.2.1": {
@@ -1214,7 +3727,27 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/mail-flow-rules"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/t5/exchange-team-blog/all-you-need-to-know-about-automatic-email-forwarding-in/ba-p/2074888#:~:text=%20%20%20Automatic%20forwarding%20option%20%20,%"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding?view=o365-worldwide"
+        }
+      ]
     },
     "6.2.2": {
       "title": "Ensure mail transport rules do not whitelist specific domains",
@@ -1227,6 +3760,26 @@
       "nist800_53": [
         "SI-3",
         "SI-8"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/configuration-best-practices"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/mail-flow-rules"
+        }
       ]
     },
     "6.2.3": {
@@ -1237,7 +3790,30 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "Disabled (False)",
+      "references": [
+        {
+          "url": "https://techcommunity.microsoft.com/t5/exchange-team-blog/native-external-sender-callouts-on-email-in-outlook/ba-p/2250098"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-externalinoutlook?view=exchange-ps"
+        }
+      ]
     },
     "6.3.1": {
       "title": "Ensure users installing Outlook add-ins is not allowed",
@@ -1251,6 +3827,38 @@
         "CM-10",
         "CM-11",
         "SC-18"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "9.4"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "5.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "UI - `My Custom Apps`, `My Marketplace Apps`, and `My ReadWriteMailbox Apps` are checked\n\nPowerShell - `My Custom Apps` `My Marketplace Apps` and `My ReadWriteMailbox Apps` are assigned",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/add-ins-for-outlook/specify-who-can-install-and-manage-add-ins?source=recommendations"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/permissions-exo/role-assignment-policies"
+        }
       ]
     },
     "6.5.1": {
@@ -1267,6 +3875,37 @@
         "IA-5(1)",
         "SC-8",
         "SC-8(1)"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.10"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.3"
+          ],
+          "ig2": [
+            "16.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "True",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online"
+        }
       ]
     },
     "6.5.2": {
@@ -1277,7 +3916,25 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "MailTipsAllTipsEnabled: True\nMailTipsExternalRecipientsTipsEnabled: False\nMailTipsGroupMetricsEnabled: True\nMailTipsLargeAudienceThreshold: 25",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/mailtips/mailtips"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-organizationconfig?view=exchange-ps"
+        }
+      ]
     },
     "6.5.3": {
       "title": "Ensure additional storage providers are restricted in Outlook on the web",
@@ -1292,6 +3949,42 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.1"
+          ],
+          "ig2": [
+            "13.4"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "AdditionalStorageProvidersAvailable : True",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-owamailboxpolicy?view=exchange-ps"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/topic/3rd-party-cloud-storage-services-supported-by-office-apps-fce12782-eccc-4cf5-8f4b-d1ebec513f72"
+        }
       ]
     },
     "6.5.4": {
@@ -1305,6 +3998,25 @@
       "nist800_53": [
         "AC-18",
         "SC-23"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "12.6"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "SmtpClientAuthenticationDisabled : True",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission"
+        }
       ]
     },
     "6.5.5": {
@@ -1318,6 +4030,37 @@
       "nist800_53": [
         "AC-18",
         "SC-23"
+      ],
+      "sectionNumber": 6,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "12.6"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "RejectDirectSend : False",
+      "references": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/exchange/introducing-more-control-over-direct-send-in-exchange-online/4408790?WT.mc_id=M365-MVP-9501"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/exchange/direct-send-vs-sending-directly-to-an-exchange-online-tenant/4439865"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/exchangepowershell/set-organizationconfig?view=exchange-ps"
+        },
+        {
+          "url": "https://www.varonis.com/blog/direct-send-exploit"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/discussions/microsoft-365/disable-direct-send-in-exchange-online-to-mitigate-ongoing-phishing-threats/4434649"
+        }
       ]
     },
     "7.2.1": {
@@ -1334,6 +4077,34 @@
         "IA-5(1)",
         "SC-8",
         "SC-8(1)"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.10"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "16.3"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "True (Apps that don't use modern authentication are allowed)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps"
+        }
       ]
     },
     "7.2.2": {
@@ -1344,7 +4115,28 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "False",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-azureb2b-integration#enabling-the-integration"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/what-is-b2b"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps"
+        }
+      ]
     },
     "7.2.3": {
       "title": "Ensure external content sharing is restricted",
@@ -1359,6 +4151,29 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Anyone (ExternalUserAndGuestSharing)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps"
+        }
       ]
     },
     "7.2.4": {
@@ -1374,6 +4189,26 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Anyone (ExternalUserAndGuestSharing)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps#-onedrivesharingcapability"
+        }
       ]
     },
     "7.2.5": {
@@ -1389,6 +4224,39 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "14.6"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Checked (False)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/external-sharing-overview"
+        }
       ]
     },
     "7.2.6": {
@@ -1404,6 +4272,39 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "13.4"
+          ],
+          "ig2": [
+            "14.6"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Limit external sharing by domain is unchecked\n\nSharingDomainRestrictionMode: `None`\n\nSharingDomainRestrictionMode: <Undefined>",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off?WT.mc_id=365AdminCSH_spo#more-external-sharing-settings"
+        }
       ]
     },
     "7.2.7": {
@@ -1419,6 +4320,26 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Only people in your organization (Internal)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps"
+        }
       ]
     },
     "7.2.8": {
@@ -1436,6 +4357,24 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Unchecked/Undefined",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/manage-security-groups"
+        }
       ]
     },
     "7.2.9": {
@@ -1446,7 +4385,30 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "ExternalUserExpirationRequired `$false`\n\nExternalUserExpireInDays `60` days",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/community/sharepoint-security-a-team-effort"
+        }
+      ]
     },
     "7.2.10": {
       "title": "Ensure reauthentication with verification code is restricted",
@@ -1456,7 +4418,33 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "EmailAttestationRequired : `False`\n\nEmailAttestationReAuthDays : `30`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/what-s-new-in-sharing-in-targeted-release"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/one-time-passcode"
+        }
+      ]
     },
     "7.2.11": {
       "title": "Ensure the SharePoint default sharing link permission is set",
@@ -1466,7 +4454,27 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "DefaultLinkPermission : Edit",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/turn-external-sharing-on-or-off#file-and-folder-links"
+        }
+      ]
     },
     "7.3.1": {
       "title": "Ensure Office 365 SharePoint infected files are disallowed for download",
@@ -1478,6 +4486,44 @@
       ],
       "nist800_53": [
         "SI-3"
+      ],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "10.1"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "7.10"
+          ],
+          "ig2": [
+            "8.1"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "False",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/safe-attachments-for-spo-odfb-teams-configure?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-protection-for-spo-odfb-teams-about?view=o365-worldwide"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-reader"
+        }
       ]
     },
     "7.3.2": {
@@ -1488,7 +4534,25 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 7,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "By default there are no restrictions applied to the syncing of OneDrive.\n\nTenantRestrictionEnabled : `False`\n\nAllowedDomainList : `{}`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/sharepoint/allow-syncing-only-on-specific-domains"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/set-spotenantsyncclientrestriction?view=sharepoint-ps"
+        }
+      ]
     },
     "8.1.1": {
       "title": "Ensure external file sharing in Teams is enabled for only approved cloud storage services",
@@ -1503,6 +4567,34 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "14.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "AllowDropBox : `True`\n\nAllowBox : `True`\n\nAllowGoogleDrive : `True`\n\nAllowShareFile : `True`\n\nAllowEgnyte : `True`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-managing-teams"
+        }
       ]
     },
     "8.1.2": {
@@ -1513,7 +4605,33 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "On (True)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/step-by-step-guides/reducing-attack-surface-in-microsoft-teams?view=o365-worldwide#restricting-channel-email-messages-to-approved-domains"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/settings-policies-reference#email-integration"
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/office/send-an-email-to-a-channel-in-microsoft-teams-d91db004-d9d7-4a47-82e6-fb1b16dfd51e"
+        }
+      ]
     },
     "8.2.1": {
       "title": "Ensure external domains are restricted in the Teams admin center",
@@ -1523,7 +4641,28 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "EnableFederationAccess - $True",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/trusted-organizations-external-meetings-chat?tabs=organization-settings"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/08/02/midnight-blizzard-conducts-targeted-social-engineering-over-microsoft-teams/"
+        },
+        {
+          "url": "https://www.bitdefender.com/blog/hotforsecurity/gifshell-attack-lets-hackers-create-reverse-shell-through-microsoft-teams-gifs/"
+        }
+      ]
     },
     "8.2.2": {
       "title": "Ensure communication with unmanaged Teams users is disabled",
@@ -1533,7 +4672,28 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "'- EnableTeamsConsumerAccess : `True`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/trusted-organizations-external-meetings-chat?tabs=organization-settings"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/08/02/midnight-blizzard-conducts-targeted-social-engineering-over-microsoft-teams/"
+        },
+        {
+          "url": "https://www.bitdefender.com/blog/hotforsecurity/gifshell-attack-lets-hackers-create-reverse-shell-through-microsoft-teams-gifs/"
+        }
+      ]
     },
     "8.2.3": {
       "title": "Ensure external Teams users cannot initiate conversations",
@@ -1543,7 +4703,28 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "'- EnableTeamsConsumerInbound : `True`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/trusted-organizations-external-meetings-chat?tabs=organization-settings"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/08/02/midnight-blizzard-conducts-targeted-social-engineering-over-microsoft-teams/"
+        },
+        {
+          "url": "https://www.bitdefender.com/blog/hotforsecurity/gifshell-attack-lets-hackers-create-reverse-shell-through-microsoft-teams-gifs/"
+        }
+      ]
     },
     "8.2.4": {
       "title": "Ensure the organization cannot communicate with accounts in trial Teams tenants",
@@ -1553,7 +4734,28 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "`Off` or `Blocked`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/trusted-organizations-external-meetings-chat?tabs=organization-settings#block-federation-with-teams-trial-only-tenants"
+        },
+        {
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/08/02/midnight-blizzard-conducts-targeted-social-engineering-over-microsoft-teams/"
+        },
+        {
+          "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/gifshell-attack-lets-hackers-create-reverse-shell-through-microsoft-teams-gifs"
+        }
+      ]
     },
     "8.4.1": {
       "title": "Ensure app permission policies are configured",
@@ -1566,6 +4768,36 @@
       "nist800_53": [
         "CM-7(5)",
         "CM-10"
+      ],
+      "sectionNumber": 8,
+      "assessmentStatus": "Manual",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "2.5"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "2.7"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Microsoft apps: On\n\nThird-party apps: On\n\nCustom apps: On",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/app-centric-management"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/step-by-step-guides/reducing-attack-surface-in-microsoft-teams?view=o365-worldwide#disabling-third-party--custom-apps"
+        }
       ]
     },
     "8.5.1": {
@@ -1576,7 +4808,39 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "On (True)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/step-by-step-guides/reducing-attack-surface-in-microsoft-teams?view=o365-worldwide#configure-meeting-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/settings-policies-reference?WT.mc_id=TeamsAdminCenterCSH#meeting-join--lobby"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/MicrosoftTeams/configure-meetings-sensitive-protection"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/anonymous-users-in-meetings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/plan-meetings-external-participants"
+        }
+      ]
     },
     "8.5.2": {
       "title": "Ensure anonymous users and dial-in callers can't start a meeting",
@@ -1586,7 +4850,30 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "Off (False)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/anonymous-users-in-meetings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/who-can-bypass-meeting-lobby#overview-of-lobby-settings-and-policies"
+        }
+      ]
     },
     "8.5.3": {
       "title": "Ensure only people in my org can bypass the lobby",
@@ -1603,6 +4890,27 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "People in my org and guests (EveryoneInCompany)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/who-can-bypass-meeting-lobby#overview-of-lobby-settings-and-policies"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/skype/set-csteamsmeetingpolicy?view=skype-ps"
+        }
       ]
     },
     "8.5.4": {
@@ -1613,7 +4921,30 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "Off (False)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/who-can-bypass-meeting-lobby#overview-of-lobby-settings-and-policies"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/skype/set-csteamsmeetingpolicy?view=skype-ps"
+        }
+      ]
     },
     "8.5.5": {
       "title": "Ensure meeting chat does not allow anonymous users",
@@ -1623,7 +4954,27 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "On for everyone (Enabled)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/skype/set-csteamsmeetingpolicy?view=skype-ps#-meetingchatenabledtype"
+        }
+      ]
     },
     "8.5.6": {
       "title": "Ensure only organizers and co-organizers can present",
@@ -1633,7 +4984,36 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "Everyone (EveryoneUserOverride)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-US/microsoftteams/meeting-who-present-request-control"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-who-present-request-control#manage-who-can-present"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/step-by-step-guides/reducing-attack-surface-in-microsoft-teams?view=o365-worldwide#configure-meeting-settings-restrict-presenters"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/skype/set-csteamsmeetingpolicy?view=skype-ps"
+        }
+      ]
     },
     "8.5.7": {
       "title": "Ensure external participants can't give or request control",
@@ -1643,7 +5023,30 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "Off (False)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/meeting-who-present-request-control"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/powershell/module/skype/set-csteamsmeetingpolicy?view=skype-ps"
+        }
+      ]
     },
     "8.5.8": {
       "title": "Ensure external meeting chat is off",
@@ -1656,6 +5059,25 @@
       "nist800_53": [
         "PL-8",
         "SA-8"
+      ],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "16.10"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "On(True)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/settings-policies-reference#meeting-engagement"
+        }
       ]
     },
     "8.5.9": {
@@ -1669,6 +5091,25 @@
       "nist800_53": [
         "PL-8",
         "SA-8"
+      ],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "16.10"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "On (True)",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/microsoftteams/settings-policies-reference#recording--transcription"
+        }
       ]
     },
     "8.6.1": {
@@ -1679,7 +5120,27 @@
       "safeguards": [
         "0.0"
       ],
-      "nist800_53": []
+      "nist800_53": [],
+      "sectionNumber": 8,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "0.0"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "0.0"
+          ]
+        }
+      },
+      "defaultValue": "On (`True`)\n\nReport message destination: `Microsoft Only`",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/defender-office-365/submissions-teams?view=o365-worldwide"
+        }
+      ]
     },
     "9.1.1": {
       "title": "Ensure guest user access is restricted",
@@ -1699,6 +5160,29 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "ig2": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+        }
       ]
     },
     "9.1.2": {
@@ -1716,6 +5200,27 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-azure-ad-b2b#invite-guest-users"
+        }
       ]
     },
     "9.1.3": {
@@ -1731,6 +5236,36 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        },
+        "v7": {
+          "ig1": [
+            "14.6"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+        }
       ]
     },
     "9.1.4": {
@@ -1744,6 +5279,28 @@
       "nist800_53": [
         "PL-8",
         "SA-8"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "16.10"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled for the entire organization\n\nOnly allow existing codes",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing#publish-to-web"
+        }
       ]
     },
     "9.1.5": {
@@ -1757,6 +5314,31 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-r-python-visuals"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/visuals/service-r-visuals"
+        },
+        {
+          "url": "https://www.r-project.org/"
+        }
       ]
     },
     "9.1.6": {
@@ -1772,6 +5354,35 @@
         "CM-12",
         "PM-5(1)",
         "RA-2"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.2"
+          ],
+          "ig2": [
+            "3.7"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-security-enable-data-sensitivity-labels"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/governance/data-loss-prevention-overview"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/enterprise/service-security-enable-data-sensitivity-labels#licensing-and-requirements"
+        }
       ]
     },
     "9.1.7": {
@@ -1787,6 +5398,29 @@
         "AC-5",
         "AC-6",
         "MP-2"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-share-dashboards?wt.mc_id=powerbi_inproduct_sharedialog#link-settings"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+        }
       ]
     },
     "9.1.8": {
@@ -1807,6 +5441,29 @@
         "AC-6(1)",
         "AC-6(7)",
         "AU-9(4)"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "3.3"
+          ],
+          "ig2": [
+            "6.8"
+          ],
+          "applicableIGs": [
+            "IG1",
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+        }
       ]
     },
     "9.1.9": {
@@ -1820,6 +5477,28 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-developer"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming"
+        }
       ]
     },
     "9.1.10": {
@@ -1833,6 +5512,25 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Enabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-developer"
+        }
       ]
     },
     "9.1.11": {
@@ -1846,6 +5544,28 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-developer"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-multi-tenancy"
+        }
       ]
     },
     "9.1.12": {
@@ -1859,6 +5579,25 @@
       "nist800_53": [
         "CM-6",
         "CM-7"
+      ],
+      "sectionNumber": 9,
+      "assessmentStatus": "Automated",
+      "cisSafeguardsByVersion": {
+        "v8": {
+          "ig1": [
+            "4.8"
+          ],
+          "applicableIGs": [
+            "IG2",
+            "IG3"
+          ]
+        }
+      },
+      "defaultValue": "Disabled for the entire organization",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-developer"
+        }
       ]
     }
   }

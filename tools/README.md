@@ -31,11 +31,13 @@ python tools/import-cis-prose.py --include description,rationale
 python scripts/Build-Registry.py
 ```
 
-**Output.** `data/cis-m365-v6-authored.local.json` — gitignored. Contains a `_warning` field reminding consumers not to commit or redistribute. The output is not committed by accident because:
+**Output.** `data/cis-m365-v6-authored.local.json` — gitignored. Contains a `_warning` field reminding consumers not to commit or redistribute.
 
-1. `.gitignore` excludes `*.local.json` and the specific path
-2. The output file's `_warning` field surfaces the constraint at the data layer
-3. CI does not produce or consume this file
+**Build-Registry consumption.** When this local artifact is present, `scripts/Build-Registry.py` writes **two** files:
+- `data/registry.json` — canonical, NEVER contains CIS-authored prose (always safe to commit)
+- `data/registry.local.json` — prose-enriched variant, gitignored
+
+Downstream consumers (M365-Assess etc.) load `registry.local.json` if it exists, falling back to `registry.json` otherwise. The output-separation architecture means a `git status` after a local rebuild never accidentally surfaces prose in committable diffs. See [`LICENSES/CIS-CONSUMER-SIDE.md`](../LICENSES/CIS-CONSUMER-SIDE.md) for the full posture.
 
 **Field semantics.** All six fields are CIS-authored prose, distinct from CheckID's check-level authored content:
 
