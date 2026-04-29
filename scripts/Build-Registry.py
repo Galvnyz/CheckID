@@ -926,6 +926,16 @@ def main():
             cis_profiles = cm.get("cisM365Profiles", [])
             if cis_profiles:
                 cis_entry["profiles"] = cis_profiles
+            # Phase 1 of #347: pass-through enriched factual metadata when the
+            # crosswalk has it. Fields are absent until the CIS XLSX is rebuilt
+            # with the v1.2.0+ Build-CisM365Crosswalk.py.
+            cis_meta = cis_crosswalk.get(cis_id, {})
+            for key in ("sectionNumber", "assessmentStatus", "defaultValue"):
+                if key in cis_meta:
+                    cis_entry[key] = cis_meta[key]
+            for key in ("cisControls", "cisSafeguardsByVersion", "references"):
+                if key in cis_meta and cis_meta[key]:
+                    cis_entry[key] = cis_meta[key]
             frameworks["cis-m365-v6"] = cis_entry
 
         # Enrich NIST 800-53 from M365-specific authoritative sources.
