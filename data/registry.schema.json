@@ -465,6 +465,74 @@
           "type": "string",
           "minLength": 1,
           "description": "Free-text explanation for why this mapping exists. Primarily used on 'manual-override' entries to capture tribal knowledge (e.g. 'SCF lacks PR.AA-05 coverage for sign-in frequency'). Absent on 'scf-derived' entries since the source is self-explanatory."
+        },
+        "sectionNumber": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Phase 1 of #347 — top-level section number from the framework's authoritative source (e.g. CIS M365 v6 Section #). Optional; only populated when the source crosswalk supplies it."
+        },
+        "assessmentStatus": {
+          "type": "string",
+          "enum": ["Manual", "Automated"],
+          "description": "Phase 1 of #347 — the source benchmark's own classification of whether this recommendation is automation-verifiable. Distinct from CheckID's hasAutomatedCheck (which is OUR automation status); this is the upstream framework's stance."
+        },
+        "defaultValue": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Phase 1 of #347 — Microsoft's factory / out-of-the-box state for this control. Drives gap analysis: 'is the tenant deviating from the default in a secure direction.'"
+        },
+        "cisControls": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\d+(\\.\\d+)*$"
+          },
+          "description": "Phase 1 of #347 — CIS Controls v8 control numbers (e.g. ['6.6']) crosswalked from this recommendation. Distinct from cisSafeguardsByVersion which carries the per-IG safeguard breakdown."
+        },
+        "cisSafeguardsByVersion": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "v8": { "$ref": "#/$defs/cisSafeguardIGBreakdown" },
+            "v7": { "$ref": "#/$defs/cisSafeguardIGBreakdown" }
+          },
+          "description": "Phase 1 of #347 — CIS Safeguards crosswalk grouped by version (v8 + v7) and Implementation Group tier."
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "additionalProperties": false,
+            "properties": {
+              "url": { "type": "string", "format": "uri" },
+              "title": { "type": "string" }
+            }
+          },
+          "description": "Phase 1 of #347 — citation URLs (and optional titles) from the source benchmark's References column. Factual citation only; CheckID's own references[] at check-level is a separate authored field."
+        }
+      }
+    },
+    "cisSafeguardIGBreakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ig1": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d+(\\.\\d+)*$" }
+        },
+        "ig2": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d+(\\.\\d+)*$" }
+        },
+        "ig3": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^\\d+(\\.\\d+)*$" }
+        },
+        "applicableIGs": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["IG1", "IG2", "IG3"] },
+          "description": "The Implementation Groups (IG1/IG2/IG3) at which this CIS recommendation applies. CIS Implementation Groups are additive: IG2 ⊇ IG1, IG3 ⊇ IG2."
         }
       }
     }

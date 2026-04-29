@@ -309,6 +309,65 @@ Describe 'Control Registry Integrity' {
         }
     }
 
+    # --- CIS phase 1 enrichment shape (#347) ---
+    # Phase 1 fields are optional — populated only after the CIS XLSX is rebuilt
+    # with the v1.2.0+ Build-CisM365Crosswalk.py. These tests check shape WHEN
+    # populated, and don't fail when absent.
+
+    It '#347 phase 1 — assessmentStatus, when present, is Manual or Automated' {
+        $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
+        $valid = @('Manual', 'Automated')
+        foreach ($check in $cisMapped) {
+            $cis = $check.frameworks.'cis-m365-v6'
+            if ($cis.PSObject.Properties.Name -contains 'assessmentStatus') {
+                $cis.assessmentStatus | Should -BeIn $valid `
+                    -Because "$($check.checkId).frameworks.cis-m365-v6.assessmentStatus must be Manual or Automated when populated"
+            }
+        }
+    }
+
+    It '#347 phase 1 — sectionNumber, when present, is a non-negative integer matching the controlId prefix' {
+        $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
+        foreach ($check in $cisMapped) {
+            $cis = $check.frameworks.'cis-m365-v6'
+            if ($cis.PSObject.Properties.Name -contains 'sectionNumber') {
+                $cis.sectionNumber | Should -BeGreaterOrEqual 0
+                if ($cis.controlId -match '^(\d+)') {
+                    [int]$matches[1] | Should -Be $cis.sectionNumber `
+                        -Because "$($check.checkId).frameworks.cis-m365-v6.sectionNumber must agree with controlId prefix"
+                }
+            }
+        }
+    }
+
+    It '#347 phase 1 — cisControls and cisSafeguardsByVersion shapes, when present, are well-formed' {
+        $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
+        $validIGs = @('IG1', 'IG2', 'IG3')
+        foreach ($check in $cisMapped) {
+            $cis = $check.frameworks.'cis-m365-v6'
+            if ($cis.PSObject.Properties.Name -contains 'cisControls') {
+                foreach ($cc in $cis.cisControls) {
+                    $cc | Should -Match '^\d+(\.\d+)*$' `
+                        -Because "$($check.checkId) cisControls entry '$cc' must be dotted-numeric"
+                }
+            }
+            if ($cis.PSObject.Properties.Name -contains 'cisSafeguardsByVersion') {
+                $sgbv = $cis.cisSafeguardsByVersion
+                foreach ($ver in 'v8','v7') {
+                    if ($sgbv.PSObject.Properties.Name -contains $ver) {
+                        $verBlock = $sgbv.$ver
+                        if ($verBlock.PSObject.Properties.Name -contains 'applicableIGs') {
+                            foreach ($ig in $verBlock.applicableIGs) {
+                                $ig | Should -BeIn $validIGs `
+                                    -Because "$($check.checkId) cisSafeguardsByVersion.$ver.applicableIGs must be IG1/IG2/IG3 only"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     # --- NIST 800-53 profiles ---
 
     It 'Most NIST 800-53 entries have profiles array' {
