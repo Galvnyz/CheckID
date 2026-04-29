@@ -39,6 +39,15 @@ _tmp.ps1
 *.tmp
 *~
 
+# CIS-licensed consumer-side artifacts (#347 phase 2 / Path A).
+# These files contain CIS Benchmark prose imported locally by each consumer
+# from their own licensed copy of the CIS spreadsheet. Per the CIS SecureSuite
+# membership agreement, this content cannot be redistributed publicly — even
+# verbatim. The local file stays on the consumer's machine; CheckID itself
+# never carries the prose. See LICENSES/CIS-CONSUMER-SIDE.md.
+*.local.json
+data/cis-m365-v6-authored.local.json
+
 # OS artifacts
 Thumbs.db
 desktop.ini

@@ -510,6 +510,47 @@
             }
           },
           "description": "Phase 1 of #347 — citation URLs (and optional titles) from the source benchmark's References column. Factual citation only; CheckID's own references[] at check-level is a separate authored field."
+        },
+        "cisAuthored": {
+          "$ref": "#/$defs/cisAuthoredProse",
+          "description": "Phase 2 of #347 — CIS-authored prose. Populated locally per consumer via tools/import-cis-prose.py from their own licensed CIS XLSX. ABSENT in the public CheckID registry (CIS SecureSuite member terms forbid public redistribution); present only when the consumer has run the importer against their licensed copy. See LICENSES/CIS-CONSUMER-SIDE.md."
+        }
+      }
+    },
+    "cisAuthoredProse": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "CIS-authored prose columns from the v6 spreadsheet — Description, Rationale Statement, Impact Statement, Remediation Procedure, Audit Procedure, Additional Information. Each field is optional so partial imports are valid (e.g., consumer chooses to import only Audit Procedure for verifier UX). All fields are CC BY-NC-SA 4.0 + CIS member-restricted; consumers are responsible for honoring those terms when their tooling consumes this data.",
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CIS Description column (verbatim)."
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CIS Rationale Statement column (verbatim). Distinct from CheckID's check-level rationale — that is CheckID-authored content."
+        },
+        "impact": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CIS Impact Statement column (verbatim). Distinct from CheckID's check-level impact — that is CheckID-authored content."
+        },
+        "remediation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CIS Remediation Procedure column (verbatim, prose form). Distinct from CheckID's structured remediation object — that is the channel-typed actionable guidance."
+        },
+        "audit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CIS Audit Procedure column (verbatim). How CIS itself describes verification — distinct from CheckID's hasAutomatedCheck (our automation status)."
+        },
+        "additionalInfo": {
+          "type": "string",
+          "minLength": 1,
+          "description": "CIS Additional Information column (verbatim). Notes, caveats, Microsoft-version dependencies, etc."
         }
       }
     },
