@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Documentation
+
+- **`docs/audits/conditional-access.md`** — first domain audit under the v3.4.0 umbrella ([#326](https://github.com/Galvnyz/CheckID/issues/326)). Resolves spike [#327](https://github.com/Galvnyz/CheckID/issues/327). Catalogs **42 canonical CA patterns** across 5 sub-domains (foundational, surface-area, external/guest, anti-pattern, modern 2024-2026), maps them against the registry's 26 existing CA-related checks, identifies **17 coverage gaps** to file as `feat:` issues, **6 narrative-refresh candidates**, and one consolidation opportunity (`ENTRA-CA-001` ↔ `CA-LEGACYAUTH-001`). Includes an AiTM defense matrix mapping CA controls to which adversary-in-the-middle phishing tradecraft they break, and a Graph endpoint detection-method appendix. Sets the methodology template for the remaining 13 v3.4.0 domain spikes.
+
 ### Added
 
 - **`force-replace` override mode** in `scripts/Build-Registry.py` `apply_fw_overrides()`. Until now, `mode: "replace"` (the default) only filled when the framework key was absent — if SCF had already produced an entry, the override silently became a no-op for the controlId. The new `force-replace` mode fully discards the SCF-derived entry and rebuilds it from override data (controlId, title resolved from `framework-titles.json`, profiles, evidenceType, source, reason). Use it when SCF's mapping is wrong for a framework — e.g., SCF maps SEA-18 to SOC 2 CC2.2 but `soc2-tsc.json` classifies CC2 as `nonAutomatableCriteria`. ([#316](https://github.com/Galvnyz/CheckID/issues/316))
