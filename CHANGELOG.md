@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **CI: skip noisy informational PR comments on doc-only PRs.** The `enrichment-metrics` and `mapping-count-regression` jobs in `.github/workflows/validate.yml` now skip when a PR doesn't touch `data/`, `scripts/`, the module manifest, or the workflows themselves. Both jobs post sticky comments via `github-actions[bot]`; previously they fired on every PR including the v3.4.0 audit-doc series, emitting identical numbers and emailing the PR author for no signal. New `changes` job uses `dorny/paths-filter@v3` to detect source-affecting changes; gating happens via `needs: changes` + `if: needs.changes.outputs.source == 'true'`. PRs that legitimately change registry / build output still get the full sticky comments — only doc-only PRs are silent now.
+
 ### Documentation
 
 - **`docs/audits/conditional-access.md`** — first domain audit under the v3.4.0 umbrella ([#326](https://github.com/Galvnyz/CheckID/issues/326)). Resolves spike [#327](https://github.com/Galvnyz/CheckID/issues/327). Catalogs **42 canonical CA patterns** across 5 sub-domains (foundational, surface-area, external/guest, anti-pattern, modern 2024-2026), maps them against the registry's 26 existing CA-related checks, identifies **17 coverage gaps** to file as `feat:` issues, **6 narrative-refresh candidates**, and one consolidation opportunity (`ENTRA-CA-001` ↔ `CA-LEGACYAUTH-001`). Includes an AiTM defense matrix mapping CA controls to which adversary-in-the-middle phishing tradecraft they break, and a Graph endpoint detection-method appendix. Sets the methodology template for the remaining 13 v3.4.0 domain spikes.
