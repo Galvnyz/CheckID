@@ -7,6 +7,33 @@ on:
     branches: [main]
 
 jobs:
+  changes:
+    # Detect whether the PR touches files that affect registry / build output.
+    # Doc-only PRs (audit catalogs, CHANGELOG, LICENSES, tools/) skip the noisy
+    # informational jobs (enrichment-metrics, mapping-count-regression) since
+    # they emit identical sticky comments on every run regardless of delta —
+    # which emails the PR author for no signal. See `.github/CONTRIBUTING.md`
+    # if you add a new gating job whose output should differ on doc PRs.
+    name: Detect changed paths
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      pull-requests: read
+    outputs:
+      source: ${{ steps.filter.outputs.source }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            source:
+              - 'data/**'
+              - 'scripts/**'
+              - 'CheckID.psd1'
+              - 'CheckID.psm1'
+              - '.github/workflows/**'
+
   lint:
     name: Lint PowerShell
     runs-on: ubuntu-latest
@@ -295,7 +322,8 @@ jobs:
 
   mapping-count-regression:
     name: Mapping Count Regression
-    if: github.event_name == 'pull_request'
+    needs: changes
+    if: github.event_name == 'pull_request' && needs.changes.outputs.source == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -358,7 +386,8 @@ jobs:
 
   enrichment-metrics:
     name: Enrichment Metrics
-    if: github.event_name == 'pull_request'
+    needs: changes
+    if: github.event_name == 'pull_request' && needs.changes.outputs.source == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
