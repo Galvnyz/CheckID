@@ -4482,8 +4482,8 @@
     },
     {
       "checkId": "ENTRA-SSPR-001",
-      "name": "Ensure 'Self service password reset enabled' is set to 'All'",
-      "category": "SSPR",
+      "name": "Ensure MFA Registration Campaign is enabled to nudge users toward stronger methods",
+      "category": "AUTHMETHOD",
       "collector": "Entra",
       "hasAutomatedCheck": true,
       "licensing": "E3",
@@ -4493,12 +4493,9 @@
         "IAC-10"
       ],
       "impactSeverity": "Medium",
-      "impactRationale": "Failure to enforce complexity, length and lifespan considerations to ensure strong criteria for password-based authentication exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "5.2.4.1",
-      "cisM365Profiles": [
-        "E3-L1",
-        "E5-L1"
-      ],
+      "impactRationale": "Failure to drive enrollment on stronger authentication methods leaves the user population overly dependent on phishable methods (SMS, voice) and increases susceptibility to AiTM proxy phishing, push bombing, and SIM-swap tradecraft.",
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
       "remediation": {
         "portal": {
           "path": "Entra admin center > Protection > Authentication methods > Registration campaign > Enable and target All Users",
@@ -4511,16 +4508,16 @@
           ]
         }
       },
-      "rationale": "Self-service password reset for all users reduces helpdesk load and ensures users can recover accounts quickly. Without SSPR, users locked out of accounts must wait for helpdesk assistance, which can disrupt productivity and delay emergency access scenarios.",
-      "impact": "Users locked out of accounts must contact the helpdesk, creating delays during time-sensitive situations and increasing helpdesk workload. This does not represent a direct security risk but affects operational resilience.",
+      "rationale": "The Microsoft Authenticator Registration Campaign nudges users registered with weaker authentication methods (SMS, voice, software OATH) to enroll Microsoft Authenticator with stronger options (push, passwordless, phishing-resistant). Without an active campaign, users tend to stay on whatever method they originally registered — leaving an avoidable gap that AiTM kits and push-bombing tradecraft exploit. Targeting 'All Users' ensures the nudge reaches every population, including long-stale registrations.",
+      "impact": "Users may remain on weaker methods (SMS, voice) indefinitely. This population is most exposed to SIM-swap, voice-channel interception, and AiTM proxy phishing. The control does not directly enforce strong methods — it nudges enrollment — so impact is gradual but measurable as a steady rise in strong-method adoption % over weeks. Pair with auth-strength CA policies for hard enforcement.",
       "references": [
         {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-howitworks",
-          "title": "Microsoft Learn — How it works: Microsoft Entra self-service password reset"
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-mfa-registration-campaign",
+          "title": "Microsoft Learn — How to run a registration campaign to set up Microsoft Authenticator"
         },
         {
-          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr",
-          "title": "Microsoft Learn — Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset"
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods-manage",
+          "title": "Microsoft Learn — Manage authentication methods for Microsoft Entra ID"
         }
       ],
       "frameworkOverrides": {
