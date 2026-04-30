@@ -41,7 +41,7 @@ if sys.stdout.encoding != "utf-8":
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent
 
-SCHEMA_VERSION = "3.0.0"
+SCHEMA_VERSION = "3.4.0"
 
 
 # ---------------------------------------------------------------------------

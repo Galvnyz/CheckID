@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [3.4.0] - 2026-04-30
+
+**Theme:** Authoritative Narrative Audit & Coverage Closure. Fourteen domain pattern catalogs ([#326](https://github.com/Galvnyz/CheckID/issues/326), spikes [#327](https://github.com/Galvnyz/CheckID/issues/327)–[#340](https://github.com/Galvnyz/CheckID/issues/340)) review every existing check against authoritative Microsoft + community sources, surface coverage gaps, and propose canonical reference data files. Plus CIS M365 v6 enrichment infrastructure ([#347](https://github.com/Galvnyz/CheckID/issues/347)) with a consumer-side prose ingestion model that respects CIS SecureSuite licensing while letting members enrich locally. Additive-only release — no schema breakage.
+
 ### Changed
 
 - **CI: skip noisy informational PR comments on doc-only PRs.** The `enrichment-metrics` and `mapping-count-regression` jobs in `.github/workflows/validate.yml` now skip when a PR doesn't touch `data/`, `scripts/`, the module manifest, or the workflows themselves. Both jobs post sticky comments via `github-actions[bot]`; previously they fired on every PR including the v3.4.0 audit-doc series, emitting identical numbers and emailing the PR author for no signal. New `changes` job uses `dorny/paths-filter@v3` to detect source-affecting changes; gating happens via `needs: changes` + `if: needs.changes.outputs.source == 'true'`. PRs that legitimately change registry / build output still get the full sticky comments — only doc-only PRs are silent now.
