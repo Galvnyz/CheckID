@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0.0",
-  "dataVersion": "2026-04-25",
+  "dataVersion": "2026-04-30",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
     {
@@ -539,9 +539,6 @@
         },
         "iso-27002": {
           "controlId": "5.21;5.23;5.35;5.36;5.8;6.1.2(d);6.1.2(d)(1);6.1.2(d)(2);6.1.2(d)(3);6.1.2(e);6.1.2(e)(1);6.1.2(e)(2);7.5;8.1;8.2;8.29;8.34;8.8;9.1;9.1(a);9.1(b);9.1(c);9.1(d);9.1(e);9.1(f)"
-        },
-        "cis-m365-v6": {
-          "controlId": "6.2"
         }
       },
       "impactRating": {
@@ -5511,12 +5508,6 @@
         },
         "iso-27002": {
           "controlId": "5.15;5.17;5.18;8.12;8.2;8.3"
-        },
-        "cis-m365-v6": {
-          "controlId": "5.3.7",
-          "profiles": [
-            "E5-L1"
-          ]
         }
       },
       "impactRating": {
@@ -15876,12 +15867,6 @@
         },
         "iso-27002": {
           "controlId": "5.15;5.16;5.18;8.12;8.3"
-        },
-        "cis-m365-v6": {
-          "controlId": "5.3.8",
-          "profiles": [
-            "E5-L1"
-          ]
         }
       },
       "impactRating": {
@@ -18451,9 +18436,6 @@
         },
         "iso-27002": {
           "controlId": "5.18;6.7"
-        },
-        "cis-m365-v6": {
-          "controlId": "7.4"
         }
       },
       "impactRating": {
@@ -18938,7 +18920,31 @@
           "controlId": "5.18;6.7"
         },
         "cis-m365-v6": {
-          "controlId": "8.3"
+          "controlId": "9.1.1",
+          "title": "Ensure guest user access is restricted",
+          "sectionNumber": 9,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "3.3"
+              ],
+              "ig2": [
+                "6.8"
+              ],
+              "applicableIGs": [
+                "IG1",
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "Enabled for the entire organization",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -43637,7 +43643,33 @@
           "controlId": "5.16;5.9"
         },
         "cis-m365-v6": {
-          "controlId": "6.3"
+          "controlId": "4.2",
+          "title": "Ensure device enrollment for personally owned devices is blocked by default",
+          "sectionNumber": 4,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "4.12"
+              ],
+              "ig2": [
+                "4.8"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "Allow",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/mem/intune/enrollment/enrollment-restrictions-set"
+            },
+            {
+              "url": "https://www.glueckkanja.com/blog/security/2025/01/compliant-device-bypass-en/"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -46712,13 +46744,6 @@
         "iso-27002": {
           "controlId": "5.18"
         },
-        "cis-m365-v6": {
-          "controlId": "3.6.1",
-          "profiles": [
-            "E3-L1",
-            "E5-L1"
-          ]
-        },
         "nist-csf": {
           "controlId": "PR.AA-05",
           "title": "Access permissions, entitlements, and authorizations are defined in a policy, managed, enforced, and reviewed, and incorporate the principles of least privilege and separation of duties",
@@ -46963,13 +46988,6 @@
         },
         "iso-27002": {
           "controlId": "5.18"
-        },
-        "cis-m365-v6": {
-          "controlId": "3.6.1",
-          "profiles": [
-            "E3-L1",
-            "E5-L1"
-          ]
         },
         "nist-csf": {
           "controlId": "PR.AA-05",
@@ -68155,7 +68173,28 @@
           "controlId": "8.12;8.25;8.26;8.3;8.5;8.9"
         },
         "cis-m365-v6": {
-          "controlId": "6.1"
+          "controlId": "4.1",
+          "title": "Ensure devices without a compliance policy are marked 'not compliant'",
+          "sectionNumber": 4,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "0.0"
+              ]
+            },
+            "v7": {
+              "ig1": [
+                "0.0"
+              ]
+            }
+          },
+          "defaultValue": "UI: \"Compliant\"\n\nGraph: secureByDefault = $false",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/mem/intune/protect/device-compliance-get-started"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -73219,9 +73258,6 @@
         },
         "iso-27002": {
           "controlId": "8.12;8.19;8.3;8.9"
-        },
-        "cis-m365-v6": {
-          "controlId": "7.3.3"
         }
       },
       "impactRating": {
@@ -73456,9 +73492,6 @@
         },
         "iso-27002": {
           "controlId": "8.12;8.19;8.3;8.9"
-        },
-        "cis-m365-v6": {
-          "controlId": "7.3.4"
         }
       },
       "impactRating": {
@@ -92907,7 +92940,44 @@
           "controlId": "8.12;8.15;8.16;8.25;8.26;8.3;8.5;8.9"
         },
         "cis-m365-v6": {
-          "controlId": "5.3"
+          "controlId": "3.1.1",
+          "title": "Ensure Microsoft 365 audit log search is Enabled",
+          "sectionNumber": 3,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "8.2"
+              ],
+              "applicableIGs": [
+                "IG1",
+                "IG2",
+                "IG3"
+              ]
+            },
+            "v7": {
+              "ig1": [
+                "6.2"
+              ],
+              "applicableIGs": [
+                "IG1",
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "180 days",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/set-adminauditlogconfig?view=exchange-ps"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/purview/audit-log-enable-disable?view=o365-worldwide&tabs=microsoft-purview-portal#verify-the-auditing-status-for-your-organization"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -93133,9 +93203,6 @@
         },
         "iso-27002": {
           "controlId": "5.24;5.25;5.26;5.5;6.8;8.15"
-        },
-        "cis-m365-v6": {
-          "controlId": "6.1"
         }
       },
       "impactRating": {
@@ -93352,12 +93419,6 @@
         },
         "iso-27002": {
           "controlId": "5.25;8.15"
-        },
-        "cis-m365-v6": {
-          "controlId": "5.3.9",
-          "profiles": [
-            "E5-L1"
-          ]
         }
       },
       "impactRating": {
@@ -95319,9 +95380,6 @@
         },
         "iso-27002": {
           "controlId": "5.33;8.1"
-        },
-        "cis-m365-v6": {
-          "controlId": "5.4"
         }
       },
       "impactRating": {
@@ -101406,7 +101464,28 @@
           "controlId": "5.14;8.2;8.21;8.3"
         },
         "cis-m365-v6": {
-          "controlId": "5.2"
+          "controlId": "6.2.1",
+          "title": "Ensure all forms of mail forwarding are blocked and/or disabled",
+          "sectionNumber": 6,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "0.0"
+              ]
+            }
+          },
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/exchange/security-and-compliance/mail-flow-rules/mail-flow-rules"
+            },
+            {
+              "url": "https://techcommunity.microsoft.com/t5/exchange-team-blog/all-you-need-to-know-about-automatic-email-forwarding-in/ba-p/2074888#:~:text=%20%20%20Automatic%20forwarding%20option%20%20,%"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-policies-external-email-forwarding?view=o365-worldwide"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -101877,7 +101956,31 @@
           "controlId": "5.14;5.18;8.2;8.3"
         },
         "cis-m365-v6": {
-          "controlId": "8.1"
+          "controlId": "9.1.8",
+          "title": "Ensure enabling of external data sharing is restricted",
+          "sectionNumber": 9,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "3.3"
+              ],
+              "ig2": [
+                "6.8"
+              ],
+              "applicableIGs": [
+                "IG1",
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "Enabled for the entire organization",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -102118,7 +102221,30 @@
           "controlId": "5.14;5.18;8.2;8.3"
         },
         "cis-m365-v6": {
-          "controlId": "8.2"
+          "controlId": "9.1.4",
+          "title": "Ensure 'Publish to web' is restricted",
+          "sectionNumber": 9,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "16.10"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "Enabled for the entire organization\n\nOnly allow existing codes",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/fabric/admin/service-admin-portal-export-sharing#publish-to-web"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -112223,9 +112349,6 @@
         },
         "iso-27002": {
           "controlId": "8.1;8.24;8.5"
-        },
-        "cis-m365-v6": {
-          "controlId": "6.2"
         }
       },
       "impactRating": {
@@ -116306,7 +116429,34 @@
           "controlId": "8.7;8.8"
         },
         "cis-m365-v6": {
-          "controlId": "3.6.2",
+          "controlId": "1.3.5",
+          "title": "Ensure internal phishing protection for Forms is enabled",
+          "sectionNumber": 1,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "10.1"
+              ],
+              "ig2": [
+                "14.2"
+              ],
+              "applicableIGs": [
+                "IG1",
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "Internal Phishing Protection is enabled.",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-US/microsoft-forms/administrator-settings-microsoft-forms"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-US/microsoft-forms/review-unblock-forms-users-detected-blocked-potential-phishing"
+            }
+          ],
           "profiles": [
             "E3-L1",
             "E5-L1"
@@ -116894,7 +117044,35 @@
           "controlId": "5.14;8.24;8.26;8.7;8.8"
         },
         "cis-m365-v6": {
-          "controlId": "4.4"
+          "controlId": "2.1.9",
+          "title": "Ensure that DKIM is enabled for all Exchange Online Domains",
+          "sectionNumber": 2,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "9.5"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            },
+            "v7": {
+              "ig1": [
+                "7.8"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/email-authentication-dkim-configure?view=o365-worldwide"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -117188,7 +117366,42 @@
           "controlId": "8.7;8.8"
         },
         "cis-m365-v6": {
-          "controlId": "4.5"
+          "controlId": "2.1.2",
+          "title": "Ensure the Common Attachment Types Filter is enabled",
+          "sectionNumber": 2,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "9.6"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            },
+            "v7": {
+              "ig1": [
+                "7.9"
+              ],
+              "ig2": [
+                "8.1"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "Always on",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/powershell/module/exchange/get-malwarefilterpolicy?view=exchange-ps"
+            },
+            {
+              "url": "https://learn.microsoft.com/en-us/defender-office-365/anti-malware-policies-configure?view=o365-worldwide"
+            }
+          ]
         }
       },
       "impactRating": {
@@ -121040,9 +121253,6 @@
         },
         "iso-27002": {
           "controlId": "8.7;8.8"
-        },
-        "cis-m365-v6": {
-          "controlId": "6.4"
         }
       },
       "impactRating": {
@@ -121935,7 +122145,39 @@
           "controlId": "5.4;5.4.1"
         },
         "cis-m365-v6": {
-          "controlId": "4.3"
+          "controlId": "2.1.6",
+          "title": "Ensure Exchange Online Spam Policies are set to notify administrators",
+          "sectionNumber": 2,
+          "assessmentStatus": "Automated",
+          "cisSafeguardsByVersion": {
+            "v8": {
+              "ig1": [
+                "17.5"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            },
+            "v7": {
+              "ig1": [
+                "7.10"
+              ],
+              "ig2": [
+                "7.9"
+              ],
+              "applicableIGs": [
+                "IG2",
+                "IG3"
+              ]
+            }
+          },
+          "defaultValue": "```\nBccSuspiciousOutboundAdditionalRecipients : {}\nBccSuspiciousOutboundMail : False\nNotifyOutboundSpamRecipients : {}\nNotifyOutboundSpam : False\n```",
+          "references": [
+            {
+              "url": "https://learn.microsoft.com/en-us/defender-office-365/outbound-spam-protection-about"
+            }
+          ]
         },
         "soc2": {
           "controlId": "CC6.8;CC7.1",

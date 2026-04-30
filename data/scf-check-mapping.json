@@ -1953,11 +1953,8 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
-      "cisM365ControlId": "3.6.1",
-      "cisM365Profiles": [
-        "E3-L1",
-        "E5-L1"
-      ],
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
       "remediation": {
         "portal": {
           "path": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can share and collaborate on forms\"",
@@ -1999,11 +1996,8 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to control publicly-accessible content exposes the tenant to: Inability to maintain individual accountability, Unauthorized access, Lost, damaged or stolen asset(s).",
-      "cisM365ControlId": "3.6.1",
-      "cisM365Profiles": [
-        "E3-L1",
-        "E5-L1"
-      ],
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
       "remediation": {
         "portal": {
           "path": "Microsoft 365 admin center > Settings > Org settings > Microsoft Forms > Uncheck \"People outside your organization can respond\"",
@@ -2047,7 +2041,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "3.6.2",
+      "cisM365ControlId": "1.3.5",
       "cisM365Profiles": [
         "E3-L1",
         "E5-L1"
@@ -2224,7 +2218,7 @@
       "scfAdditional": [],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to utilize anti-phishing and spam protection technologies to detect and take action on unsolicited messages transported by electronic mail exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege.",
-      "cisM365ControlId": "4.3",
+      "cisM365ControlId": "2.1.6",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -2271,7 +2265,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "4.4",
+      "cisM365ControlId": "2.1.9",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -2325,7 +2319,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to utilize antimalware technologies to detect and eradicate malicious code exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "4.5",
+      "cisM365ControlId": "2.1.2",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -3304,7 +3298,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": "5.2",
+      "cisM365ControlId": "6.2.1",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -4546,7 +4540,7 @@
       ],
       "impactSeverity": "Critical",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
-      "cisM365ControlId": "5.3",
+      "cisM365ControlId": "3.1.1",
       "cisM365Profiles": [],
       "remediation": {
         "notes": "Enable unified audit logging. Purview compliance portal > Audit > Search > Start recording user and admin activity. PowerShell: Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true"
@@ -4827,7 +4821,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to retain event logs for a time period consistent with records retention requirements to provide support for after-the-fact investigations of security incidents and to meet statutory, regulatory and contractual retention requirements exposes the tenant to: Emergent.",
-      "cisM365ControlId": "5.4",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -4867,7 +4861,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to document, assess risk and approve or deny deviations to standardized configurations exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "6.1",
+      "cisM365ControlId": "4.1",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -4908,7 +4902,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
-      "cisM365ControlId": "6.1",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -5052,7 +5046,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to protect the confidentiality, integrity, availability and safety of endpoint devices exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "6.2",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -5094,7 +5088,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to regularly review processes and documented procedures to ensure conformity with the organization's cybersecurity and data protection policies, standards and other applicable requirements exposes the tenant to: Inability to maintain individual accountability, Improper.",
-      "cisM365ControlId": "6.2",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -5253,7 +5247,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to establish and maintain an authoritative source and repository to provide a trusted source and accountability for approved and implemented system components that prevents assets from being duplicated in other asset inventories exposes the tenant to: Emergent properties.",
-      "cisM365ControlId": "6.3",
+      "cisM365ControlId": "4.2",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -5343,7 +5337,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to automatically update antimalware technologies, including signature definitions exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "6.4",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -6174,7 +6168,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": "7.3.3",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "powershell": {
@@ -6213,7 +6207,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to configure systems to provide only essential capabilities by specifically prohibiting or restricting the use of ports, protocols, and/or services exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": "7.3.4",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "powershell": {
@@ -6253,7 +6247,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "7.4",
+      "cisM365ControlId": "",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -6299,7 +6293,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": "8.1",
+      "cisM365ControlId": "9.1.8",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -6426,7 +6420,7 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to implement and govern Access Control Lists (ACLs) to provide data flow enforcement that explicitly restrict network traffic to only what is authorized exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": "8.2",
+      "cisM365ControlId": "9.1.4",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -6637,7 +6631,7 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to enforce Logical Access Control (LAC) permissions that conform to the principle of \"least privilege?\" exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "8.3",
+      "cisM365ControlId": "9.1.1",
       "cisM365Profiles": [],
       "remediation": {
         "portal": {
@@ -8226,10 +8220,8 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to adjust the level of audit review, analysis and reporting based on evolving threat information from law enforcement, industry associations or other credible sources of threat intelligence exposes the tenant to: Unauthorized access, Lost, damaged or stolen asset(s).",
-      "cisM365ControlId": "5.3.9",
-      "cisM365Profiles": [
-        "E5-L1"
-      ],
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
       "remediation": {
         "portal": {
           "path": "Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Notification tab > configure role activation alerts to notify security team or role administrators",
@@ -8703,10 +8695,8 @@
       ],
       "impactSeverity": "High",
       "impactRationale": "Failure to utilize Multi-Factor Authentication (MFA) to authenticate local access for privileged accounts exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
-      "cisM365ControlId": "5.3.7",
-      "cisM365Profiles": [
-        "E5-L1"
-      ],
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
       "remediation": {
         "portal": {
           "path": "Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Require Azure MFA on activation",
@@ -8785,10 +8775,8 @@
       ],
       "impactSeverity": "Medium",
       "impactRationale": "Failure to use automated mechanisms to disable or remove temporary and emergency accounts after an organization-defined time period for each type of account exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions.",
-      "cisM365ControlId": "5.3.8",
-      "cisM365Profiles": [
-        "E5-L1"
-      ],
+      "cisM365ControlId": "",
+      "cisM365Profiles": [],
       "remediation": {
         "portal": {
           "path": "Entra admin center > Identity Governance > PIM > Microsoft Entra roles > select role > Settings > Edit > Activation tab > Maximum activation duration",

@@ -295,6 +295,22 @@ Describe 'Control Registry Integrity' {
         }
     }
 
+    It '#352 every cis-m365-v6.controlId resolves to a recommendation # in data/cis-m365-crosswalk.json' {
+        $crosswalkPath = "$PSScriptRoot/../data/cis-m365-crosswalk.json"
+        $crosswalk = Get-Content -Path $crosswalkPath -Raw | ConvertFrom-Json
+        $crosswalkIds = @($crosswalk.controls.PSObject.Properties.Name)
+        $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
+        $unresolved = @()
+        foreach ($check in $cisMapped) {
+            $cid = $check.frameworks.'cis-m365-v6'.controlId
+            if ($cid -and ($crosswalkIds -notcontains $cid)) {
+                $unresolved += "$($check.checkId) -> $cid"
+            }
+        }
+        $unresolved | Should -BeNullOrEmpty `
+            -Because "Every cis-m365-v6.controlId in registry.json must exist in the crosswalk so phase-1 enrichment populates. Stale recommendation #s from CIS v6.0 → v6.0.1 reorganization were reconciled in #352; this gate prevents regression."
+    }
+
     It 'CIS profiles contain only valid values' {
         $validProfiles = @('E3-L1', 'E3-L2', 'E5-L1', 'E5-L2')
         $cisMapped = $checks | Where-Object { $_.frameworks.PSObject.Properties.Name -contains 'cis-m365-v6' }
