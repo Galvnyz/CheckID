@@ -179,7 +179,8 @@ CheckID/
 │   └── scf-mapping.Tests.ps1          SCF consistency tests
 └── docs/
     ├── architecture.md                Mermaid architecture diagrams
-    └── CheckId-Guide.md               Detailed system documentation
+    ├── CheckId-Guide.md               Detailed system documentation
+    └── adr/                           Architecture Decision Records (durable rules)
 ```
 
 ## Registry Schema (v2.0.0)

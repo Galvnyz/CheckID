@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Documentation
+
+- **ADR convention adopted** under `docs/adr/`. Five initial Architecture Decision Records propose durable rules surfaced by the [#399](https://github.com/Galvnyz/CheckID/issues/399) discovery report:
+  - **0001** Adopt ADRs (meta — MADR-light format, location, lifecycle). **Accepted.**
+  - **0002** Portal-path navigation parents are a constrained vocabulary (Entra admin center allow-list + deny-list, Pester-enforced). Proposed.
+  - **0003** `hasAutomatedCheck: true` must document a mechanism in `remediation` (schema conditional; gated on a service-prefix-batched audit of the ~1,038 entries that currently claim automation without evidence). Proposed.
+  - **0004** Source-of-truth precedence for portal paths (CIS-mapped: SecFrame CSV at build time; non-CIS: manual + `lastVerified`). Proposed.
+  - **0005** Coverage gaps without supported Graph API (file as `hasAutomatedCheck: false` with full mappings; resolves the ENTRA-SSPR-002 false-claim and the CIS M365 v6 §5.2.4.1 gap PR [#397](https://github.com/Galvnyz/CheckID/pull/397) left behind). Proposed.
+
 ## [3.4.0] - 2026-04-30
 
 **Theme:** Authoritative Narrative Audit & Coverage Closure. Fourteen domain pattern catalogs ([#326](https://github.com/Galvnyz/CheckID/issues/326), spikes [#327](https://github.com/Galvnyz/CheckID/issues/327)–[#340](https://github.com/Galvnyz/CheckID/issues/340)) review every existing check against authoritative Microsoft + community sources, surface coverage gaps, and propose canonical reference data files. Plus CIS M365 v6 enrichment infrastructure ([#347](https://github.com/Galvnyz/CheckID/issues/347)) with a consumer-side prose ingestion model that respects CIS SecureSuite licensing while letting members enrich locally. Additive-only release — no schema breakage.
