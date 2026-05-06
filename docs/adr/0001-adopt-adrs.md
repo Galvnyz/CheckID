@@ -1,6 +1,6 @@
 # 0001 — Adopt Architecture Decision Records
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-05-06
 - **Deciders:** maintainers
 - **Tags:** meta, process

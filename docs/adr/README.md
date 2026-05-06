@@ -14,7 +14,7 @@ Format and lifecycle are defined in [0001-adopt-adrs.md](0001-adopt-adrs.md).
 
 | #    | Title                                                                                | Status   |
 | ---- | ------------------------------------------------------------------------------------ | -------- |
-| 0001 | [Adopt Architecture Decision Records](0001-adopt-adrs.md)                            | Proposed |
+| 0001 | [Adopt Architecture Decision Records](0001-adopt-adrs.md)                            | Accepted |
 | 0002 | [Portal-path navigation parents are a constrained vocabulary](0002-portal-path-vocabulary.md) | Proposed |
 | 0003 | [`hasAutomatedCheck: true` must document a mechanism](0003-automated-check-requires-mechanism.md) | Proposed |
 | 0004 | [Source-of-truth precedence for portal paths](0004-portal-path-source-of-truth.md)   | Proposed |
