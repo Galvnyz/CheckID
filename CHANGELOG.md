@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- **`ENTRA-SSPR-002` false-automation claim corrected.** The "SSPR enabled for admin accounts" check has been claiming `hasAutomatedCheck: true` despite no supported Microsoft Graph endpoint existing for the SSPR enablement scope (only the undocumented `main.iam.ad.ext.azure.com` internal API). Confirmed by inspecting Galvnyz/M365-Assess: no collector references this CheckID; the related ENTRA-SSPR-001 collector at `Entra/EntraPasswordAuthChecks.ps1` self-acknowledges the gap (`CurrentValue: 'Not auto-measurable via Microsoft Graph'`). Flipped to `hasAutomatedCheck: false` with portal-only remediation and a `notes` block documenting the no-supported-endpoint state. Per [ADR-0005](docs/adr/0005-coverage-gaps-without-graph-api.md). Stale parent path also corrected from `Protection >` to `Entra ID >` per [ADR-0002](docs/adr/0002-portal-path-vocabulary.md).
+- **CIS M365 v6 §5.2.4.1 coverage restored as `ENTRA-SSPR-003`.** PR [#397](https://github.com/Galvnyz/CheckID/pull/397) removed the §5.2.4.1 (All-users SSPR enablement) mapping from `ENTRA-SSPR-001` during the MFA Registration Campaign rebadge with the comment "a future ENTRA-SSPR-002 will measure actual SSPR enablement" — but the existing ENTRA-SSPR-002 measures admin-only SSPR, a different control. Filed `ENTRA-SSPR-003` as the All-users SSPR enablement entry, `hasAutomatedCheck: false` (same no-supported-endpoint situation as SSPR-002), with the CIS 5.2.4.1 mapping restored. Per [ADR-0005](docs/adr/0005-coverage-gaps-without-graph-api.md): file uncoverable controls as manual entries with full framework mappings rather than skip them or claim false automation.
+
+### Changed
+
+- **CIS M365 v6 phase-1 enrichment fields materialized in `registry.json`** (refs [#347](https://github.com/Galvnyz/CheckID/issues/347)). The v3.4.0 release shipped the schema + ingestion infrastructure for `sectionNumber`, `assessmentStatus`, `cisSafeguardsByVersion`, `defaultValue`, and `references` fields with a CHANGELOG note flagging that a `Build-CisM365Crosswalk.py` + `Build-Registry.py` rerun was needed to materialize them. That rebuild had not been committed; this commit's registry rebuild materializes the fields onto the 156 CIS M365 v6 entries that carry them.
+
 ### Documentation
 
 - **ADR convention adopted** under `docs/adr/`. Five initial Architecture Decision Records propose durable rules surfaced by the [#399](https://github.com/Galvnyz/CheckID/issues/399) discovery report:

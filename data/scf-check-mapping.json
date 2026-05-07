@@ -8133,7 +8133,7 @@
       "name": "SSPR enabled for admin accounts",
       "category": "SSPR",
       "collector": "Entra",
-      "hasAutomatedCheck": true,
+      "hasAutomatedCheck": false,
       "licensing": "E3",
       "scfPrimary": "IAC-21.3",
       "scfAdditional": [
@@ -8144,16 +8144,16 @@
       "impactRationale": "Failure to restrict the assignment of privileged accounts to management-approved personnel and/or roles exposes the tenant to: Inability to maintain individual accountability, Improper assignment of privileged functions, Privilege escalation.",
       "remediation": {
         "portal": {
-          "path": "Entra admin center > Protection > Password reset > Properties > set scope to Selected and exclude accounts holding directory roles",
+          "path": "Microsoft Entra admin center > Entra ID > Password reset > Properties > set scope to Selected and exclude accounts holding directory roles",
           "steps": [
-            "Entra admin center",
-            "Protection",
+            "Microsoft Entra admin center",
+            "Entra ID",
             "Password reset",
             "Properties",
             "set scope to Selected and exclude accounts holding directory roles"
           ]
         },
-        "notes": "Disable SSPR for administrator accounts. . Admin password resets should follow a governed helpdesk or PIM workflow"
+        "notes": "Disable SSPR for administrator accounts. Admin password resets should follow a governed helpdesk or PIM workflow. No supported Microsoft Graph endpoint exists for the SSPR enablement scope as of 2026-05-04 (only the undocumented main.iam.ad.ext.azure.com internal API). Re-evaluate when Microsoft ships /authentication/methods SSPR APIs. Filed as hasAutomatedCheck=false per ADR-0005."
       },
       "rationale": "Self-service password reset for administrator accounts is a social engineering risk. If an attacker can trick the SSPR verification process (security questions, registered phone), they can reset the admin password and bypass MFA entirely.",
       "impact": "A successful SSPR social engineering attack against an admin account provides a new password, effectively revoking any existing session and granting fresh access that does not trigger re-authentication requirements.",
@@ -8165,6 +8165,55 @@
         {
           "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/howto-sspr-deployment",
           "title": "Microsoft Learn — Plan a Microsoft Entra self-service password reset deployment"
+        }
+      ]
+    },
+    {
+      "checkId": "ENTRA-SSPR-003",
+      "name": "Ensure 'Self service password reset enabled' is set to 'All'",
+      "category": "SSPR",
+      "collector": "Entra",
+      "hasAutomatedCheck": false,
+      "licensing": "E3",
+      "scfPrimary": "IAC-21.3",
+      "scfAdditional": [
+        "IAC-10.8",
+        "IAC-10"
+      ],
+      "impactSeverity": "Medium",
+      "impactRationale": "Failure to enable self-service password reset for all users increases helpdesk burden and delays account recovery during time-sensitive situations, including emergency access scenarios.",
+      "cisM365ControlId": "5.2.4.1",
+      "cisM365Profiles": [
+        "E3-L1",
+        "E5-L1"
+      ],
+      "remediation": {
+        "portal": {
+          "path": "Microsoft Entra admin center > Entra ID > Password reset > Properties > Self service password reset enabled = All",
+          "steps": [
+            "Microsoft Entra admin center",
+            "Entra ID",
+            "Password reset",
+            "Properties",
+            "Self service password reset enabled = All"
+          ]
+        },
+        "notes": "No supported Microsoft Graph endpoint for the SSPR enablement toggle (None/Selected/All) as of 2026-05-04. Microsoft Q&A confirms; only the undocumented main.iam.ad.ext.azure.com internal API exists. Filed as hasAutomatedCheck=false per ADR-0005 to preserve CIS M365 v6 §5.2.4.1 mapping coverage that PR #397 dropped from ENTRA-SSPR-001 during the MFA Registration Campaign rebadge. Flip to hasAutomatedCheck=true with a remediation.graph block (per ADR-0003) the moment Microsoft ships /authentication/methods SSPR APIs."
+      },
+      "rationale": "Self-service password reset for all users reduces helpdesk load and ensures users can recover accounts quickly. Without SSPR, users locked out of accounts must wait for helpdesk assistance, which can disrupt productivity and delay emergency access scenarios. Restores CIS M365 v6 §5.2.4.1 coverage that PR #397 dropped from ENTRA-SSPR-001 during the MFA Registration Campaign rebadge — the underlying setting has no supported Graph endpoint, so the entry is filed as manual-only per ADR-0005 rather than reintroducing a false-automation claim.",
+      "impact": "Users locked out of accounts must contact the helpdesk, creating delays during time-sensitive situations and increasing helpdesk workload. Operational resilience impact, not direct security impact.",
+      "references": [
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-howitworks",
+          "title": "Microsoft Learn — How Microsoft Entra self-service password reset works"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr",
+          "title": "Microsoft Learn — Enable users to unlock their account or reset passwords using Microsoft Entra self-service password reset"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/answers/questions/5805131/how-to-retrieve-tenant-level-self-service-password",
+          "title": "Microsoft Q&A — Tenant-level SSPR status via Graph (no supported endpoint, 2024)"
         }
       ]
     },
