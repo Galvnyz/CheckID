@@ -64,6 +64,10 @@ coverage.xml
 *.clixml
 *_transcript_*.txt
 
+# Python artifacts (Build-Registry.py et al.; py_compile runs in CI)
+__pycache__/
+*.py[cod]
+
 # Module cache (local installs)
 Modules/
 
