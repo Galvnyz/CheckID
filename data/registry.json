@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "3.4.0",
-  "dataVersion": "2026-05-06",
+  "schemaVersion": "3.4.1",
+  "dataVersion": "2026-06-13",
   "generatedFrom": "data/scf-check-mapping.json + SecFrame/SCF/scf.db + data/scf-framework-map.json + data/az-assess-source-checks.json",
   "checks": [
     {
