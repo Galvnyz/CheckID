@@ -552,7 +552,7 @@ _COLLECTOR_TAGS: dict[str, list[str]] = {
     "Teams": ["teams", "collaboration"],
     "PowerBI": ["power-bi", "data"],
     "Purview": ["purview", "data-governance"],
-    "StrykerReadiness": ["identity", "privileged-access"],
+    "CriticalExposure": ["identity", "privileged-access"],
     "Forms": ["forms", "collaboration"],
     "PurviewRetention": ["purview", "data-governance", "retention"],
     "EntApp": ["app-registration", "identity"],

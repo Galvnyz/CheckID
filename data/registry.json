@@ -6679,7 +6679,7 @@
       "checkId": "ENTRA-ROLEGROUP-001",
       "name": "Unprotected groups in privileged role assignments",
       "category": "ROLEGROUP",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -13490,7 +13490,7 @@
       "checkId": "ENTRA-STALEADMIN-001",
       "name": "Admin accounts inactive for more than 90 days",
       "category": "STALEADMIN",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -15885,7 +15885,7 @@
       "checkId": "ENTRA-BREAKGLASS-001",
       "name": "No break-glass emergency access account detected",
       "category": "BREAKGLASS",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -20919,7 +20919,7 @@
       "checkId": "CA-EXCLUSION-001",
       "name": "Privileged admins excluded from Conditional Access policies",
       "category": "CAEXCLUSION",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -34970,7 +34970,7 @@
       "checkId": "INTUNE-RBAC-001",
       "name": "RBAC role assignments without scope tags",
       "category": "RBAC",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -37228,7 +37228,7 @@
       "checkId": "ENTRA-SYNCADMIN-001",
       "name": "On-premises synced admin accounts (compromise path)",
       "category": "SYNCADMIN",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -42371,7 +42371,7 @@
       "checkId": "ENTRA-APPS-002",
       "name": "App registrations with dangerous Intune write permissions",
       "category": "APPS",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -85216,7 +85216,7 @@
       "checkId": "INTUNE-MAA-001",
       "name": "Multi-Admin Approval not enabled for destructive operations",
       "category": "MAA",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
@@ -96543,7 +96543,7 @@
       "checkId": "INTUNE-WIPEAUDIT-001",
       "name": "Mass device wipe activity detected (attack indicator)",
       "category": "WIPEAUDIT",
-      "collector": "StrykerReadiness",
+      "collector": "CriticalExposure",
       "hasAutomatedCheck": true,
       "licensing": {
         "minimum": "E3"
