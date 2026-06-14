@@ -103,5 +103,25 @@
       "background": "#831843",
       "color": "#F9A8D4"
     }
+  },
+  "groupBy": "hipaa-section",
+  "groupLabel": "safeguard",
+  "groups": {
+    "306": "General Rules",
+    "308": "Administrative Safeguards",
+    "310": "Physical Safeguards",
+    "312": "Technical Safeguards",
+    "314": "Organizational Requirements",
+    "316": "Policies, Procedures & Documentation",
+    "404": "Breach Notification to Individuals",
+    "408": "Breach Notification to the Secretary",
+    "412": "Law Enforcement Delay",
+    "506": "Treatment, Payment & Health Care Operations",
+    "508": "Authorization Requirements",
+    "510": "Opportunity to Agree or Object",
+    "512": "Uses & Disclosures Without Authorization",
+    "514": "Other Privacy Requirements",
+    "530": "Privacy Administrative Requirements",
+    "532": "Transition Provisions"
   }
 }

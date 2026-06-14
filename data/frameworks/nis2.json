@@ -21,5 +21,11 @@
       "background": "#083344",
       "color": "#67e8f9"
     }
+  },
+  "groupBy": "article-prefix",
+  "groupLabel": "article",
+  "groups": {
+    "21": "Cybersecurity Risk-Management Measures",
+    "23": "Reporting Obligations"
   }
 }

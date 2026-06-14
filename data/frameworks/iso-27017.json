@@ -21,5 +21,23 @@
       "background": "#082f49",
       "color": "#7dd3fc"
     }
+  },
+  "groupBy": "section-prefix",
+  "groupLabel": "clause",
+  "groups": {
+    "5": "Information Security Policies",
+    "6": "Organization of Information Security",
+    "7": "Human Resource Security",
+    "8": "Asset Management",
+    "9": "Access Control",
+    "10": "Cryptography",
+    "11": "Physical & Environmental Security",
+    "12": "Operations Security",
+    "13": "Communications Security",
+    "14": "System Acquisition, Development & Maintenance",
+    "15": "Supplier Relationships",
+    "16": "Information Security Incident Management",
+    "17": "Information Security Aspects of Business Continuity Management",
+    "18": "Compliance"
   }
 }

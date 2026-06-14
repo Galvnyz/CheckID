@@ -21,5 +21,13 @@
   },
   "scoring": {
     "method": "control-coverage"
+  },
+  "groupBy": "article-prefix",
+  "groupLabel": "article",
+  "groups": {
+    "5": "Principles Relating to Processing",
+    "32": "Security of Processing",
+    "33": "Breach Notification to Supervisory Authority",
+    "34": "Breach Communication to Data Subject"
   }
 }
