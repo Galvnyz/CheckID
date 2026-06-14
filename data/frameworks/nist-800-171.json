@@ -21,5 +21,24 @@
       "background": "#431407",
       "color": "#fb923c"
     }
+  },
+  "groupBy": "nist-800-171-family",
+  "groupLabel": "family",
+  "groups": {
+    "3.1": "Access Control",
+    "3.2": "Awareness & Training",
+    "3.3": "Audit & Accountability",
+    "3.4": "Configuration Management",
+    "3.5": "Identification & Authentication",
+    "3.6": "Incident Response",
+    "3.7": "Maintenance",
+    "3.8": "Media Protection",
+    "3.9": "Personnel Security",
+    "3.10": "Physical Protection",
+    "3.11": "Risk Assessment",
+    "3.12": "Security Assessment",
+    "3.13": "System & Communications Protection",
+    "3.14": "System & Information Integrity",
+    "NFO": "Non-Federal Organization Controls"
   }
 }

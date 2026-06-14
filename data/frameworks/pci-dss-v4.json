@@ -74,6 +74,9 @@
     "9": "Restrict Physical Access",
     "10": "Log & Monitor All Access",
     "11": "Test Security Regularly",
-    "12": "Information Security Policy"
+    "12": "Information Security Policy",
+    "A1": "Additional Requirements for Multi-Tenant Service Providers",
+    "A2": "Additional Requirements for Entities Using SSL/Early TLS",
+    "A3": "Designated Entities Supplemental Validation (DESV)"
   }
 }
