@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Galvnyz/CheckID/data/role-tiers.schema.json",
+  "title": "Entra ID Role Tiers",
+  "description": "Schema for role-tiers.json - canonical Entra ID directory-role tier classification (Microsoft Enterprise Access Model). Tier 0 = control plane (can compromise the directory); Tier 1 = management plane (significant blast radius). Referenced by PIM / privileged-access detection logic.",
+  "type": "object",
+  "required": ["$schema", "description", "version", "tiers"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "description": { "type": "string", "minLength": 1 },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the tier classification."
+    },
+    "tiers": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[0-9]+$" },
+      "additionalProperties": { "$ref": "#/$defs/tier" },
+      "description": "Tier number (string key) to tier definition."
+    }
+  },
+  "$defs": {
+    "tier": {
+      "type": "object",
+      "required": ["label", "description", "roles"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "roles": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "additionalProperties": { "type": "string", "minLength": 1 },
+          "description": "Entra role template GUID to role display name."
+        }
+      }
+    }
+  }
+}
