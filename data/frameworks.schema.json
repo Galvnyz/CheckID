@@ -94,9 +94,60 @@
     "colors": {
       "$ref": "#/definitions/colorTheme",
       "description": "Optional top-level light/dark theme colors. Some frameworks (CIS) declare colors per scoring profile instead."
+    },
+    "groupBy": {
+      "type": "string",
+      "enum": [
+        "section-prefix",
+        "dot-prefix",
+        "family-letter-prefix",
+        "soc2-tsc-prefix",
+        "essential-eight-practice",
+        "scuba-service",
+        "hipaa-section",
+        "article-prefix",
+        "nist-800-171-family"
+      ],
+      "description": "Render-taxonomy strategy: names the parser a consumer applies to a controlId to derive its group key. Pairs with 'groups' (or the 'sections'/'controls' variants). Omit when the framework has no native grouping axis and declare 'taxonomyDecision' instead."
+    },
+    "groupLabel": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Singular noun for one group under this framework's axis (e.g. 'section', 'family', 'clause', 'article', 'service')."
+    },
+    "groups": {
+      "$ref": "#/definitions/groupMap",
+      "description": "controlId-prefix -> display label, per the 'groupBy' strategy. Must cover every prefix produced from registry.json controlIds (enforced by tests/framework-grouping-coverage.Tests.ps1)."
+    },
+    "sections": {
+      "$ref": "#/definitions/groupMap",
+      "description": "Variant of 'groups' used by CIS section-numbered frameworks (e.g. cis-m365-v6). Same shape and coverage contract."
+    },
+    "controls": {
+      "$ref": "#/definitions/groupMap",
+      "description": "Variant of 'groups' used by CIS Controls v8 (top-level control families). Same shape and coverage contract."
+    },
+    "taxonomyDecision": {
+      "type": "string",
+      "enum": ["domain-fallback"],
+      "description": "Declared when a framework intentionally has no native grouping axis. 'domain-fallback' tells consumers to group by the M365-Assess product domain instead. Pairs with 'taxonomyReason'."
+    },
+    "taxonomyReason": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable justification for a 'taxonomyDecision' — why no native axis is provided and how to enable one later."
     }
   },
   "definitions": {
+    "groupMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Map of controlId-prefix (string key) to human-readable display label."
+    },
     "colorTheme": {
       "type": "object",
       "required": ["light", "dark"],
