@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Galvnyz/CheckID/data/tier0-permissions.schema.json",
+  "title": "Tier 0 Microsoft Graph Permissions",
+  "description": "Schema for tier0-permissions.json - Microsoft Graph application permissions classified as Tier 0 (each has a documented attack path to Global Administrator), plus a Tier 1 high-impact data-access list. Referenced by app/service-principal privilege detection.",
+  "type": "object",
+  "required": ["$schema", "description", "version", "permissions"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "description": { "type": "string", "minLength": 1 },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Revision marker (the source list is dated, e.g. '2025-05')."
+    },
+    "permissions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/permission" },
+      "description": "Graph application permissions classified as Tier 0."
+    },
+    "tier1DataAccess": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Graph permissions granting high-impact data access (Tier 1)."
+    }
+  },
+  "$defs": {
+    "permission": {
+      "type": "object",
+      "required": ["permission", "category", "attackPath"],
+      "additionalProperties": false,
+      "properties": {
+        "permission": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)+$",
+          "description": "Microsoft Graph permission name (e.g. 'RoleManagement.ReadWrite.Directory')."
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Attack-path category (e.g. 'role-assignment', 'credential-injection')."
+        },
+        "attackPath": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Documented path from this permission to Global Administrator."
+        }
+      }
+    }
+  }
+}
