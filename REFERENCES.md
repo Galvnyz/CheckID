@@ -40,6 +40,16 @@ Manual workflow: edit `data/scf-check-mapping.json` → `python scripts/Build-Re
 | **Stitch-M365** | Private | Submodule (`Engine/lib/CheckID/`) | Manual submodule update |
 | **Darn** | [Galvnyz/Darn](https://github.com/Galvnyz/Darn) | Planned | — |
 
+### Canonical Reference Data
+
+Beyond `registry.json` and `frameworks/*.json`, CheckID is the single source of truth for cross-consumer reference data. Consumers fetch these from the tagged release instead of maintaining per-repo copies (which drift):
+
+| File | Purpose | Consumed by |
+|------|---------|-------------|
+| `data/microsoft-first-party-appids.json` | Microsoft first-party AppId + owner-tenant allowlist | `ENTRA-ENTAPP-020` (exclude legitimate Microsoft SPs from foreign-app impersonation checks) |
+
+Each canonical data file has a sibling `*.schema.json` and Pester coverage under `tests/`.
+
 ### CI Cascade Flow
 
 ```
@@ -57,7 +67,7 @@ CheckID notify-downstream.yml → repository_dispatch to:
 
 **CI cache sync** (recommended for PowerShell tools like M365-Assess):
 - Add `sync-checkid.yml` workflow that receives `checkid-released` dispatch
-- Fetch `data/registry.json` and `data/frameworks/*.json` from the tagged version
+- Fetch `data/registry.json`, `data/frameworks/*.json`, and the canonical reference data files (see [Canonical Reference Data](#canonical-reference-data)) from the tagged version
 - Store in a local `controls/` directory
 
 **Git submodule** (recommended for .NET apps like M365-Remediate):
